@@ -55,6 +55,12 @@ img{
     height: auto;
 }
 
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
 ul{
     padding-left: 2rem;
 }
