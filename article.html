@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- optional: bootstrap icons for social links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-z4wIqX6+ncvQ8Zt3o4Fz+qcb+La4uF8N6VZVDkupXGkQIOhgm3w66R9XG6YFqb9yhlddqKrY9W+oI5êZKp9+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body style=" margin-bottom: 20px;">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                    <li class="breadcrumb-item active" id="breadcrumb-title">Article</li>
+                </ol>
+            </nav>
+            
+            <h1 id="article-title" class="display-4 fw-bold mb-4"></h1>
+            <img id="article-image" src="" class="img-fluid rounded-4 mb-4" alt="">
+            
+            <div id="article-content" class="fs-5 lh-lg">
+                </div>
+
+            <div class="mt-5 p-4 bg-dark text-white rounded-4 text-center">
+                <h3>Prêt à passer au niveau supérieur ?</h3>
+                <p>Ne restez pas bloqué dans le mode spectateur.</p>
+                <a href="#" id="article-cta" class="btn btn-danger btn-lg mt-2"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="javascript/data.js"></script>
+<script>
+    // Script pour récupérer l'ID dans l'URL (ex: article.html?id=youtube-tue-votre-carriere)
+    const urlParams = new URLSearchParams(window.location.search);
+    const articleId = urlParams.get('id');
+    const data = articles[articleId];
+
+    if(data) {
+        document.getElementById('article-title').innerText = data.title;
+        document.getElementById('breadcrumb-title').innerText = data.title;
+        document.getElementById('article-image').src = data.image;
+        document.getElementById('article-content').innerHTML = data.content;
+        document.getElementById('article-cta').innerText = data.ctaText;
+        document.getElementById('article-cta').href = data.ctaLink;
+    }
+</script>
+
+
+</body>
+</html>
