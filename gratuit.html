@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- optional: bootstrap icons for social links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" integrity="sha512-z4wIqX6+ncvQ8Zt3o4Fz+qcb+La4uF8N6VZVDkupXGkQIOhgm3w66R9XG6YFqb9yhlddqKrY9W+oI5êZKp9+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4 shadow-lg border-0 bg-light">
+                    <h3 class="fw-bold mb-3">Téléchargez votre PDF : "Maîtriser HTML/CSS de zéro"</h3>
+                    <p class="text-muted">Plus de 50 pages de tactiques pour arrêter de copier-coller et commencer à créer.</p>
+                    
+                    <form action="https://formsubmit.co/valenbouge@gmail.com" method="POST">
+                        
+                        <input type="hidden" name="_next" value="https://agnissanv.github.io/mon_blog-Code_A-Z/merci.html">
+                        <input type="hidden" name="_subject" value="Nouveau prospect - Guide Gratuit !">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Votre Nom et Prénom" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Votre Email" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input type="checkbox" name="newsletter" class="form-check-input" id="check" checked>
+                            <label class="form-check-label small" for="check">Je souhaite recevoir des conseils exclusifs pour devenir développeur.</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-outline-danger w-100 py-2 fw-bold">TÉLÉCHARGER  MAINTENANT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+         <script src="js/data.js"></script>
+   
+</body>
+</html>
