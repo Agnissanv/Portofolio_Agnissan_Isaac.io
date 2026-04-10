@@ -1,4 +1,96 @@
 const articles = {
+
+    "decrocher-premier-job-dev-sans-diplome": {
+    title: "3 façons de décrocher ton premier job de développeur sans 5 ans d'expérience ni diplôme d'ingénieur",
+    date: "10 Avril 2026",
+    image: "img/article3.jpg",
+    content: `
+        <p class="lead fw-bold">On vous a menti.</p>
+
+        <p>On vous a fait croire qu’il fallait un diplôme d’ingénieur, 5 ans d’expérience, et un CV parfait pour décrocher un job de développeur.</p>
+
+        <p>Mais la vérité est simple : <strong>les entreprises ne recrutent pas des diplômes, elles recrutent des compétences et des preuves.</strong></p>
+
+        <p>Et aujourd’hui, vous pouvez prouver votre valeur sans attendre des années.</p>
+
+        <h3 class="mt-5 mb-3 fw-bold">1. Construire des projets réels (pas des clones YouTube)</h3>
+
+        <p>Regarder des tutoriels ne suffit pas. Copier du code ne suffit pas.</p>
+
+        <p>Ce qui fait la différence, c’est votre capacité à <strong>créer quelque chose seul</strong>.</p>
+
+        <ul class="lh-lg mb-4">
+            <li>Un site pour un vrai client (même gratuit au début)</li>
+            <li>Un mini SaaS simple</li>
+            <li>Un portfolio avec des projets concrets</li>
+        </ul>
+
+        <p>Un recruteur préfère voir <strong>3 vrais projets imparfaits</strong> plutôt que 20 clones copiés.</p>
+
+        <blockquote class="p-3 my-4 bg-light border-start border-danger border-4 fs-5 fst-italic">
+            "Ce que vous avez construit parle plus fort que ce que vous avez appris."
+        </blockquote>
+
+        <h3 class="mt-5 mb-3 fw-bold">2. Utiliser la stratégie du “travail visible”</h3>
+
+        <p>Le plus grand problème des débutants ? Personne ne sait qu’ils existent.</p>
+
+        <p>Vous devez rendre votre travail visible :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>Publier vos projets sur GitHub</li>
+            <li>Partager votre progression sur LinkedIn ou Twitter</li>
+            <li>Créer du contenu (même simple)</li>
+        </ul>
+
+        <p>Quand vous montrez ce que vous faites, vous attirez :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>des recruteurs</li>
+            <li>des opportunités</li>
+            <li>des collaborations</li>
+        </ul>
+
+        <p><strong>La visibilité remplace souvent l’expérience.</strong></p>
+
+        <h3 class="mt-5 mb-3 fw-bold">3. Résoudre des problèmes pour des gens réels</h3>
+
+        <p>Un développeur n’est pas payé pour écrire du code.</p>
+
+        <p>Il est payé pour <strong>résoudre des problèmes</strong>.</p>
+
+        <p>Au lieu de coder dans le vide :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>Trouvez un petit business local</li>
+            <li>Proposez de créer ou améliorer leur site</li>
+            <li>Automatisez une tâche simple</li>
+        </ul>
+
+        <p>Même un projet simple peut devenir :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>une référence</li>
+            <li>une recommandation</li>
+            <li>votre premier revenu</li>
+        </ul>
+
+        <h3 class="mt-5 mb-3 fw-bold">Conclusion</h3>
+
+        <p>Le marché ne manque pas de développeurs.</p>
+
+        <p>Il manque de développeurs <strong>capables de prouver leur valeur</strong>.</p>
+
+        <p>Vous n’avez pas besoin d’attendre.</p>
+
+        <p>Vous devez agir.</p>
+
+        <p class="fw-bold">Commencez petit. Mais commencez maintenant.</p>
+    `,
+    ctaLink: "formation.html",
+    ctaText: "Passez de débutant à développeur autonome dès aujourd’hui"
+},
+
     "youtube-tue-votre-carriere": {
         title: "YouTube tue votre carrière de développeur (et vous ne le savez même pas).",
         date: "12 Mars 2026",
@@ -93,4 +185,90 @@ const articles = {
 
 
 
+// 1. On sort resetSearch pour le bouton "Retour"
+function resetSearch() {
+    document.getElementById('search-results').style.display = 'none';
+    document.getElementById('default-articles').style.display = 'block';
+    document.getElementById('search-input').value = "";
+}
 
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const defaultArticles = document.getElementById('default-articles');
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('results-container');
+
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === "") {
+                resetSearch();
+                return;
+            }
+
+            // --- DEBUG : Vérification dans la console ---
+            console.log("Recherche lancée pour :", query);
+            console.log("Base de données articles :", articles);
+
+            // On vide et on switch l'affichage
+            resultsContainer.innerHTML = "";
+            defaultArticles.style.display = 'none';
+            searchResults.style.display = 'block';
+
+            // Filtrage
+            const articlesArray = Object.keys(articles).map(id => ({ id, ...articles[id] }));
+            const filtered = articlesArray.filter(article => {
+                return article.title.toLowerCase().includes(query) || 
+                       article.content.toLowerCase().includes(query);
+            });
+
+            if (filtered.length > 0) {
+                filtered.forEach(article => {
+                    // On injecte le HTML
+                    resultsContainer.innerHTML += `
+                        <div class="card mb-3 bg-dark border-secondary">
+                            <img src="${article.image}" class="card-img-top" alt="${article.title}">
+                            <div class="card-body">
+                                <h5 class="card-title text-white">${article.title}</h5>
+                                <a href="article.html?id=${article.id}" class="btn btn-outline-danger">Lire l'article</a>
+                            </div>
+                        </div>`;
+                });
+            } else {
+                resultsContainer.innerHTML = `<h3 class="text-white p-4 text-center border border-danger">Aucun résultat trouvé pour "${query}"</h3>`;
+            }
+        });
+    }
+});
+
+
+
+function displayArticles() {
+    const container = document.getElementById('default-articles');
+    container.innerHTML = "";
+
+    const articlesArray = Object.keys(articles).map(id => ({
+        id,
+        ...articles[id]
+    }));
+
+    articlesArray.forEach(article => {
+        container.innerHTML += `
+            <div class="card mb-3">
+                <img src="${article.image}" class="card-img-top">
+                <div class="card-body">
+                    <h5>${article.title}</h5>
+                    <p>${article.date}</p>
+                    <a href="article.html?id=${article.id}" class="btn btn-danger">
+                        Lire l'article
+                    </a>
+                </div>
+            </div>
+        `;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", displayArticles);

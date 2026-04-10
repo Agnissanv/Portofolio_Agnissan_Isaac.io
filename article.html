@@ -19,7 +19,7 @@
         <div class="col-md-8">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="blog.html">Accueil</a></li>
                     <li class="breadcrumb-item active" id="breadcrumb-title">Article</li>
                 </ol>
             </nav>
@@ -27,8 +27,7 @@
             <h1 id="article-title" class="display-4 fw-bold mb-4"></h1>
             <img id="article-image" src="" class="img-fluid rounded-4 mb-4" alt="">
             
-            <div id="article-content" class="fs-5 lh-lg">
-                </div>
+            <div id="article-content" class="fs-5 lh-lg"> </div>
 
             <div class="mt-5 p-4 bg-dark text-white rounded-4 text-center">
                 <h3>Prêt à passer au niveau supérieur ?</h3>
@@ -47,13 +46,17 @@
     const data = articles[articleId];
 
     if(data) {
+        document.title = data.title + " | Code A-Z"; // Change le titre de l'onglet
         document.getElementById('article-title').innerText = data.title;
         document.getElementById('breadcrumb-title').innerText = data.title;
         document.getElementById('article-image').src = data.image;
         document.getElementById('article-content').innerHTML = data.content;
         document.getElementById('article-cta').innerText = data.ctaText;
         document.getElementById('article-cta').href = data.ctaLink;
-    }
+    }else {
+    // Si l'article n'existe pas, redirection ou message
+    document.getElementById('article-content').innerHTML = "<h2>Oups ! Cet article semble avoir disparu...</h2><a href='blog.html' class='btn btn-danger'>Retour au blog</a>";
+}
 </script>
 
 

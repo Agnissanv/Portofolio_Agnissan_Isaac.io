@@ -1,12 +1,33 @@
 /* Importation d'une police plus moderne */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
+/* base */
+:root {
+    /* LES NOIRS (La structure) */
+    --Noir-Pur: #000000;           /* Fond profond, immersion totale */
+    --Noir-Carbone: #121212;      /* Pour les cartes ou sections secondaires (donne du relief) */
+    --Gris-Anthracite: #1f1f1f;   /* Bordures discrètes ou survols de boutons */
+
+    /* LES ROUGES (L'émotion) */
+    --Rouge-Crimson: #e60026;     /* Ton rouge principal (CTA, Titres). Ni trop clair, ni trop sombre. */
+    --Rouge-Vibrant: #ff1e42;     /* Pour les effets de survol (hover) - l'oeil est immédiatement attiré. */
+    --Rouge-Sombre: #8b0000;      /* Pour des ombres portées ou des accents subtils. */
+
+    /* LE CONTRASTE (La lisibilité) */
+    --Blanc-Pur: #ffffff;         /* Texte principal pour une clarté maximale */
+    --Gris-Soie: #b3b3b3;         /* Texte secondaire (paragraphes) pour ne pas fatiguer l'œil */
+
+    /* LE DEGRADE (L'effet Marketing) */
+    --Degrade-Premium: linear-gradient(135deg, #e60026 0%, #8b0000 100%);
+}
 body {
-    background-color: #f8f9fa; /* Gris très clair pour faire ressortir les cartes blanches */
+    background-color: var(--Noir-Pur); /* Utilise tes variables du portfolio */
     font-family: 'Inter', sans-serif;
-    color: #333;
-    background-image: url(img/nova_logo_noir.jpg);
-    padding-top: 60px;
+    color: var(--Gris-Soie);
+    padding-top: 80px; /* Un peu plus d'espace pour la nav */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 
@@ -16,18 +37,31 @@ a{
 }
 /* --- Cartes d'articles --- */
 .card {
-    border: none;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--Noir-Carbone);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
 
 /* Effet au survol pour inciter au clic */
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+    transform: translateY(-10px);
+    border-color: var(--Rouge-Crimson);
+    box-shadow: 0 15px 30px rgba(230, 0, 38, 0.15) !important;
 }
 
+.col-md-4 .card {
+    background-color: var(--Noir-Carbone);
+    border: 1px solid var(--Gris-Anthracite);
+}
+
+.col-md-4 h5 {
+    color: var(--Rouge-Crimson); /* On met les titres de la sidebar en rouge pour la hiérarchie */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+}
 .card-img-top {
     height: 220px;
     object-fit: cover; /* Évite de déformer les images */
@@ -35,14 +69,34 @@ a{
 
 .card-title {
     font-weight: 800;
-    line-height: 1.3;
-    color: #1a1a1a;
+    color: var(--Blanc-Pur);
+    transition: 0.3s;
+}
+.card:hover .card-title {
+    color: var(--Rouge-Vibrant);
+}
+.card-text {
+    color: var(--Gris-Soie);
+}
+.text-body-secondary {
+    color: var(--Gris-Anthracite) !important;
+    font-size: 0.8rem;
+    text-transform: uppercase;
 }
 
 /* --- Barre latérale (Sidebar) --- */
 .sidebar-card {
     border-left: 4px solid #dc3545; /* Rappel de la couleur accent (rouge) */
     background-color: #fff;
+}
+.card-body h5 {
+    color: var(--Blanc-Pur);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+hr {
+    border-color: var(--Rouge-Sombre);
+    opacity: 0.3;
 }
 
 .sidebar-card h5 {
@@ -67,6 +121,35 @@ a{
     background: #000;
     color: #fff;
    
+}
+.btn-light {
+    background: var(--Gris-Soie);
+    border: none;
+    font-weight: 600;
+}
+.btn-dark {
+    background: var(--Gris-Anthracite);
+    border: 1px solid var(--Rouge-Crimson);
+    color: var(--Blanc-Pur);
+}
+
+.btn-outline-danger {
+    border: 2px solid var(--Rouge-Crimson);
+    color: var(--Rouge-Crimson);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--Rouge-Crimson);
+    color: white;
+    box-shadow: 0 0 15px var(--Rouge-Crimson);
+}
+
+.text-highlight {
+    color: var(--Rouge-Crimson);
+    font-style: italic;
 }
 
 /* ############################ */
@@ -131,4 +214,59 @@ body {
 
 main {
     flex: 1;
+}
+
+/* Style du texte principal de l'article */
+#article-content {
+    color: var(--Gris-Soie);
+    line-height: 1.8;
+    text-align: justify;
+}
+/* Style du texte principal de l'article */
+#article-content {
+    color: var(--Gris-Soie);
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Styliser les titres injectés (h3) */
+#article-content h3 {
+    color: var(--Blanc-Pur);
+    border-left: 4px solid var(--Rouge-Crimson);
+    padding-left: 15px;
+    margin-top: 40px !important;
+}
+
+/* Styliser les citations (blockquote) */
+#article-content blockquote {
+    background-color: var(--Noir-Carbone) !important;
+    border-left: 4px solid var(--Rouge-Crimson) !important;
+    color: var(--Blanc-Pur);
+    padding: 25px !important;
+    font-style: italic;
+    border-radius: 0 10px 10px 0;
+}
+
+/* Styliser les listes */
+#article-content ul li {
+    margin-bottom: 12px;
+    list-style: none;
+    position: relative;
+}
+
+#article-content ul li::before {
+    content: "→";
+    color: var(--Rouge-Crimson);
+    position: absolute;
+    left: -25px;
+    font-weight: bold;
+}
+
+/* Styliser le code (balise <code>) */
+#article-content code {
+    background: #2d2d2d;
+    color: var(--Rouge-Vibrant);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
 }
