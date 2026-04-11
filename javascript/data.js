@@ -248,6 +248,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function displayArticles() {
     const container = document.getElementById('default-articles');
+
+    if (!container) {
+        console.error("Container introuvable !");
+        return;
+    }
+
+    console.log("Affichage des articles...");
+
     container.innerHTML = "";
 
     const articlesArray = Object.keys(articles).map(id => ({
@@ -255,10 +263,12 @@ function displayArticles() {
         ...articles[id]
     }));
 
+    console.log("Articles :", articlesArray);
+
     articlesArray.forEach(article => {
         container.innerHTML += `
             <div class="card mb-3">
-                <img src="${article.image}" class="card-img-top" loading="lazy" alt="Image de l'article (${article.title})">
+                <img src="${article.image}" class="card-img-top" loading="lazy" alt="${article.title}">
                 <div class="card-body">
                     <h5>${article.title}</h5>
                     <p>${article.date}</p>
@@ -271,4 +281,4 @@ function displayArticles() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", displayArticles);
+window.addEventListener("load", displayArticles);
