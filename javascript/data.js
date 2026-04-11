@@ -3,7 +3,7 @@ const articles = {
     "decrocher-premier-job-dev-sans-diplome": {
     title: "3 façons de décrocher ton premier job de développeur sans 5 ans d'expérience ni diplôme d'ingénieur",
     date: "10 Avril 2026",
-    image: "img/article3.jpg",
+    image: "img/article3.webp",
     content: `
         <p class="lead fw-bold">On vous a menti.</p>
 
@@ -94,7 +94,7 @@ const articles = {
     "youtube-tue-votre-carriere": {
         title: "YouTube tue votre carrière de développeur (et vous ne le savez même pas).",
         date: "12 Mars 2026",
-        image: "img/article1.png",
+        image: "img/article1.webp",
         content: `
             <p class="lead fw-bold">Il est 23h. Vous venez de terminer votre 5ème tutoriel de la journée.</p>
             
@@ -144,7 +144,7 @@ const articles = {
     "ia-developpement-web-2026": {
         title: "L'IA va-t-elle tuer le métier de développeur ? (La vérité en 2026).",
         date: "09 Avril 2026",
-        image: "img/article2.avif", 
+        image: "img/article2.webp", 
         content: `
             <p class="lead fw-bold">ChatGPT, Gemini, Claude... En 2026, l'intelligence artificielle génère des sites entiers en quelques secondes. Faut-il arrêter d'apprendre à coder ?</p>
             
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // On injecte le HTML
                     resultsContainer.innerHTML += `
                         <div class="card mb-3 bg-dark border-secondary">
-                            <img src="${article.image}" class="card-img-top" alt="${article.title}">
+                            <img src="${article.image}" class="card-img-top" alt="${article.title}" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title text-white">${article.title}</h5>
                                 <a href="article.html?id=${article.id}" class="btn btn-outline-danger">Lire l'article</a>
@@ -258,7 +258,7 @@ function displayArticles() {
     articlesArray.forEach(article => {
         container.innerHTML += `
             <div class="card mb-3">
-                <img src="${article.image}" class="card-img-top">
+                <img src="${article.image}" class="card-img-top" loading="lazy" alt="Image de l'article (${article.title})">
                 <div class="card-body">
                     <h5>${article.title}</h5>
                     <p>${article.date}</p>
