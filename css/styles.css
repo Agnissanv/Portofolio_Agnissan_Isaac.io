@@ -140,7 +140,30 @@ li{
 }
 
 
+#results-stats .display-4 {
+    letter-spacing: -2px;
+    text-shadow: 0 0 15px rgba(220, 53, 69, 0.3); /* Un léger éclat rouge Code A-Z */
+}
 
+#results-stats .border-secondary:hover {
+    
+    border-color: var(--Rouge-Vibrant) !important; /* Le cadre devient rouge au survol */
+    transition: 0.3s;
+}
+
+#testimonials .card {
+    transition: transform 0.3s ease;
+    background-color: #2b2b2b !important; /* Un gris très sombre pour le contraste */
+}
+
+#testimonials .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2) !important;
+}
+
+#testimonials .text-danger i {
+    margin-right: 2px;
+}
 /* section */
 /* section */
 /* section */
