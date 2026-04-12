@@ -40,27 +40,58 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item mx-3">
-                        <a class="nav-link" aria-current="page" href="#hero">Accueil</a>
+                        <div class="dropdown">
+                            <a class="nav-link btn-secondary dropdown-toggle" aria-current="page" type="button" data-bs-toggle="dropdown">Accueil</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#hero">Accueil</a></li>
+                                <li><a class="dropdown-item" href="#about">À propos</a></li>
+                            </ul>
+                        </div>
                     </li>
-                    <li class="nav-item mx-3 active">
-                        <a class="nav-link" aria-current="page" href="#about">À propos</a>
-                    </li> 
+
                     <li class="nav-item mx-3">
-                        <a class="nav-link" aria-current="page" href="#services">Services</a>
+                        <div class="dropdown">
+                            <a class="nav-link btn-secondary dropdown-toggle" aria-current="page" type="button" data-bs-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#services">Services</a></li>
+                                <li><a class="dropdown-item" href="#skills">Compétences</a></li>
+                            </ul>
+                        </div>
                     </li>
+
                     <li class="nav-item mx-3">
-                        <a class="nav-link" aria-current="page" href="#skills">Compétences</a>
+                        <div class="dropdown">
+                            <a class="nav-link btn-secondary dropdown-toggle" aria-current="page" type="button" data-bs-toggle="dropdown">Avis</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#results-stats">Chiffres</a></li>
+                                <li><a class="dropdown-item" href="#testimonials">Avis</a></li>
+                            </ul>
+                        </div>
                     </li>
+
                     <li class="nav-item mx-3">
                         <a class="nav-link" aria-current="page" href="#portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link" aria-current="page" href="blog.html">Blog</a>
                     </li>
+                    
                     <li class="nav-item mx-3">
-                        <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+                        <div class="dropdown">
+                            <a class="nav-link btn-secondary dropdown-toggle" aria-current="page" type="button" data-bs-toggle="dropdown">Tarifs</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#tarifs">Tarifs</a></li>
+                                <li><a class="dropdown-item" href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
                     </li>
+                    
+
+
+
+                    
                 </ul>
             </div>
         </div>
@@ -903,6 +934,75 @@
             </div>
         </div>
     </section>
+
+    <!-- tarifs -->
+    <section id="tarifs" class="py-5 bg-black text-white">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title fw-bold text-uppercase">Des solutions pour chaque ambition</h2>
+            <p class="text-muted">Investissez dans une infrastructure digitale qui travaille pour vous 24h/24.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="pricing-card h-100">
+                    <div class="card-body">
+                        <h3 class="plan-name">Starter</h3>
+                        <div class="price">150.000 <span>FCFA</span></div>
+                        <p class="description">Idéal pour lancer votre présence en ligne rapidement.</p>
+                        <ul class="features-list">
+                            <li><i class="bi bi-check2-circle text-danger"></i> Site Vitrine (1-3 pages)</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Design Responsive (Mobile/PC)</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Optimisation SEO Basique</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Formulaire de contact</li>
+                            <li><i class="bi bi-x-circle text-muted"></i> Maintenance mensuelle</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-light w-100 mt-4">Démarrer</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="pricing-card featured h-100">
+                    <div class="popular-badge">Plus Populaire</div>
+                    <div class="card-body">
+                        <h3 class="plan-name">Business</h3>
+                        <div class="price">350.000 <span>FCFA</span></div>
+                        <p class="description">La solution complète pour les entreprises en croissance.</p>
+                        <ul class="features-list">
+                            <li><i class="bi bi-check2-circle text-danger"></i> Site Web Pro (Jusqu'à 10 pages)</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Blog / Section Actualités</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Intégration PWA (App Mobile)</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> SEO Avancé & Analytics</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> 3 mois de maintenance</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-danger w-100 mt-4">Choisir Business</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="pricing-card h-100">
+                    <div class="card-body">
+                        <h3 class="plan-name">Elite</h3>
+                        <div class="price">Sur Mesure</div>
+                        <p class="description">Pour les projets complexes nécessitant une expertise totale.</p>
+                        <ul class="features-list">
+                            <li><i class="bi bi-check2-circle text-danger"></i> Développement Full-Stack</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> E-commerce / Dashboard Admin</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Intégration API (IA, Paiement)</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Performance Ultra-Rapide</li>
+                            <li><i class="bi bi-check2-circle text-danger"></i> Support Prioritaire 24/7</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-light w-100 mt-4">Discuter du projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <section id="contact" class="contact">
     <div class="container">
         <div class="section-header text-center mb-5">
