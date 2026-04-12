@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/blog.css">
     <title>Blog - Code A-Z</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#dc3545">
+
 </head>
 <body>
     <!-- Début - barre de navigation -->
@@ -196,6 +199,15 @@
 
 
         <script src="javascript/data.js" defer></script>
+        <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('PWA Code A-Z : Prête (Service Worker OK)'))
+        .catch(err => console.log('Erreur PWA :', err));
+    });
+  }
+</script>
         <script>
 // 1. Initialisation des éléments
 const menuContent = document.getElementById('navbarSupportedContent');

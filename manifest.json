@@ -1,0 +1,21 @@
+{
+  "name": "Code A-Z - Expertise Digitale",
+  "short_name": "Code A-Z",
+  "description": "Expertise Web, Design et Formation par Agnissan Isaac.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#dc3545",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

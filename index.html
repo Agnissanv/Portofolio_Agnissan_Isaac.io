@@ -21,6 +21,8 @@
     <!-- les wé css -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#dc3545">
     
 </head>
 <body>
@@ -947,6 +949,15 @@
      <!-- Fin - pied de page -->
 
 <script src="./javascript/app.js" defer></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('PWA Code A-Z : Prête (Service Worker OK)'))
+        .catch(err => console.log('Erreur PWA :', err));
+    });
+  }
+</script>
 <script>
 // 1. Fermeture automatique au clic sur un lien
 const navLinks = document.querySelectorAll('.navbar-nav .nav-link');

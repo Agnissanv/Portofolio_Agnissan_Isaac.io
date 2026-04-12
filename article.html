@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/blog.css">
     <title>article</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#dc3545">
+
 </head>
 <body style=" margin-bottom: 20px;">
 
@@ -77,6 +80,15 @@
 
      <!-- Fin - pied de page -->
 <script src="javascript/data.js" ></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('PWA Code A-Z : Prête (Service Worker OK)'))
+        .catch(err => console.log('Erreur PWA :', err));
+    });
+  }
+</script>
 <script>
     // Script pour récupérer l'ID dans l'URL (ex: article.html?id=youtube-tue-votre-carriere)
     const urlParams = new URLSearchParams(window.location.search);
