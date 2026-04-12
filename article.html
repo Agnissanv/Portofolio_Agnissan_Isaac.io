@@ -39,6 +39,16 @@
                 <h3>Prêt à passer au niveau supérieur ?</h3>
                 <p>Ne restez pas bloqué dans le mode spectateur.</p>
                 <a href="#" id="article-cta" class="btn btn-danger btn-lg mt-2"></a>
+
+                <div class="share-section my-5 p-4 bg-dark rounded-4 text-center">
+                    <h5 class="text-white mb-3">Tu as aimé ? Partage cette expertise !</h5>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button id="btn-share-native" class="btn btn-danger m-3 gap-3" title="Partager">
+                            partager <i class="bi bi-share-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -80,6 +90,30 @@
 
      <!-- Fin - pied de page -->
 <script src="javascript/data.js" ></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const shareData = {
+        title: document.title,
+        text: "Découvre cet article sur Code A-Z !",
+        url: window.location.href
+    };
+
+    // 1. Web Share API (Le bouton rouge)
+    const btnNative = document.getElementById('btn-share-native');
+    btnNative.addEventListener('click', async () => {
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                alert("Le partage natif n'est pas supporté sur ce navigateur.");
+            }
+        } catch (err) {
+            console.log('Erreur de partage:', err);
+        }
+    });
+
+});
+</script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
