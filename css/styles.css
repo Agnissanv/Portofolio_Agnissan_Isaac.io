@@ -286,9 +286,46 @@ section{
 }
 
 /* about */
-/* about */
-/* about */
-/* about */
+/* Animation de flottement Code A-Z */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+    }
+    50% {
+        transform: translateY(-20px);
+        /* L'ombre devient plus floue et légère quand le logo monte */
+        filter: drop-shadow(0 25px 25px rgba(220, 53, 69, 0.2));
+    }
+    100% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+    }
+}
+
+.about img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    /* Application de l'animation */
+    animation: float 5s ease-in-out infinite;
+    transition: all 0.5s ease;
+}
+
+/* Effet au survol : on intensifie le rouge Code A-Z */
+.about img:hover {
+    animation-play-state: paused; /* Le logo s'arrête pour laisser le client l'admirer */
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(220, 53, 69, 0.6));
+    cursor: pointer;
+}
+
+@media screen and (min-width: 750px) {
+    .about img {
+        padding-right: 3rem;
+    }
+}
 
 
 .about .section-title{
