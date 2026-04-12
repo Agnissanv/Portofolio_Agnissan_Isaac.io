@@ -891,28 +891,50 @@
         </div>
     </section>
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Contactez-moi</h2>
-                <p>Vous avez un projet en tête ou vous souhaitez simplement discuter des possibilités pour votre business ? 
-                    Contactez-moi directement. Je réponds sous 24h.</p>
-            </div>
-            <form action="php/contact.php" class="form">
-                <label for="lastname">
-                    <input type="text" name="lastname" id="lastname" placeholder="Entrer votre nom">
-                </label>
-                <label for="firstname">
-                    <input type="text" name="firstname" id="firstname" placeholder="Entrer votre Prénom">
-                </label>
-                <label for="email">
-                    <input type="email" name="email" id="email" placeholder="Entrer votre email">
-                </label>
-                <textarea name="message" id="message" placeholder="Entrer votre message"></textarea>
-                <input type="submit" class="btn" value="Envoyer">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title fw-bold">Parlons de votre prochain succès</h2>
+            <p class="text-muted">Vous avez l'idée ? J'ai le code. Contactez-moi directement, réponse garantie sous 24h.</p>
+        </div>
 
-            </form>
-        </div> 
-    </section>
+        <form action="php/contact.php" method="POST" class="contact-form">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="input-group">
+                        <input type="text" name="lastname" id="lastname" placeholder="Votre nom" required>
+                        <span class="focus-border"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="input-group">
+                        <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" required>
+                        <span class="focus-border"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="input-group">
+                    <input type="email" name="email" id="email" placeholder="Votre meilleur email" required>
+                    <span class="focus-border"></span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="input-group">
+                    <textarea name="message" id="message" placeholder="Dites-moi tout sur votre projet (objectifs, budget, délais...)" required></textarea>
+                    <span class="focus-border"></span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn-submit">
+                    Envoyer mon projet 
+                </button>
+            </div>
+        </form>
+    </div> 
+</section>
 
 
     <!-- Debut - pied de page -->

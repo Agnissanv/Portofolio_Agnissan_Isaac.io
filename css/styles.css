@@ -467,47 +467,81 @@ section{
         /* page de contact */
         /* page de contact */
 
-.form{
-    max-width: 600px;
-    margin: 4rem auto 0 auto;
-    
+/* Container du formulaire */
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #1a1a1a; /* Gris très sombre */
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.form input, .form textarea{
-    display: block;
+/* Style des groupes d'input */
+.input-group {
+    position: relative;
     width: 100%;
-    padding: 1rem;
-    margin-bottom: 2rem;
 }
 
-.form textarea{
-    min-height: 200px;
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 1.2rem;
+    background: #252525;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.form .btn{
+/* L'effet de bordure rouge au focus */
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    background: #2a2a2a;
+    border-color: #dc3545; /* Le rouge Code A-Z */
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.2);
+}
+
+.input-group textarea {
+    min-height: 150px;
+    resize: none;
+}
+
+/* Le Bouton Copywriting Expert */
+.btn-submit {
+    background: #dc3545;
+    color: white;
+    padding: 1rem 3rem;
     border: none;
-    width: auto;
-    min-width: 160px;
-    font-size: 2rem;
-    transition: 0.3s ease-in-out;
-}
-
-.form .btn:hover{
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    
+    margin-top: 1rem;
 }
 
-        /* footer */
-        /* footer */
-        /* footer */
-        /* footer */
+.btn-submit:hover {
+    transform: scale(1.05);
+    background: #c82333;
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
 
 /* --- Footer --- */
 footer {
     border-top: 1px solid #333;
 }
-
-
 
 /* Custom styles for footer and general tweaks */
 footer {
