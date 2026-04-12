@@ -1094,21 +1094,33 @@
     });
   }
 </script>
+
 <script>
-// 1. Fermeture automatique au clic sur un lien
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+// 1. Gestion de la fermeture automatique
 const menuContent = document.getElementById('navbarSupportedContent');
 const bsCollapse = new bootstrap.Collapse(menuContent, {toggle: false});
 
-navLinks.forEach((l) => {
-    l.addEventListener('click', () => { 
-        if (window.innerWidth < 992) { bsCollapse.hide(); }
+// On sélectionne TOUS les liens cliquables (liens normaux + items dans les dropdowns)
+const allLinks = document.querySelectorAll('.navbar-nav .nav-link, .dropdown-item');
+
+allLinks.forEach((l) => {
+    l.addEventListener('click', (e) => { 
+        // CONDITION CRUCIALE : 
+        // Si l'élément cliqué possède la classe 'dropdown-toggle', on ne fait RIEN.
+        // On laisse Bootstrap gérer l'ouverture du sous-menu.
+        if (l.classList.contains('dropdown-toggle')) {
+            return; 
+        }
+
+        // Pour tous les autres (liens directs ou items de sous-menus) :
+        if (window.innerWidth < 992) { 
+            bsCollapse.hide(); 
+        }
     });
 });
 
 // 2. Fermeture automatique dès que l'utilisateur SCROLLE
 window.addEventListener('scroll', () => {
-    // On vérifie si le menu a la classe 'show' (donc s'il est ouvert)
     if (menuContent.classList.contains('show')) {
         bsCollapse.hide();
     }
