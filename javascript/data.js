@@ -106,6 +106,7 @@ const articles = {
         <p>Ou commencer dès aujourd’hui à contacter vos premiers prospects.</p>
 
         <p class="fw-bold">Le freelance récompense ceux qui bougent, pas ceux qui réfléchissent trop.</p>
+        <p>C'est cette approche de résultat que nous appliquons pour chaque projet chez Code A-Z.</p>
     `,
     ctaLink: "formation.html",
     ctaText: "Apprenez à trouver vos premiers clients dès maintenant"
