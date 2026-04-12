@@ -5,11 +5,11 @@ const articles = {
     date: "11 Avril 2026",
     image: "img/article4.webp",
     content: `
-        <p class="lead fw-bold">Pas de clients = pas d’argent. Et pourtant, la plupart des développeurs freelances font tous la même erreur : ils attendent que les clients viennent à eux.</p>
+        <p class="lead fw-bold">Pas de clients = pas d'argent. Et pourtant, la plupart des développeurs freelances font tous la même erreur : ils attendent que les clients viennent à eux.</p>
 
-        <p>Si vous venez de commencer en freelance et que vous n’avez aucun client, ce n’est pas un problème de compétence.</p>
+        <p>Si vous venez de commencer en freelance et que vous n'avez aucun client, ce n'est pas un problème de compétence.</p>
 
-        <p><strong>C’est un problème de stratégie.</strong></p>
+        <p><strong>C'est un problème de stratégie.</strong></p>
 
         <h3 class="mt-5 mb-3 fw-bold">1. Arrêtez de chercher des clients… allez les créer</h3>
 
@@ -25,17 +25,17 @@ const articles = {
             <li>Entreprises invisibles sur Google</li>
         </ul>
 
-        <p>Votre mission n’est pas de dire “je suis développeur”…</p>
+        <p>Votre mission n'est pas de dire “je suis développeur”…</p>
 
-        <p><strong>Votre mission est de dire : “voici comment je peux vous faire gagner plus d’argent”.</strong></p>
+        <p><strong>Votre mission est de dire : “voici comment je peux vous faire gagner plus d'argent”.</strong></p>
 
         <blockquote class="p-3 my-4 bg-light border-start border-danger border-4 fs-5 fst-italic">
-            "Les clients n’achètent pas du code. Ils achètent des résultats."
+            "Les clients n'achètent pas du code. Ils achètent des résultats."
         </blockquote>
 
         <h3 class="mt-5 mb-3 fw-bold">2. Utilisez la méthode des 10 messages par jour</h3>
 
-        <p>Si vous n’avez pas de clients, vous devez compenser par l’action.</p>
+        <p>Si vous n'avez pas de clients, vous devez compenser par l'action.</p>
 
         <p>Chaque jour :</p>
 
@@ -48,10 +48,10 @@ const articles = {
         <p>Exemple :</p>
 
         <blockquote class="p-3 my-4 bg-light border-start border-danger border-4">
-            "Bonjour, j’ai remarqué que votre site met plus de 5 secondes à charger. Cela peut faire fuir vos clients. Je peux vous proposer une version plus rapide gratuitement pour test."
+            "Bonjour, j'ai remarqué que votre site met plus de 5 secondes à charger. Cela peut faire fuir vos clients. Je peux vous proposer une version plus rapide gratuitement pour test."
         </blockquote>
 
-        <p><strong>Ce type de message convertit beaucoup plus qu’un simple “je suis développeur”.</strong></p>
+        <p><strong>Ce type de message convertit beaucoup plus qu'un simple “je suis développeur”.</strong></p>
 
         <h3 class="mt-5 mb-3 fw-bold">3. Transformez vos projets en machine à clients</h3>
 
@@ -68,12 +68,12 @@ const articles = {
         </ul>
 
         <p>Un bon portfolio ne dit pas :</p>
-        <p>“Regardez ce que j’ai fait”</p>
+        <p>“Regardez ce que j'ai fait”</p>
 
         <p>Il dit :</p>
         <p class="fw-bold">“Voici ce que je peux faire pour vous.”</p>
 
-        <h3 class="mt-5 mb-3 fw-bold">4. L’erreur qui bloque 90% des freelances</h3>
+        <h3 class="mt-5 mb-3 fw-bold">4. L'erreur qui bloque 90% des freelances</h3>
 
         <p>Beaucoup pensent :</p>
 
@@ -85,15 +85,15 @@ const articles = {
 
         <p>Mais pendant ce temps…</p>
 
-        <p>D’autres moins compétents prennent des clients.</p>
+        <p>D'autres moins compétents prennent des clients.</p>
 
-        <p><strong>Pourquoi ? Parce qu’ils passent à l’action.</strong></p>
+        <p><strong>Pourquoi ? Parce qu'ils passent à l'action.</strong></p>
 
         <h3 class="mt-5 mb-3 fw-bold">Conclusion</h3>
 
-        <p>Obtenir des clients en freelance n’est pas une question de talent.</p>
+        <p>Obtenir des clients en freelance n'est pas une question de talent.</p>
 
-        <p>C’est une question de :</p>
+        <p>C'est une question de :</p>
 
         <ul class="lh-lg mb-4">
             <li>visibilité</li>
@@ -103,7 +103,7 @@ const articles = {
 
         <p>Vous pouvez continuer à attendre…</p>
 
-        <p>Ou commencer dès aujourd’hui à contacter vos premiers prospects.</p>
+        <p>Ou commencer dès aujourd'hui à contacter vos premiers prospects.</p>
 
         <p class="fw-bold">Le freelance récompense ceux qui bougent, pas ceux qui réfléchissent trop.</p>
         <p>C'est cette approche de résultat que nous appliquons pour chaque projet chez Code A-Z.</p>
@@ -120,17 +120,17 @@ const articles = {
     content: `
         <p class="lead fw-bold">On vous a menti.</p>
 
-        <p>On vous a fait croire qu’il fallait un diplôme d’ingénieur, 5 ans d’expérience, et un CV parfait pour décrocher un job de développeur.</p>
+        <p>On vous a fait croire qu'il fallait un diplôme d'ingénieur, 5 ans d'expérience, et un CV parfait pour décrocher un job de développeur.</p>
 
         <p>Mais la vérité est simple : <strong>les entreprises ne recrutent pas des diplômes, elles recrutent des compétences et des preuves.</strong></p>
 
-        <p>Et aujourd’hui, vous pouvez prouver votre valeur sans attendre des années.</p>
+        <p>Et aujourd'hui, vous pouvez prouver votre valeur sans attendre des années.</p>
 
         <h3 class="mt-5 mb-3 fw-bold">1. Construire des projets réels (pas des clones YouTube)</h3>
 
         <p>Regarder des tutoriels ne suffit pas. Copier du code ne suffit pas.</p>
 
-        <p>Ce qui fait la différence, c’est votre capacité à <strong>créer quelque chose seul</strong>.</p>
+        <p>Ce qui fait la différence, c'est votre capacité à <strong>créer quelque chose seul</strong>.</p>
 
         <ul class="lh-lg mb-4">
             <li>Un site pour un vrai client (même gratuit au début)</li>
@@ -146,7 +146,7 @@ const articles = {
 
         <h3 class="mt-5 mb-3 fw-bold">2. Utiliser la stratégie du “travail visible”</h3>
 
-        <p>Le plus grand problème des débutants ? Personne ne sait qu’ils existent.</p>
+        <p>Le plus grand problème des débutants ? Personne ne sait qu'ils existent.</p>
 
         <p>Vous devez rendre votre travail visible :</p>
 
@@ -164,11 +164,11 @@ const articles = {
             <li>des collaborations</li>
         </ul>
 
-        <p><strong>La visibilité remplace souvent l’expérience.</strong></p>
+        <p><strong>La visibilité remplace souvent l'expérience.</strong></p>
 
         <h3 class="mt-5 mb-3 fw-bold">3. Résoudre des problèmes pour des gens réels</h3>
 
-        <p>Un développeur n’est pas payé pour écrire du code.</p>
+        <p>Un développeur n'est pas payé pour écrire du code.</p>
 
         <p>Il est payé pour <strong>résoudre des problèmes</strong>.</p>
 
@@ -194,14 +194,14 @@ const articles = {
 
         <p>Il manque de développeurs <strong>capables de prouver leur valeur</strong>.</p>
 
-        <p>Vous n’avez pas besoin d’attendre.</p>
+        <p>Vous n'avez pas besoin d'attendre.</p>
 
         <p>Vous devez agir.</p>
 
         <p class="fw-bold">Commencez petit. Mais commencez maintenant.</p>
     `,
     ctaLink: "formation.html",
-    ctaText: "Passez de débutant à développeur autonome dès aujourd’hui"
+    ctaText: "Passez de débutant à développeur autonome dès aujourd'hui"
 },
 
     "youtube-tue-votre-carriere": {
