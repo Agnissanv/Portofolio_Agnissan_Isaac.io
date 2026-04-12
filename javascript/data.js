@@ -358,6 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
 function displayArticles() {
     const container = document.getElementById('default-articles');
 
@@ -375,7 +376,7 @@ function displayArticles() {
 
     articlesArray.forEach(article => {
         // On crée l'URL complète de l'article pour le partage
-        const articleUrl = `${window.location.origin}/article.html?id=${article.id}`;
+    const articleUrl = `https://agnissanv.github.io/Portofolio-Agnissan-Isaac-io/article.html?id=${article.id}`;
 
         container.innerHTML += `
             <div class="card mb-3">
