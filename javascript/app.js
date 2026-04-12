@@ -128,3 +128,56 @@ const observerIntersectionAnimation = () => {
 }
 
 observerIntersectionAnimation();
+
+
+// section chiffrée
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.counter-anim');
+    
+    const startCounting = (entries, observer) => {
+        entries.forEach(entry => {
+            // Se déclenche quand la carte devient visible à l'écran
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const prefix = counter.getAttribute('data-prefix') || '';
+                const suffix = counter.getAttribute('data-suffix') || '';
+                
+                // Paramètres de l'animation
+                const duration = 2000; // Durée de l'animation en ms (2 secondes)
+                const frameRate = 1000 / 60; // Environ 60 images par seconde
+                const totalFrames = Math.round(duration / frameRate);
+                let currentFrame = 0;
+                
+                const updateCount = () => {
+                    currentFrame++;
+                    
+                    // Calcul d'interpolation "Ease-out" (ralentit à la fin)
+                    const progress = currentFrame / totalFrames;
+                    const easeOut = progress * (2 - progress); 
+                    const currentCount = Math.round(target * easeOut);
+
+                    if (currentFrame < totalFrames) {
+                        counter.innerText = prefix + currentCount + suffix;
+                        requestAnimationFrame(updateCount); // Animation ultra-fluide gérée par le navigateur
+                    } else {
+                        // Valeur finale exacte
+                        counter.innerText = prefix + target + suffix;
+                    }
+                };
+                
+                updateCount();
+                
+                // On arrête d'observer pour que l'animation ne se joue qu'une seule fois
+                observer.unobserve(counter);
+            }
+        });
+    };
+
+    // L'Intersection Observer détecte le moment du scroll
+    const observer = new IntersectionObserver(startCounting, {
+        threshold: 0.5 // Déclenche quand la carte est visible à 50%
+    });
+
+    counters.forEach(counter => observer.observe(counter));
+});

@@ -138,22 +138,28 @@ li{
     }
     
 }
-
-
+/* section chiffrée */
 #results-stats .display-4 {
     letter-spacing: -2px;
     text-shadow: 0 0 15px rgba(220, 53, 69, 0.3); /* Un léger éclat rouge Code A-Z */
 }
 
-#results-stats .border-secondary:hover {
-    
-    border-color: var(--Rouge-Vibrant) !important; /* Le cadre devient rouge au survol */
-    transition: 0.3s;
+/* Base pour la transition fluide */
+#results-stats .stat-card {
+    transition: all 0.3s ease-in-out;
 }
 
+/* L'effet au survol amélioré */
+#results-stats .stat-card:hover {
+    border-color: var(--Rouge-Vibrant) !important; 
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.2) !important; /* Glow rouge subtil */
+    transform: translateY(-5px); /* Fait légèrement "sauter" la carte vers le haut */
+}
+
+/* temoignage */
 #testimonials .card {
-    transition: transform 0.3s ease;
-    background-color: #2b2b2b !important; /* Un gris très sombre pour le contraste */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de la transition sur le shadow pour la fluidité */
+    background-color: #2b2b2b !important; /* Gris très sombre */
 }
 
 #testimonials .card:hover {
@@ -164,9 +170,28 @@ li{
 #testimonials .text-danger i {
     margin-right: 2px;
 }
+
+/* --- NOUVEAU CSS POUR L'AVATAR --- */
+.testimonial-avatar {
+    width: 60px; /* Taille de l'image */
+    height: 60px;
+    border-radius: 50%; /* Image parfaitement ronde */
+    object-fit: cover; /* Recadre l'image proprement */
+    border: 3px solid rgba(220, 53, 69, 0.2); /* Légère bordure rouge pour le style Code A-Z */
+}
+
+/* Gestion de l'alignement des étoiles et de la photo */
+.stars-container {
+    display: flex;
+    justify-content: space-between; /* Étoiles à gauche, photo à droite */
+    align-items: center; /* Centrage vertical */
+}
+
+
 .navbar {
     transition: top 0.3s ease-in-out; /* Animation fluide pour la montée/descente */
 }
+
 /* section */
 /* section */
 /* section */
