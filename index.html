@@ -93,7 +93,7 @@
         <div class="container">
             <div class="grid">
                 <div class="grid-item">
-                    <img width="560" height="453" src="images/isaac_PDG.webp" alt=" Agnissan Isaac - Expert Digital et fondateur de Code A-Z " loading="lazy">
+                    <img width="560" height="453" src="img/Code_A-Z_Logo-carre.webp" alt=" Agnissan Isaac - Expert Digital et fondateur de Code A-Z " loading="lazy">
                     
                 </div>
                 <div class="grid-item">
@@ -926,7 +926,6 @@
                      <h5>Liens rapides</h5>
                      <ul class="list-unstyled">
                          <li><a href="#" class="text-white text-decoration-none">Accueil</a></li>
-                         <li><a href="#" class="text-white text-decoration-none">Articles</a></li>
                          <li><a href="tel:+2250769398708" class="text-white text-decoration-none">Téléphone</a></li>
                          <li><a href="mailto:valenbouge@gmail.com" class="text-white text-decoration-none">Email</a></li>
                      </ul>
@@ -948,5 +947,25 @@
      <!-- Fin - pied de page -->
 
 <script src="./javascript/app.js" defer></script>
+<script>
+// 1. Fermeture automatique au clic sur un lien
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+const menuContent = document.getElementById('navbarSupportedContent');
+const bsCollapse = new bootstrap.Collapse(menuContent, {toggle: false});
+
+navLinks.forEach((l) => {
+    l.addEventListener('click', () => { 
+        if (window.innerWidth < 992) { bsCollapse.hide(); }
+    });
+});
+
+// 2. Fermeture automatique dès que l'utilisateur SCROLLE
+window.addEventListener('scroll', () => {
+    // On vérifie si le menu a la classe 'show' (donc s'il est ouvert)
+    if (menuContent.classList.contains('show')) {
+        bsCollapse.hide();
+    }
+});
+</script>
 </body>
 </html>

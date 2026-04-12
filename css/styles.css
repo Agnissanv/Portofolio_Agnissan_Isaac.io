@@ -164,6 +164,9 @@ li{
 #testimonials .text-danger i {
     margin-right: 2px;
 }
+.navbar {
+    transition: top 0.3s ease-in-out; /* Animation fluide pour la montée/descente */
+}
 /* section */
 /* section */
 /* section */
