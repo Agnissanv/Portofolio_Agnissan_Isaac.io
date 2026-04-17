@@ -4,7 +4,7 @@ const articles = {
     "7-erreurs-dev-debutant-argent": {
     title: "Les 7 erreurs qui empêchent les développeurs débutants de gagner de l'argent",
     date: "12 Avril 2026",
-    image: "img/article5.jpg",
+    image: "img/article5.webp",
     content: `
         <p class="lead fw-bold">Vous savez coder… mais vous ne gagnez toujours pas d'argent ? Le problème n'est pas votre niveau. Ce sont vos erreurs.</p>
 
