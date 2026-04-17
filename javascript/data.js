@@ -1,5 +1,120 @@
 const articles = {
 
+
+    "7-erreurs-dev-debutant-argent": {
+    title: "Les 7 erreurs qui empêchent les développeurs débutants de gagner de l'argent",
+    date: "12 Avril 2026",
+    image: "img/article5.jpg",
+    content: `
+        <p class="lead fw-bold">Vous savez coder… mais vous ne gagnez toujours pas d'argent ? Le problème n'est pas votre niveau. Ce sont vos erreurs.</p>
+
+        <p>Chaque jour, des milliers de développeurs débutants apprennent HTML, CSS, JavaScript…</p>
+
+        <p>Mais très peu arrivent à transformer ces compétences en revenus.</p>
+
+        <p><strong>Pourquoi ? Parce qu'ils font tous les mêmes erreurs.</strong></p>
+
+        <h3 class="mt-5 mb-3 fw-bold">1. Attendre d'être “prêt”</h3>
+
+        <p>Beaucoup pensent :</p>
+        <ul class="lh-lg mb-4">
+            <li>“Je dois encore apprendre”</li>
+            <li>“Je ne suis pas assez bon”</li>
+        </ul>
+
+        <p>Résultat : ils ne passent jamais à l'action.</p>
+
+        <p><strong>La vérité :</strong> Vous serez jamais prêt. Vous devez commencer maintenant.</p>
+
+        <h3 class="mt-5 mb-3 fw-bold">2. Apprendre sans objectif concret</h3>
+
+        <p>Regarder des tutoriels sans projet, c'est comme regarder du sport sans jamais jouer.</p>
+
+        <p>Vous consommez… mais vous ne progressez pas vraiment.</p>
+
+        <p><strong>Solution :</strong> chaque compétence doit être liée à un projet réel.</p>
+
+        <h3 class="mt-5 mb-3 fw-bold">3. Construire des projets inutiles</h3>
+
+        <p>Cloner Netflix ou Facebook ne vous apporte aucun client.</p>
+
+        <p>Les clients veulent des solutions, pas des copies.</p>
+
+        <blockquote class="p-3 my-4 bg-light border-start border-danger border-4 fs-5 fst-italic">
+            "Un projet utile vaut 10 projets impressionnants mais inutiles."
+        </blockquote>
+
+        <h3 class="mt-5 mb-3 fw-bold">4. Ne pas chercher activement des clients</h3>
+
+        <p>Publier sur les réseaux et attendre… ne suffit pas.</p>
+
+        <p>Les freelances qui réussissent :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>contactent directement des prospects</li>
+            <li>proposent des solutions concrètes</li>
+        </ul>
+
+        <p><strong>Pas d'action = pas de clients.</strong></p>
+
+        <h3 class="mt-5 mb-3 fw-bold">5. Se vendre comme “développeur”</h3>
+
+        <p>Dire “je suis développeur web” ne suffit pas.</p>
+
+        <p>Un client s'en fiche.</p>
+
+        <p>Ce qu'il veut :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>plus de clients</li>
+            <li>plus de visibilité</li>
+            <li>plus d'argent</li>
+        </ul>
+
+        <p><strong>Vous devez vendre des résultats, pas des compétences.</strong></p>
+
+        <h3 class="mt-5 mb-3 fw-bold">6. Ignorer l'IA</h3>
+
+        <p>En 2026, ne pas utiliser l'IA est une erreur stratégique.</p>
+
+        <p>Mais l'utiliser sans comprendre le code est encore pire.</p>
+
+        <p>Les meilleurs développeurs :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>utilisent l'IA pour aller plus vite</li>
+            <li>corrigent ses erreurs</li>
+        </ul>
+
+        <h3 class="mt-5 mb-3 fw-bold">7. Abandonner trop tôt</h3>
+
+        <p>La majorité abandonne juste avant les premiers résultats.</p>
+
+        <p>Parce que :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>ça prend du temps</li>
+            <li>c'est difficile</li>
+        </ul>
+
+        <p><strong>Mais ceux qui persistent finissent toujours par gagner.</strong></p>
+
+        <h3 class="mt-5 mb-3 fw-bold">Conclusion</h3>
+
+        <p>Si vous ne gagnez pas encore d'argent avec le code, ce n'est pas une fatalité.</p>
+
+        <p>C'est un signal.</p>
+
+        <p>Corrigez ces erreurs… et votre situation peut changer très vite.</p>
+
+        <p class="fw-bold">Le code ne paie pas… ce sont les résultats que vous apportez qui paient.</p>
+    `,
+    ctaLink: "formation.html",
+    ctaText: "Apprenez à transformer vos compétences en revenus dès maintenant"
+},
+
+
+
     "obtenir-clients-freelance-dev": {
     title: "Comment obtenir vos premiers clients en tant que développeur web freelance (même sans expérience)",
     date: "11 Avril 2026",
