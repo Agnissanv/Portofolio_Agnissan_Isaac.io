@@ -1,6 +1,93 @@
 const articles = {
 
 
+    "generer-palette-image-gratuit": {
+    title: "Générer une palette de couleurs à partir d'une image (outil gratuit rapide)",
+    date: "20 Avril 2026",
+    image: "img/article6.jpg",
+    content: `
+        <p class="lead fw-bold">Vous avez une image parfaite… mais vous ne savez pas quelles couleurs utiliser ? Bonne nouvelle : vous pouvez générer une palette complète en quelques secondes.</p>
+
+        <p>Que vous soyez développeur, designer ou créateur de contenu, extraire les bonnes couleurs d'une image est essentiel pour garder une cohérence visuelle.</p>
+
+        <p><strong>Et aujourd'hui, vous n'avez plus besoin de le faire manuellement.</strong></p>
+
+        <h3 class="mt-5 mb-3 fw-bold">Pourquoi générer une palette à partir d'une image ?</h3>
+
+        <p>Une image contient déjà une harmonie naturelle de couleurs. L'exploiter vous permet de :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>créer un design cohérent</li>
+            <li>gagner du temps</li>
+            <li>éviter les mauvaises combinaisons</li>
+            <li>respecter une identité visuelle</li>
+        </ul>
+
+        <p><strong>En résumé :</strong> vous partez d'un visuel réel au lieu de deviner.</p>
+
+        <h3 class="mt-5 mb-3 fw-bold">La méthode la plus rapide (100% gratuite)</h3>
+
+        <p>Plutôt que d'utiliser des outils complexes, vous pouvez utiliser un générateur automatique.</p>
+
+        <p>Voici comment faire :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>1. Importez votre image</li>
+            <li>2. L'outil analyse les couleurs dominantes</li>
+            <li>3. Vous obtenez une palette prête à l'emploi</li>
+            <li>4. Copiez les codes HEX, RGB ou CSS</li>
+        </ul>
+
+        <blockquote class="p-3 my-4 bg-light border-start border-danger border-4 fs-5 fst-italic">
+            "En quelques secondes, vous passez d'une image à un système de couleurs exploitable."
+        </blockquote>
+
+        <h3 class="mt-5 mb-3 fw-bold">Un outil simple pour le faire instantanément</h3>
+
+        <p>Pour aller plus vite, vous pouvez utiliser <strong>PalettePick</strong>.</p>
+
+        <p>C'est un outil web gratuit qui permet de :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>extraire automatiquement les couleurs d'une image</li>
+            <li>obtenir les codes HEX et RGB</li>
+            <li>générer des variables CSS prêtes à utiliser</li>
+            <li>copier en un clic</li>
+        </ul>
+
+        <p><strong>Avantage important :</strong> tout se fait en local. Vos images ne sont jamais envoyées sur un serveur.</p>
+
+        <p class="fw-bold">👉 Essayez maintenant et générez votre palette en quelques secondes.</p>
+
+        <h3 class="mt-5 mb-3 fw-bold">Exemple d'utilisation concrète</h3>
+
+        <p>Imaginez que vous créez un site web pour un client avec une image principale.</p>
+
+        <p>Au lieu de choisir des couleurs au hasard :</p>
+
+        <ul class="lh-lg mb-4">
+            <li>vous extrayez la palette de l'image</li>
+            <li>vous appliquez ces couleurs au site</li>
+            <li>vous obtenez un design professionnel et cohérent</li>
+        </ul>
+
+        <p><strong>Résultat :</strong> un rendu plus esthétique… et un client satisfait.</p>
+
+        <h3 class="mt-5 mb-3 fw-bold">Conclusion</h3>
+
+        <p>Générer une palette de couleurs à partir d'une image est aujourd'hui une étape incontournable en design et développement web.</p>
+
+        <p>Avec les bons outils, cela prend quelques secondes… et peut transformer complètement votre projet.</p>
+
+        <p class="fw-bold">Ne perdez plus de temps à deviner vos couleurs. Automatisez le processus.</p>
+    `,
+    ctaLink: "#", 
+    ctaText: "Générer ma palette gratuitement"
+},
+
+
+
+
     "7-erreurs-dev-debutant-argent": {
     title: "Les 7 erreurs qui empêchent les développeurs débutants de gagner de l'argent",
     date: "17 Avril 2026",
