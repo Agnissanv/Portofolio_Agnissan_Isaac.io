@@ -4,7 +4,7 @@ const articles = {
     "generer-palette-image-gratuit": {
     title: "Générer une palette de couleurs à partir d'une image (outil gratuit rapide)",
     date: "20 Avril 2026",
-    image: "img/article6.webp",
+    image: "img/article6_palettepick.webp",
     content: `
         <p class="lead fw-bold">Vous avez une image parfaite… mais vous ne savez pas quelles couleurs utiliser ? Bonne nouvelle : vous pouvez générer une palette complète en quelques secondes.</p>
 
