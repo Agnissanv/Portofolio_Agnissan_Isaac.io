@@ -4,7 +4,7 @@ const articles = {
     "generer-palette-image-gratuit": {
     title: "Générer une palette de couleurs à partir d'une image (outil gratuit rapide)",
     date: "20 Avril 2026",
-    image: "img/article6.jpg",
+    image: "img/article6.webp",
     content: `
         <p class="lead fw-bold">Vous avez une image parfaite… mais vous ne savez pas quelles couleurs utiliser ? Bonne nouvelle : vous pouvez générer une palette complète en quelques secondes.</p>
 
@@ -57,7 +57,8 @@ const articles = {
 
         <p><strong>Avantage important :</strong> tout se fait en local. Vos images ne sont jamais envoyées sur un serveur.</p>
 
-        <p class="fw-bold">👉 Essayez maintenant et générez votre palette en quelques secondes.</p>
+        <a href="https://agnissanv.github.io/palettepick/" target="_blank" style="color: white;" >👉 Essayez maintenant et générez votre palette en quelques secondes.</a>
+        <img src="img/article6.webp" class="img-fluid rounded mb-4" alt="Générateur de palette de couleurs à partir d'une image">
 
         <h3 class="mt-5 mb-3 fw-bold">Exemple d'utilisation concrète</h3>
 
@@ -81,7 +82,7 @@ const articles = {
 
         <p class="fw-bold">Ne perdez plus de temps à deviner vos couleurs. Automatisez le processus.</p>
     `,
-    ctaLink: "#", 
+    ctaLink: "https://agnissanv.github.io/palettepick/",
     ctaText: "Générer ma palette gratuitement"
 },
 
