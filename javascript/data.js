@@ -579,7 +579,7 @@ function displayArticles() {
 
     articlesArray.forEach(article => {
         // On crée l'URL complète de l'article pour le partage
-    const articleUrl = `https://agnissanv.github.io/Portofolio-Agnissan-Isaac-io/article.html?id=${article.id}`;
+    const articleUrl = `https://agnissanv.github.io/Portofolio_Agnissan_Isaac.io/article.html?id=${article.id}`;
 
         container.innerHTML += `
             <div class="card mb-3">
