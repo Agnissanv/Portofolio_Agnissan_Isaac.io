@@ -3,195 +3,729 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formation Code A-Z | Maîtrisez le Web</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Ressources & Coaching | Code A-Z</title>
+    <meta name="description" content="Téléchargez les guides PDF de Code A-Z et réservez une session de coaching avec Agnissan Isaac pour accélérer votre carrière de développeur.">
+    <meta name="author" content="Agnissan Isaac Valen">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Ressources & Coaching | Code A-Z">
+    <meta property="og:description" content="Guides PDF, cheat sheets et coaching 1-on-1 pour développeurs ambitieux.">
+    <meta property="og:type" content="website">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#dc3545">
+
     <style>
-        body { background-color: #0b0b0b; color: #ffffff; }
-        .hero-section { padding: 100px 0; background: radial-gradient(circle at top right, #1a1a1a, #0b0b0b); }
-        .feature-icon { font-size: 2rem; color: #dc3545; }
-        .card-plan { border: 1px solid #333; background: #161616; transition: 0.3s; }
-        .card-plan:hover { border-color: #dc3545; transform: scale(1.02); }
-        .text-gradient { background: linear-gradient(90deg, #fff, #666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        :root {
+            --rouge: #dc3545;
+            --rouge-sombre: #a71d2a;
+            --noir: #0d0d0d;
+            --gris-card: #141414;
+            --gris-border: #2a2a2a;
+            --texte: #e8e8e8;
+            --texte-doux: #888;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--noir);
+            color: var(--texte);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .navbar { border-bottom: 1px solid var(--gris-border); }
+
+        /* HERO */
+        .hero {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(220,53,69,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(220,53,69,0.15);
+            border: 1px solid rgba(220,53,69,0.4);
+            color: var(--rouge);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        .hero h1 span { color: var(--rouge); }
+        .hero p.lead { color: var(--texte-doux); font-size: 1.15rem; max-width: 560px; }
+        .stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gris-card);
+            border: 1px solid var(--gris-border);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: .85rem;
+            color: var(--texte-doux);
+        }
+        .stat-pill strong { color: var(--texte); }
+
+        /* SECTION TITLES */
+        .section-label {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--rouge);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .section-sub { color: var(--texte-doux); max-width: 520px; }
+
+        /* PRODUITS */
+        .pdf-section { padding: 80px 0; }
+
+        .product-card {
+            background: var(--gris-card);
+            border: 1px solid var(--gris-border);
+            border-radius: 16px;
+            padding: 32px;
+            height: 100%;
+            transition: border-color .25s, transform .25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rouge);
+            transform: scaleX(0);
+            transition: transform .3s;
+            transform-origin: left;
+        }
+        .product-card:hover { border-color: var(--rouge); transform: translateY(-4px); }
+        .product-card:hover::before { transform: scaleX(1); }
+        .product-card.featured {
+            border-color: var(--rouge);
+            background: linear-gradient(135deg, #1a0c0e 0%, var(--gris-card) 100%);
+        }
+        .product-card.featured::before { transform: scaleX(1); }
+
+        .badge-featured {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: var(--rouge);
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+        .product-icon {
+            width: 52px; height: 52px;
+            background: rgba(220,53,69,0.12);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--rouge);
+        }
+        .product-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+        .product-desc { color: var(--texte-doux); font-size: .9rem; line-height: 1.6; margin-bottom: 20px; }
+        .product-includes { list-style: none; padding: 0; margin-bottom: 24px; }
+        .product-includes li {
+            font-size: .85rem;
+            color: var(--texte-doux);
+            padding: 4px 0;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .product-includes li i { color: var(--rouge); font-size: .75rem; }
+        .product-price { font-size: 1.5rem; font-weight: 800; color: var(--texte); margin-bottom: 16px; }
+        .product-price small { font-size: .8rem; color: var(--texte-doux); font-weight: 400; }
+
+        .btn-buy {
+            background: var(--rouge);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: .9rem;
+            width: 100%;
+            transition: background .2s, transform .1s;
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-buy:hover { background: var(--rouge-sombre); color: #fff; transform: scale(1.02); }
+        .btn-buy-outline {
+            background: transparent;
+            color: var(--rouge);
+            border: 1.5px solid var(--rouge);
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: .9rem;
+            width: 100%;
+            transition: all .2s;
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-buy-outline:hover { background: var(--rouge); color: #fff; }
+
+        /* COACHING */
+        .coaching-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--noir) 0%, #100508 50%, var(--noir) 100%);
+        }
+        .coaching-card {
+            background: var(--gris-card);
+            border: 1px solid var(--gris-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: border-color .25s;
+        }
+        .coaching-card:hover { border-color: var(--rouge); }
+        .coaching-header {
+            background: linear-gradient(135deg, #1a0c0e, #1f0e10);
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--gris-border);
+        }
+        .coaching-body { padding: 28px 32px; }
+        .coaching-price { font-size: 2rem; font-weight: 800; }
+        .coaching-duration {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(220,53,69,0.12);
+            color: var(--rouge);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: .8rem; font-weight: 600;
+        }
+        .coaching-perks { list-style: none; padding: 0; margin: 0 0 24px; }
+        .coaching-perks li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 8px 0;
+            font-size: .9rem; color: var(--texte-doux);
+            border-bottom: 1px solid var(--gris-border);
+        }
+        .coaching-perks li:last-child { border-bottom: none; }
+        .coaching-perks li i { color: var(--rouge); margin-top: 2px; flex-shrink: 0; }
+
+        /* PROFIL */
+        .profile-box {
+            background: var(--gris-card);
+            border: 1px solid var(--gris-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: sticky;
+            top: 90px;
+        }
+        .profile-avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--rouge);
+            margin-bottom: 16px;
+        }
+        .profile-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+        .profile-role { color: var(--texte-doux); font-size: .85rem; margin-bottom: 16px; }
+        .profile-stat { display: flex; gap: 16px; margin-bottom: 20px; }
+        .pstat {
+            text-align: center; flex: 1;
+            background: rgba(220,53,69,0.08);
+            border: 1px solid rgba(220,53,69,0.2);
+            border-radius: 10px; padding: 10px;
+        }
+        .pstat-num { font-size: 1.2rem; font-weight: 800; color: var(--rouge); }
+        .pstat-label { font-size: .7rem; color: var(--texte-doux); }
+        .profile-desc { font-size: .85rem; color: var(--texte-doux); line-height: 1.6; }
+
+        /* FAQ */
+        .faq-section { padding: 80px 0; }
+        .accordion-item {
+            background: var(--gris-card) !important;
+            border: 1px solid var(--gris-border) !important;
+            border-radius: 12px !important;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .accordion-button {
+            background: var(--gris-card) !important;
+            color: var(--texte) !important;
+            font-weight: 600; font-size: .95rem;
+        }
+        .accordion-button:not(.collapsed) { color: var(--rouge) !important; }
+        .accordion-button::after { filter: invert(1); }
+        .accordion-body {
+            background: var(--gris-card) !important;
+            color: var(--texte-doux); font-size: .9rem; line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-section { padding: 80px 0; text-align: center; }
+        .cta-box {
+            background: linear-gradient(135deg, #1a0c0e 0%, #141414 100%);
+            border: 1px solid rgba(220,53,69,0.3);
+            border-radius: 24px;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; right: -60px;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(220,53,69,0.2), transparent 70%);
+            pointer-events: none;
+        }
+
+        footer { background: #0a0a0a; border-top: 1px solid var(--gris-border); }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gris-border), transparent);
+        }
+        .whatsapp-color { color: #25D366; }
+
+        @media (max-width: 768px) {
+            .hero { padding: 100px 0 60px; }
+            .profile-box { position: static; margin-top: 32px; }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-dark bg-transparent py-4">
-        <div class="d-flex align-items-center">
-            <span class="small text-secondary me-2 d-none d-md-inline text-uppercase fw-bold" style="letter-spacing: 2px; margin-left: 25px;">L'offre expire dans :</span>
-            <div id="countdown" class="badge bg-danger fs-6 p-2 fw-bold font-monospace">
-                00:00:00:00
-            </div>
-    </nav>
-
-    <section class="hero-section text-center">
-        <div class="container">
-            <span class="badge rounded-pill bg-danger mb-3 px-3 py-2">72 VIDÉOS • PROJETS RÉELS • ACCÈS À VIE</span>
-            <h1 class="display-3 fw-800 mb-4 text-gradient">Devenez un Développeur <br> que les entreprises s'arrachent.</h1>
-            <p class="lead mb-5 text-secondary mx-auto" style="max-width: 700px;">
-                Arrêtez de copier du code sans comprendre. Maîtrisez HTML5 et CSS3 à travers une méthode de construction radicale de 72 étapes.
-            </p>
-            <a href="#commander" class="btn btn-danger btn-lg px-5 py-3 fw-bold shadow-lg">REJOINDRE LE PROGRAMME</a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/Code A-Z Logo-no-bg.png" alt="logo Code A-Z" width="100" height="50"
+                 style="border-radius:10px;margin-right:60px;margin-left:10px;" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link active" href="formation.html">Ressources</a></li>
+            </ul>
+            <a href="https://wa.me/2250769398708" class="btn btn-danger btn-sm fw-bold" target="_blank">
+                <i class="bi bi-whatsapp me-1"></i> Me contacter
+            </a>
         </div>
-    </section>
+    </div>
+</nav>
 
-    <section class="py-5 bg-white text-dark">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="fw-bold mb-4">Pourquoi cette formation est différente ?</h2>
-                    <div class="d-flex mb-4">
-                        <i class="bi bi-check-circle-fill fs-4 text-danger me-3"></i>
-                        <div>
-                            <h5 class="fw-bold">Zéro Bla-bla théorique</h5>
-                            <p class="text-muted">On apprend une propriété, on l'utilise immédiatement dans un projet concret.</p>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="hero-badge">📦 Ressources & Coaching</div>
+                <h1>Arrêtez d'apprendre.<br>Commencez à <span>construire.</span></h1>
+                <p class="lead mb-4">Des guides PDF concrets et des sessions de coaching 1-on-1 pour transformer vos compétences en résultats réels — en FCFA, rapidement.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#ressources" class="btn btn-danger btn-lg fw-bold px-4">
+                        Voir les ressources <i class="bi bi-arrow-down ms-1"></i>
+                    </a>
+                    <a href="#coaching" class="btn btn-outline-light btn-lg px-4">Réserver un coaching</a>
+                </div>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <div class="stat-pill"><i class="bi bi-file-earmark-pdf text-danger"></i> <strong>PDF</strong> téléchargement immédiat</div>
+                    <div class="stat-pill"><i class="bi bi-whatsapp whatsapp-color"></i> Paiement Mobile Money</div>
+                    <div class="stat-pill"><i class="bi bi-translate text-danger"></i> 100% en Français</div>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+                <div style="width:100%;max-width:360px;">
+                    <div style="background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:20px 24px;margin-bottom:12px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <div style="width:40px;height:40px;background:rgba(220,53,69,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📄</div>
+                            <div>
+                                <div style="font-weight:700;font-size:.9rem;">Guide Freelance Dev</div>
+                                <div style="color:#888;font-size:.8rem;">5.000 FCFA · PDF 42 pages</div>
+                            </div>
+                            <div style="margin-left:auto;color:#dc3545;font-size:.8rem;font-weight:700;">DISPO</div>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
-                        <i class="bi bi-check-circle-fill fs-4 text-danger me-3"></i>
-                        <div>
-                            <h5 class="fw-bold">Le sens du Design</h5>
-                            <p class="text-muted">Je ne vous apprends pas juste à coder, je vous apprends l'esthétique "Premium".</p>
+                    <div style="background:#141414;border:1px solid #dc3545;border-radius:16px;padding:20px 24px;margin-bottom:12px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <div style="width:40px;height:40px;background:rgba(220,53,69,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🎯</div>
+                            <div>
+                                <div style="font-weight:700;font-size:.9rem;">Coaching 1-on-1</div>
+                                <div style="color:#888;font-size:.8rem;">Session 60 min · Via WhatsApp</div>
+                            </div>
+                            <div style="margin-left:auto;background:#dc3545;color:#fff;font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:50px;">LIVE</div>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
-                        <i class="bi bi-check-circle-fill fs-4 text-danger me-3"></i>
-                        <div>
-                            <h5 class="fw-bold">72 Étapes de Progression</h5>
-                            <p class="text-muted">Un chemin balisé de A à Z. Vous ne vous demanderez plus jamais "C'est quoi la suite ?".</p>
+                    <div style="background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:20px 24px;">
+                        <div style="display:flex;align-items:center;gap:12px;">
+                            <div style="width:40px;height:40px;background:rgba(220,53,69,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">⚡</div>
+                            <div>
+                                <div style="font-weight:700;font-size:.9rem;">Cheat Sheet HTML/CSS</div>
+                                <div style="color:#888;font-size:.8rem;">3.000 FCFA · Réf. rapide</div>
+                            </div>
+                            <div style="margin-left:auto;color:#dc3545;font-size:.8rem;font-weight:700;">DISPO</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <img src="img/formation_img.png" class="img-fluid rounded-4 shadow" alt="Interface formation">
-                </div>
             </div>
         </div>
-    
+    </div>
+</section>
 
-    <!-- 1111111111111111111111111111111111 -->
-    <!-- News -->
-    <!-- 1111111111111111111111111111111111 -->
-        <div class="news-cont swiper">
-            <div class="swiper-wrapper">
+<div class="divider"></div>
 
-                <div class="swiper-slide box">
-                    <img src="img/formation_img.png" alt="formation img.png">
-                </div>
-                <div class="swiper-slide box">
-                    <img src="img/formation_img1.png" alt="">
-                </div>
-                <div class="swiper-slide box">
-                    <img src="img/formation_img3.png" alt="">
-                </div>
-                <div class="swiper-slide box">
-                    <img src="img/formation_img4.png" alt="">
-                </div>
-                <div class="swiper-slide box">
-                    <img src="img/formation_img5.png" alt="">
-                </div>
-                <div class="swiper-slide box">
-                    <img src="img/formation_img6.png" alt="">
-                </div>
-
-            </div>
+<!-- RESSOURCES PDF -->
+<section class="pdf-section" id="ressources">
+    <div class="container">
+        <div class="mb-5">
+            <div class="section-label">📄 Ressources digitales</div>
+            <h2 class="section-title">Des guides qui travaillent<br>à votre place</h2>
+            <p class="section-sub">Chaque ressource est conçue pour un résultat précis. Pas de blabla — que de l'actionnable.</p>
         </div>
-     </section>
+        <div class="row g-4">
 
-    <section id="commander" class="py-5">
-        <div class="container py-5 text-center">
-            <h2 class="fw-bold mb-5">Prêt à dompter la page blanche ?</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="card card-plan p-5 text-white">
-                        <h3 class="fw-bold mb-3">Pack Développeur Pro</h3>
-                        <div class="display-4 fw-bold mb-4">29.000 <small class="fs-6">FCFA</small></div>
-                        <ul class="list-unstyled text-start mb-5 text-secondary">
-                            <li class="mb-2"><i class="bi bi-play-circle me-2 text-danger"></i> 72 Vidéos HD</li>
-                            <li class="mb-2"><i class="bi bi-code-slash me-2 text-danger"></i> Des projets à ajouter à votre portfolio</li>
-                            <li class="mb-2"><i class="bi bi-file-earmark-pdf me-2 text-danger"></i> Cheat-sheets CSS exclusives</li>
-                            <li class="mb-2"><i class="bi bi-infinity me-2 text-danger"></i> Accès à vie aux mises à jour</li>
-                        </ul>
-                        <a href="https://wa.me/2250769398708"><button class="btn btn-danger btn-lg w-100 fw-bold">DÉBLOQUER L'ACCÈS IMMÉDIAT</button></a>
-                        <p class="small text-muted mt-3">Paiement sécurisé par Mobile Money ou Carte.</p>
+            <!-- Produit 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="product-card featured">
+                    <div class="badge-featured">⭐ BEST-SELLER</div>
+                    <div class="product-icon">📄</div>
+                    <div class="product-title">Guide : Maîtriser HTML/CSS de Zéro</div>
+                    <p class="product-desc">Le guide complet pour passer de débutant absolu à développeur capable de créer de vraies interfaces.</p>
+                    <ul class="product-includes">
+                        <li><i class="bi bi-check-circle-fill"></i> +50 pages structurées de A à Z</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Exercices pratiques inclus</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Cheat sheet CSS en bonus</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Téléchargement immédiat</li>
+                    </ul>
+                    <div class="product-price">5.000 <small>FCFA</small></div>
+                    <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20veux%20acheter%20le%20Guide%20HTML%2FCSS%20(5.000%20FCFA)" class="btn-buy" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Obtenir via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="product-card">
+                    <div class="product-icon">🚀</div>
+                    <div class="product-title">Guide Freelance Dev : Trouver ses Premiers Clients</div>
+                    <p class="product-desc">La méthode concrète pour décrocher vos premiers clients en tant que développeur, même sans expérience.</p>
+                    <ul class="product-includes">
+                        <li><i class="bi bi-check-circle-fill"></i> Script de prospection prêt à l'emploi</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Méthode des 10 messages/jour</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Erreurs à éviter absolument</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Templates de proposition commerciale</li>
+                    </ul>
+                    <div class="product-price">5.000 <small>FCFA</small></div>
+                    <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20veux%20le%20Guide%20Freelance%20Dev%20(5.000%20FCFA)" class="btn-buy" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Obtenir via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="product-card">
+                    <div class="product-icon">⚡</div>
+                    <div class="product-title">Cheat Sheet HTML/CSS & JavaScript</div>
+                    <p class="product-desc">Votre référence rapide pour ne plus jamais googler les mêmes choses. À garder ouvert pendant que vous codez.</p>
+                    <ul class="product-includes">
+                        <li><i class="bi bi-check-circle-fill"></i> Toutes les balises HTML essentielles</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Flexbox & Grid illustrés</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Sélecteurs CSS avancés</li>
+                        <li><i class="bi bi-check-circle-fill"></i> JS : fonctions courantes</li>
+                    </ul>
+                    <div class="product-price">3.000 <small>FCFA</small></div>
+                    <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20veux%20la%20Cheat%20Sheet%20HTML%2FCSS%2FJS%20(3.000%20FCFA)" class="btn-buy" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Obtenir via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pack complet -->
+            <div class="col-12">
+                <div class="product-card" style="background:linear-gradient(135deg,#1a0c0e 0%,#141414 100%);border-color:rgba(220,53,69,0.4);">
+                    <div class="row align-items-center">
+                        <div class="col-md-7">
+                            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                                <div class="product-icon" style="margin:0;">📦</div>
+                                <div>
+                                    <div class="product-title" style="margin:0;">Pack Complet Développeur</div>
+                                    <div style="color:#888;font-size:.85rem;">Tous les guides + bonus exclusif</div>
+                                </div>
+                            </div>
+                            <p class="product-desc">Les 3 ressources + un template de portfolio HTML/CSS prêt à personnaliser. La boîte à outils complète pour démarrer votre carrière.</p>
+                            <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                                <span style="font-size:.85rem;color:#888;"><i class="bi bi-check-circle-fill text-danger me-1"></i>Guide HTML/CSS</span>
+                                <span style="font-size:.85rem;color:#888;"><i class="bi bi-check-circle-fill text-danger me-1"></i>Guide Freelance</span>
+                                <span style="font-size:.85rem;color:#888;"><i class="bi bi-check-circle-fill text-danger me-1"></i>Cheat Sheet</span>
+                                <span style="font-size:.85rem;color:#888;"><i class="bi bi-check-circle-fill text-danger me-1"></i>Template Portfolio</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                            <div style="color:#888;font-size:.85rem;text-decoration:line-through;margin-bottom:4px;">Valeur : 13.000 FCFA</div>
+                            <div class="product-price" style="font-size:2rem;">10.000 <small>FCFA</small></div>
+                            <div style="color:#dc3545;font-size:.85rem;font-weight:700;margin-bottom:16px;">✅ Vous économisez 3.000 FCFA</div>
+                            <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20veux%20le%20Pack%20Complet%20D%C3%A9veloppeur%20(10.000%20FCFA)" 
+                               class="btn-buy" style="max-width:280px;margin-left:auto;" target="_blank">
+                                <i class="bi bi-whatsapp"></i> Obtenir le Pack Complet
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="py-4 border-top border-secondary text-center text-muted">
-        <p class="breadcrumb-item"><a href="index.html">Retouner à la page d'accueil</a></p>
+<div class="divider"></div>
 
-        <p>&copy; 2026 Code A-Z - IDS TECH Agency. Tous droits réservés.</p>
-    </footer>
+<!-- COACHING -->
+<section class="coaching-section" id="coaching">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="mb-5">
+                    <div class="section-label">🎯 Coaching Personnel</div>
+                    <h2 class="section-title">Avancez 10x plus vite<br>avec un expert à vos côtés</h2>
+                    <p class="section-sub">Pas de cours génériques. Je regarde votre code, votre projet, votre situation — et on avance ensemble.</p>
+                </div>
+                <div class="row g-4">
 
+                    <!-- Session découverte -->
+                    <div class="col-md-6">
+                        <div class="coaching-card">
+                            <div class="coaching-header">
+                                <div class="coaching-duration mb-2"><i class="bi bi-clock"></i> 30 minutes</div>
+                                <div class="coaching-price">10.000 <small style="font-size:.9rem;font-weight:400;color:#888;"> FCFA</small></div>
+                                <div style="font-weight:700;font-size:1.05rem;">Session Découverte</div>
+                            </div>
+                            <div class="coaching-body">
+                                <ul class="coaching-perks">
+                                    <li><i class="bi bi-check-circle-fill"></i> Diagnostic de votre situation</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> 1 problème concret résolu</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Plan d'action personnalisé</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Via WhatsApp ou Meet</li>
+                                </ul>
+                                <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20veux%20r%C3%A9server%20la%20Session%20D%C3%A9couverte%2030min%20(10.000%20FCFA)" class="btn-buy-outline" target="_blank">
+                                    <i class="bi bi-whatsapp whatsapp-color"></i> Réserver
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="js/data.js"></script>
-    <script>
-        // Définir la date de fin (Exemple : 24h à partir de maintenant)
-let countDownDate = new Date().getTime() + (11 * 24 * 60 * 60 * 1000); 
+                    <!-- Session Pro -->
+                    <div class="col-md-6">
+                        <div class="coaching-card" style="border-color:var(--rouge);">
+                            <div class="coaching-header" style="position:relative;">
+                                <span style="position:absolute;top:16px;right:16px;background:#dc3545;color:#fff;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:50px;">⭐ RECOMMANDÉ</span>
+                                <div class="coaching-duration mb-2"><i class="bi bi-clock"></i> 60 minutes</div>
+                                <div class="coaching-price">20.000 <small style="font-size:.9rem;font-weight:400;color:#888;"> FCFA</small></div>
+                                <div style="font-weight:700;font-size:1.05rem;">Session Pro</div>
+                            </div>
+                            <div class="coaching-body">
+                                <ul class="coaching-perks">
+                                    <li><i class="bi bi-check-circle-fill"></i> Audit complet de votre code/projet</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Correction en direct avec explications</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Stratégie freelance personnalisée</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Suivi WhatsApp 48h après</li>
+                                </ul>
+                                <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20veux%20r%C3%A9server%20la%20Session%20Pro%2060min%20(20.000%20FCFA)" class="btn-buy" target="_blank">
+                                    <i class="bi bi-whatsapp"></i> Réserver maintenant
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-// Si tu veux une date fixe, utilise : 
-// let countDownDate = new Date("March 20, 2026 23:59:59").getTime();
+                    <!-- Suivi mensuel -->
+                    <div class="col-12">
+                        <div class="coaching-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-8 p-4 ps-md-5">
+                                    <div class="coaching-duration mb-2" style="display:inline-flex;"><i class="bi bi-calendar-month"></i>&nbsp; Suivi mensuel</div>
+                                    <div style="font-weight:700;font-size:1.2rem;margin:8px 0;">Accompagnement Intensif</div>
+                                    <p style="color:#888;font-size:.9rem;margin:0;">4 sessions par mois + accès WhatsApp illimité. Pour les développeurs qui veulent progresser vite et de façon structurée.</p>
+                                </div>
+                                <div class="col-md-4 p-4 text-md-end">
+                                    <div class="coaching-price">60.000 <small style="font-size:.85rem;font-weight:400;color:#888;">FCFA/mois</small></div>
+                                    <a href="https://wa.me/2250769398708?text=Bonjour%20Isaac%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l%27Accompagnement%20Intensif%20mensuel" 
+                                       class="btn-buy-outline" style="max-width:200px;margin-left:auto;margin-top:12px;" target="_blank">
+                                        <i class="bi bi-whatsapp whatsapp-color"></i> En savoir plus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-let x = setInterval(function() {
-    let now = new Date().getTime();
-    let distance = countDownDate - now;
+                </div>
+            </div>
 
-    // Calculs pour les jours, heures, minutes et secondes
-    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            <!-- Profil -->
+            <div class="col-lg-4">
+                <div class="profile-box">
+                    <img src="images/isaac_PDG.webp" alt="Agnissan Isaac" class="profile-avatar">
+                    <div class="profile-name">Agnissan Isaac</div>
+                    <div class="profile-role">Fondateur Code A-Z · Expert Digital</div>
+                    <div class="profile-stat">
+                        <div class="pstat"><div class="pstat-num">5+</div><div class="pstat-label">Ans d'exp.</div></div>
+                        <div class="pstat"><div class="pstat-num">30+</div><div class="pstat-label">Projets</div></div>
+                        <div class="pstat"><div class="pstat-num">A-Z</div><div class="pstat-label">Full-Stack</div></div>
+                    </div>
+                    <p class="profile-desc">Développeur web, designer et formateur. Je construis des sites qui convertissent et j'aide les développeurs à transformer leurs compétences en revenus concrets.</p>
+                    <hr style="border-color:#2a2a2a;margin:16px 0;">
+                    <div style="font-size:.8rem;color:#888;margin-bottom:8px;">🟢 Disponible pour des sessions</div>
+                    <a href="https://wa.me/2250769398708" class="btn-buy" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Me contacter
+                    </a>
+                </div>
+            </div>
 
-    // Affichage du résultat dans l'élément avec l'id="countdown"
-    document.getElementById("countdown").innerHTML = 
-        (days > 0 ? days + "j " : "") + hours + "h " + minutes + "m " + seconds + "s ";
+        </div>
+    </div>
+</section>
 
-    // Si le compte à rebours est fini
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "OFFRE TERMINÉE";
-    }
-}, 1000);
+<div class="divider"></div>
 
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <div class="section-label">Questions fréquentes</div>
+                    <h2 class="section-title">Tout ce que vous voulez savoir</h2>
+                </div>
+                <div class="accordion" id="faqAccordion">
 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Comment je reçois mon PDF après paiement ?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Vous me contactez via WhatsApp, vous effectuez le paiement par Mobile Money (Orange, MTN, Wave, Moov) ou carte, et je vous envoie directement le PDF dans la conversation. Délai : moins de 30 minutes.</div>
+                        </div>
+                    </div>
 
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Je suis débutant complet, le coaching est fait pour moi ?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Oui. Les sessions sont adaptées à votre niveau. Que vous n'ayez jamais écrit une ligne de code ou que vous soyez bloqué sur un projet précis, on part de là où vous en êtes et on avance.</div>
+                        </div>
+                    </div>
 
-var swiper = new Swiper(".news-cont", {
-      spaceBetween: 20,
-      loop: true,
-      centeredSlides: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            568: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            1020: {
-                slidesPerView: 3,
-            },
-            
-           
-        },
-            
-    });
-    </script>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Comment se déroule une session de coaching ?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Via WhatsApp ou Google Meet, partage d'écran inclus si besoin. Avant la session, vous m'envoyez votre situation. Pendant, on travaille directement sur votre problème. Après, vous avez un plan clair.</div>
+                        </div>
+                    </div>
 
-    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Les guides sont-ils à jour pour 2026 ?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Oui. Tous les guides sont rédigés en 2026 et intègrent les pratiques actuelles du marché, notamment l'usage de l'IA pour les développeurs et les stratégies freelance adaptées au marché africain.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <div class="section-label" style="display:flex;justify-content:center;">Prêt à passer à l'action ?</div>
+            <h2 class="section-title" style="max-width:500px;margin:0 auto 20px;">Votre prochaine étape commence ici.</h2>
+            <p style="color:#888;max-width:440px;margin:0 auto 36px;font-size:1rem;">Choisissez une ressource, réservez une session. N'attendez pas d'être "prêt".</p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="#ressources" class="btn btn-danger btn-lg fw-bold px-5">Voir les ressources</a>
+                <a href="https://wa.me/2250769398708" class="btn btn-outline-light btn-lg px-5" target="_blank">
+                    <i class="bi bi-whatsapp me-2 whatsapp-color"></i> WhatsApp direct
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h5 class="fw-bold mb-3">Code A-Z</h5>
+                <p style="color:#888;font-size:.9rem;">Expertise digitale, ressources pratiques et coaching pour développeurs francophones ambitieux.</p>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold mb-3">Navigation</h6>
+                <ul class="list-unstyled" style="font-size:.9rem;">
+                    <li class="mb-2"><a href="index.html" class="text-decoration-none" style="color:#888;">Accueil</a></li>
+                    <li class="mb-2"><a href="blog.html" class="text-decoration-none" style="color:#888;">Blog</a></li>
+                    <li class="mb-2"><a href="gratuit.html" class="text-decoration-none" style="color:#888;">Ressource gratuite</a></li>
+                    <li class="mb-2"><a href="mailto:valenbouge@gmail.com" class="text-decoration-none" style="color:#888;">Email</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold mb-3">Suivez-moi</h6>
+                <div class="d-flex flex-column gap-2" style="font-size:.9rem;">
+                    <a href="https://www.linkedin.com/in/isaac-valen-agnissan" class="text-decoration-none" style="color:#888;"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
+                    <a href="https://www.facebook.com/share/1JJu2ycb69/" class="text-decoration-none" style="color:#888;"><i class="bi bi-facebook me-2"></i>Facebook</a>
+                    <a href="https://www.instagram.com/cod_eaz?igsh=bmxic3gwdDZxbDF4" class="text-decoration-none" style="color:#888;"><i class="bi bi-instagram me-2"></i>Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="divider mt-4 mb-4"></div>
+        <div class="text-center" style="color:#555;font-size:.85rem;">&copy; 2026 Code A-Z · IDS Tech Agency. Tous droits réservés.</div>
+    </div>
+</footer>
 
 </body>
 </html>
