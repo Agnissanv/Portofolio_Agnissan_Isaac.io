@@ -52,7 +52,7 @@ N'hésitez pas à me contacter pour :
 
 ## 📄 Licence
 
-Ce projet est personnel et libre d'utilisation pour des fins éducatives.
+⚠️ **ATTENTION** - Tous les droits réservés. Si quelqu'un utilise le code source de mon portfolio sans mon accord, il sera poursuivi en justice.
 
 ---
 
