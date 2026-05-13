@@ -1201,7 +1201,11 @@
             <p class="text-muted">Vous avez l'idée ? J'ai le code. Contactez-moi directement, réponse garantie sous 24h.</p>
         </div>
 
-        <form action="php/contact.php" method="POST" class="contact-form">
+        <form id="contactForm" class="contact-form">
+            <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+            <input type="hidden" name="subject" value="Nouveau projet — Code A-Z">
+            <input type="hidden" name="redirect" value="false">
+
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="input-group">
@@ -1232,9 +1236,10 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn-submit">
-                    Envoyer mon projet 
+                <button type="submit" id="submitBtn" class="btn-submit">
+                    Envoyer mon projet
                 </button>
+                <p id="formStatus" style="display:none; margin-top:1rem; font-weight:600;"></p>
             </div>
         </form>
     </div> 
@@ -1315,6 +1320,36 @@ window.addEventListener('scroll', () => {
         bsCollapse.hide();
     }
 });
+</script>
+
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+
+    btn.textContent = 'Envoi en cours...';
+    btn.disabled = true;
+
+    const data = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(this)
+    }).then(r => r.json());
+
+    if (data.success) {
+      status.textContent = '✅ Message envoyé ! Je vous réponds sous 24h.';
+      status.style.color = '#28a745';
+      this.reset();
+    } else {
+      status.textContent = '❌ Une erreur est survenue. Réessayez.';
+      status.style.color = '#dc3545';
+    }
+
+    status.style.display = 'block';
+    btn.textContent = 'Envoyer mon projet';
+    btn.disabled = false;
+  });
 </script>
 </body>
 </html>
