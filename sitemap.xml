@@ -2,32 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://agnissanisaac.com/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://agnissanisaac.com/blog.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://agnissanisaac.com/article.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <loc>https://agnissanisaac.com/articles/youtube-tue-votre-carriere.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://agnissanisaac.com/articles/ia-developpement-web-2026.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://agnissanisaac.com/articles/les-7-erreurs.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://agnissanisaac.com/articles/decrocher-premier-job.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://agnissanisaac.com/articles/apprendre-a-coder-2026.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://agnissanisaac.com/articles/generer-palette-image-gratuit.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/formation.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/gratuit.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://agnissanisaac.com/merci.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-31</lastmod>
     <priority>0.4</priority>
   </url>
 </urlset>
