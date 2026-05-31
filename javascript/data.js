@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <img src="${article.image}" class="card-img-top" alt="${article.title}" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title text-white">${article.title}</h5>
-                                <a href="article.html?id=${article.id}" class="btn btn-outline-danger">Lire l'article</a>
+                                <a href="articles/${article.id}.html" class="btn btn-outline-danger">Lire l'article</a>
                             </div>
                         </div>`;
                 });
@@ -57,53 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-function displayArticles() {
-    const container = document.getElementById('default-articles');
-
-    if (!container) {
-        console.error("Container introuvable !");
-        return;
-    }
-
-    container.innerHTML = "";
-
-    const articlesArray = Object.keys(articles).map(id => ({
-        id,
-        ...articles[id]
-    }));
-
-    articlesArray.forEach(article => {
-        // On crée l'URL complète de l'article pour le partage
-    const articleUrl = `https://agnissanv.github.io/Portofolio_Agnissan_Isaac.io/article.html?id=${article.id}`;
-
-        container.innerHTML += `
-            <div class="card mb-3">
-                <img src="${article.image}" class="card-img-top" loading="lazy" alt="${article.title}">
-                <div class="card-body">
-                    <h5>${article.title}</h5>
-                    <p class="text-muted">${article.date}</p>
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="article.html?id=${article.id}" class="btn btn-danger">
-                            Lire l'article
-                        </a>
-                        <button 
-                            class="btn btn-outline-danger btn-share-article" 
-                            data-title="${article.title}" 
-                            data-url="${articleUrl}"
-                            title="Partager l'expertise">
-                            Partager <i class="bi bi-share-fill"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-
-    // Une fois que les articles sont affichés, on active les boutons de partage
-    setupShareButtons();
-}
 
 function setupShareButtons() {
     const shareButtons = document.querySelectorAll('.btn-share-article');
@@ -134,6 +87,3 @@ function setupShareButtons() {
         });
     });
 }
-
-// On lance l'affichage
-window.addEventListener("load", displayArticles);
