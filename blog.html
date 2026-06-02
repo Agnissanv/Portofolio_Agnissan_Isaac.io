@@ -267,58 +267,58 @@
         
         <script src="javascript/data.js" defer></script>
         <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('PWA Code A-Z : Prête (Service Worker OK)'))
-                .catch(err => console.log('Erreur PWA :', err));
-            });
-        }
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('PWA Code A-Z : Prête (Service Worker OK)'))
+                    .catch(err => console.log('Erreur PWA :', err));
+                });
+            }
         </script>
 
         <!-- script de gestion du menu -->
         <script>
-        // 1. Initialisation des éléments
-        const menuContent = document.getElementById('navbarSupportedContent');
-        const bsCollapse = new bootstrap.Collapse(menuContent, {toggle: false});
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-        const searchBtn = document.getElementById('search-btn');
-        const searchInput = document.getElementById('search-input'); // Assure-toi que ton input a cet ID
+            // 1. Initialisation des éléments
+            const menuContent = document.getElementById('navbarSupportedContent');
+            const bsCollapse = new bootstrap.Collapse(menuContent, {toggle: false});
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const searchBtn = document.getElementById('search-btn');
+            const searchInput = document.getElementById('search-input'); // Assure-toi que ton input a cet ID
 
-        // Fonction réutilisable pour fermer le menu proprement
-        const closeMenuMobile = () => {
-            if (window.innerWidth < 992 && menuContent.classList.contains('show')) {
-                bsCollapse.hide();
-            }
-        };
+            // Fonction réutilisable pour fermer le menu proprement
+            const closeMenuMobile = () => {
+                if (window.innerWidth < 992 && menuContent.classList.contains('show')) {
+                    bsCollapse.hide();
+                }
+            };
 
-        // 2. Fermeture au clic sur un lien (Navigation)
-        navLinks.forEach((l) => {
-            l.addEventListener('click', closeMenuMobile);
-        });
+            // 2. Fermeture au clic sur un lien (Navigation)
+            navLinks.forEach((l) => {
+                l.addEventListener('click', closeMenuMobile);
+            });
 
-        // 3. Fermeture automatique dès que l'utilisateur SCROLLE
-        window.addEventListener('scroll', () => {
-            if (menuContent.classList.contains('show')) {
-                bsCollapse.hide();
-            }
-        });
-
-        // 4. GESTION DE LA RECHERCHE (Le bouton ET la touche Entrée)
-
-        // Clic sur le bouton loupe
-        if (searchBtn) {
-            searchBtn.addEventListener('click', closeMenuMobile);
-        }
-
-        // Appui sur la touche "Entrée" dans le champ de recherche
-        if (searchInput) {
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    closeMenuMobile();
+            // 3. Fermeture automatique dès que l'utilisateur SCROLLE
+            window.addEventListener('scroll', () => {
+                if (menuContent.classList.contains('show')) {
+                    bsCollapse.hide();
                 }
             });
-        }
+
+            // 4. GESTION DE LA RECHERCHE (Le bouton ET la touche Entrée)
+
+            // Clic sur le bouton loupe
+            if (searchBtn) {
+                searchBtn.addEventListener('click', closeMenuMobile);
+            }
+
+            // Appui sur la touche "Entrée" dans le champ de recherche
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        closeMenuMobile();
+                    }
+                });
+            }
         </script>
 
         <!-- Script de partage -->
