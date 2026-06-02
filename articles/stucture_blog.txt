@@ -12,7 +12,7 @@
 
     <!-- ENCART D'AFFILIATION OU DE CONVERSION RAPIDE (Nouveau) -->
     <div class="p-3 my-4 bg-light border-start border-danger border-4 fs-6">
-        🚀 <strong>Ressource recommandée :</strong> [Texte court accrocheur]. Découvrez notre outil/formation favori pour passer à la vitesse supérieure : <a href="[LIEN_AFFILIE_OU_CONTACT]" class="text-danger fw-bold" rel="sponsored">Cliquez ici pour tester [Nom]</a>.
+        <strong>Ressource recommandée :</strong> [Texte court accrocheur]. Découvrez notre outil/formation favori pour passer à la vitesse supérieure : <a href="[LIEN_AFFILIE_OU_CONTACT]" class="text-danger fw-bold" rel="sponsored">Cliquez ici pour tester [Nom]</a>.
     </div>
 
     <!-- 3. LE CORPS DE L'ARTICLE (Changement des H3 en H2) -->
