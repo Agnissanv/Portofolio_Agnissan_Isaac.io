@@ -1,75 +1,296 @@
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Page introuvable — Agnissan Isaac</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Cette page n'existe pas sur le portfolio de Agnissan Isaac." />
-		<meta name="keywords" content="404, page non trouvée, Agnissan Isaac, portfolio, blog, développeur, web, code A-Z" />
-		<meta name="author" content="Agnissan Isaac Valen" />
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Page introuvable — Agnissan Isaac</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Cette page n'existe pas sur le portfolio de Agnissan Isaac." />
+	<meta name="keywords" content="404, page non trouvée, Agnissan Isaac, portfolio, blog, développeur, web, code A-Z" />
+	<meta name="author" content="Agnissan Isaac Valen" />
 
-		<!-- Facebook and Twitter integration -->
-		<meta property="og:title" content="Page introuvable — Agnissan Isaac"/>
-		<meta property="og:image" content="https://agnissanv.github.io/Portofolio_Agnissan_Isaac.io/images/isaac_PDG.webp"/>
-		<meta property="og:url" content="https://agnissanisaac.com/404"/>
-		<meta property="og:site_name" content="Agnissan Isaac — Portfolio"/>
-		<meta property="og:description" content="Cette page n'existe pas."/>
-		<meta name="twitter:title" content="Page introuvable — Agnissan Isaac" />
-		<meta name="twitter:image" content="https://agnissanv.github.io/Portofolio_Agnissan_Isaac.io/images/isaac_PDG.webp" />
-		<meta name="twitter:url" content="https://agnissanisaac.com/404" />
-		<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:title" content="Page introuvable — Agnissan Isaac"/>
+	<meta property="og:image" content="https://agnissanisaac.com/images/isaac_PDG.webp"/>
+	<meta property="og:url" content="https://agnissanisaac.com/404"/>
+	<meta property="og:site_name" content="Agnissan Isaac — Portfolio"/>
+	<meta property="og:description" content="Cette page n'existe pas."/>
+	<meta name="twitter:title" content="Page introuvable — Agnissan Isaac" />
+	<meta name="twitter:image" content="https://agnissanisaac.com/images/isaac_PDG.webp" />
+	<meta name="twitter:url" content="https://agnissanisaac.com/404" />
+	<meta name="twitter:card" content="summary_large_image" />
 
-		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" href="/404page/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/404page/css/animate.css">
-		<link rel="stylesheet" href="/404page/css/style.css">
+	<style>
+		*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-		<!-- Fix : force l'affichage si Waypoints ne se déclenche pas -->
-		<style>
-			.animate-box {
-				opacity: 1 !important;
-				-webkit-animation: none !important;
-				animation: none !important;
-			}
-		</style>
+		:root {
+			--red: #dc3545;
+			--red-dark: #a51a27;
+			--black: #080808;
+			--white: #f0f0f0;
+		}
 
-		<!-- Modernizr JS -->
-		<script src="/404page/js/modernizr-2.6.2.min.js"></script>
+		html, body {
+			width: 100%; height: 100%;
+			background: var(--black);
+			color: var(--white);
+			font-family: 'Space Grotesk', sans-serif;
+			overflow: hidden;
+		}
 
-	</head>
-	<body>
+		.video-bg {
+			position: fixed;
+			inset: 0;
+			z-index: 0;
+		}
+		.video-bg video {
+			width: 100%; height: 100%;
+			object-fit: cover;
+			opacity: 0.18;
+			filter: grayscale(80%) contrast(1.2);
+		}
 
-		<div class="container fh5co-container">
-			<div class="row">
-				<div class="col-md-12 animate-box" data-animate-effect="fadeIn">
-					<div class="fh5co-404-wrap" id="video" data-vide-bg="/404page/video/Crocodile" data-vide-options="position: 0 50%">
-						<div class="overlay"></div>
-					</div>
-				</div>
-				<div class="col-md-12 text-center fh5co-404-text animate-box" data-animate-effect="fadeIn">
-					<h2>Page non trouvée</h2>
-					<p><a href="/" class="btn btn-primary">Retour à l'accueil</a></p>
-				</div>
-				<div class="col-md-12 text-center fh5co-copyright animate-box" data-animate-effect="fadeInUp">
-					<p><small>&copy; 2025 Agnissan Isaac Valen. All Rights Reserved.</small></p>
-				</div>
-			</div>
+		.overlay-scanlines {
+			position: fixed;
+			inset: 0;
+			z-index: 1;
+			background: repeating-linear-gradient(
+				0deg,
+				transparent,
+				transparent 2px,
+				rgba(0,0,0,0.18) 2px,
+				rgba(0,0,0,0.18) 4px
+			);
+			pointer-events: none;
+		}
+		.overlay-vignette {
+			position: fixed;
+			inset: 0;
+			z-index: 2;
+			background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.85) 100%);
+			pointer-events: none;
+		}
+		.overlay-red-line {
+			position: fixed;
+			top: 0; left: 0; right: 0;
+			height: 3px;
+			background: var(--red);
+			z-index: 10;
+			box-shadow: 0 0 12px rgba(220,53,69,0.8);
+		}
+
+		.content {
+			position: relative;
+			z-index: 5;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			padding: 2rem;
+			text-align: center;
+		}
+
+		.error-label {
+			font-family: 'Share Tech Mono', monospace;
+			font-size: 0.75rem;
+			letter-spacing: 0.3em;
+			color: var(--red);
+			text-transform: uppercase;
+			margin-bottom: 1.5rem;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 0.3s;
+		}
+
+		.glitch-wrapper {
+			position: relative;
+			margin-bottom: 1rem;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 0.5s;
+		}
+
+		.glitch {
+			font-size: clamp(7rem, 22vw, 15rem);
+			font-weight: 900;
+			line-height: 1;
+			color: var(--white);
+			letter-spacing: -0.04em;
+			position: relative;
+			display: inline-block;
+		}
+
+		.glitch::before,
+		.glitch::after {
+			content: attr(data-text);
+			position: absolute;
+			inset: 0;
+			font-size: inherit;
+			font-weight: inherit;
+			letter-spacing: inherit;
+		}
+		.glitch::before {
+			color: var(--red);
+			clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+			animation: glitch-top 3s infinite steps(1);
+		}
+		.glitch::after {
+			color: #00e5ff;
+			clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+			animation: glitch-bot 3s infinite steps(1);
+			opacity: 0.6;
+		}
+
+		.divider {
+			width: 60px;
+			height: 2px;
+			background: var(--red);
+			margin: 0 auto 1.5rem;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 0.7s;
+		}
+
+		.headline {
+			font-size: clamp(1.1rem, 3vw, 1.5rem);
+			font-weight: 700;
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+			color: var(--white);
+			margin-bottom: 0.75rem;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 0.8s;
+		}
+
+		.subtext {
+			font-family: 'Share Tech Mono', monospace;
+			font-size: 0.8rem;
+			color: rgba(240,240,240,0.45);
+			letter-spacing: 0.15em;
+			margin-bottom: 2.5rem;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 0.95s;
+		}
+
+		.btn-home {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.8rem 2.2rem;
+			background: var(--red);
+			color: #fff;
+			font-family: 'Space Grotesk', sans-serif;
+			font-weight: 700;
+			font-size: 0.85rem;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			text-decoration: none;
+			border: none;
+			cursor: pointer;
+			clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+			transition: background 0.2s;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 1.1s;
+		}
+		.btn-home:hover { background: var(--red-dark); }
+		.btn-home svg { width: 16px; height: 16px; }
+
+		.footer {
+			position: fixed;
+			bottom: 1.5rem;
+			left: 0; right: 0;
+			text-align: center;
+			font-family: 'Share Tech Mono', monospace;
+			font-size: 0.65rem;
+			letter-spacing: 0.2em;
+			color: rgba(240,240,240,0.2);
+			z-index: 5;
+			opacity: 0;
+			animation: fadeSlideUp 0.6s ease forwards 1.3s;
+		}
+
+		.corner {
+			position: fixed;
+			width: 30px; height: 30px;
+			z-index: 5;
+			opacity: 0;
+			animation: fadeIn 1s ease forwards 1.5s;
+		}
+		.corner--tl { top: 1.2rem; left: 1.2rem; border-top: 1px solid var(--red); border-left: 1px solid var(--red); }
+		.corner--tr { top: 1.2rem; right: 1.2rem; border-top: 1px solid var(--red); border-right: 1px solid var(--red); }
+		.corner--bl { bottom: 1.2rem; left: 1.2rem; border-bottom: 1px solid var(--red); border-left: 1px solid var(--red); }
+		.corner--br { bottom: 1.2rem; right: 1.2rem; border-bottom: 1px solid var(--red); border-right: 1px solid var(--red); }
+
+		@keyframes fadeSlideUp {
+			from { opacity: 0; transform: translateY(16px); }
+			to   { opacity: 1; transform: translateY(0); }
+		}
+		@keyframes fadeIn {
+			from { opacity: 0; } to { opacity: 1; }
+		}
+		@keyframes glitch-top {
+			0%,100% { transform: translate(0); }
+			10%      { transform: translate(-3px, -2px); }
+			20%      { transform: translate(3px, 0); }
+			30%      { transform: translate(-2px, -1px); }
+			40%,90%  { transform: translate(0); }
+		}
+		@keyframes glitch-bot {
+			0%,100% { transform: translate(0); }
+			15%     { transform: translate(3px, 2px); }
+			25%     { transform: translate(-3px, 1px); }
+			35%     { transform: translate(2px, 0); }
+			45%,85% { transform: translate(0); }
+		}
+
+		@media (max-width: 480px) {
+			.subtext { font-size: 0.7rem; letter-spacing: 0.08em; }
+		}
+	</style>
+</head>
+<body>
+
+	<div class="video-bg">
+		<video autoplay muted loop playsinline>
+			<source src="/404page/video/Crocodile.mp4" type="video/mp4">
+			<source src="/404page/video/Crocodile.webm" type="video/webm">
+			<source src="/404page/video/Crocodile.ogv" type="video/ogg">
+		</video>
+	</div>
+
+	<div class="overlay-scanlines"></div>
+	<div class="overlay-vignette"></div>
+	<div class="overlay-red-line"></div>
+
+	<div class="corner corner--tl"></div>
+	<div class="corner corner--tr"></div>
+	<div class="corner corner--bl"></div>
+	<div class="corner corner--br"></div>
+
+	<main class="content">
+		<p class="error-label">// error_code: 404 — page_not_found</p>
+
+		<div class="glitch-wrapper">
+			<span class="glitch" data-text="404">404</span>
 		</div>
-	
-		<!-- jQuery -->
-		<script src="/404page/js/jquery.min.js"></script>
-		<!-- Bootstrap -->
-		<script src="/404page/js/bootstrap.min.js"></script>
-		<!-- Vide -->
-		<script src="/404page/js/jquery.vide.min.js"></script>
-		<!-- Waypoints -->
-		<script src="/404page/js/jquery.waypoints.min.js"></script>
-		<!-- Main JS -->
-		<script src="/404page/js/main.js"></script>
 
-	</body>
+		<div class="divider"></div>
+
+		<h1 class="headline">Tu t'es perdu dans le code</h1>
+
+		<p class="subtext">Cette page n'existe pas — ou a été supprimée.</p>
+
+		<a href="/" class="btn-home">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M19 12H5M12 5l-7 7 7 7"/>
+			</svg>
+			Retour à l'accueil
+		</a>
+	</main>
+
+	<footer class="footer">
+		&copy; 2025 Agnissan Isaac Valen — All Rights Reserved
+	</footer>
+
+</body>
 </html>
