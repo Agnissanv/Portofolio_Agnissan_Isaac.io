@@ -50,3 +50,11 @@
         Partager <i class="bi bi-share-fill"></i>
     </button>
 </div>
+
+
+
+
+
+
+
+« Rédige un article sur [tel sujet] en suivant notre structure »
