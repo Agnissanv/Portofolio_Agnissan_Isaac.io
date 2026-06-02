@@ -95,20 +95,14 @@
                             </ul>
                         </div>
                     </li>
-                    
-
-
-
-                    
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- Fin - barre de navigation -->
 
 
-
+    <!-- Section Hero -->
     <section id="hero" class="hero">
         <div class="container">
             <div class="grid">
@@ -128,6 +122,8 @@
         </div>
     </section>
 
+
+    <!-- Section À propos -->
     <section id="about" class="about">
         <div class="container">
             <div class="grid">
@@ -243,6 +239,7 @@
     </section>
 
     
+    <!-- Section Compétences -->
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
@@ -323,6 +320,7 @@
         </div>
     </section>
 
+    <!-- Section Résultats et Statistiques -->
     <section id="results-stats">
     <div class="container">
         <h2 class="text-white text-center mb-5 fw-bold">L'Impact Code A-Z ( <span class="text-danger">Les Chiffres</span> )</h2>
@@ -355,6 +353,8 @@
     </div>
 </section>
 
+
+<!-- Section Témoignages -->
 <section id="testimonials">
     <div class="container">
         <h2 class="text-white text-center mb-5 fw-bold">Ils font confiance à <span class="text-danger">Code A-Z</span></h2>
@@ -430,6 +430,7 @@
 </section>
 
 
+    <!-- Section Portfolio -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header">
@@ -1134,7 +1135,7 @@
         </div>
     </section>
 
-    <!-- tarifs -->
+    <!-- section tarifs -->
     <section id="tarifs" class="py-5 bg-black text-white">
     <div class="container">
         <div class="section-header text-center mb-5">
@@ -1202,6 +1203,7 @@
 </section>
 
 
+    <!-- Section de contact -->
     <section id="contact" class="contact">
     <div class="container">
         <div class="section-header text-center mb-5">
@@ -1290,6 +1292,7 @@
      <!-- Fin - pied de page -->
 
 <script src="./javascript/app.js" defer></script>
+<!-- Gestion du Service Worker -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -1300,6 +1303,7 @@
   }
 </script>
 
+<!-- Gestion de la fermeture automatique du menu -->
 <script>
 // 1. Gestion de la fermeture automatique
 const menuContent = document.getElementById('navbarSupportedContent');
@@ -1332,7 +1336,7 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
-
+<!-- Gestion du formulaire de contact -->
 <script>
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -1362,6 +1366,7 @@ window.addEventListener('scroll', () => {
   });
 </script>
 
+<!-- Compteur GoatCounter -->
 <script data-goatcounter="https://agnissanisaac.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
