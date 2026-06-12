@@ -30,6 +30,40 @@
             background: #cc0000;
             transform: scale(1.05);
         }
+
+        /* =========================================
+        📱 RESPONSIVE DESIGN (MOBILE & TABLETTE)
+        ========================================= */
+        @media screen and (max-width: 768px) {
+            .main-container {
+                padding: 10px; /* Gagne de l'espace sur les petits écrans */
+                gap: 15px;
+            }
+
+            .video-box {
+                min-width: 100%; /* Casse la limite des 600px pour rentrer dans l'écran */
+                flex: none; /* Désactive le flex proportionnel pour forcer le 100% */
+            }
+
+            .sidebar {
+                min-width: 100%; /* La publicité passe parfaitement sous la vidéo */
+                flex: none;
+            }
+
+            iframe {
+                height: 250px; /* Adapte la hauteur pour un ratio 16:9 parfait sur mobile */
+                border-width: 2px; /* Affine la ligne rouge pour ne pas étouffer l'image */
+            }
+
+            .header {
+                padding: 15px 10px;
+            }
+
+            .header h1 {
+                font-size: 1.2rem; /* Évite que le titre prenne la moitié de l'écran */
+                margin: 0;
+            }
+        }
     </style>
 </head>
 <body>
