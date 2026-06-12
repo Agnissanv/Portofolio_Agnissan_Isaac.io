@@ -6,12 +6,58 @@
     <title>Direct Coupe du Monde 2026 | Code A-Z Foot Live</title>
     <meta name="description" content="Suivez le match en direct HD. Une exclusivité Code A-Z : Expertise informatique et passion foot.">
     <style>
-        body { font-family: sans-serif; background: #0f0f0f; color: white; margin: 0; }
-        .header { text-align: center; padding: 20px; background: #1a1a1a; }
-        .main-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
-        .video-box { flex: 2; min-width: 600px; }
-        .sidebar { flex: 1; min-width: 300px; background: #222; padding: 15px; }
-        iframe { width: 100%; height: 800px; border: 3px solid #ff0000; }
+        /* 1. Le reset indispensable pour éviter les débordements (overflow) */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body { 
+            font-family: sans-serif; 
+            background: #0f0f0f; 
+            color: white; 
+            overflow-x: hidden; /* Empêche le scroll horizontal */
+        }
+
+        .header { 
+            text-align: center; 
+            padding: 20px; 
+            background: #1a1a1a; 
+        }
+
+        .main-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
+            padding: 20px; 
+            max-width: 1400px; /* Limite la largeur sur les très grands écrans */
+            margin: 0 auto;
+        }
+
+        .video-box { 
+            flex: 2; 
+            min-width: 0; /* Permet au flexbox de rétrécir en dessous du contenu si besoin */
+            width: 100%; 
+        }
+
+        .sidebar { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #222; 
+            padding: 20px; 
+            border-radius: 8px; /* Petite touche moderne */
+        }
+
+        /* 2. Rendre l'iframe 100% responsive avec un ratio 16:9 parfait */
+        iframe { 
+            width: 100%; 
+            aspect-ratio: 16 / 9; /* Remplace les hauteurs fixes (800px/250px) */
+            border: 3px solid #ff0000; 
+            border-radius: 8px;
+            display: block;
+        }
 
         .cta-button {
             display: block;
@@ -24,35 +70,36 @@
             border-radius: 5px;
             text-transform: uppercase;
             transition: 0.3s ease;
-            margin-bottom: 20px;
+            margin: 15px 0;
         }
+
         .cta-button:hover {
             background: #cc0000;
             transform: scale(1.05);
         }
 
+        .ads-banner img {
+            width: 100%;
+            height: auto; /* Garde les proportions de l'image */
+            border-radius: 5px;
+        }
+
         /* =========================================
         📱 RESPONSIVE DESIGN (MOBILE & TABLETTE)
         ========================================= */
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 900px) {
             .main-container {
-                padding: 10px; /* Gagne de l'espace sur les petits écrans */
+                flex-direction: column; /* Force les éléments à s'empiler */
+                padding: 10px;
                 gap: 15px;
             }
 
-            .video-box {
-                min-width: 100%; /* Casse la limite des 600px pour rentrer dans l'écran */
-                flex: none; /* Désactive le flex proportionnel pour forcer le 100% */
-            }
-
             .sidebar {
-                min-width: 100%; /* La publicité passe parfaitement sous la vidéo */
-                flex: none;
+                min-width: 100%; /* La sidebar prend toute la largeur */
             }
 
             iframe {
-                height: 250px; /* Adapte la hauteur pour un ratio 16:9 parfait sur mobile */
-                border-width: 2px; /* Affine la ligne rouge pour ne pas étouffer l'image */
+                border-width: 2px; /* Affine la bordure sur mobile */
             }
 
             .header {
@@ -60,32 +107,34 @@
             }
 
             .header h1 {
-                font-size: 1.2rem; /* Évite que le titre prenne la moitié de l'écran */
-                margin: 0;
+                font-size: 1.2rem; 
+            }
+            
+            .sidebar h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Canada vs Bosnie-Herzégovine - Live HD</h1>
+        <h1>Canada vs Bosnie-Herzégovine</h1>
+        <br>
+        <p>Live HD Offerte par Code A-Z</p>
     </div>
 
     <div class="main-container">
-        <!-- Zone Vidéo Sécurisée -->
         <div class="video-box">
             <iframe src="https://jack07eo.mpstickv5m73jgravity.my/fr/football/fifa-world-cup-4331450/canada-vs-bosnia-and-herzegovina.html?icg=Q0k&ilang=fr" allowfullscreen 
                     sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
 
-        <!-- Zone Publicitaire / Code A-Z -->
         <div class="sidebar">
             <h3>Boostez votre business avec Code A-Z</h3>
             <p>Besoin d'un site web ? Appelez l'expert.</p>
-            <a href="https://agnissanisaac.com" class="cta-button" style="background:red; color:white; padding:10px;">Voir nos services</a>
+            <a href="https://agnissanisaac.com" class="cta-button">Voir nos services</a>
             <div class="ads-banner">
-                <!-- Tes propres bannières ici -->
-                <img src="banniere-pub.jpg" alt="Pub Faites de la pub sur mesure car ici tout le monde vous voit! " style="width:100%;">
+                <img src="banniere-pub.jpg" alt="Pub Faites de la pub sur mesure car ici tout le monde vous voit!">
             </div>
         </div>
     </div>
