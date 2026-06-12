@@ -141,11 +141,77 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
             }
+
+            .sidebar {
+                flex: 1;
+                min-width: 300px;
+                background: #1a1a1a;
+                padding: 25px;
+                border-radius: 10px;
+                border: 1px solid #222;
+            }
+
+            .product-box {
+                background: #0f0f0f;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #ff0000;
+                text-align: center;
+            }
+
+            .promo-badge {
+                background: #ff0000;
+                color: white;
+                font-size: 11px;
+                font-weight: bold;
+                padding: 4px 8px;
+                border-radius: 3px;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+
+            .product-desc {
+                font-size: 14px;
+                color: #cccccc;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .product-img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                border: 1px solid #333;
+            }
+
+            .cta-pack-btn {
+                display: block;
+                background: #ff0000;
+                color: white;
+                text-align: center;
+                padding: 14px;
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 5px;
+                text-transform: uppercase;
+                font-size: 14px;
+                transition: 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            }
+
+            .cta-pack-btn:hover {
+                background: #cc0000;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+            }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Canada vs Bosnie-Herzégovine</h1>
+        <hr>
+        <p>International: Coupe du Monde</p>
         <br>
         <p>Live HD Offerte par Code A-Z</p>
     </div>
@@ -184,16 +250,29 @@
 
 
             <!-- iframe pour la vidéo -->
-            <iframe src="https://jack07eo.mpstickv5m73jgravity.my/fr/football/fifa-world-cup-4331450/canada-vs-bosnia-and-herzegovina.html?icg=Q0k&ilang=fr" allowfullscreen 
+            <iframe src="https://jack07eo.mpstickv5m73jgravity.my/fr/football/fifa-world-cup-4318059/usa-vs-paraguay.html?icg=Q0k&ilang=fr" allowfullscreen 
                     sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
 
         <div class="sidebar">
-            <h3>Boostez votre business avec Code A-Z</h3>
-            <p>Besoin d'un site web ? Appelez l'expert.</p>
-            <a href="https://agnissanisaac.com" class="cta-button">Voir nos services</a>
-            <div class="ads-banner">
-                <img src="banniere-pub.jpg" alt="Pub Faites de la pub sur mesure car ici tout le monde vous voit!">
+            <!-- Bloc Identité de Marque -->
+            <h2>Propulsé par Code A-Z</h2>
+            <p>L'unique marque informatique liée à votre succès numérique.</p>
+            
+            <hr style="border: 0.5px solid #333; margin: 20px 0;">
+
+            <!-- Bloc Promotion du Pack Développeur -->
+            <div class="product-box">
+                <span class="promo-badge">🔥 OFFRE COUPE DU MONDE</span>
+                <h3>L'Arsenal du Développeur Pro</h3>
+                <p class="product-desc">Le pack ultime pour maîtriser le code, créer des plateformes comme celle-ci et générer vos premiers revenus !</p>
+                
+                <!-- Remplacer par une vraie image de couverture de ton pack dans ton dossier img -->
+                <img src="img/arsenal-developpeur.png" alt="L'Arsenal du Développeur Pro" class="product-img">
+                
+                <a href="https://codea-z.mychariow.shop/larsenal-du-developpeur-pro-le-pack-ultime" target="_blank" class="cta-pack-btn">
+                    Télécharger mon Pack Ultime 🚀
+                </a>
             </div>
         </div>
     </div>
