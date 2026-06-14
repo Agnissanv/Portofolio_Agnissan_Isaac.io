@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+
     <!-- Balises Open Graph pour Facebook / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://agnissanisaac.com/live.html">
@@ -19,6 +23,8 @@
 
     <title>Direct Coupe du Monde 2026 | Code A-Z Foot Live</title>
     <meta name="description" content="Suivez le match en direct HD. Une exclusivité Code A-Z : Expertise informatique et passion foot.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <style>
         /* 1. Le reset indispensable pour éviter les débordements (overflow) */
         * { 
@@ -28,10 +34,11 @@
         }
 
         body { 
+            margin-top: 70px;
             font-family: sans-serif; 
             background: #0f0f0f; 
             color: white; 
-            overflow-x: hidden; /* Empêche le scroll horizontal */
+            overflow-x: hidden;
         }
 
         .header { 
@@ -46,13 +53,13 @@
             justify-content: center; 
             gap: 20px; 
             padding: 20px; 
-            max-width: 1400px; /* Limite la largeur sur les très grands écrans */
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .video-box { 
             flex: 2; 
-            min-width: 0; /* Permet au flexbox de rétrécir en dessous du contenu si besoin */
+            min-width: 0; 
             width: 100%; 
         }
 
@@ -61,13 +68,13 @@
             min-width: 300px; 
             background: #222; 
             padding: 20px; 
-            border-radius: 8px; /* Petite touche moderne */
+            border-radius: 8px; 
         }
 
         /* 2. Rendre l'iframe 100% responsive avec un ratio 16:9 parfait */
         iframe { 
             width: 100%; 
-            aspect-ratio: 16 / 9; /* Remplace les hauteurs fixes (800px/250px) */
+            aspect-ratio: 16 / 9; 
             border: 3px solid #ff0000; 
             border-radius: 8px;
             display: block;
@@ -94,7 +101,7 @@
 
         .ads-banner img {
             width: 100%;
-            height: auto; /* Garde les proportions de l'image */
+            height: auto; 
             border-radius: 5px;
         }
 
@@ -103,17 +110,17 @@
         ========================================= */
         @media screen and (max-width: 900px) {
             .main-container {
-                flex-direction: column; /* Force les éléments à s'empiler */
+                flex-direction: column; 
                 padding: 10px;
                 gap: 15px;
             }
 
             .sidebar {
-                min-width: 100%; /* La sidebar prend toute la largeur */
+                min-width: 100%; 
             }
 
             iframe {
-                border-width: 2px; /* Affine la bordure sur mobile */
+                border-width: 2px; 
             }
 
             .header {
@@ -222,11 +229,38 @@
     </style>
 </head>
 <body>
+    <!-- Début - barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="img/Code_A-Z_Logo-no-bg.png" alt="logo de Code A-Z" width="100" height="50" style="border-radius: 10px; margin-right: 100px; margin-left: 10px;" loading="lazy">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" aria-current="page" href="index.html#portfolio">Portfolio</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" id="search-form">
+                    <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher article" aria-label="Search"/>
+                    <button class="btn btn-outline-danger" type="submit" id="search-btn">Rechercher</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Fin - barre de navigation -->
+
+
     <div class="header">
-        <h1>Qatar vs Suisse</h1>
+        <h1>Australie vs Turquie</h1>
         <hr>
         <p>International: Coupe du Monde</p>
-        <br>
         <p>Live HD Offert par Code A-Z <em>&nbsp;-&nbsp; Expert en création de sites web</em></p>
     </div>
 
@@ -265,7 +299,7 @@
 
 
             <!-- iframe pour la vidéo -->
-            <iframe src="https://jack09eo.mpstickv5m73jgravity.my/fr/football/fifa-world-cup-4324335/brazil-vs-morocco.html?icg=Q0k&ilang=fr" allowfullscreen 
+            <iframe src="https://jack09eo.mpstickv5m73jgravity.my/fr/football/fifa-world-cup-4341131/australia-vs-turkiye.html?icg=Q0k&ilang=fr" allowfullscreen 
                     sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
 
