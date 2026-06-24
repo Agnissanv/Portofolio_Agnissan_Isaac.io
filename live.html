@@ -301,6 +301,44 @@
 
 
             <!-- iframe pour la vidéo -->
+            <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324339/scotland-vs-brazil.html?icg=Q0k&ilang=fr" allowfullscreen 
+                    sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+    <div class="main-container">
+        <div class="video-box">
+
+            <!-- Badge de Preuve Sociale (Spectateurs) -->
+            <div class="live-counter-badge">
+                <span class="live-dot">●</span> 
+                <span id="visitor-count">8 852 </span> &nbsp; spectateurs en direct
+            </div>
+
+            
+            <script>
+                function simulateLiveTraffic() {
+                    const counterElement = document.getElementById('visitor-count');
+                    // Récupère le nombre actuel sans les espaces
+                    let currentCount = parseInt(counterElement.innerText.replace(/\s/g, ''));
+                    
+                    // Génère une variation aléatoire entre -15 et +18 spectateurs
+                    let variation = Math.floor(Math.random() * 50) - 100; 
+                    currentCount += variation;
+
+                    // Sécurité pour ne pas descendre trop bas si le live cartonne
+                    if (currentCount < 5500) currentCount = 5800; // Minimum confortable
+                    if (currentCount > 180500) currentCount = 180200; // Maximum crédible
+
+                    // Affiche le nombre avec un espace pour les milliers (ex: 1 450)
+                    counterElement.innerText = currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                }
+
+                // Met à jour le compteur toutes les 4 secondes
+                setInterval(simulateLiveTraffic, 4000);
+            </script>
+
+
+
+            <!-- iframe pour la vidéo -->
             <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324338/morocco-vs-haiti.html?icg=Q0k&ilang=fr" allowfullscreen 
                     sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
