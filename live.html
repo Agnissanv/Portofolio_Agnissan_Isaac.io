@@ -240,6 +240,9 @@
             color: #999;
             font-size: 0.9rem;
         }
+        #matchSearch1{
+                display: none;
+            }
  
         /* =========================================
         📱 RESPONSIVE DESIGN (MOBILE & TABLETTE)
@@ -285,6 +288,9 @@
             #matchSearch, #matchSearch:focus, #matchSearch1, #matchSearch1:focus {
                 width: 100%;
                 margin-top: 15px;
+            }
+            #matchSearch1{
+                display: inherit;
             }
  
             .video-separator {
@@ -334,8 +340,8 @@
     <!-- Fin - barre de navigation -->
  
     <div class="header">
-        <p>International: Coupe du Monde</p>
-        <p>Live HD Offert par Code A-Z <em>&nbsp;-&nbsp; Expert en création de sites web</em></p>
+        <p>International: Coupe du Monde &nbsp; / &nbsp; Live HD Offert par Code A-Z <em>&nbsp;-&nbsp; Experts en création web moderne</em></p>
+        
         <form class="d-flex" role="search" onsubmit="return false;">
                     <input class="form-control me-2 bg-dark text-white border-danger" type="search" id="matchSearch1" placeholder="Chercher un match (ex: Côte d'Ivoire)..." aria-label="Search">
                 </form>
