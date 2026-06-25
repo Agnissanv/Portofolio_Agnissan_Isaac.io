@@ -209,19 +209,19 @@
             box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
         }
  
-        #matchSearch::placeholder {
+        #matchSearch::placeholder, #matchSearch1::placeholder {
             color: rgba(255, 255, 255, 0.6) !important;
             font-size: 14px;
         }
  
-        #matchSearch {
+        #matchSearch, #matchSearch1 {
             width: 350px;
             padding: 10px 15px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
  
-        #matchSearch:focus {
+        #matchSearch:focus, #matchSearch1:focus {
             width: 450px;
             box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
             border-color: #ff0000 !important;
@@ -282,7 +282,7 @@
                 font-size: 1.1rem;
             }
  
-            #matchSearch, #matchSearch:focus {
+            #matchSearch, #matchSearch:focus, #matchSearch1, #matchSearch1:focus {
                 width: 100%;
                 margin-top: 15px;
             }
@@ -336,6 +336,9 @@
     <div class="header">
         <p>International: Coupe du Monde</p>
         <p>Live HD Offert par Code A-Z <em>&nbsp;-&nbsp; Expert en création de sites web</em></p>
+        <form class="d-flex" role="search" onsubmit="return false;">
+                    <input class="form-control me-2 bg-dark text-white border-danger" type="search" id="matchSearch1" placeholder="Chercher un match (ex: Côte d'Ivoire)..." aria-label="Search">
+                </form>
     </div>
  
     <!-- PAGE WRAPPER : Structure principale -->
@@ -507,6 +510,19 @@
  
         // Système de recherche : filtre uniquement les vidéos
         document.getElementById('matchSearch').addEventListener('input', function(e) {
+            const searchWord = e.target.value.toLowerCase();
+            const videos = document.querySelectorAll('.video-box');
+ 
+            videos.forEach(video => {
+                const titleElement = video.querySelector('h1');
+                
+                if (titleElement) {
+                    const title = titleElement.innerText.toLowerCase();
+                    video.style.display = title.includes(searchWord) ? "block" : "none";
+                }
+            });
+        });
+        document.getElementById('matchSearch1').addEventListener('input', function(e) {
             const searchWord = e.target.value.toLowerCase();
             const videos = document.querySelectorAll('.video-box');
  
