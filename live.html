@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+ 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
-
+ 
     <!-- Balises Open Graph pour Facebook / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://agnissanisaac.com/live.html">
     <meta property="og:title" content="⚽ COUPE DU MONDE 2026 EN DIRECT HD ! 🌍">
     <meta property="og:description" content="Suivez tous les matchs essentiels en direct, 100% fluide et sans interruption sur notre plateforme ! Fast, gratuit et en HD.">
     <meta property="og:image" content="https://agnissanisaac.com/img/miniature-coupe-du-monde.jpg">
-
+ 
     <!-- Optionnel : Pour Twitter/X au cas où -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="⚽ COUPE DU MONDE 2026 EN DIRECT HD ! 🌍">
     <meta name="twitter:description" content="Suivez tous les matchs essentiels en direct, 100% fluide et sans interruption sur notre plateforme !">
     <meta name="twitter:image" content="https://agnissanisaac.com/img/miniature-coupe-du-monde.jpg">
-
+ 
     <title>Coupe du Monde 2026 En Direct HD | Code A-Z Foot Live</title>
     <meta name="description" content="Suivez le match en direct HD. Une exclusivité Code A-Z : Expertise informatique et passion foot.">
     <link rel="stylesheet" href="css/style.css">
@@ -32,7 +32,7 @@
             margin: 0; 
             padding: 0; 
         }
-
+ 
         body { 
             margin-top: 70px;
             font-family: sans-serif; 
@@ -40,37 +40,58 @@
             color: white; 
             overflow-x: hidden;
         }
-
+ 
         .header { 
             text-align: center; 
             padding: 20px; 
             background: #1a1a1a; 
         }
-
-        .main-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 20px; 
-            padding: 20px; 
-            max-width: 1400px;
+ 
+        /* ========================================
+           NOUVELLE STRUCTURE : LAYOUT DEUX COLONNES
+        ======================================== */
+        .page-wrapper {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1600px;
             margin: 0 auto;
         }
-
-        .video-box { 
-            flex: 2; 
-            min-width: 0; 
-            width: 100%; 
+ 
+        .videos-column {
+            flex: 1;
+            min-width: 0; /* Important pour que flex fonctionne avec overflow */
         }
-
+ 
+        .sidebar-column {
+            width: 350px; /* Largeur fixe pour les sidebars */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+ 
+        .video-box { 
+            width: 100%; 
+            margin-bottom: 40px;
+        }
+ 
+        .video-box h1 {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+ 
         .sidebar { 
-            flex: 1; 
-            min-width: 300px; 
             background: #222; 
             padding: 20px; 
-            border-radius: 8px; 
+            border-radius: 8px;
+            border: 1px solid #333;
         }
-
+ 
+        .sidebar h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+ 
         /* 2. Rendre l'iframe 100% responsive avec un ratio 16:9 parfait */
         iframe { 
             width: 100%; 
@@ -79,7 +100,7 @@
             border-radius: 8px;
             display: block;
         }
-
+ 
         .cta-button {
             display: block;
             background: #ff0000;
@@ -93,49 +114,18 @@
             transition: 0.3s ease;
             margin: 15px 0;
         }
-
+ 
         .cta-button:hover {
             background: #cc0000;
             transform: scale(1.05);
         }
-
+ 
         .ads-banner img {
             width: 100%;
             height: auto; 
             border-radius: 5px;
         }
-
-        /* =========================================
-        📱 RESPONSIVE DESIGN (MOBILE & TABLETTE)
-        ========================================= */
-        @media screen and (max-width: 900px) {
-            .main-container {
-                flex-direction: column; 
-                padding: 10px;
-                gap: 15px;
-            }
-
-            .sidebar {
-                min-width: 100%; 
-            }
-
-            iframe {
-                border-width: 2px; 
-            }
-
-            .header {
-                padding: 15px 10px;
-            }
-
-            .header h1 {
-                font-size: 1.2rem; 
-            }
-            
-            .sidebar h3 {
-                font-size: 1.1rem;
-            }
-        }
-
+ 
         .live-counter-badge {
             background: rgba(15, 15, 15, 0.85);
             color: #ffffff;
@@ -148,84 +138,169 @@
             margin-bottom: 12px;
             border: 1px solid rgba(255, 0, 0, 0.3);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            }
-
-            .live-dot {
+        }
+ 
+        .live-dot {
             color: #ff0000;
             margin-right: 8px;
             font-size: 18px;
             animation: blink 1.2s infinite;
-            }
-
-            @keyframes blink {
+        }
+ 
+        @keyframes blink {
             0% { opacity: 1; }
             50% { opacity: 0.3; }
             100% { opacity: 1; }
+        }
+ 
+        .product-box {
+            background: #0f0f0f;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ff0000;
+            text-align: center;
+            margin-top: 15px;
+        }
+ 
+        .promo-badge {
+            background: #ff0000;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+ 
+        .product-desc {
+            font-size: 14px;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+ 
+        .product-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+        }
+ 
+        .cta-pack-btn {
+            display: block;
+            background: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+ 
+        .cta-pack-btn:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+        }
+ 
+        #matchSearch::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-size: 14px;
+        }
+ 
+        #matchSearch {
+            width: 350px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+ 
+        #matchSearch:focus {
+            width: 450px;
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+            border-color: #ff0000 !important;
+            background-color: #1a1a1a !important;
+            color: white;
+        }
+ 
+        .video-separator {
+            display: none;
+            border: none;
+            border-top: 1px solid #333;
+            margin: 30px 0;
+        }
+ 
+        .video-separator em {
+            color: #999;
+            font-size: 0.9rem;
+        }
+ 
+        /* =========================================
+        📱 RESPONSIVE DESIGN (MOBILE & TABLETTE)
+        ========================================= */
+        @media screen and (max-width: 1100px) {
+            .page-wrapper {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px;
             }
-
+ 
+            .sidebar-column {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+ 
             .sidebar {
                 flex: 1;
-                min-width: 300px;
-                background: #1a1a1a;
-                padding: 25px;
-                border-radius: 10px;
-                border: 1px solid #222;
+                min-width: 280px;
             }
-
-            .product-box {
-                background: #0f0f0f;
-                padding: 20px;
-                border-radius: 8px;
-                border: 1px solid #ff0000;
-                text-align: center;
+ 
+            .videos-column {
+                order: -1; /* Videos avant les sidebars sur mobile */
             }
-
-            .promo-badge {
-                background: #ff0000;
-                color: white;
-                font-size: 11px;
-                font-weight: bold;
-                padding: 4px 8px;
-                border-radius: 3px;
-                display: inline-block;
-                margin-bottom: 10px;
+ 
+            iframe {
+                border-width: 2px;
             }
-
-            .product-desc {
-                font-size: 14px;
-                color: #cccccc;
-                line-height: 1.5;
-                margin-bottom: 15px;
+ 
+            .header {
+                padding: 15px 10px;
             }
-
-            .product-img {
+ 
+            .header h1 {
+                font-size: 1.2rem;
+            }
+ 
+            .sidebar h3 {
+                font-size: 1.1rem;
+            }
+ 
+            #matchSearch, #matchSearch:focus {
                 width: 100%;
-                height: auto;
-                border-radius: 5px;
-                margin-bottom: 15px;
-                border: 1px solid #333;
+                margin-top: 15px;
             }
-
-            .cta-pack-btn {
+ 
+            .video-separator {
                 display: block;
-                background: #ff0000;
-                color: white;
-                text-align: center;
-                padding: 14px;
-                text-decoration: none;
-                font-weight: bold;
-                border-radius: 5px;
-                text-transform: uppercase;
-                font-size: 14px;
-                transition: 0.3s ease;
-                box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
             }
-
-            .cta-pack-btn:hover {
-                background: #cc0000;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+        }
+ 
+        @media screen and (max-width: 768px) {
+            .sidebar-column {
+                flex-direction: column;
             }
+ 
+            .sidebar {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -249,165 +324,146 @@
                     <li class="nav-item mx-3">
                         <a class="nav-link" aria-current="page" href="#"> &nbsp; </a>
                     </li>
-                    <!-- <li class="nav-item mx-3">
-                        <a class="nav-link" aria-current="page" href="#"><span class="live-dot">●</span> Maroc vs Haïti</a>
-                    </li> -->
                 </ul>
+                <form class="d-flex" role="search" onsubmit="return false;">
+                    <input class="form-control me-2 bg-dark text-white border-danger" type="search" id="matchSearch" placeholder="Chercher un match (ex: Côte d'Ivoire)..." aria-label="Search">
+                </form>
             </div>
         </div>
     </nav> 
     <!-- Fin - barre de navigation -->
-
+ 
     <div class="header">
         <p>International: Coupe du Monde</p>
         <p>Live HD Offert par Code A-Z <em>&nbsp;-&nbsp; Expert en création de sites web</em></p>
     </div>
-
-
-    <!-- matchs 1 -->
-    <div class="main-container">
-        <div class="video-box">
-            <!-- Badge de Preuve Sociale (Spectateurs) -->
-            <div class="live-counter-badge">
-                <span class="live-dot">●</span> 
-                <span id="visitor-count">8 852 </span> &nbsp; spectateurs en direct
-            </div>
-            <h1>Curaçao vs Côte d'Ivoire</h1><!-- titre matchs 1 -->
+ 
+    <!-- PAGE WRAPPER : Structure principale -->
+    <div class="page-wrapper">
+        
+        <!-- COLONNE GAUCHE : Les vidéos -->
+        <div class="videos-column">
             
-        <script>
-            function simulateLiveTraffic() {
-                const counterElement = document.getElementById('visitor-count');
-                // Récupère le nombre actuel sans les espaces
-                let currentCount = parseInt(counterElement.innerText.replace(/\s/g, ''));
+            <!-- Match 1 -->
+            <div class="video-box">
+                <div class="live-counter-badge">
+                    <span class="live-dot">●</span> 
+                    <span id="visitor-count-1" class="visitor-count">8 852 </span> &nbsp; spectateurs en direct
+                </div>
+                <h1>Curaçao vs Côte d'Ivoire</h1>
                 
-                // Génère une variation aléatoire entre -15 et +18 spectateurs
-                let variation = Math.floor(Math.random() * 50) - 100; 
-                currentCount += variation;
-
-                // Sécurité pour ne pas descendre trop bas si le live cartonne
-                if (currentCount < 5500) currentCount = 5800; // Minimum confortable
-                if (currentCount > 180500) currentCount = 180200; // Maximum crédible
-
-                // Affiche le nombre avec un espace pour les milliers (ex: 1 450)
-                counterElement.innerText = currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-            }
-
-            // Met à jour le compteur toutes les 4 secondes
-            setInterval(simulateLiveTraffic, 4000);
-        </script>
-        <!-- iframe pour la vidéo -->
-        <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324574/curacao-vs-cote-divoire.html?icg=Q0k&ilang=fr" allowfullscreen 
-                sandbox="allow-scripts allow-same-origin"></iframe>
-    </div>
-
-    <hr>
-    <em>Partage à tes amis qui ne savent pas où regarder les matchs de la coupe du monde !!!</em>
-    <hr>
-
-    <!-- matchs 2 -->
-    <div class="main-container">
-        <div class="video-box">
-            <!-- Badge de Preuve Sociale (Spectateurs) -->
-            <div class="live-counter-badge">
-                <span class="live-dot">●</span> 
-                <span id="visitor-count">8 852 </span> &nbsp; spectateurs en direct
+                <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324574/curacao-vs-cote-divoire.html?icg=Q0k&ilang=fr" allowfullscreen 
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+ 
+                <div class="video-separator">
+                    <em>Partage à tes amis qui ne savent pas où regarder les matchs de la coupe du monde !!!</em>
+                </div>
             </div>
-            <h1>Equateur vs Allemagne</h1><!-- titre matchs 2 -->
-
+ 
+            <!-- Match 2 -->
+            <div class="video-box">
+                <div class="live-counter-badge">
+                    <span class="live-dot">●</span> 
+                    <span id="visitor-count-2" class="visitor-count">8 852 </span> &nbsp; spectateurs en direct
+                </div>
+                <h1>Equateur vs Allemagne</h1>
+ 
+                <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324577/ecuador-vs-germany.html?icg=Q0k&ilang=fr" allowfullscreen 
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+ 
+                <div class="video-separator">
+                    <em>Partage à tes amis qui ne savent pas où regarder les matchs de la coupe du monde !!!</em>
+                </div>
+            </div>
+ 
+            <!-- Match 3 -->
+            <div class="video-box">
+                <div class="live-counter-badge">
+                    <span class="live-dot">●</span> 
+                    <span id="visitor-count-3" class="visitor-count">8 852 </span> &nbsp; spectateurs en direct
+                </div>
+                <h1>Tunisie vs Pays-Bas</h1>
+ 
+                <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324483/tunisia-vs-netherlands.html?icg=Q0k&ilang=fr" allowfullscreen 
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+ 
+                <div class="video-separator">
+                    <em>Partage à tes amis qui ne savent pas où regarder les matchs de la coupe du monde !!!</em>
+                </div>
+            </div>
+ 
+        </div>
+ 
+        <!-- COLONNE DROITE : Les sidebars -->
+        <div class="sidebar-column">
             
-            <script>
-                function simulateLiveTraffic() {
-                    const counterElement = document.getElementById('visitor-count');
-                    // Récupère le nombre actuel sans les espaces
-                    let currentCount = parseInt(counterElement.innerText.replace(/\s/g, ''));
+            <!-- Sidebar 1 : Brand + Produit -->
+            <div class="sidebar">
+                <h2>Propulsé par Code A-Z</h2>
+                <p>L'unique marque informatique liée à votre succès numérique.</p>
+                
+                <hr style="border: 0.5px solid #333; margin: 20px 0;">
+ 
+                <div class="product-box">
+                    <span class="promo-badge">🔥 OFFRE COUPE DU MONDE </span>
+                    <h3>L'Arsenal du Développeur Pro</h3>
+                    <p class="product-desc">Le pack ultime pour maîtriser le code, créer des plateformes comme celle-ci et générer vos premiers revenus !</p>
                     
-                    // Génère une variation aléatoire entre -15 et +18 spectateurs
-                    let variation = Math.floor(Math.random() * 50) - 100; 
-                    currentCount += variation;
-
-                    // Sécurité pour ne pas descendre trop bas si le live cartonne
-                    if (currentCount < 5500) currentCount = 5800; // Minimum confortable
-                    if (currentCount > 180500) currentCount = 180200; // Maximum crédible
-
-                    // Affiche le nombre avec un espace pour les milliers (ex: 1 450)
-                    counterElement.innerText = currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                }
-
-                // Met à jour le compteur toutes les 4 secondes
-                setInterval(simulateLiveTraffic, 4000);
-            </script>
-
-            <!-- iframe pour la vidéo -->
-            <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324577/ecuador-vs-germany.html?icg=Q0k&ilang=fr" allowfullscreen 
-                    sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
-
-    <hr>
-    <em>Partage à tes amis qui ne savent pas où regarder les matchs de la coupe du monde !!!</em>
-    <hr>
-
-    <!-- matchs 3 -->
-    <div class="main-container">
-        <div class="video-box">
-            <!-- Badge de Preuve Sociale (Spectateurs) -->
-            <div class="live-counter-badge">
-                <span class="live-dot">●</span> 
-                <span id="visitor-count">8 852 </span> &nbsp; spectateurs en direct
-            </div>
-            <h1>Tunisie vs Pays-Bas</h1><!-- titre matchs 3 -->
-
-            
-            <script>
-                function simulateLiveTraffic() {
-                    const counterElement = document.getElementById('visitor-count');
-                    // Récupère le nombre actuel sans les espaces
-                    let currentCount = parseInt(counterElement.innerText.replace(/\s/g, ''));
+                    <img src="img/arsenal-developpeur.png" alt="L'Arsenal du Développeur Pro" class="product-img">
                     
-                    // Génère une variation aléatoire entre -15 et +18 spectateurs
-                    let variation = Math.floor(Math.random() * 50) - 100; 
-                    currentCount += variation;
-
-                    // Sécurité pour ne pas descendre trop bas si le live cartonne
-                    if (currentCount < 5500) currentCount = 5800; // Minimum confortable
-                    if (currentCount > 180500) currentCount = 180200; // Maximum crédible
-
-                    // Affiche le nombre avec un espace pour les milliers (ex: 1 450)
-                    counterElement.innerText = currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                }
-
-                // Met à jour le compteur toutes les 4 secondes
-                setInterval(simulateLiveTraffic, 4000);
-            </script>
-
-            <!-- iframe pour la vidéo -->
-            <iframe src="https://jack02eo.mpthen566esqcustoms.my/fr/football/fifa-world-cup-4324483/tunisia-vs-netherlands.html?icg=Q0k&ilang=fr" allowfullscreen 
-                    sandbox="allow-scripts allow-same-origin">
-            </iframe>
-        </div>
-
-        <div class="sidebar">
-            <!-- Bloc Identité de Marque -->
-            <h2>Propulsé par Code A-Z</h2>
-            <p>L'unique marque informatique liée à votre succès numérique.</p>
-            
-            <hr style="border: 0.5px solid #333; margin: 20px 0;">
-
-            <!-- Bloc Promotion du Pack Développeur -->
-            <div class="product-box">
-                <span class="promo-badge">🔥 OFFRE COUPE DU MONDE </span>
-                <h3>L'Arsenal du Développeur Pro</h3>
-                <p class="product-desc">Le pack ultime pour maîtriser le code, créer des plateformes comme celle-ci et générer vos premiers revenus !</p>
-                
-                <!-- Remplacer par une vraie image de couverture de ton pack dans ton dossier img -->
-                <img src="img/arsenal-developpeur.png" alt="L'Arsenal du Développeur Pro" class="product-img">
-                
-                <a href="https://codea-z.mychariow.shop/larsenal-du-developpeur-pro-le-pack-ultime" target="_blank" rel="noopener" class="cta-pack-btn">
-                    Télécharger mon Pack Ultime 🚀
-                </a>
+                    <a href="https://codea-z.mychariow.shop/larsenal-du-developpeur-pro-le-pack-ultime" target="_blank" rel="noopener" class="cta-pack-btn">
+                        Télécharger mon Pack Ultime 🚀
+                    </a>
+                </div>
             </div>
+ 
+            <!-- Sidebar 2 (exemple pour futures sidebars) -->
+            <!-- <div class="sidebar">
+                <h2>Publicité 2</h2>
+                <p>Contenu futur...</p>
+            </div> -->
+ 
         </div>
+ 
     </div>
-
+ 
     <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+        // Gérer les compteurs de spectateurs pour chaque match
+        function simulateLiveTraffic(counterId) {
+            const counterElement = document.getElementById(counterId);
+            if (!counterElement) return;
+ 
+            let currentCount = parseInt(counterElement.innerText.replace(/\s/g, ''));
+            let variation = Math.floor(Math.random() * 50) - 100; 
+            currentCount += variation;
+ 
+            if (currentCount < 5500) currentCount = 5800;
+            if (currentCount > 180500) currentCount = 180200;
+ 
+            counterElement.innerText = currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+ 
+        // Lancer les mises à jour pour chaque compteur
+        setInterval(() => simulateLiveTraffic('visitor-count-1'), 4000);
+        setInterval(() => simulateLiveTraffic('visitor-count-2'), 4000);
+        setInterval(() => simulateLiveTraffic('visitor-count-3'), 4000);
+ 
+        // Système de recherche : filtre uniquement les vidéos
+        document.getElementById('matchSearch').addEventListener('input', function(e) {
+            const searchWord = e.target.value.toLowerCase();
+            const videos = document.querySelectorAll('.video-box');
+ 
+            videos.forEach(video => {
+                const titleElement = video.querySelector('h1');
+                
+                if (titleElement) {
+                    const title = titleElement.innerText.toLowerCase();
+                    video.style.display = title.includes(searchWord) ? "block" : "none";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+ 
