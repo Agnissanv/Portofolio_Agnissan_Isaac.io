@@ -246,11 +246,37 @@
             }
     
             /* =========================================
-            📺 FIX CRUCIAL SPÉCIAL GRANDS ÉCRANS / SMART TV
+            LE FIX INFAILLIBLE POUR LES SMART TV
             ========================================= */
+
+            /* Le conteneur force la hauteur grâce au padding */
+            .iframe-tv-fix {
+                position: relative;
+                width: 100%;
+                padding-bottom: 56.25%; /* C'est LE secret : 56.25% force un ratio 16:9 parfait sur toutes les télés */
+                height: 0;
+                overflow: hidden;
+                border: 3px solid #ff0000; /* Ta bordure rouge signature */
+                border-radius: 8px;
+                background-color: #000000;
+                box-shadow: 0 4px 20px rgba(255, 0, 0, 0.15);
+            }
+
+            /* L'iframe s'étire parfaitement dans son conteneur */
+            .iframe-tv-fix iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                display: block;
+            }
+
+            /* Limiter la taille sur les grands écrans pour que ça reste beau */
             @media screen and (min-width: 1201px) {
                 .video-box {
-                    max-width: 850px; /* Limite la largeur de l'iframe pour qu'elle reste proportionnelle sur TV */
+                    max-width: 850px; 
                     margin-left: auto;
                     margin-right: auto;
                 }
