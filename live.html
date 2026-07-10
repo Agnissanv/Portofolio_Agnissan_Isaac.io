@@ -48,13 +48,13 @@
             }
     
             /* ========================================
-            NOUVELLE STRUCTURE : LAYOUT DEUX COLONNES
+            STRUCTURE CORRIGÉE POUR ÉCRANS STANDARDS & GRANDES TV
             ======================================== */
             .page-wrapper {
                 display: flex;
                 gap: 20px;
                 padding: 20px;
-                max-width: 1600px;
+                max-width: 1300px; /* Réduit de 1600px à 1300px pour éviter la dispersion sur TV */
                 margin: 0 auto;
             }
     
@@ -99,6 +99,7 @@
                 border: 3px solid #ff0000; 
                 border-radius: 8px;
                 display: block;
+                box-shadow: 0 4px 20px rgba(255, 0, 0, 0.15); /* Subtil halo rouge "Code A-Z" */
             }
     
             .cta-button {
@@ -241,8 +242,19 @@
                 font-size: 0.9rem;
             }
             #matchSearch1{
-                    display: none;
+                display: none;
+            }
+    
+            /* =========================================
+            📺 FIX CRUCIAL SPÉCIAL GRANDS ÉCRANS / SMART TV
+            ========================================= */
+            @media screen and (min-width: 1201px) {
+                .video-box {
+                    max-width: 850px; /* Limite la largeur de l'iframe pour qu'elle reste proportionnelle sur TV */
+                    margin-left: auto;
+                    margin-right: auto;
                 }
+            }
     
             /* =========================================
             📱 RESPONSIVE DESIGN (MOBILE & TABLETTE)
@@ -266,7 +278,7 @@
                 }
     
                 .videos-column {
-                    order: -1; /* Videos avant les sidebars sur mobile */
+                    order: -1; /* Vidéos avant les sidebars sur mobile */
                 }
     
                 iframe {
