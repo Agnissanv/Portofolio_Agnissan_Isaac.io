@@ -425,6 +425,7 @@
                     <p>Parce que les résultats parlent plus que les mots. Découvrez une sélection de mes réalisations où l'esthétique 
                         rencontre la performance pour répondre à des objectifs business réels.</p>
                 </div>
+                <!-- Les boutons de filtres -->
                 <ul class="grid portfolio-filters list-unstyled">
                     <li class="grid-item">
                         <a href="#" class="active" data-filter="all">Tous les projets</a>
@@ -439,70 +440,61 @@
                         <a href="#" data-filter="app">Applications</a>
                     </li>
                 </ul>
-                <div class="grid">
-                    <!-- 1 projet dev web SENTIMENTALE-->
+                <!-- Les diférents projets -->
+                <div class="grid">                        
+                    <!-- 1 projet dev web PalettePick -->
                     <div class="grid-item">
                         <div class="card" data-category="web">
-                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM1.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image">
+                            <img src="./images/projets/images/dev_web/refugepop1.png" alt="Aperçu Refuge Pop" loading="lazy" class="card-image">
                             <div class="card-inner">
-                                <h3 class="card-title">SENTIMENTALE — E-Commerce  </h3>
+                                <h3 class="card-title">Refuge Pop</h3>
                                 <p class="category">Développement Web</p>
                             </div>
                             <div class="card-overlay">
-                                <a href="#" class="card-link" data-id="modal-1">+</a>
+                                <a href="#" class="card-link" data-id="modal-r">+</a>
                             </div>
                         </div>
-                        <div class="modal" id="modal-1">
+                        <div class="modal" id="modal-r">
                             <button class="modal-close">&times;</button>
                             <div class="modal-content">
 
                                 <div class="container">
                                     <div class="grid">
                                         <div class="grid-item">
-                                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM2.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image"> <hr>
-                                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM3.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image"> <hr>
-                                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM4.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image"> <hr>
+                                            <img src="./images/projets/images/dev_web/refugepop.jpg" alt="Page d'accueil Refuge Pop" loading="lazy" class="card-image" style="border: 1px solid #ccc;"> <hr>
+                                            <img src="./images/projets/images/dev_web/refugepop2.png" alt="Modale de lecture cinématique" loading="lazy" class="card-image" style="border: 1px solid #ccc;"> <hr>
+                                            <img src="./images/projets/images/dev_web/refugepop3.png" alt="Section Direct et chaînes en live" loading="lazy" class="card-image" style="border: 1px solid #ccc;"> <hr>
                                         </div>
                                         <div class="grid-item">
-                                            <h4 class="modal-title h2">SENTIMENTALE — E-Commerce</h4>
+                                            <h4 class="modal-title h2">Refuge Pop</h4>
                                             <p>
                                                 <i class="fa-solid fa-calendar"></i> 
                                                 <i>Année: 2026</i>
                                             </p>
                                             <p class="category">
                                                 <i class="fa-solid fa-tag"></i> 
-                                                <i>Développement Web</i>
+                                                <i>Plateforme de Streaming / Développement Web</i>
                                             </p>
                                             <p>
-                                                Un site e-commerce moderne conçu pour transformer les visiteurs en clients.
-                                                SENTIMENTALE.COM est un template e-commerce premium développé pour les marques ambitieuses souhaitant vendre en ligne avec impact.
-                                                Architecture optimisée, design stratégique et expérience utilisateur fluide : chaque section est pensée pour maximiser la conversion et valoriser les produits.
+                                                <strong>Une expérience de streaming complète, sans abonnement ni serveur vidéo.</strong><br>
+                                                Refuge Pop est une plateforme de streaming à part entière : catalogue de films à la demande, chaînes en direct, reprise de lecture automatique, suggestions personnalisées et recherche intelligente — le tout construit sans base de données ni backend classique.
                                             </p> <hr>
 
                                             <h5 class="h3">Informations</h5>
                                             <p>
-                                                Ce projet illustre ma capacité à concevoir et développer une boutique en ligne performante, adaptable à tout type d'activité : mode, accessoires, produits digitaux ou services.<br/>
-
-                                                L'interface met l'accent sur : <br/>
-                                                - Une navigation intuitive <br/>
-                                                - Une mise en avant claire des produits <br/>
-                                                - Une structure optimisée pour la conversion <br/>
-                                                - Un design responsive (mobile, tablette, desktop) <br/> <br/>
-
-                                                L'objectif n'est pas seulement esthétique : il s'agit de créer un site e-commerce capable d'attirer, rassurer et convertir les visiteurs en clients.
-
-                                                Vous avez un projet de boutique en ligne ?
-                                                Je conçois des solutions sur mesure adaptées à votre marque et à votre marché.
+                                                Le défi était de reproduire une expérience type Netflix (catalogue fluide, lecteur avancé, PWA installable) sur une architecture 100% statique. La section Direct s'appuie sur un proxy Cloudflare Worker développé sur mesure pour diffuser des flux HLS en direct en contournant les restrictions CORS. Un pipeline Python automatisé alimente et vérifie le catalogue, et génère même des articles de blog optimisés SEO via IA. Le site est optimisé jusque sur les navigateurs de télévisions connectées.
                                             </p> <hr>
 
                                             <h5 class="h3">Technologies</h5>
 
                                             <ul>
-                                                <li>HTML</li>
-                                                <li>CSS</li>
-                                                <li>JavaScript</li>
+                                                <li><strong>Frontend :</strong> HTML5 / CSS3 / JavaScript (Architecture SPA sans framework)</li>
+                                                <li><strong>Streaming :</strong> API YouTube IFrame & HLS.js via proxy Cloudflare Worker</li>
+                                                <li><strong>Fonctionnalités :</strong> PWA installable, reprise de lecture, recherche intelligente, suggestions personnalisées</li>
+                                                <li><strong>Automatisation :</strong> Scripts Python (import de contenu, articles SEO générés par IA)</li>
+                                                <li><strong>Déploiement :</strong> Vercel & Cloudflare Workers</li>
                                             </ul>
-                                            <a href="https://agnissanv.github.io/Site_complet_sentimentale1/" target="_blank" rel="noopener">
+                                            <a href="https://refugepop.agnissanisaac.com/" target="_blank" rel="noopener">
                                                 <button class="btn">Voir le site</button>
                                             </a>
                                         </div>
@@ -511,7 +503,7 @@
                             </div>
                         </div>
                     </div>
-                        
+
                     <!-- 2 projet dev web PalettePick -->
                     <div class="grid-item">
                         <div class="card" data-category="web">
@@ -979,6 +971,78 @@
                                                 <li>BOOTSTRAP</li>
                                             </ul>
                                             <a href="https://agnissanv.github.io/mon_blog-Code_A-Z/" target="_blank" rel="noopener">
+                                                <button class="btn">Voir le site</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9 projet dev web SENTIMENTALE-->
+                    <div class="grid-item">
+                        <div class="card" data-category="web">
+                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM1.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image">
+                            <div class="card-inner">
+                                <h3 class="card-title">SENTIMENTALE — E-Commerce  </h3>
+                                <p class="category">Développement Web</p>
+                            </div>
+                            <div class="card-overlay">
+                                <a href="#" class="card-link" data-id="modal-1">+</a>
+                            </div>
+                        </div>
+                        <div class="modal" id="modal-1">
+                            <button class="modal-close">&times;</button>
+                            <div class="modal-content">
+
+                                <div class="container">
+                                    <div class="grid">
+                                        <div class="grid-item">
+                                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM2.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image"> <hr>
+                                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM3.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image"> <hr>
+                                            <img src="./images/projets/images/dev_web/SENTIMENTALE.COM4.webp" alt="images du projet SENTIMENTALE — E-Commerce " loading="lazy" class="card-image"> <hr>
+                                        </div>
+                                        <div class="grid-item">
+                                            <h4 class="modal-title h2">SENTIMENTALE — E-Commerce</h4>
+                                            <p>
+                                                <i class="fa-solid fa-calendar"></i> 
+                                                <i>Année: 2026</i>
+                                            </p>
+                                            <p class="category">
+                                                <i class="fa-solid fa-tag"></i> 
+                                                <i>Développement Web</i>
+                                            </p>
+                                            <p>
+                                                Un site e-commerce moderne conçu pour transformer les visiteurs en clients.
+                                                SENTIMENTALE.COM est un template e-commerce premium développé pour les marques ambitieuses souhaitant vendre en ligne avec impact.
+                                                Architecture optimisée, design stratégique et expérience utilisateur fluide : chaque section est pensée pour maximiser la conversion et valoriser les produits.
+                                            </p> <hr>
+
+                                            <h5 class="h3">Informations</h5>
+                                            <p>
+                                                Ce projet illustre ma capacité à concevoir et développer une boutique en ligne performante, adaptable à tout type d'activité : mode, accessoires, produits digitaux ou services.<br/>
+
+                                                L'interface met l'accent sur : <br/>
+                                                - Une navigation intuitive <br/>
+                                                - Une mise en avant claire des produits <br/>
+                                                - Une structure optimisée pour la conversion <br/>
+                                                - Un design responsive (mobile, tablette, desktop) <br/> <br/>
+
+                                                L'objectif n'est pas seulement esthétique : il s'agit de créer un site e-commerce capable d'attirer, rassurer et convertir les visiteurs en clients.
+
+                                                Vous avez un projet de boutique en ligne ?
+                                                Je conçois des solutions sur mesure adaptées à votre marque et à votre marché.
+                                            </p> <hr>
+
+                                            <h5 class="h3">Technologies</h5>
+
+                                            <ul>
+                                                <li>HTML</li>
+                                                <li>CSS</li>
+                                                <li>JavaScript</li>
+                                            </ul>
+                                            <a href="https://agnissanv.github.io/Site_complet_sentimentale1/" target="_blank" rel="noopener">
                                                 <button class="btn">Voir le site</button>
                                             </a>
                                         </div>
