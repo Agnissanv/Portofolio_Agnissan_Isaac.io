@@ -3,87 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emplois — Code A-Z</title>
-<meta name="description" content="Les postes ouverts chez Code A-Z : commercial digital, développement front-end et back-end.">
+<title>Code A-Z — Agnissan Isaac, développeur full-stack à Abidjan</title>
+<meta name="description" content="Agnissan Isaac (Code A-Z) conçoit et développe des sites web sobres, rapides et sur-mesure pour entreprises et indépendants basés en Côte d'Ivoire et ailleurs.">
+<meta name="author" content="Agnissan Isaac Valen">
 <meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Code A-Z — Développement web sur-mesure">
+<meta property="og:description" content="Sites web sobres, rapides et sur-mesure. Du premier croquis à la mise en ligne.">
+<meta property="og:image" content="https://agnissanisaac.com/images/isaac_PDG.webp">
+<meta property="og:url" content="https://agnissanisaac.com">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css">
-<style>
-  .jobs-hero{ max-width:760px; margin:0 auto; padding:90px 32px 60px; }
-  .jobs-hero h1{ font-size:clamp(2.2rem,5vw,3.4rem); margin-top:16px; }
-  .jobs-hero p{ margin-top:20px; font-size:1.05rem; max-width:520px; }
-  .jobs-list{ display:flex; flex-direction:column; gap:16px; }
-  .job-card{
-    display:flex; align-items:center; justify-content:space-between; gap:24px;
-    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
-    padding:30px 32px; text-decoration:none; transition:all .25s ease; flex-wrap:wrap;
-  }
-  .job-card:hover{ border-color:var(--accent); transform:translateX(4px); }
-  .job-card .status{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#3E7A4C; margin-bottom:10px; letter-spacing:0.04em; }
-  .job-card .status .pulse{ width:6px; height:6px; border-radius:50%; background:#3E7A4C; }
-  .job-card h3{ color:var(--text); font-size:1.3rem; margin-bottom:8px; }
-  .job-card .excerpt{ font-size:14px; max-width:520px; line-height:1.6; }
-  .job-card .meta{ display:flex; gap:18px; margin-top:14px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
-  .job-card .arrow{ font-size:20px; color:var(--muted-2); transition:transform .25s ease, color .25s ease; }
-  .job-card:hover .arrow{ transform:translateX(4px); color:var(--accent); }
-  .empty-state{ text-align:center; padding:60px 20px; color:var(--muted); font-size:14.5px; }
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+<!-- ============ NAV ============ -->
 <nav class="site-nav">
-  <a href="../index.html#hero" class="logo">
-    <svg viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#181816" stroke-width="11" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#C6303E" stroke-width="8" stroke-linecap="square"/></svg>
-    <span class="logo-text">CODE <span class="a">A</span> Z</span>
+  <a href="#hero" class="logo">
+    <img src="img/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
   </a>
   <div class="nav-links">
-    <a href="../index.html#about">À propos</a>
-    <a href="../index.html#portfolio">Portfolio</a>
-    <a href="../blog.html">Blog</a>
-    <a href="index.html" class="active">Emplois</a>
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="blog.html">Blog</a>
+    <a href="emploi/index.html">Emplois</a>
+  </div>
+  <div class="nav-cta">
+    <a href="#contact" class="btn btn-outline btn-sm">Discutons</a>
+    <button class="nav-burger" id="burgerBtn" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<div class="jobs-hero">
-  <div class="eyebrow"><span class="dot"></span>Emplois</div>
-  <h1>Les postes ouverts chez Code A-Z.</h1>
-  <p>Que vous soyez commercial, développeur front-end ou back-end, voici les rôles actuellement recherchés.</p>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu" aria-label="Fermer le menu">&times;</button>
+  <a href="#about">À propos</a>
+  <a href="#services">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#tarifs">Tarifs</a>
+  <a href="blog.html">Blog</a>
+  <a href="emploi/index.html">Emplois</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<div class="container">
-  <div class="jobs-list" id="jobsList"></div>
-  <p class="empty-state" id="emptyState" style="display:none;">Aucun poste ouvert pour le moment — revenez bientôt.</p>
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="eyebrow"><span class="dot"></span>ABIDJAN · CÔTE D'IVOIRE · DEV. 2026</div>
+  <h1>Des sites <em>simples</em>, pensés pour durer — pas pour impressionner cinq secondes.</h1>
+  <p class="lede">Je m'appelle Agnissan Isaac. Je conçois et développe des interfaces sobres, rapides et sur-mesure, du premier croquis à la mise en ligne — sous la marque Code A-Z.</p>
+  <div class="cta-row">
+    <a href="#portfolio" class="btn btn-primary">Voir mes projets</a>
+    <a href="#contact" class="btn-line">Me contacter →</a>
+  </div>
+</section>
+
+<div class="strip">
+  <span><b>9</b> projets livrés</span>
+  <span><b>2026</b> dernière mise en ligne</span>
+  <span>Front-end · Back-end · Design</span>
+  <span>Basé à <b>Abidjan</b></span>
 </div>
 
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-portrait">
+          <img src="images/isaac_PDG.webp" alt="Agnissan Isaac, fondateur de Code A-Z">
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>À propos</div>
+        <h2>La rigueur d'une agence, la proximité d'un indépendant.</h2>
+        <p style="margin-top:20px; font-size:15px; line-height:1.75;">Derrière chaque projet, un même principe : construire des outils qui servent réellement l'objectif de la personne qui les commande, sans artifice. Code A-Z, c'est mon espace pour centraliser cette approche — développement, design et conseil, sous un seul toit.</p>
+        <ul class="about-list">
+          <li>
+            <span class="num">01</span>
+            <div><h4>Sur-mesure, sans template</h4><p>Chaque site est écrit pour un objectif précis et une identité de marque propre — pas un thème générique habillé différemment.</p></div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div><h4>Vitesse d'abord</h4><p>Un site lent perd des visiteurs avant même d'être lu. J'optimise chaque page pour un chargement quasi instantané.</p></div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div><h4>Interfaces qui guident</h4><p>Le design n'est pas décoratif : il aide la personne à comprendre où cliquer et pourquoi.</p></div>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div><h4>Un actif qui évolue</h4><p>Je ne livre pas un site figé, mais une base que votre activité peut faire grandir dans le temps.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span>Services</div>
+      <h2>Ce que je fais, concrètement.</h2>
+      <p>De la stratégie initiale à la mise en ligne — chaque prestation peut être prise séparément ou combinée selon votre besoin.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+        <h4>Stratégie & pilotage digital</h4>
+        <p>Je transforme une idée en écosystème web cohérent, cadré avant même la première ligne de code.</p>
+      </div>
+      <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+        <h4>Développement front-end</h4>
+        <p>Vos maquettes converties en interfaces fluides, réactives et optimisées pour la vitesse.</p>
+      </div>
+      <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7h16M4 12h10M4 17h7"/></svg>
+        <h4>Solutions métier sur-mesure</h4>
+        <p>Fonctionnalités spécifiques pour automatiser vos processus internes et répondre à un besoin précis.</p>
+      </div>
+      <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <h4>Visibilité & SEO</h4>
+        <p>Structure technique et contenu pensés pour bien se positionner sur les recherches qui comptent pour vous.</p>
+      </div>
+      <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+        <h4>Identité visuelle & UX</h4>
+        <p>Une direction graphique cohérente qui installe la confiance dès les premières secondes.</p>
+      </div>
+      <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 18h6"/></svg>
+        <h4>Accessibilité multi-support</h4>
+        <p>Une navigation cohérente, que vos visiteurs soient sur mobile, tablette ou ordinateur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span>Compétences</div>
+      <h2>La technique au service de l'utilisateur.</h2>
+      <p>Les technologies que j'utilise concrètement, pas une liste pour faire nombre.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="reveal">
+        <div class="skill-group-title">Développement</div>
+        <div class="skill-row" data-width="90"><div class="label-row"><span>HTML / CSS</span><span>90%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+        <div class="skill-row" data-width="65"><div class="label-row"><span>JavaScript</span><span>65%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+        <div class="skill-row" data-width="55"><div class="label-row"><span>PHP</span><span>55%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+        <div class="skill-row" data-width="40"><div class="label-row"><span>React / Node</span><span>40%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+      </div>
+      <div class="reveal">
+        <div class="skill-group-title">Design & contenu</div>
+        <div class="skill-row" data-width="75"><div class="label-row"><span>Photoshop</span><span>75%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+        <div class="skill-row" data-width="70"><div class="label-row"><span>Première Pro</span><span>70%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+        <div class="skill-row" data-width="50"><div class="label-row"><span>Illustrator</span><span>50%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+        <div class="skill-row" data-width="50"><div class="label-row"><span>After Effects</span><span>50%</span></div><div class="skill-bar"><div class="fill"></div></div></div>
+      </div>
+    </div>
+    <div style="margin-top:50px;" class="reveal">
+      <div class="chip-list">
+        <span class="chip">Gestion de projet agile</span>
+        <span class="chip">Relation client</span>
+        <span class="chip">Marketing digital</span>
+        <span class="chip">Montage vidéo</span>
+        <span class="chip">Bases de données</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span>Portfolio</div>
+      <h2>Une sélection de réalisations.</h2>
+      <p>Neuf projets, du site vitrine à l'outil SaaS. Cliquez sur une carte pour voir le détail.</p>
+    </div>
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">Tous les projets</button>
+      <button class="filter-btn" data-filter="web">Développement web</button>
+      <button class="filter-btn" data-filter="design">Refonte graphique</button>
+      <button class="filter-btn" data-filter="app">Applications</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+  <button class="modal-close" id="modalClose" aria-label="Fermer">&times;</button>
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<!-- ============ TARIFS ============ -->
+<section class="section" id="tarifs">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span>Tarifs</div>
+      <h2>Une formule pour chaque étape.</h2>
+      <p>Des repères de prix clairs. Chaque projet reste discuté et ajusté à votre besoin réel.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="plan">Starter</div>
+        <div class="amount">150 000 <span>FCFA</span></div>
+        <p class="desc">Pour valider une présence en ligne crédible, rapidement.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Site vitrine (1 à 3 pages)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Design responsive</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>SEO de base</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Formulaire de contact</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Démarrer</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-badge">Le plus choisi</span>
+        <div class="plan">Business</div>
+        <div class="amount">350 000 <span>FCFA</span></div>
+        <p class="desc">Une base complète pour une activité qui veut grandir en ligne.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Site pro (jusqu'à 10 pages)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Blog / actualités intégré</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>PWA installable</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>SEO avancé & analytics</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>3 mois de suivi inclus</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Choisir Business</a>
+      </div>
+      <div class="price-card">
+        <div class="plan">Elite</div>
+        <div class="amount">Sur mesure</div>
+        <p class="desc">Architecture complexe, e-commerce ou outil métier complet.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Développement full-stack</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>E-commerce / dashboard admin</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Intégrations API (IA, paiement)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Support prioritaire</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Réserver un échange</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot"></span>Avis</div>
+      <h2>Ce qu'en disent les personnes accompagnées.</h2>
+    </div>
+    <div class="testimonial-grid reveal">
+      <div class="testimonial-card">
+        <p class="quote">"Notre visibilité à Marcory a nettement progressé. Le site est fluide et les réservations sont plus simples pour nos clients."</p>
+        <div class="who"><img src="img/client1.webp" alt=""><div><div class="name">Michel Abrogoua</div><div class="role">Secteur financier</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Le travail sur le parcours d'achat a fait une vraie différence sur notre panier moyen. Une approche réfléchie, pas juste esthétique."</p>
+        <div class="who"><img src="img/client2.webp" alt=""><div><div class="name">Mariame Touré</div><div class="role">Direction stratégie & développement</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"La pédagogie est claire et directe. On apprend à comprendre le code, pas seulement à le copier."</p>
+        <div class="who"><img src="img/client3.webp" alt=""><div><div class="name">Fabrice Koffi</div><div class="role">Entrepreneur</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>Contact</div>
+        <h2>Parlons de votre prochain projet.</h2>
+        <p style="margin-top:18px;">Vous avez une idée ou un besoin précis ? Décrivez-le-moi, je réponds sous 24h.</p>
+        <div class="contact-info-list">
+          <a href="mailto:valenbouge@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>valenbouge@gmail.com</a>
+          <a href="tel:+2250769398708"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2.1.7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.5c1 .3 2 .6 3 .7a2 2 0 0 1 1.7 2z"/></svg>+225 07 69 39 87 08</a>
+          <a href="https://www.linkedin.com/in/isaac-valen-agnissan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>LinkedIn</a>
+        </div>
+      </div>
+      <form id="contactForm" class="reveal">
+        <input type="hidden" name="access_key" value="d63aba81-679e-4bfc-8ef3-221c07a3b200">
+        <input type="hidden" name="subject" value="Nouveau projet — Code A-Z">
+        <input type="hidden" name="redirect" value="false">
+        <div class="field-row">
+          <div class="field"><label for="firstname">Prénom</label><input type="text" name="firstname" id="firstname" required></div>
+          <div class="field"><label for="lastname">Nom</label><input type="text" name="lastname" id="lastname" required></div>
+        </div>
+        <div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required></div>
+        <div class="field"><label for="message">Votre projet</label><textarea name="message" id="message" placeholder="Objectifs, budget approximatif, délais..." required></textarea></div>
+        <button type="submit" id="submitBtn" class="btn btn-primary">Envoyer le message</button>
+        <p id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="container footer-bottom">
-    <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
-    <a href="../index.html#contact">Une question ? Contactez-nous →</a>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:18px;">
+          <svg viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#181816" stroke-width="11" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#C6303E" stroke-width="8" stroke-linecap="square"/></svg>
+          <span class="logo-text">CODE <span class="a">A</span> Z</span>
+        </div>
+        <p>Agnissan Isaac — développement web et design d'interface, basé à Abidjan, Côte d'Ivoire.</p>
+      </div>
+      <div>
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="emploi/index.html">Emplois</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Suivre</h5>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/isaac-valen-agnissan" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/share/1JJu2ycb69/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/cod_eaz" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+      <a href="/privacy.html">Politique de confidentialité</a>
+    </div>
   </div>
 </footer>
 
-<script>
-  fetch('jobs.json')
-    .then(r => r.ok ? r.json() : [])
-    .then(jobs => {
-      const list = document.getElementById('jobsList');
-      const empty = document.getElementById('emptyState');
-      if (!jobs.length) { empty.style.display = 'block'; return; }
-      list.innerHTML = jobs.map(j => `
-        <a href="${j.slug}.html" class="job-card">
-          <div>
-            <div class="status"><span class="pulse"></span>${j.status}</div>
-            <h3>${j.title}</h3>
-            <p class="excerpt">${j.excerpt}</p>
-            <div class="meta"><span>${j.type}</span><span>${j.location}</span><span>${j.compensation}</span></div>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-      `).join('');
-    })
-    .catch(() => { document.getElementById('emptyState').style.display = 'block'; });
-</script>
-
+<script src="js/projects-data.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -1,24 +1,54 @@
-<!DOCTYPE html>
+// ============================================================
+// Code A-Z — build-jobs.js
+// Génère emploi/<slug>.html à partir de content/jobs/*.json
+// Usage : node scripts/build-jobs.js
+// ============================================================
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.join(__dirname, '..');
+const JOBS_DIR = path.join(ROOT, 'content', 'jobs');
+const OUT_DIR = path.join(ROOT, 'emploi');
+const SITE_URL = 'https://agnissanisaac.com';
+
+if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
+
+function jobTemplate(job) {
+  const faqHtml = job.faqGroups.map(group => `
+        <div class="faq-group-label">${group.label}</div>
+        <div class="faq-grid">
+          ${group.items.map(item => `
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <h4>${item.q}</h4>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>${item.a}</p></div>
+          </div>`).join('')}
+        </div>`).join('');
+
+  return `<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Développeur back-end (H/F) — Emplois Code A-Z</title>
-<meta name="description" content="Concevoir la logique serveur, les bases de données et les intégrations techniques des projets Code A-Z qui en ont besoin.">
+<title>${job.title} — Emplois Code A-Z</title>
+<meta name="description" content="${job.excerpt}">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Développeur back-end (H/F) — Code A-Z">
-<meta property="og:description" content="Concevoir la logique serveur, les bases de données et les intégrations techniques des projets Code A-Z qui en ont besoin.">
-<meta property="og:url" content="https://agnissanisaac.com/emploi/developpeur-back-end.html">
-<link rel="canonical" href="https://agnissanisaac.com/emploi/developpeur-back-end.html">
+<meta property="og:title" content="${job.title} — Code A-Z">
+<meta property="og:description" content="${job.excerpt}">
+<meta property="og:url" content="${SITE_URL}/emploi/${job.slug}.html">
+<link rel="canonical" href="${SITE_URL}/emploi/${job.slug}.html">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "JobPosting",
-  "title": "Développeur back-end (H/F)",
-  "description": "Concevoir la logique serveur, les bases de données et les intégrations techniques des projets Code A-Z qui en ont besoin.",
-  "employmentType": "Freelance / collaboration projet",
-  "hiringOrganization": { "@type": "Organization", "name": "Code A-Z", "sameAs": "https://agnissanisaac.com" },
+  "title": ${JSON.stringify(job.title)},
+  "description": ${JSON.stringify(job.excerpt)},
+  "employmentType": ${JSON.stringify(job.type)},
+  "hiringOrganization": { "@type": "Organization", "name": "Code A-Z", "sameAs": "${SITE_URL}" },
   "jobLocationType": "TELECOMMUTE"
 }
 </script>
@@ -87,25 +117,25 @@
 
 <header class="job-header">
   <a href="index.html" class="back-link">&larr; Tous les postes</a>
-  <div class="job-status"><span class="pulse"></span>Recrutement ouvert</div>
-  <h1>Développeur back-end (H/F)</h1>
+  <div class="job-status"><span class="pulse"></span>${job.status}</div>
+  <h1>${job.title}</h1>
   <div class="job-meta">
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Freelance / collaboration projet</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Distanciel — Côte d'Ivoire et alentours</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M3 7l2-4h14l2 4"/></svg>Rémunération au projet, selon la mission</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>${job.type}</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>${job.location}</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M3 7l2-4h14l2 4"/></svg>${job.compensation}</span>
   </div>
 </header>
 
 <div class="job-body">
   <div class="job-section">
     <h2>La mission</h2>
-    <p>Vous intervenez sur la partie invisible du site : ce qui fait fonctionner les formulaires, les bases de données et les échanges avec des services externes.</p>
-    <ul><li>Concevoir et sécuriser des bases de données pour les projets clients</li><li>Développer des API et automatisations (PHP, Node.js selon les projets)</li><li>Intégrer des services tiers (paiement, emailing, réservation...)</li><li>Veiller à la fiabilité et à la sécurité des systèmes livrés</li></ul>
+    <p>${job.missionIntro}</p>
+    <ul>${job.missionList.map(i => `<li>${i}</li>`).join('')}</ul>
   </div>
   <div class="job-section">
     <h2>Le profil recherché</h2>
-    <p>Un profil rigoureux, capable de raisonner sur l'architecture d'un système avant d'écrire la première ligne de code.</p>
-    <ul><li>Bonne maîtrise de PHP ou Node.js et d'un système de base de données (MySQL, PostgreSQL, MongoDB...)</li><li>Compréhension des enjeux de sécurité (authentification, données sensibles)</li><li>Capacité à documenter clairement son travail pour la suite du projet</li><li>Autonomie sur des délais courts avec un cahier des charges clair</li></ul>
+    <p>${job.profileIntro}</p>
+    <ul>${job.profileList.map(i => `<li>${i}</li>`).join('')}</ul>
   </div>
 </div>
 
@@ -113,44 +143,15 @@
   <div class="job-footer-inner">
     <div>
       <div class="claim-label">Rémunération</div>
-      <div class="claim-value">À définir selon le projet</div>
+      <div class="claim-value">${job.compensationClaim}</div>
     </div>
-    <a href="mailto:valenbouge@gmail.com?subject=Candidature%20-%20D%C3%A9veloppeur%20back-end" target="_blank" rel="noopener" class="btn btn-primary">Candidater pour ce poste →</a>
+    <a href="${job.applyLink}" target="_blank" rel="noopener" class="btn btn-primary">${job.applyLabel} →</a>
   </div>
 </div>
 
 <section class="faq-section">
   <h2 style="margin-bottom:8px;">Questions fréquentes</h2>
-  
-        <div class="faq-group-label">Le poste</div>
-        <div class="faq-grid">
-          
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <h4>S'agit-il d'un poste salarié ou d'une collaboration ponctuelle ?</h4>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer"><p>Il s'agit d'une collaboration au projet, rémunérée selon la mission confiée. Le volume peut évoluer selon la charge de travail de l'agence.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <h4>Quels types de projets sont concernés ?</h4>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer"><p>Principalement des sites nécessitant une base de données, un espace d'administration ou des intégrations spécifiques (paiement, réservation...).</p></div>
-          </div>
-        </div>
-        <div class="faq-group-label">Candidature</div>
-        <div class="faq-grid">
-          
-          <div class="faq-item">
-            <button class="faq-question" type="button">
-              <h4>Que dois-je fournir pour candidater ?</h4>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer"><p>Un lien vers vos réalisations (GitHub, projets déployés) et les technologies que vous maîtrisez le mieux.</p></div>
-          </div>
-        </div>
+  ${faqHtml}
 </section>
 
 <footer>
@@ -168,3 +169,26 @@
 
 </body>
 </html>
+`;
+}
+
+function build() {
+  if (!fs.existsSync(JOBS_DIR)) { console.log('Aucun dossier content/jobs trouvé.'); return; }
+  const files = fs.readdirSync(JOBS_DIR).filter(f => f.endsWith('.json'));
+  const manifest = [];
+
+  files.forEach(file => {
+    const job = JSON.parse(fs.readFileSync(path.join(JOBS_DIR, file), 'utf-8'));
+    const html = jobTemplate(job);
+    fs.writeFileSync(path.join(OUT_DIR, `${job.slug}.html`), html, 'utf-8');
+    manifest.push({
+      slug: job.slug, title: job.title, status: job.status, type: job.type,
+      location: job.location, compensation: job.compensation, excerpt: job.excerpt
+    });
+  });
+
+  fs.writeFileSync(path.join(OUT_DIR, 'jobs.json'), JSON.stringify(manifest, null, 2), 'utf-8');
+  console.log(`${files.length} poste(s) généré(s) dans /emploi`);
+}
+
+build();
