@@ -28,30 +28,84 @@ function formatDateFR(dateStr) {
   return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-function articleTemplate({ title, date, dateLabel, excerpt, cover, tags, contentHtml, readMin, slug }) {
-  const tagsHtml = (tags || []).map(t => `<span class="chip">${t}</span>`).join('');
+function slugifyHeading(text) {
+  return text.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+// Ajoute un id à chaque <h2> et construit la table des matières
+function processHeadings(html) {
+  const toc = [];
+  const withIds = html.replace(/<h2>(.*?)<\/h2>/g, (match, text) => {
+    const plain = text.replace(/<[^>]+>/g, '');
+    const id = slugifyHeading(plain);
+    toc.push({ id, text: plain });
+    return `<h2 id="${id}">${text}</h2>`;
+  });
+  return { html: withIds, toc };
+}
+
+function relatedPosts(current, all) {
+  const others = all.filter(p => p.slug !== current.slug);
+  const sameTag = others.filter(p => (p.tags || []).some(t => (current.tags || []).includes(t)));
+  const pool = sameTag.length ? sameTag : others;
+  return pool.slice(0, 3);
+}
+
+function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
+  const tagsHtml = (post.tags || []).map(t => `<span class="chip">${t}</span>`).join('');
+  const shareUrl = `${SITE_URL}/blog/${post.slug}.html`;
+
+  const tocHtml = toc.length ? `
+    <nav class="toc" id="toc">
+      <div class="toc-label">Sommaire</div>
+      ${toc.map(item => `<a href="#${item.id}">${item.text}</a>`).join('')}
+    </nav>` : '';
+
+  const relatedHtml = related.length ? `
+    <section class="related-section">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        ${related.map(r => `
+          <a href="${r.slug}.html" class="related-card">
+            ${r.cover ? `<div class="cover"><img src="../${r.cover}" alt="${r.title}" loading="lazy"></div>` : ''}
+            <div class="body">
+              <div class="meta">${r.dateLabel}</div>
+              <h3>${r.title}</h3>
+            </div>
+          </a>`).join('')}
+      </div>
+    </section>` : '';
+
+  const prevNextHtml = (prev || next) ? `
+    <nav class="prev-next">
+      ${prev ? `<a href="${prev.slug}.html" class="pn-link pn-prev"><span class="pn-label">&larr; Article précédent</span><span class="pn-title">${prev.title}</span></a>` : '<span></span>'}
+      ${next ? `<a href="${next.slug}.html" class="pn-link pn-next"><span class="pn-label">Article suivant &rarr;</span><span class="pn-title">${next.title}</span></a>` : '<span></span>'}
+    </nav>` : '';
+
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} — Blog Code A-Z</title>
-<meta name="description" content="${excerpt}">
+<title>${post.title} — Blog Code A-Z</title>
+<meta name="description" content="${post.excerpt}">
 <meta name="author" content="Agnissan Isaac Valen">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="${title}">
-<meta property="og:description" content="${excerpt}">
-<meta property="og:image" content="${SITE_URL}/${cover}">
-<meta property="og:url" content="${SITE_URL}/blog/${slug}.html">
-<meta property="article:published_time" content="${date}">
-<link rel="canonical" href="${SITE_URL}/blog/${slug}.html">
+<meta property="og:title" content="${post.title}">
+<meta property="og:description" content="${post.excerpt}">
+<meta property="og:image" content="${SITE_URL}/${post.cover}">
+<meta property="og:url" content="${shareUrl}">
+<meta property="article:published_time" content="${post.date}">
+<link rel="canonical" href="${shareUrl}">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": ${JSON.stringify(title)},
-  "datePublished": "${date}",
+  "headline": ${JSON.stringify(post.title)},
+  "datePublished": "${post.date}",
   "author": { "@type": "Person", "name": "Agnissan Isaac" },
   "publisher": { "@type": "Organization", "name": "Code A-Z" }
 }
@@ -65,8 +119,12 @@ function articleTemplate({ title, date, dateLabel, excerpt, cover, tags, content
   .article-header h1{ font-size:clamp(2rem,4.4vw,3.1rem); line-height:1.15; margin-bottom:18px; }
   .article-cover{ max-width:900px; margin:44px auto; padding:0 32px; }
   .article-cover img{ width:100%; border-radius:var(--radius-md); border:1px solid var(--line); aspect-ratio:16/9; object-fit:cover; }
-  .article-body{ max-width:680px; margin:0 auto; padding:0 32px 100px; font-size:16px; line-height:1.85; color:var(--text); }
-  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; }
+
+  .article-layout{ max-width:900px; margin:0 auto; padding:0 32px 40px; display:grid; grid-template-columns:1fr 200px; gap:56px; align-items:start; }
+  @media (max-width:860px){ .article-layout{ grid-template-columns:1fr; } }
+
+  .article-body{ font-size:16px; line-height:1.85; color:var(--text); max-width:680px; }
+  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; scroll-margin-top:100px; }
   .article-body h3{ margin-top:36px; margin-bottom:14px; }
   .article-body p{ color:var(--text); font-weight:300; margin-bottom:20px; }
   .article-body ul, .article-body ol{ margin:0 0 20px 22px; color:var(--text); }
@@ -75,6 +133,40 @@ function articleTemplate({ title, date, dateLabel, excerpt, cover, tags, content
   .article-tags{ display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
   .back-link{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:none; margin-bottom:8px; }
   .back-link:hover{ color:var(--accent); }
+
+  .toc{ position:sticky; top:100px; display:flex; flex-direction:column; gap:10px; }
+  @media (max-width:860px){ .toc{ display:none; } }
+  .toc-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); margin-bottom:4px; }
+  .toc a{ font-size:13px; color:var(--muted); text-decoration:none; line-height:1.5; border-left:2px solid var(--line); padding-left:12px; transition:all .2s ease; }
+  .toc a:hover{ color:var(--text); border-color:var(--muted-2); }
+  .toc a.active{ color:var(--accent); border-color:var(--accent); }
+
+  .share-row{ display:flex; align-items:center; gap:12px; margin:36px 0; }
+  .share-label{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
+  .share-btn{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--surface);
+    display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all .2s ease;
+  }
+  .share-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .share-btn svg{ width:16px; height:16px; }
+
+  .related-section{ max-width:900px; margin:70px auto 0; padding:56px 32px 0; border-top:1px solid var(--line); }
+  .related-section h2{ font-size:1.4rem; margin-bottom:28px; color:var(--text); }
+  .related-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:760px){ .related-grid{ grid-template-columns:1fr; } }
+  .related-card{ text-decoration:none; display:block; }
+  .related-card .cover{ aspect-ratio:16/10; border-radius:var(--radius-md); overflow:hidden; margin-bottom:14px; background:var(--line); }
+  .related-card .cover img{ width:100%; height:100%; object-fit:cover; }
+  .related-card .meta{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); margin-bottom:8px; }
+  .related-card h3{ font-size:15px; color:var(--text); font-weight:500; line-height:1.4; }
+
+  .prev-next{ max-width:900px; margin:0 auto; padding:44px 32px 90px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:640px){ .prev-next{ grid-template-columns:1fr; } }
+  .pn-link{ text-decoration:none; padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius-md); display:flex; flex-direction:column; gap:8px; transition:border-color .2s ease; }
+  .pn-link:hover{ border-color:var(--accent); }
+  .pn-next{ text-align:right; }
+  .pn-label{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); }
+  .pn-title{ font-size:14px; color:var(--text); line-height:1.4; }
 </style>
 </head>
 <body>
@@ -95,15 +187,32 @@ function articleTemplate({ title, date, dateLabel, excerpt, cover, tags, content
   <header class="article-header">
     <a href="../blog.html" class="back-link">&larr; Retour au blog</a>
     <div class="article-meta">
-      <span>${dateLabel}</span><span>·</span><span>${readMin} min de lecture</span>
+      <span>${post.dateLabel}</span><span>·</span><span>${post.readMin} min de lecture</span>
     </div>
-    <h1>${title}</h1>
+    <h1>${post.title}</h1>
   </header>
-  ${cover ? `<div class="article-cover"><img src="../${cover}" alt="${title}" loading="lazy"></div>` : ''}
-  <div class="article-body">
-    ${contentHtml}
-    <div class="article-tags">${tagsHtml}</div>
+  ${post.cover ? `<div class="article-cover"><img src="../${post.cover}" alt="${post.title}" loading="lazy"></div>` : ''}
+
+  <div class="article-layout">
+    <div class="article-body">
+      <div class="share-row">
+        <span class="share-label">Partager :</span>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}" aria-label="Partager sur LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.85c0-1.63-.03-3.73-2.28-3.73-2.28 0-2.63 1.78-2.63 3.62V23h-4V8z"/></svg>
+        </a>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(post.title + ' — ' + shareUrl)}" aria-label="Partager sur WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.1 9 9.6 7.7 9.4 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        </a>
+      </div>
+
+      ${contentHtml}
+      <div class="article-tags">${tagsHtml}</div>
+    </div>
+    ${tocHtml}
   </div>
+
+  ${relatedHtml}
+  ${prevNextHtml}
 </article>
 
 <footer>
@@ -113,52 +222,61 @@ function articleTemplate({ title, date, dateLabel, excerpt, cover, tags, content
   </div>
 </footer>
 
+<script>
+  const headings = document.querySelectorAll('.article-body h2[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  if (headings.length && tocLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    headings.forEach(h => spy.observe(h));
+  }
+</script>
+
 </body>
 </html>
 `;
 }
 
 function build() {
-  if (!fs.existsSync(POSTS_DIR)) {
-    console.log('Aucun dossier content/posts trouvé.');
-    return;
-  }
+  if (!fs.existsSync(POSTS_DIR)) { console.log('Aucun dossier content/posts trouvé.'); return; }
   const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
-  const manifest = [];
 
-  files.forEach(file => {
+  // 1ère passe : lire et parser tous les articles
+  const posts = files.map(file => {
     const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
     const { data, content } = matter(raw);
     const slug = file.replace(/\.md$/, '');
-    const contentHtml = md.render(content);
-    const dateLabel = formatDateFR(data.date);
-    const readMin = readingTime(content);
-
-    const html = articleTemplate({
-      title: data.title,
-      date: data.date,
-      dateLabel,
-      excerpt: data.excerpt || '',
-      cover: data.cover || '',
-      tags: data.tags || [],
-      contentHtml,
-      readMin,
-      slug
-    });
-
-    fs.writeFileSync(path.join(OUT_DIR, `${slug}.html`), html, 'utf-8');
-
-    manifest.push({
-      slug, title: data.title, date: data.date, dateLabel,
-      excerpt: data.excerpt || '', cover: data.cover || '',
-      tags: data.tags || [], readMin
-    });
+    return {
+      slug, title: data.title, date: data.date, dateLabel: formatDateFR(data.date),
+      excerpt: data.excerpt || '', cover: data.cover || '', tags: data.tags || [],
+      readMin: readingTime(content), rawContent: content
+    };
   });
 
-  manifest.sort((a, b) => new Date(b.date) - new Date(a.date));
+  // Tri du plus récent au plus ancien
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // 2ème passe : générer chaque page avec accès à tous les autres articles
+  posts.forEach((post, index) => {
+    const { html: contentHtml, toc } = processHeadings(md.render(post.rawContent));
+    const prev = posts[index + 1] || null; // plus ancien
+    const next = posts[index - 1] || null; // plus récent
+    const related = relatedPosts(post, posts);
+
+    const html = articleTemplate({ post, contentHtml, toc, prev, next, related });
+    fs.writeFileSync(path.join(OUT_DIR, `${post.slug}.html`), html, 'utf-8');
+  });
+
+  // Manifest pour blog.html (on retire rawContent, inutile côté client)
+  const manifest = posts.map(({ rawContent, ...rest }) => rest);
   fs.writeFileSync(path.join(OUT_DIR, 'posts.json'), JSON.stringify(manifest, null, 2), 'utf-8');
 
-  console.log(`${files.length} article(s) généré(s) dans /blog`);
+  console.log(`${posts.length} article(s) généré(s) dans /blog`);
 }
 
 build();
