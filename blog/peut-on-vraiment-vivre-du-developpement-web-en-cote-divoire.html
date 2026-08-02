@@ -33,8 +33,12 @@
   .article-header h1{ font-size:clamp(2rem,4.4vw,3.1rem); line-height:1.15; margin-bottom:18px; }
   .article-cover{ max-width:900px; margin:44px auto; padding:0 32px; }
   .article-cover img{ width:100%; border-radius:var(--radius-md); border:1px solid var(--line); aspect-ratio:16/9; object-fit:cover; }
-  .article-body{ max-width:680px; margin:0 auto; padding:0 32px 100px; font-size:16px; line-height:1.85; color:var(--text); }
-  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; }
+
+  .article-layout{ max-width:900px; margin:0 auto; padding:0 32px 40px; display:grid; grid-template-columns:1fr 200px; gap:56px; align-items:start; }
+  @media (max-width:860px){ .article-layout{ grid-template-columns:1fr; } }
+
+  .article-body{ font-size:16px; line-height:1.85; color:var(--text); max-width:680px; }
+  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; scroll-margin-top:100px; }
   .article-body h3{ margin-top:36px; margin-bottom:14px; }
   .article-body p{ color:var(--text); font-weight:300; margin-bottom:20px; }
   .article-body ul, .article-body ol{ margin:0 0 20px 22px; color:var(--text); }
@@ -43,6 +47,40 @@
   .article-tags{ display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
   .back-link{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:none; margin-bottom:8px; }
   .back-link:hover{ color:var(--accent); }
+
+  .toc{ position:sticky; top:100px; display:flex; flex-direction:column; gap:10px; }
+  @media (max-width:860px){ .toc{ display:none; } }
+  .toc-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); margin-bottom:4px; }
+  .toc a{ font-size:13px; color:var(--muted); text-decoration:none; line-height:1.5; border-left:2px solid var(--line); padding-left:12px; transition:all .2s ease; }
+  .toc a:hover{ color:var(--text); border-color:var(--muted-2); }
+  .toc a.active{ color:var(--accent); border-color:var(--accent); }
+
+  .share-row{ display:flex; align-items:center; gap:12px; margin:36px 0; }
+  .share-label{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
+  .share-btn{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--surface);
+    display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all .2s ease;
+  }
+  .share-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .share-btn svg{ width:16px; height:16px; }
+
+  .related-section{ max-width:900px; margin:70px auto 0; padding:56px 32px 0; border-top:1px solid var(--line); }
+  .related-section h2{ font-size:1.4rem; margin-bottom:28px; color:var(--text); }
+  .related-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:760px){ .related-grid{ grid-template-columns:1fr; } }
+  .related-card{ text-decoration:none; display:block; }
+  .related-card .cover{ aspect-ratio:16/10; border-radius:var(--radius-md); overflow:hidden; margin-bottom:14px; background:var(--line); }
+  .related-card .cover img{ width:100%; height:100%; object-fit:cover; }
+  .related-card .meta{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); margin-bottom:8px; }
+  .related-card h3{ font-size:15px; color:var(--text); font-weight:500; line-height:1.4; }
+
+  .prev-next{ max-width:900px; margin:0 auto; padding:44px 32px 90px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:640px){ .prev-next{ grid-template-columns:1fr; } }
+  .pn-link{ text-decoration:none; padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius-md); display:flex; flex-direction:column; gap:8px; transition:border-color .2s ease; }
+  .pn-link:hover{ border-color:var(--accent); }
+  .pn-next{ text-align:right; }
+  .pn-label{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); }
+  .pn-title{ font-size:14px; color:var(--text); line-height:1.4; }
 </style>
 </head>
 <body>
@@ -68,26 +106,78 @@
     <h1>Peut-on vraiment vivre du développement web en Côte d'Ivoire ?</h1>
   </header>
   <div class="article-cover"><img src="../images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.png" alt="Peut-on vraiment vivre du développement web en Côte d'Ivoire ?" loading="lazy"></div>
-  <div class="article-body">
-    <p>La question revient souvent, posée aussi bien par des débutants que par des parents inquiets pour l’avenir de leurs enfants : est-ce que le développement web peut vraiment nourrir quelqu’un en Côte d’Ivoire, ou est-ce un métier qui ne fonctionne qu’ailleurs ? La réponse honnête est oui, mais pas dans les conditions qu’on imagine souvent.</p>
-<h2>Ce qui est vrai</h2>
+
+  <div class="article-layout">
+    <div class="article-body">
+      <div class="share-row">
+        <span class="share-label">Partager :</span>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fagnissanisaac.com%2Fblog%2Fpeut-on-vraiment-vivre-du-developpement-web-en-cote-divoire.html" aria-label="Partager sur LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.85c0-1.63-.03-3.73-2.28-3.73-2.28 0-2.63 1.78-2.63 3.62V23h-4V8z"/></svg>
+        </a>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=Peut-on%20vraiment%20vivre%20du%20d%C3%A9veloppement%20web%20en%20C%C3%B4te%20d'Ivoire%20%3F%20%E2%80%94%20https%3A%2F%2Fagnissanisaac.com%2Fblog%2Fpeut-on-vraiment-vivre-du-developpement-web-en-cote-divoire.html" aria-label="Partager sur WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.1 9 9.6 7.7 9.4 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        </a>
+      </div>
+
+      <p>La question revient souvent, posée aussi bien par des débutants que par des parents inquiets pour l’avenir de leurs enfants : est-ce que le développement web peut vraiment nourrir quelqu’un en Côte d’Ivoire, ou est-ce un métier qui ne fonctionne qu’ailleurs ? La réponse honnête est oui, mais pas dans les conditions qu’on imagine souvent.</p>
+<h2 id="ce-qui-est-vrai">Ce qui est vrai</h2>
 <p>Le marché local existe, et il grandit. De plus en plus d’entreprises, de commerces et d’indépendants ivoiriens comprennent qu’un site web ou une présence en ligne professionnelle n’est plus un luxe réservé aux grandes structures. Ce sont des clients accessibles, souvent plus faciles à convaincre qu’à l’international parce que la relation de confiance se construit en présentiel ou par recommandation directe.</p>
 <p>À cela s’ajoute un marché que la géographie n’empêche plus : rien n’oblige un développeur basé à Abidjan à ne travailler qu’avec des clients ivoiriens. Les outils de paiement (Wave, Orange Money, virements internationaux) et la visibilité en ligne permettent de travailler avec des clients basés ailleurs, sans quitter le pays.</p>
-<h2>Ce qui est plus difficile qu’on ne le pense</h2>
+<h2 id="ce-qui-est-plus-difficile-qu-on-ne-le-pense">Ce qui est plus difficile qu’on ne le pense</h2>
 <p>Vivre uniquement de missions ponctuelles et irrégulières, sans aucune structure autour, reste risqué au début. Le vrai obstacle n’est presque jamais la compétence technique — beaucoup de développeurs ivoiriens autodidactes ont un niveau tout à fait solide. Le vrai obstacle, c’est la régularité des clients, la confiance à construire, et la gestion administrative d’une activité indépendante.</p>
 <p>C’est précisément l’écart entre “savoir coder” et “vivre du code” que beaucoup sous-estiment en démarrant.</p>
-<h2>Ce qui change la donne concrètement</h2>
+<h2 id="ce-qui-change-la-donne-concretement">Ce qui change la donne concrètement</h2>
 <ul>
 <li><strong>Se spécialiser plutôt que rester généraliste.</strong> Un développeur qui sait “un peu tout faire” convainc moins qu’un profil clairement identifié (sites vitrines pour commerces locaux, applications métier, e-commerce…).</li>
 <li><strong>Construire un vrai portfolio</strong>, même avec des projets de démonstration au départ, plutôt que d’attendre d’avoir de vrais clients pour en avoir un.</li>
 <li><strong>S’appuyer sur une structure plutôt que rester totalement seul.</strong> Rejoindre une agence, même en freelance, change la donne : la prospection, la relation client et l’administratif sont partagés, ce qui laisse plus de place au travail technique lui-même.</li>
 <li><strong>Ne pas négliger le prix.</strong> Sous-évaluer son travail pour “décrocher le client à tout prix” installe une réputation difficile à corriger ensuite, et rend l’activité intenable financièrement sur la durée.</li>
 </ul>
-<h2>Une réponse honnête</h2>
+<h2 id="une-reponse-honnete">Une réponse honnête</h2>
 <p>Oui, on peut vivre du développement web en Côte d’Ivoire aujourd’hui — mais rarement seul, rarement du premier coup, et rarement sans une vraie régularité dans la prospection. Ce n’est pas un métier “impossible ici” comme on l’entend parfois. C’est un métier qui demande, comme ailleurs, de la patience, une vraie méthode, et souvent un collectif plutôt qu’un parcours en solitaire.</p>
 
-    <div class="article-tags"><span class="chip">Côte d'Ivoire</span><span class="chip">Carrière</span></div>
+      <div class="article-tags"><span class="chip">Côte d'Ivoire</span><span class="chip">Carrière</span></div>
+    </div>
+    
+    <nav class="toc" id="toc">
+      <div class="toc-label">Sommaire</div>
+      <a href="#ce-qui-est-vrai">Ce qui est vrai</a><a href="#ce-qui-est-plus-difficile-qu-on-ne-le-pense">Ce qui est plus difficile qu’on ne le pense</a><a href="#ce-qui-change-la-donne-concretement">Ce qui change la donne concrètement</a><a href="#une-reponse-honnete">Une réponse honnête</a>
+    </nav>
   </div>
+
+  
+    <section class="related-section">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        
+          <a href="feuille-de-route-pour-devenir-un-bon-dev.html" class="related-card">
+            <div class="cover"><img src="../images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover.webp" alt="Feuille de route pour devenir un bon développeur, sans se disperser" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">13 juillet 2026</div>
+              <h3>Feuille de route pour devenir un bon développeur, sans se disperser</h3>
+            </div>
+          </a>
+          <a href="decrocher-un-premier-job-dev-sans-diplome.html" class="related-card">
+            <div class="cover"><img src="../images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.jpg" alt="Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">6 juillet 2026</div>
+              <h3>Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions</h3>
+            </div>
+          </a>
+          <a href="burnout-du-developpeur-les-signes-qui-ne-trompent-pas.html" class="related-card">
+            <div class="cover"><img src="../images/blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas/cover.webp" alt="Burnout du développeur : les signes qui ne trompent pas" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">22 juin 2026</div>
+              <h3>Burnout du développeur : les signes qui ne trompent pas</h3>
+            </div>
+          </a>
+      </div>
+    </section>
+  
+    <nav class="prev-next">
+      <a href="feuille-de-route-pour-devenir-un-bon-dev.html" class="pn-link pn-prev"><span class="pn-label">&larr; Article précédent</span><span class="pn-title">Feuille de route pour devenir un bon développeur, sans se disperser</span></a>
+      <a href="pourquoi-un-site-lent-vous-coute-des-clients.html" class="pn-link pn-next"><span class="pn-label">Article suivant &rarr;</span><span class="pn-title">Pourquoi un site lent vous coûte des clients</span></a>
+    </nav>
 </article>
 
 <footer>
@@ -96,6 +186,21 @@
     <a href="../index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>
+
+<script>
+  const headings = document.querySelectorAll('.article-body h2[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  if (headings.length && tocLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    headings.forEach(h => spy.observe(h));
+  }
+</script>
 
 </body>
 </html>

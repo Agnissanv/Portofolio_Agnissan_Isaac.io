@@ -33,8 +33,12 @@
   .article-header h1{ font-size:clamp(2rem,4.4vw,3.1rem); line-height:1.15; margin-bottom:18px; }
   .article-cover{ max-width:900px; margin:44px auto; padding:0 32px; }
   .article-cover img{ width:100%; border-radius:var(--radius-md); border:1px solid var(--line); aspect-ratio:16/9; object-fit:cover; }
-  .article-body{ max-width:680px; margin:0 auto; padding:0 32px 100px; font-size:16px; line-height:1.85; color:var(--text); }
-  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; }
+
+  .article-layout{ max-width:900px; margin:0 auto; padding:0 32px 40px; display:grid; grid-template-columns:1fr 200px; gap:56px; align-items:start; }
+  @media (max-width:860px){ .article-layout{ grid-template-columns:1fr; } }
+
+  .article-body{ font-size:16px; line-height:1.85; color:var(--text); max-width:680px; }
+  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; scroll-margin-top:100px; }
   .article-body h3{ margin-top:36px; margin-bottom:14px; }
   .article-body p{ color:var(--text); font-weight:300; margin-bottom:20px; }
   .article-body ul, .article-body ol{ margin:0 0 20px 22px; color:var(--text); }
@@ -43,6 +47,40 @@
   .article-tags{ display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
   .back-link{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:none; margin-bottom:8px; }
   .back-link:hover{ color:var(--accent); }
+
+  .toc{ position:sticky; top:100px; display:flex; flex-direction:column; gap:10px; }
+  @media (max-width:860px){ .toc{ display:none; } }
+  .toc-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); margin-bottom:4px; }
+  .toc a{ font-size:13px; color:var(--muted); text-decoration:none; line-height:1.5; border-left:2px solid var(--line); padding-left:12px; transition:all .2s ease; }
+  .toc a:hover{ color:var(--text); border-color:var(--muted-2); }
+  .toc a.active{ color:var(--accent); border-color:var(--accent); }
+
+  .share-row{ display:flex; align-items:center; gap:12px; margin:36px 0; }
+  .share-label{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
+  .share-btn{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--surface);
+    display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all .2s ease;
+  }
+  .share-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .share-btn svg{ width:16px; height:16px; }
+
+  .related-section{ max-width:900px; margin:70px auto 0; padding:56px 32px 0; border-top:1px solid var(--line); }
+  .related-section h2{ font-size:1.4rem; margin-bottom:28px; color:var(--text); }
+  .related-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:760px){ .related-grid{ grid-template-columns:1fr; } }
+  .related-card{ text-decoration:none; display:block; }
+  .related-card .cover{ aspect-ratio:16/10; border-radius:var(--radius-md); overflow:hidden; margin-bottom:14px; background:var(--line); }
+  .related-card .cover img{ width:100%; height:100%; object-fit:cover; }
+  .related-card .meta{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); margin-bottom:8px; }
+  .related-card h3{ font-size:15px; color:var(--text); font-weight:500; line-height:1.4; }
+
+  .prev-next{ max-width:900px; margin:0 auto; padding:44px 32px 90px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:640px){ .prev-next{ grid-template-columns:1fr; } }
+  .pn-link{ text-decoration:none; padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius-md); display:flex; flex-direction:column; gap:8px; transition:border-color .2s ease; }
+  .pn-link:hover{ border-color:var(--accent); }
+  .pn-next{ text-align:right; }
+  .pn-label{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); }
+  .pn-title{ font-size:14px; color:var(--text); line-height:1.4; }
 </style>
 </head>
 <body>
@@ -68,9 +106,21 @@
     <h1>Feuille de route pour devenir un bon développeur, sans se disperser</h1>
   </header>
   <div class="article-cover"><img src="../images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover.webp" alt="Feuille de route pour devenir un bon développeur, sans se disperser" loading="lazy"></div>
-  <div class="article-body">
-    <p>L’un des plus grands obstacles pour progresser en développement web n’est pas la difficulté des langages eux-mêmes — c’est la quantité de choix disponibles, et l’absence d’ordre clair pour les aborder. Voici une progression simple, pensée pour éviter la dispersion la plus fréquente chez les débutants.</p>
-<h2>Étape 1 — Les fondations, avant tout le reste</h2>
+
+  <div class="article-layout">
+    <div class="article-body">
+      <div class="share-row">
+        <span class="share-label">Partager :</span>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fagnissanisaac.com%2Fblog%2Ffeuille-de-route-pour-devenir-un-bon-dev.html" aria-label="Partager sur LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.85c0-1.63-.03-3.73-2.28-3.73-2.28 0-2.63 1.78-2.63 3.62V23h-4V8z"/></svg>
+        </a>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=Feuille%20de%20route%20pour%20devenir%20un%20bon%20d%C3%A9veloppeur%2C%20sans%20se%20disperser%20%E2%80%94%20https%3A%2F%2Fagnissanisaac.com%2Fblog%2Ffeuille-de-route-pour-devenir-un-bon-dev.html" aria-label="Partager sur WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.1 9 9.6 7.7 9.4 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        </a>
+      </div>
+
+      <p>L’un des plus grands obstacles pour progresser en développement web n’est pas la difficulté des langages eux-mêmes — c’est la quantité de choix disponibles, et l’absence d’ordre clair pour les aborder. Voici une progression simple, pensée pour éviter la dispersion la plus fréquente chez les débutants.</p>
+<h2 id="etape-1-les-fondations-avant-tout-le-reste">Étape 1 — Les fondations, avant tout le reste</h2>
 <p>Avant tout langage ou framework, trois bases sont incontournables et suffisent, à elles seules, à construire un premier vrai site fonctionnel :</p>
 <ul>
 <li><strong>HTML</strong> — la structure d’une page</li>
@@ -78,24 +128,64 @@
 <li><strong>JavaScript</strong> — le comportement et l’interactivité</li>
 </ul>
 <p>Beaucoup de débutants sautent trop vite vers un framework avant de maîtriser ces bases. Résultat : ils savent utiliser un outil sans comprendre ce qu’il fait réellement en dessous, ce qui devient un frein dès qu’un problème sort du cadre habituel.</p>
-<h2>Étape 2 — Construire de vrais projets, pas seulement suivre des tutoriels</h2>
+<h2 id="etape-2-construire-de-vrais-projets-pas-seulement-suivre-des-tutoriels">Étape 2 — Construire de vrais projets, pas seulement suivre des tutoriels</h2>
 <p>Regarder un tutoriel donne une impression de compréhension qui disparaît souvent dès qu’il faut refaire la même chose seul, sans les instructions pas-à-pas. La vraie progression vient de la construction de projets personnels, même petits : un site vitrine fictif, une todo-list, une page de portfolio. C’est en cherchant soi-même la solution d’un blocage qu’on retient réellement une notion.</p>
-<h2>Étape 3 — Choisir un framework, une fois les bases solides</h2>
+<h2 id="etape-3-choisir-un-framework-une-fois-les-bases-solides">Étape 3 — Choisir un framework, une fois les bases solides</h2>
 <p>Une fois HTML, CSS et JavaScript bien compris, apprendre un framework devient beaucoup plus rapide et logique — parce qu’on comprend ce que le framework simplifie, plutôt que de le subir comme une boîte noire. Le choix du framework dépend surtout des projets visés :</p>
 <ul>
 <li><strong>React</strong> pour des interfaces interactives modernes</li>
 <li><strong>Un framework back-end (Node.js, PHP…)</strong> si l’objectif inclut la gestion de bases de données et de logique serveur</li>
 </ul>
 <p>Il n’est pas nécessaire de tous les apprendre — mieux vaut en maîtriser un correctement que d’en survoler cinq.</p>
-<h2>Étape 4 — Apprendre à collaborer, pas seulement à coder seul</h2>
+<h2 id="etape-4-apprendre-a-collaborer-pas-seulement-a-coder-seul">Étape 4 — Apprendre à collaborer, pas seulement à coder seul</h2>
 <p>Savoir utiliser Git et GitHub, comprendre comment structurer un projet pour qu’il soit lisible par quelqu’un d’autre, savoir documenter son travail — ce sont des compétences aussi importantes que la maîtrise technique pure, dès qu’un projet dépasse le cadre personnel.</p>
-<h2>Étape 5 — Se confronter à de vrais besoins, le plus tôt possible</h2>
+<h2 id="etape-5-se-confronter-a-de-vrais-besoins-le-plus-tot-possible">Étape 5 — Se confronter à de vrais besoins, le plus tôt possible</h2>
 <p>La progression la plus rapide vient rarement de l’apprentissage seul, mais de la confrontation à un vrai besoin, même petit : un projet pour un proche, une contribution à un projet existant, une première mission simple. C’est là que les vraies questions apparaissent — celles qu’aucun tutoriel ne couvre, parce qu’elles dépendent d’un contexte précis.</p>
-<h2>Le piège à éviter par-dessus tout</h2>
+<h2 id="le-piege-a-eviter-par-dessus-tout">Le piège à éviter par-dessus tout</h2>
 <p>Le plus grand risque n’est pas de manquer de ressources — il y en a plus qu’il n’en faut aujourd’hui. Le vrai risque, c’est de sauter d’une ressource à l’autre sans jamais aller au bout d’un projet concret, en changeant constamment de langage ou de framework dès qu’une difficulté apparaît. La progression vient de la persévérance sur un projet fini, pas de l’accumulation de connaissances théoriques jamais mises en pratique.</p>
 
-    <div class="article-tags"><span class="chip">Apprentissage</span><span class="chip">Carrière</span></div>
+      <div class="article-tags"><span class="chip">Apprentissage</span><span class="chip">Carrière</span></div>
+    </div>
+    
+    <nav class="toc" id="toc">
+      <div class="toc-label">Sommaire</div>
+      <a href="#etape-1-les-fondations-avant-tout-le-reste">Étape 1 — Les fondations, avant tout le reste</a><a href="#etape-2-construire-de-vrais-projets-pas-seulement-suivre-des-tutoriels">Étape 2 — Construire de vrais projets, pas seulement suivre des tutoriels</a><a href="#etape-3-choisir-un-framework-une-fois-les-bases-solides">Étape 3 — Choisir un framework, une fois les bases solides</a><a href="#etape-4-apprendre-a-collaborer-pas-seulement-a-coder-seul">Étape 4 — Apprendre à collaborer, pas seulement à coder seul</a><a href="#etape-5-se-confronter-a-de-vrais-besoins-le-plus-tot-possible">Étape 5 — Se confronter à de vrais besoins, le plus tôt possible</a><a href="#le-piege-a-eviter-par-dessus-tout">Le piège à éviter par-dessus tout</a>
+    </nav>
   </div>
+
+  
+    <section class="related-section">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        
+          <a href="peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire.html" class="related-card">
+            <div class="cover"><img src="../images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.png" alt="Peut-on vraiment vivre du développement web en Côte d'Ivoire ?" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">20 juillet 2026</div>
+              <h3>Peut-on vraiment vivre du développement web en Côte d'Ivoire ?</h3>
+            </div>
+          </a>
+          <a href="decrocher-un-premier-job-dev-sans-diplome.html" class="related-card">
+            <div class="cover"><img src="../images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.jpg" alt="Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">6 juillet 2026</div>
+              <h3>Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions</h3>
+            </div>
+          </a>
+          <a href="burnout-du-developpeur-les-signes-qui-ne-trompent-pas.html" class="related-card">
+            <div class="cover"><img src="../images/blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas/cover.webp" alt="Burnout du développeur : les signes qui ne trompent pas" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">22 juin 2026</div>
+              <h3>Burnout du développeur : les signes qui ne trompent pas</h3>
+            </div>
+          </a>
+      </div>
+    </section>
+  
+    <nav class="prev-next">
+      <a href="decrocher-un-premier-job-dev-sans-diplome.html" class="pn-link pn-prev"><span class="pn-label">&larr; Article précédent</span><span class="pn-title">Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions</span></a>
+      <a href="peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire.html" class="pn-link pn-next"><span class="pn-label">Article suivant &rarr;</span><span class="pn-title">Peut-on vraiment vivre du développement web en Côte d'Ivoire ?</span></a>
+    </nav>
 </article>
 
 <footer>
@@ -104,6 +194,21 @@
     <a href="../index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>
+
+<script>
+  const headings = document.querySelectorAll('.article-body h2[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  if (headings.length && tocLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    headings.forEach(h => spy.observe(h));
+  }
+</script>
 
 </body>
 </html>

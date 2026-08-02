@@ -33,8 +33,12 @@
   .article-header h1{ font-size:clamp(2rem,4.4vw,3.1rem); line-height:1.15; margin-bottom:18px; }
   .article-cover{ max-width:900px; margin:44px auto; padding:0 32px; }
   .article-cover img{ width:100%; border-radius:var(--radius-md); border:1px solid var(--line); aspect-ratio:16/9; object-fit:cover; }
-  .article-body{ max-width:680px; margin:0 auto; padding:0 32px 100px; font-size:16px; line-height:1.85; color:var(--text); }
-  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; }
+
+  .article-layout{ max-width:900px; margin:0 auto; padding:0 32px 40px; display:grid; grid-template-columns:1fr 200px; gap:56px; align-items:start; }
+  @media (max-width:860px){ .article-layout{ grid-template-columns:1fr; } }
+
+  .article-body{ font-size:16px; line-height:1.85; color:var(--text); max-width:680px; }
+  .article-body h2{ margin-top:48px; margin-bottom:18px; font-size:1.6rem; scroll-margin-top:100px; }
   .article-body h3{ margin-top:36px; margin-bottom:14px; }
   .article-body p{ color:var(--text); font-weight:300; margin-bottom:20px; }
   .article-body ul, .article-body ol{ margin:0 0 20px 22px; color:var(--text); }
@@ -43,6 +47,40 @@
   .article-tags{ display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
   .back-link{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:none; margin-bottom:8px; }
   .back-link:hover{ color:var(--accent); }
+
+  .toc{ position:sticky; top:100px; display:flex; flex-direction:column; gap:10px; }
+  @media (max-width:860px){ .toc{ display:none; } }
+  .toc-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); margin-bottom:4px; }
+  .toc a{ font-size:13px; color:var(--muted); text-decoration:none; line-height:1.5; border-left:2px solid var(--line); padding-left:12px; transition:all .2s ease; }
+  .toc a:hover{ color:var(--text); border-color:var(--muted-2); }
+  .toc a.active{ color:var(--accent); border-color:var(--accent); }
+
+  .share-row{ display:flex; align-items:center; gap:12px; margin:36px 0; }
+  .share-label{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
+  .share-btn{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--surface);
+    display:flex; align-items:center; justify-content:center; color:var(--muted); text-decoration:none; transition:all .2s ease;
+  }
+  .share-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .share-btn svg{ width:16px; height:16px; }
+
+  .related-section{ max-width:900px; margin:70px auto 0; padding:56px 32px 0; border-top:1px solid var(--line); }
+  .related-section h2{ font-size:1.4rem; margin-bottom:28px; color:var(--text); }
+  .related-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:760px){ .related-grid{ grid-template-columns:1fr; } }
+  .related-card{ text-decoration:none; display:block; }
+  .related-card .cover{ aspect-ratio:16/10; border-radius:var(--radius-md); overflow:hidden; margin-bottom:14px; background:var(--line); }
+  .related-card .cover img{ width:100%; height:100%; object-fit:cover; }
+  .related-card .meta{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); margin-bottom:8px; }
+  .related-card h3{ font-size:15px; color:var(--text); font-weight:500; line-height:1.4; }
+
+  .prev-next{ max-width:900px; margin:0 auto; padding:44px 32px 90px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:640px){ .prev-next{ grid-template-columns:1fr; } }
+  .pn-link{ text-decoration:none; padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius-md); display:flex; flex-direction:column; gap:8px; transition:border-color .2s ease; }
+  .pn-link:hover{ border-color:var(--accent); }
+  .pn-next{ text-align:right; }
+  .pn-label{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); }
+  .pn-title{ font-size:14px; color:var(--text); line-height:1.4; }
 </style>
 </head>
 <body>
@@ -68,35 +106,87 @@
     <h1>Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions</h1>
   </header>
   <div class="article-cover"><img src="../images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.jpg" alt="Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions" loading="lazy"></div>
-  <div class="article-body">
-    <p>Une question revient souvent chez les développeurs autodidactes : est-il vraiment possible de décrocher une première mission ou un premier poste sans diplôme en informatique ? La réponse est oui, mais elle demande de comprendre ce qui compte réellement aux yeux d’un client ou d’un recruteur — et ce n’est presque jamais le diplôme en lui-même.</p>
-<h2>Ce qu’un client ou un recruteur cherche vraiment</h2>
+
+  <div class="article-layout">
+    <div class="article-body">
+      <div class="share-row">
+        <span class="share-label">Partager :</span>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fagnissanisaac.com%2Fblog%2Fdecrocher-un-premier-job-dev-sans-diplome.html" aria-label="Partager sur LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.85c0-1.63-.03-3.73-2.28-3.73-2.28 0-2.63 1.78-2.63 3.62V23h-4V8z"/></svg>
+        </a>
+        <a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=D%C3%A9crocher%20un%20premier%20job%20dev%20sans%20dipl%C3%B4me%20%3A%20c'est%20possible%2C%20%C3%A0%20certaines%20conditions%20%E2%80%94%20https%3A%2F%2Fagnissanisaac.com%2Fblog%2Fdecrocher-un-premier-job-dev-sans-diplome.html" aria-label="Partager sur WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.1 9 9.6 7.7 9.4 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        </a>
+      </div>
+
+      <p>Une question revient souvent chez les développeurs autodidactes : est-il vraiment possible de décrocher une première mission ou un premier poste sans diplôme en informatique ? La réponse est oui, mais elle demande de comprendre ce qui compte réellement aux yeux d’un client ou d’un recruteur — et ce n’est presque jamais le diplôme en lui-même.</p>
+<h2 id="ce-qu-un-client-ou-un-recruteur-cherche-vraiment">Ce qu’un client ou un recruteur cherche vraiment</h2>
 <p>Un client qui a besoin d’un site web ne demande pas un parcours académique — il cherche la preuve que la personne en face de lui est capable de livrer ce dont il a besoin, dans les délais annoncés. Cette preuve peut prendre plusieurs formes, et le diplôme n’en est qu’une parmi d’autres :</p>
 <ul>
 <li><strong>Un portfolio de projets réels</strong>, même de démonstration</li>
 <li><strong>Des recommandations ou avis</strong> d’anciens clients ou collaborateurs</li>
 <li><strong>La qualité de l’échange lui-même</strong> — la clarté des réponses, la compréhension du besoin exprimé</li>
 </ul>
-<h2>Construire une preuve, sans attendre qu’on vous en donne une</h2>
+<h2 id="construire-une-preuve-sans-attendre-qu-on-vous-en-donne-une">Construire une preuve, sans attendre qu’on vous en donne une</h2>
 <p>Le piège le plus fréquent chez les autodidactes est d’attendre une occasion “officielle” pour prouver leurs compétences — un stage, une embauche, un diplôme — plutôt que de créer cette preuve eux-mêmes. Concrètement :</p>
 <ul>
 <li><strong>Créer des projets de démonstration</strong>, même fictifs, qui montrent un vrai savoir-faire (un site vitrine complet, une application simple mais fonctionnelle)</li>
 <li><strong>Contribuer à un projet existant</strong>, même petit, pour avoir une trace concrète de collaboration</li>
 <li><strong>Documenter son propre apprentissage</strong> publiquement (articles, réseaux professionnels), ce qui rassure autant qu’un diplôme sur la sérieux et la régularité</li>
 </ul>
-<h2>Où chercher les premières opportunités</h2>
+<h2 id="ou-chercher-les-premieres-opportunites">Où chercher les premières opportunités</h2>
 <p>Les toutes premières missions viennent rarement des canaux classiques (offres d’emploi formelles), mais plutôt de :</p>
 <ul>
 <li><strong>Le réseau proche</strong> — famille, amis, connaissances qui ont un petit besoin ponctuel</li>
 <li><strong>Les groupes et communautés locales</strong> d’entrepreneurs ou de commerçants, souvent en demande de sites simples</li>
 <li><strong>Les agences ou collectifs</strong> qui recrutent des collaborateurs freelance sans exiger de diplôme, en évaluant directement sur un test technique ou un projet</li>
 </ul>
-<h2>Ce qui remplace vraiment le diplôme</h2>
+<h2 id="ce-qui-remplace-vraiment-le-diplome">Ce qui remplace vraiment le diplôme</h2>
 <p>Ce n’est pas un mensonge de dire qu’on peut réussir sans diplôme — mais c’est trompeur de dire que ça ne demande rien en échange. Ce que le diplôme apporte à d’autres (une preuve immédiate de sérieux et de méthode), il faut le construire soi-même, généralement plus lentement, mais tout aussi solidement : par des projets visibles, une communication claire, et une régularité qui, avec le temps, devient sa propre crédibilité.</p>
 <p>Le premier projet est toujours le plus difficile à obtenir. Une fois qu’il existe, chaque projet suivant devient plus facile à décrocher que le précédent.</p>
 
-    <div class="article-tags"><span class="chip">Carrière</span><span class="chip">Conseils</span></div>
+      <div class="article-tags"><span class="chip">Carrière</span><span class="chip">Conseils</span></div>
+    </div>
+    
+    <nav class="toc" id="toc">
+      <div class="toc-label">Sommaire</div>
+      <a href="#ce-qu-un-client-ou-un-recruteur-cherche-vraiment">Ce qu’un client ou un recruteur cherche vraiment</a><a href="#construire-une-preuve-sans-attendre-qu-on-vous-en-donne-une">Construire une preuve, sans attendre qu’on vous en donne une</a><a href="#ou-chercher-les-premieres-opportunites">Où chercher les premières opportunités</a><a href="#ce-qui-remplace-vraiment-le-diplome">Ce qui remplace vraiment le diplôme</a>
+    </nav>
   </div>
+
+  
+    <section class="related-section">
+      <h2>À lire aussi</h2>
+      <div class="related-grid">
+        
+          <a href="premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant.html" class="related-card">
+            <div class="cover"><img src="../images/blog/premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant/cover.webp" alt="Premier client, premier virement : ce que personne ne vous dit avant" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">3 août 2026</div>
+              <h3>Premier client, premier virement : ce que personne ne vous dit avant</h3>
+            </div>
+          </a>
+          <a href="peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire.html" class="related-card">
+            <div class="cover"><img src="../images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.png" alt="Peut-on vraiment vivre du développement web en Côte d'Ivoire ?" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">20 juillet 2026</div>
+              <h3>Peut-on vraiment vivre du développement web en Côte d'Ivoire ?</h3>
+            </div>
+          </a>
+          <a href="feuille-de-route-pour-devenir-un-bon-dev.html" class="related-card">
+            <div class="cover"><img src="../images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover.webp" alt="Feuille de route pour devenir un bon développeur, sans se disperser" loading="lazy"></div>
+            <div class="body">
+              <div class="meta">13 juillet 2026</div>
+              <h3>Feuille de route pour devenir un bon développeur, sans se disperser</h3>
+            </div>
+          </a>
+      </div>
+    </section>
+  
+    <nav class="prev-next">
+      <a href="decouvrir-palettepick-qui-extrait-les-couleurs-des-images.html" class="pn-link pn-prev"><span class="pn-label">&larr; Article précédent</span><span class="pn-title">Découvrir PalettePick, l'outil qui extrait les couleurs de vos images</span></a>
+      <a href="feuille-de-route-pour-devenir-un-bon-dev.html" class="pn-link pn-next"><span class="pn-label">Article suivant &rarr;</span><span class="pn-title">Feuille de route pour devenir un bon développeur, sans se disperser</span></a>
+    </nav>
 </article>
 
 <footer>
@@ -105,6 +195,21 @@
     <a href="../index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>
+
+<script>
+  const headings = document.querySelectorAll('.article-body h2[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  if (headings.length && tocLinks.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    headings.forEach(h => spy.observe(h));
+  }
+</script>
 
 </body>
 </html>
