@@ -243,14 +243,27 @@ nav.site-nav{
 
 /* ---------- Modal ---------- */
 .modal-overlay{
-  position:fixed; inset:0; background:rgba(20,18,16,0.55); backdrop-filter:blur(3px);
-  display:flex; align-items:flex-start; justify-content:center; padding:5vh 20px;
-  z-index:200; opacity:0; pointer-events:none; transition:opacity .28s ease;
+  position:fixed; 
+  inset:0; 
+  background:rgba(20,18,16,0.55); 
+  backdrop-filter:blur(3px);
+  display:flex; 
+  align-items:flex-start; 
+  justify-content:center; 
+  padding:5vh 20px;
+  z-index:200; 
+  opacity:0; 
+  pointer-events:none; 
+  transition:opacity .28s ease;
   overflow-y:auto;
 }
-.modal-overlay.open{ opacity:1; pointer-events:auto; }
+.modal-overlay.open{ 
+  opacity:1; 
+  pointer-events:auto; 
+}
 .modal-box{
-  background:var(--surface); max-width:920px; width:100%; border-radius:var(--radius-md);
+  background:var(--surface); 
+  max-width:920px; width:100%; border-radius:var(--radius-md);
   box-shadow:var(--shadow-lg); transform:translateY(24px); transition:transform .32s var(--ease);
   overflow:hidden;
 }
