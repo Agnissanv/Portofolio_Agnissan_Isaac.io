@@ -399,3 +399,28 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 
 
 
+/* ---------- Thème sombre ---------- */
+[data-theme="dark"]{
+  --bg:#0B0B0C;
+  --bg-dot:#201F1D;
+  --surface:#151513;
+  --surface-2:#1B1B19;
+  --text:#EDEDEA;
+  --muted:#9A9892;
+  --muted-2:#6E6C67;
+  --accent:#E0454F;
+  --accent-dark:#C6303E;
+  --line:#26251F;
+  --line-strong:#38362F;
+}
+
+.theme-toggle{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--surface);
+  display:flex; align-items:center; justify-content:center; color:var(--text); cursor:pointer;
+  transition:all .2s ease; flex:none;
+}
+.theme-toggle:hover{ border-color:var(--accent); color:var(--accent); }
+.theme-toggle svg{ width:17px; height:17px; }
+.theme-toggle .icon-dark{ display:none; }
+[data-theme="dark"] .theme-toggle .icon-dark{ display:block; }
+[data-theme="dark"] .theme-toggle .icon-light{ display:none; }
