@@ -186,6 +186,10 @@ nav.site-nav{
 .about-portrait{
   border-radius:var(--radius-md); overflow:hidden; background:var(--surface);
   border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  aspect-ratio:4/5;
+}
+.about-portrait img{
+  width:100%; height:100%; object-fit:cover; object-position:center top;
 }
 .about-list{ margin-top:36px; display:flex; flex-direction:column; gap:26px; }
 .about-list li{ display:flex; gap:18px; }
@@ -285,6 +289,7 @@ nav.site-nav{
 
 /* ---------- Pricing ---------- */
 .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.pricing-note{ text-align:center; font-size:13px; color:var(--muted-2); max-width:560px; margin:36px auto 0; line-height:1.6; }
 @media (max-width:900px){ .pricing-grid{ grid-template-columns:1fr; } }
 .price-card{
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);

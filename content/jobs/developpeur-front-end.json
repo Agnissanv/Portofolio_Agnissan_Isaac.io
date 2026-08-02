@@ -4,8 +4,8 @@
   "status": "Recrutement ouvert",
   "type": "Freelance / collaboration projet",
   "location": "Distanciel — Côte d'Ivoire et alentours",
-  "compensation": "Rémunération au projet, selon la mission",
-  "compensationClaim": "À définir selon le projet",
+  "compensation": "Rémunération au projet — jamais de salaire fixe",
+  "compensationClaim": "70 % du solde du projet en tant que développeur principal",
   "excerpt": "Intervenir en renfort sur des projets clients Code A-Z : intégration d'interfaces, animations et optimisation de la performance.",
   "missionIntro": "Vous intervenez en appui sur des projets clients de Code A-Z, principalement sur la partie visible du site : ce que l'utilisateur voit et manipule.",
   "missionList": [
@@ -27,6 +27,15 @@
       "items": [
         { "q": "S'agit-il d'un poste salarié ou d'une collaboration ponctuelle ?", "a": "Il s'agit d'une collaboration au projet, rémunérée selon la mission confiée. Le volume peut évoluer selon la charge de travail de l'agence." },
         { "q": "Dois-je être basé à Abidjan ?", "a": "Non, le travail se fait à distance. Une bonne communication écrite et des points réguliers suffisent." }
+      ]
+    },
+    {
+      "label": "Rémunération",
+      "items": [
+        { "q": "Comment est calculée ma rémunération sur un projet ?", "a": "Sur un contrat où vous intervenez comme développeur principal (Agnissan agissant alors comme chef de projet), la base de calcul est : prix du contrat, moins la commission du commercial à l'origine de la vente (30 %), moins les frais réels d'hébergement et de nom de domaine de la première année. Sur ce qui reste, vous touchez 70 %." },
+        { "q": "Un exemple concret ?", "a": "Sur un site vitrine à 150 000 FCFA : 45 000 FCFA de commission commerciale et environ 10 000 FCFA de frais d'hébergement/domaine sont déduits en premier. Sur les 95 000 FCFA restants, vous touchez 70 %, soit 66 500 FCFA." },
+        { "q": "Et si je travaille en binôme avec Agnissan sur le même projet, plutôt que seul ?", "a": "Le partage 70/30 s'applique quand vous portez seul la livraison technique. Si le travail est partagé activement à deux, la répartition est revue au cas par cas selon l'implication réelle de chacun." },
+        { "q": "Quand suis-je payé ?", "a": "Au même rythme que le reste de l'équipe : à la livraison du projet, une fois le client soldé." }
       ]
     },
     {
