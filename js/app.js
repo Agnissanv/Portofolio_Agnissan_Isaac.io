@@ -4,6 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Compteur de projets
+  const projectCountEl = document.getElementById('projectCount');
+  if (projectCountEl && typeof PROJECTS !== 'undefined') projectCountEl.textContent = PROJECTS.length;
+
   /* ---------- Menu mobile ---------- */
   const burgerBtn = document.getElementById('burgerBtn');
   const closeMenu = document.getElementById('closeMenu');
