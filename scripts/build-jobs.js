@@ -105,7 +105,7 @@ function jobTemplate(job) {
 
 <nav class="site-nav">
   <a href="../index.html#hero" class="logo">
-    <img src="../img/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
+    <img src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
   </a>
   <div class="nav-links">
     <a href="../index.html#about">À propos</a>

@@ -183,8 +183,6 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 </head>
 <body>
 
-<body>
-
 <div class="reading-progress" id="readingProgress"></div>
 
 <nav class="site-nav">
