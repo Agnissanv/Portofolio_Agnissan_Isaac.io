@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeMenu = document.getElementById('closeMenu');
   const mobileMenu = document.getElementById('mobileMenu');
   if (burgerBtn && mobileMenu) {
-    burgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
   }

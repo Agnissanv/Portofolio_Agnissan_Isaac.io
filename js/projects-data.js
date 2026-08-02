@@ -23,7 +23,7 @@ const PROJECTS = [
   {
     id: "palettepick",
     title: "PalettePick",
-    category: "app",
+    category: "web",
     categoryLabel: "Application",
     year: "2026",
     tag: "Outil pour designers",
@@ -81,7 +81,7 @@ const PROJECTS = [
   {
     id: "immo",
     title: "Immo",
-    category: "design",
+    category: "web",
     categoryLabel: "Refonte graphique",
     year: "2026",
     tag: "Agence immobilière",
@@ -120,7 +120,7 @@ const PROJECTS = [
   {
     id: "lumina",
     title: "Lumina",
-    category: "design",
+    category: "web",
     categoryLabel: "Landing page premium",
     year: "2026",
     tag: "Cabinets d'optique",
@@ -159,7 +159,7 @@ const PROJECTS = [
   {
     id: "sentimentale",
     title: "Sentimentale",
-    category: "app",
+    category: "web",
     categoryLabel: "E-commerce",
     year: "2026",
     tag: "Boutique en ligne",
