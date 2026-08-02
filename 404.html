@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable — Code A-Z</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .error-page{
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:32px;
+  }
+  .error-code{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent); letter-spacing:0.1em; margin-bottom:24px; }
+  .error-page h1{ font-size:clamp(2rem,5vw,3rem); max-width:16ch; margin-bottom:20px; }
+  .error-page p{ font-size:15px; max-width:440px; margin-bottom:36px; line-height:1.7; }
+  .error-chevron{ width:44px; margin-bottom:32px; opacity:0.5; }
+</style>
+</head>
+<body>
+
+<div class="error-page">
+  <svg class="error-chevron" viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#181816" stroke-width="11" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#C6303E" stroke-width="8" stroke-linecap="square"/></svg>
+  <div class="error-code">ERREUR 404</div>
+  <h1>Cette page n'existe pas, ou plus.</h1>
+  <p>Le lien que vous avez suivi est peut-être ancien ou mal orthographié. Retournez à l'accueil pour continuer votre visite.</p>
+  <a href="/index.html" class="btn btn-primary">Retour à l'accueil</a>
+</div>
+
+</body>
+</html>

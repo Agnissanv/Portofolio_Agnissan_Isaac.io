@@ -336,9 +336,11 @@ nav.site-nav{
 .field textarea{ min-height:130px; resize:vertical; }
 .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 @media (max-width:560px){ .field-row{ grid-template-columns:1fr; } }
-#formStatus{ margin-top:16px; font-size:13.5px; }
+#formStatus{ margin-top:16px; font-size:13.5px; opacity:0; transform:translateY(-6px); transition:all .3s ease; }
+#formStatus.show{ opacity:1; transform:translateY(0); }
 #formStatus.ok{ color:#3E7A4C; }
 #formStatus.err{ color:var(--accent); }
+.btn-primary.success{ background:#3E7A4C; }
 
 /* ---------- Footer ---------- */
 footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; }
@@ -363,3 +365,34 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 /* ---------- Divider chevron ---------- */
 .section-divider{ display:flex; justify-content:center; padding:0 0 60px; opacity:0.35; }
 .section-divider svg{ width:20px; height:20px; }
+
+/* ---------- Bouton retour en haut ---------- */
+.back-to-top{
+  position:fixed; bottom:28px; right:28px; width:44px; height:44px; border-radius:50%;
+  background:var(--text); color:var(--bg); border:none; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:opacity .25s ease, transform .25s ease, background .2s ease; z-index:90;
+  box-shadow:var(--shadow-md);
+}
+.back-to-top.visible{ opacity:1; pointer-events:auto; transform:translateY(0); }
+.back-to-top:hover{ background:var(--accent); }
+.back-to-top svg{ width:18px; height:18px; }
+
+/* ---------- Skeleton loading ---------- */
+@keyframes skeleton-pulse{
+  0%, 100%{ opacity:0.5; }
+  50%{ opacity:0.9; }
+}
+.skeleton-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+  overflow:hidden;
+}
+.skeleton-card .thumb{ aspect-ratio:4/3; background:var(--line); animation:skeleton-pulse 1.4s ease-in-out infinite; }
+.skeleton-card .body{ padding:22px 24px 26px; }
+.skeleton-line{
+  height:12px; background:var(--line); border-radius:4px; margin-bottom:10px;
+  animation:skeleton-pulse 1.4s ease-in-out infinite;
+}
+.skeleton-line.w-60{ width:60%; }
+.skeleton-line.w-90{ width:90%; }
+.skeleton-line.w-40{ height:10px; width:40%; margin-top:14px; }

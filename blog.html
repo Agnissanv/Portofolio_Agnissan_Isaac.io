@@ -59,13 +59,25 @@
   .post-card h3{ color:var(--text); font-size:1.25rem; margin-bottom:10px; }
   .post-card p{ font-size:14px; line-height:1.6; }
   .empty-state{ text-align:center; padding:60px 20px; color:var(--muted); font-size:14.5px; }
+
+  /* ---------- Bouton retour en haut ---------- */
+.back-to-top{
+  position:fixed; bottom:28px; right:28px; width:44px; height:44px; border-radius:50%;
+  background:var(--text); color:var(--bg); border:none; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:opacity .25s ease, transform .25s ease, background .2s ease; z-index:90;
+  box-shadow:var(--shadow-md);
+}
+.back-to-top.visible{ opacity:1; pointer-events:auto; transform:translateY(0); }
+.back-to-top:hover{ background:var(--accent); }
+.back-to-top svg{ width:18px; height:18px; }
 </style>
 </head>
 <body>
 
 <nav class="site-nav">
   <a href="index.html#hero" class="logo">
-    <img src="img/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
+    <img src="images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
   </a>
   <div class="nav-links">
     <a href="index.html#about">À propos</a>
@@ -87,7 +99,10 @@
     <div class="tag-filters" id="tagFilters"></div>
   </div>
   <div id="featuredSlot"></div>
-  <div class="post-grid" id="postGrid"></div>
+  <div class="post-grid" id="postGrid">
+    <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
+    <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
+  </div>
   <p class="empty-state" id="emptyState" style="display:none;">Aucun article ne correspond à votre recherche.</p>
 </div>
 
@@ -178,6 +193,17 @@
       renderPosts();
     })
     .catch(() => { document.getElementById('emptyState').style.display = 'block'; });
+
+    /* ---------- Bouton retour en haut ---------- */
+  const backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'Retour en haut de page');
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(backToTop);
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>

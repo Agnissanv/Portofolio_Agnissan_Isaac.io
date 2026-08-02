@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') mobileMenu.classList.remove('open');
+    });
   }
 
   /* ---------- Lien de nav actif au scroll ---------- */
@@ -63,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (grid && typeof PROJECTS !== 'undefined') {
 
     grid.innerHTML = PROJECTS.map(p => `
-      <article class="project-card" data-category="${p.category}" data-id="${p.id}">
+      <article class="project-card" data-category="${p.category}" data-id="${p.id}" tabindex="0" role="button" aria-label="Voir le projet ${p.title}">
         <div class="thumb"><img src="${p.thumb}" alt="Aperçu — ${p.title}" loading="lazy"></div>
         <div class="body">
           <div class="cat">${p.categoryLabel}</div>
@@ -122,9 +125,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.project-card');
       if (card) openModal(card.dataset.id);
     });
+    grid.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = e.target.closest('.project-card');
+      if (card) { e.preventDefault(); openModal(card.dataset.id); }
+    });
+
+
     modalClose.addEventListener('click', closeModal);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Tab' && overlay.classList.contains('open')) {
+        const focusable = overlay.querySelectorAll('a, button, input, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
   }
 
   /* ---------- Formulaire de contact (Web3Forms) ---------- */
@@ -147,20 +167,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const data = await res.json();
         if (data.success) {
-          status.textContent = 'Message envoyé — je reviens vers vous sous 24h.';
-          status.className = 'ok';
+          status.textContent = '✓ Message envoyé — je reviens vers vous sous 24h.';
+          status.className = 'ok show';
+          submitBtn.textContent = 'Envoyé ✓';
+          submitBtn.classList.add('success');
           form.reset();
+          setTimeout(() => {
+            submitBtn.classList.remove('success');
+            submitBtn.textContent = originalLabel;
+          }, 3000);
         } else {
           throw new Error(data.message || 'Erreur');
         }
       } catch (err) {
         status.textContent = "Une erreur est survenue. Réessayez, ou écrivez-moi directement à valenbouge@gmail.com.";
-        status.className = 'err';
+        status.className = 'err show';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
+        if (!submitBtn.classList.contains('success')) submitBtn.textContent = originalLabel;
       }
     });
   }
 
 });
+
+
+/* ---------- Bouton retour en haut ---------- */
+  const backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'Retour en haut de page');
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(backToTop);
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));

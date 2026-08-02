@@ -72,7 +72,9 @@
     </div>
     <span class="arrow">→</span>
   </a>
-  <div class="jobs-list" id="jobsList"></div>
+  <div class="jobs-list" id="jobsList">
+    <div class="skeleton-card" style="padding:30px 32px;"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90" style="margin-top:14px;"></div><div class="skeleton-line w-60"></div></div>
+  </div>
   <p class="empty-state" id="emptyState" style="display:none;">Aucun poste ouvert pour le moment — revenez bientôt.</p>
 </div>
 
@@ -103,6 +105,18 @@
       `).join('');
     })
     .catch(() => { document.getElementById('emptyState').style.display = 'block'; });
+
+
+    
+  const backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'Retour en haut de page');
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(backToTop);
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>

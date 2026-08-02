@@ -175,13 +175,21 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   .pn-next{ text-align:right; }
   .pn-label{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); }
   .pn-title{ font-size:14px; color:var(--text); line-height:1.4; }
+  .reading-progress{
+    position:fixed; top:0; left:0; height:3px; background:var(--accent);
+    width:0%; z-index:200; transition:width .1s linear;
+  }
 </style>
 </head>
 <body>
 
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
 <nav class="site-nav">
   <a href="../index.html#hero" class="logo">
-    <img src="../img/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
+    <img src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
   </a>
   <div class="nav-links">
     <a href="../index.html#about">À propos</a>
@@ -247,6 +255,13 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 </footer>
 
 <script>
+  const progressBar = document.getElementById('readingProgress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+  });
+
   const copyBtn = document.querySelector('[data-copy-url]');
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
@@ -259,6 +274,16 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
       }
     });
   }
+
+  const backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'Retour en haut de page');
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(backToTop);
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   const headings = document.querySelectorAll('.article-body h2[id]');
   const tocLinks = document.querySelectorAll('.toc a');
