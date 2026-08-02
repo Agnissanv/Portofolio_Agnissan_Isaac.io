@@ -1,383 +1,88 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Découvrez les conseils, tutoriels et analyses d'Agnissan Isaac sur le développement web, l'IA et le freelancing avec Code A-Z.">
-        <meta name="keywords" content="Code A-Z, formation web, blog développement, Agnissan Isaac, apprendre le code, Côte d'Ivoire tech">
-        <meta name="author" content="Agnissan Isaac Valen">
-        <meta name="robots" content="index, follow">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Blog Code A-Z | Hackez votre carrière de développeur">
-        <meta property="og:description" content="Découvrez les stratégies pour coder plus vite, gagner plus et dominer le marché freelance.">
-        <meta property="og:image" content="img/Code_A-Z_Logo-carre.webp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Code A-Z</title>
+<meta name="description" content="Articles sur le développement web, la performance et le design d'interface, écrits par Agnissan Isaac (Code A-Z).">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .blog-hero{ max-width:760px; margin:0 auto; padding:90px 32px 60px; }
+  .blog-hero h1{ font-size:clamp(2.2rem,5vw,3.4rem); margin-top:16px; }
+  .blog-hero p{ margin-top:20px; font-size:1.05rem; max-width:520px; }
+  .post-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+  @media (max-width:760px){ .post-grid{ grid-template-columns:1fr; } }
+  .post-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+    overflow:hidden; text-decoration:none; display:flex; flex-direction:column;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .post-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+  .post-card .cover{ aspect-ratio:16/9; background:var(--line); overflow:hidden; }
+  .post-card .cover img{ width:100%; height:100%; object-fit:cover; }
+  .post-card .body{ padding:24px 26px 28px; }
+  .post-card .meta{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); margin-bottom:12px; display:flex; gap:12px; }
+  .post-card h3{ color:var(--text); font-size:1.25rem; margin-bottom:10px; }
+  .post-card p{ font-size:14px; line-height:1.6; }
+  .empty-state{ text-align:center; padding:60px 20px; color:var(--muted); font-size:14.5px; }
+</style>
+</head>
+<body>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+<nav class="site-nav">
+  <a href="index.html#hero" class="logo">
+    <svg viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#181816" stroke-width="11" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#C6303E" stroke-width="8" stroke-linecap="square"/></svg>
+    <span class="logo-text">CODE <span class="a">A</span> Z</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#about">À propos</a>
+    <a href="index.html#portfolio">Portfolio</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
 
-        <!-- icone du site -->
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<div class="blog-hero">
+  <div class="eyebrow"><span class="dot"></span>Blog</div>
+  <h1>Notes sur le web, la performance et le design.</h1>
+  <p>Des articles courts, publiés régulièrement, sur ce que j'apprends en construisant des sites.</p>
+</div>
 
-        <!-- custom styles -->
-        <link rel="stylesheet" href="css/all.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/blog.css">
-        <title>Blog - Code A-Z</title>
-        <link rel="manifest" href="manifest.json">
-        <meta name="theme-color" content="#dc3545">
+<div class="container">
+  <div class="post-grid" id="postGrid"></div>
+  <p class="empty-state" id="emptyState" style="display:none;">Aucun article pour le moment — revenez bientôt.</p>
+</div>
 
+<footer>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <a href="index.html#contact">Discuter d'un projet →</a>
+  </div>
+</footer>
 
-    </head>
-    <body>
-        <style>
+<script>
+  fetch('blog/posts.json')
+    .then(r => r.ok ? r.json() : [])
+    .then(posts => {
+      const grid = document.getElementById('postGrid');
+      const empty = document.getElementById('emptyState');
+      if (!posts.length) { empty.style.display = 'block'; return; }
+      grid.innerHTML = posts.map(p => `
+        <a href="blog/${p.slug}.html" class="post-card">
+          ${p.cover ? `<div class="cover"><img src="${p.cover}" alt="${p.title}" loading="lazy"></div>` : ''}
+          <div class="body">
+            <div class="meta"><span>${p.dateLabel}</span><span>·</span><span>${p.readMin} min</span></div>
+            <h3>${p.title}</h3>
+            <p>${p.excerpt}</p>
+          </div>
+        </a>
+      `).join('');
+    })
+    .catch(() => { document.getElementById('emptyState').style.display = 'block'; });
+</script>
 
-        .pulse-dot {
-            width: 12px;
-            height: 12px;
-            background: white;
-            border-radius: 50%;
-            margin-right: 10px;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-        </style>
-        <!-- Début - barre de navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="img/Code_A-Z_Logo-no-bg.png" alt="logo de Code A-Z" width="100" height="50" style="border-radius: 10px; margin-right: 100px; margin-left: 10px;" loading="lazy">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="#">Accueil</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link" aria-current="page" href="index.html#portfolio">Portfolio</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search" id="search-form">
-                        <input class="form-control me-2" type="search" id="search-input" placeholder="Rechercher article" aria-label="Search"/>
-                        <button class="btn btn-outline-danger" type="submit" id="search-btn">Rechercher</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Fin - barre de navigation -->
-        <br/><br/>
-
-        <!-- Début articles -->
-        <main class="container flex-grow-1">
-            <div class="container ">
-                <div class="row g-4">
-                    <div class="col-md-8">
-                        <!-- Les articles par défaut -->
-                        <div id="default-articles">
-                            <!-- article8 -->
-                            <div class="card mb-3">
-                                <img src="img/feuille-de-route-dev.webp" class="card-img-top" alt="images de l'article (Gagner ses premiers 500 000 FCFA par mois en tant que développeur junior.)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">Feuille de Route 2026 : Comment Devenir un Développeur Web Complet (et Éviter le Piège des Tutoriels)</h5>
-                                    <p class="card-text">Découvrez les stratégies simples pour générer un excellent revenu dès vos premiers mois en tant que développeur junior.</p>
-                                    <a href="articles/Feuille_de_Route_2026.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 9 Juin 2026</small></p>
-                                </div>
-                            </div>
-                            <!-- article7 -->
-                            <div class="card mb-3">
-                                <img src="img/article7.png" class="card-img-top" alt="images de l'article (Gagner ses premiers 500 000 FCFA par mois en tant que développeur junior.)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">Comment gagner ses premiers 500 000 FCFA par mois en tant que développeur junior.</h5>
-                                    <p class="card-text">Découvrez les stratégies simples pour générer un excellent revenu dès vos premiers mois en tant que développeur junior.</p>
-                                    <a href="articles/gagner-argent-developpeur-junior.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 2 Juin 2026</small></p>
-                                </div>
-                            </div>
-
-                            <!-- article1 -->
-                            <div class="card mb-3">
-                                <img src="img/article1.webp" class="card-img-top" alt="images de l'article (YouTube est en train de tuer votre carrière de développeur (et vous ne le savez même pas).)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">YouTube est en train de tuer votre carrière de développeur (et vous ne le savez même pas).</h5>
-                                    <p class="card-text">Pourquoi regarder des tutos ne suffit plus ? Découvrez la méthode psychologique pour enfin coder sans béquilles.</p>
-                                    <a href="articles/youtube-tue-votre-carriere.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 07 Avril 2026</small></p>
-                                </div>
-                            </div>
-                            
-                            <!-- article2 -->
-                            <div class="card mb-3">
-                                <img src="img/article2.webp" class="card-img-top" alt="images de l'article (L'IA va-t-elle tuer le métier de développeur ?)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">L'IA va-t-elle tuer le métier de développeur ? (La vérité en 2026).</h5>
-                                    <p class="card-text">ChatGPT et Gemini changent la donne. Découvrez pourquoi apprendre à coder reste votre meilleur investissement en 2026.</p>
-                                    <a href="articles/ia-dev-web.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 09 Avril 2026</small></p>
-                                </div>
-                            </div>
-
-                            <!-- article 3 -->
-                            <div class="card mb-3">
-                                <img src="img/article3.webp" class="card-img-top" alt="images de l'article (L'IA va-t-elle tuer le métier de développeur ?)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">3 façons de décrocher ton premier job de développeur sans 5 ans d'expérience ni diplôme d'ingénieur</h5>
-                                    <p class="card-text">On vous a fait croire qu'il fallait un diplôme d'ingénieur, 5 ans d'expérience, et un CV parfait pour décrocher un job de développeur...</p>
-                                    <a href="articles/decrocher-premier-job-dev-sans-diplome.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 10 Avril 2026</small></p>
-                                </div>
-                            </div>
-
-                            <!-- article 4 -->
-                            <div class="card mb-3">
-                                <img src="img/article4.webp" class="card-img-top" alt="images de l'article (L'IA va-t-elle tuer le métier de développeur ?)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">Comment obtenir vos premiers clients en tant que développeur web freelance (même sans expérience).</h5>
-                                    <p class="card-text">Si vous venez de commencer en freelance et que vous n'avez aucun client, ce n'est pas un problème de compétence.</p>
-                                    <a href="articles/obtenir-clients-freelance-dev.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 11 Avril 2026</small></p>
-                                </div>
-                            </div>
-
-                            <!-- article 5 -->
-                            <div class="card mb-3">
-                                <img src="img/article5.webp" class="card-img-top" alt="images de l'article (L'IA va-t-elle tuer le métier de développeur ?)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">Les 7 erreurs qui empêchent les développeurs débutants de gagner de l'argent.</h5>
-                                    <p class="card-text">Vous savez coder… mais vous ne gagnez toujours pas d'argent ? Le problème n'est pas votre niveau...</p>
-                                    <a href="articles/les-7-erreurs.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 17 Avril 2026</small></p>
-                                </div>
-                            </div>
-                            
-                            <!-- article 6 -->
-                            <div class="card mb-3">
-                                <img src="img/article6_palettepick.webp" class="card-img-top" alt="images de l'article (L'IA va-t-elle tuer le métier de développeur ?)" loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">Générer une palette de couleurs à partir d'une image (outil gratuit rapide).</h5>
-                                    <p class="card-text">Que vous soyez développeur, designer ou créateur de contenu, extraire les bonnes couleurs d'une image est essentiel pour garder une cohérence visuelle.</p>
-                                    <a href="articles/generer-palette-gratuit.html" class="btn btn-outline-danger">Lire l'article</a>
-                                    <button class="btn btn-outline-danger ms-2 btn-share-native">
-                                        Partager <i class="fa-solid fa-share-nodes"></i>
-                                    </button>
-                                    <p class="card-text"><small class="text-body-secondary">Publié le 20 Avril 2026</small></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                    
-                        <!-- fin articles -->
-
-                        <!-- Début résultats de recherche -->
-                        <div id="search-results" style="display: none;">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <h2 class="text-white">Résultats</h2>
-                                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="resetSearch()">Retour</button>
-                            </div>
-                            <div id="results-container"></div> 
-                        </div>
-                    </div>                        
-                    <!-- Fin résultats de recherche -->
-                        
-
-
-
-
-                    <!-- Debut - sidebar -->
-                    <div class="col-12 col-md-4">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>A propos de l'auteur</h5>
-                                <hr>
-                                <p>Je suis Agnissan Isaac, expert digital et fondateur de Code A-Z. Ma mission est double : concevoir des 
-                                    solutions web de haute performance pour les entreprises et transmettre mon savoir à la nouvelle 
-                                    génération de développeurs. Ici, on apprend et on construit le web, de A à Z.</p>
-                            </div>
-                        </div>
-                        <br/>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>Formations</h5>
-                                <hr>
-                                <a href="gratuit.html"><button type="button" class="btn btn-light">Gratuites</button></a>
-                                <a href="formation.html"><button type="button" class="btn btn-dark">Programmes Premium</button></a>
-                            </div>
-                        </div>
-                        <br>
-
-                    
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>Présentation</h5>
-                                <hr>
-                                <a href="index.html#contact" target="_blank">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="img/formation_img.webp" alt="images de presentation d'une formation (formation HTML/CSS de A à Z)" loading="lazy">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>         <br>                      
-                    </div> 
-                    <!-- Fin - sidebar -->         
-                </div>
-            </div>
-        </main>
-        <!-- Fin - partie principale -->
-
-
-        <!-- Debut - pied de page -->
-        <footer class="bg-dark text-white pt-4">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-md-4 mb-3">
-                        <h5>À propos</h5>
-                        <p>Code A-Z Le Blog!<br>Des stratégies brutes, des analyses sans filtre et des tutoriels pour dominer le développement web et le freelancing.</p>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <h5>Liens rapides</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none"><i class="fa-solid fa-house me-1"></i>Accueil</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Articles</a></li>
-                            <li><a href="tel:+2250769398708" class="text-white text-decoration-none"><i class="fa-solid fa-phone me-1"></i>Téléphone</a></li>
-                            <li><a href="mailto:valenbouge@gmail.com" class="text-white text-decoration-none"><i class="fa-solid fa-envelope me-1"></i>Email</a></li>
-                            <li><a href="emploie/emploi.html" class="text-white text-decoration-none"><i class="fa-solid fa-briefcase me-1"></i>Emplois</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <h5>Suivez-moi</h5>
-                        <a href="https://www.linkedin.com/in/isaac-valen-agnissan" class="text-white me-2"><i class="fa-brands fa-linkedin"></i> Linkedin</a><br>
-                        <a href="https://www.facebook.com/share/1JJu2ycb69/" class="text-white me-2"><i class="fa-brands fa-facebook"></i> Facebook</a><br>
-                        <a href="https://www.instagram.com/cod_eaz?igsh=bmxic3gwdDZxbDF4" class="text-white"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                    </div>
-                </div>
-                <div class="text-center mt-3">
-                    <small>&copy; 2026 Code A-Z. Tous droits réservés.</small>
-                </div>
-            </div>
-        </footer>
-        <!-- Fin - pied de page -->
-
-        
-        <script src="javascript/data.js" defer></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(reg => console.log('PWA Code A-Z : Prête (Service Worker OK)'))
-                    .catch(err => console.log('Erreur PWA :', err));
-                });
-            }
-        </script>
-
-        <!-- script de gestion du menu -->
-        <script>
-            // 1. Initialisation des éléments
-            const menuContent = document.getElementById('navbarSupportedContent');
-            const bsCollapse = new bootstrap.Collapse(menuContent, {toggle: false});
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            const searchBtn = document.getElementById('search-btn');
-            const searchInput = document.getElementById('search-input'); // Assure-toi que ton input a cet ID
-
-            // Fonction réutilisable pour fermer le menu proprement
-            const closeMenuMobile = () => {
-                if (window.innerWidth < 992 && menuContent.classList.contains('show')) {
-                    bsCollapse.hide();
-                }
-            };
-
-            // 2. Fermeture au clic sur un lien (Navigation)
-            navLinks.forEach((l) => {
-                l.addEventListener('click', closeMenuMobile);
-            });
-
-            // 3. Fermeture automatique dès que l'utilisateur SCROLLE
-            window.addEventListener('scroll', () => {
-                if (menuContent.classList.contains('show')) {
-                    bsCollapse.hide();
-                }
-            });
-
-            // 4. GESTION DE LA RECHERCHE (Le bouton ET la touche Entrée)
-
-            // Clic sur le bouton loupe
-            if (searchBtn) {
-                searchBtn.addEventListener('click', closeMenuMobile);
-            }
-
-            // Appui sur la touche "Entrée" dans le champ de recherche
-            if (searchInput) {
-                searchInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        closeMenuMobile();
-                    }
-                });
-            }
-        </script>
-
-        <!-- Script de partage -->
-        <script>
-            // 1. On sélectionne TOUS les boutons de partage
-            const shareButtons = document.querySelectorAll('.btn-share-native');
-
-            // 2. On boucle sur chaque bouton pour lui ajouter l'action
-            shareButtons.forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    // "event.currentTarget" représente le bouton précis qui a été cliqué
-                    const clickedButton = event.currentTarget;
-                    
-                    // On remonte au parent "card-body" pour trouver les infos de CET article
-                    const cardBody = clickedButton.closest('.card-body');
-                    const articleTitle = cardBody.querySelector('.card-title').innerText;
-                    const articleUrl = cardBody.querySelector('a').href; // Récupère le lien de la balise <a>
-
-                    try {
-                        // On partage les données spécifiques de l'article
-                        await navigator.share({
-                            title: articleTitle,
-                            text: "Découvre cet article sur Code A-Z : " + articleTitle,
-                            url: articleUrl
-                        });
-                    } catch (err) {
-                        console.log('Partage annulé ou non supporté', err);
-                    }
-                });
-            });
-        </script>
-
-        <!-- Script GoatCounter -->
-        <script data-goatcounter="https://agnissanisaac.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js">
-        </script>
-    </body>
+</body>
 </html>
