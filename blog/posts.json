@@ -1,9 +1,22 @@
 [
   {
+    "slug": "premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant",
+    "title": "Premier client, premier virement : ce que personne ne vous dit avant",
+    "date": "2026-08-03",
+    "dateLabel": "3 août 2026",
+    "excerpt": "La première notification de paiement en tant que freelance ne ressemble à rien de ce qu'on imagine avant de la recevoir. Voici ce qui se passe vraiment, et ce qu'il faut anticiper.",
+    "cover": "images/blog/premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant/cover.webp",
+    "tags": [
+      "Freelance",
+      "Conseils"
+    ],
+    "readMin": 3
+  },
+  {
     "slug": "pourquoi-un-site-lent-vous-coute-des-clients",
     "title": "Pourquoi un site lent vous coûte des clients",
-    "date": "2026-08-01",
-    "dateLabel": "1 août 2026",
+    "date": "2026-07-27",
+    "dateLabel": "27 juillet 2026",
     "excerpt": "Deux secondes de chargement en plus, et une bonne partie de vos visiteurs sont déjà repartis. Voici ce qui ralentit un site, et comment le corriger sans tout reconstruire.",
     "cover": "images/blog/site-lent-cover.jpg",
     "tags": [
@@ -11,5 +24,83 @@
       "SEO"
     ],
     "readMin": 1
+  },
+  {
+    "slug": "peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire",
+    "title": "Peut-on vraiment vivre du développement web en Côte d'Ivoire ?",
+    "date": "2026-07-20",
+    "dateLabel": "20 juillet 2026",
+    "excerpt": "Entre les clichés sur les métiers du numérique et la réalité du terrain ivoirien, un état des lieux honnête sur ce qui est possible aujourd'hui, et à quelles conditions.",
+    "cover": "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.png",
+    "tags": [
+      "Côte d'Ivoire",
+      "Carrière"
+    ],
+    "readMin": 2
+  },
+  {
+    "slug": "feuille-de-route-pour-devenir-un-bon-dev",
+    "title": "Feuille de route pour devenir un bon développeur, sans se disperser",
+    "date": "2026-07-13",
+    "dateLabel": "13 juillet 2026",
+    "excerpt": "Face à la quantité de langages, frameworks et ressources disponibles, savoir par où commencer et dans quel ordre progresser reste l'un des plus grands blocages des débutants.",
+    "cover": "images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover.webp",
+    "tags": [
+      "Apprentissage",
+      "Carrière"
+    ],
+    "readMin": 3
+  },
+  {
+    "slug": "decrocher-un-premier-job-dev-sans-diplome",
+    "title": "Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions",
+    "date": "2026-07-06",
+    "dateLabel": "6 juillet 2026",
+    "excerpt": "Ni un diplôme ni une école ne garantissent une première mission de développeur — mais leur absence ne l'empêche pas non plus. Voici ce qui compte réellement pour un premier client ou un premier recruteur.",
+    "cover": "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.jpg",
+    "tags": [
+      "Carrière",
+      "Conseils"
+    ],
+    "readMin": 2
+  },
+  {
+    "slug": "decouvrir-palettepick-qui-extrait-les-couleurs-des-images",
+    "title": "Découvrir PalettePick, l'outil qui extrait les couleurs de vos images",
+    "date": "2026-06-29",
+    "dateLabel": "29 juin 2026",
+    "excerpt": "Comment transformer n'importe quelle image en palette de couleurs prête à coder, sans upload ni inscription — présentation de PalettePick, un outil développé par Code A-Z.",
+    "cover": "images/blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images/cover.webp",
+    "tags": [
+      "Outils",
+      "Design"
+    ],
+    "readMin": 2
+  },
+  {
+    "slug": "burnout-du-developpeur-les-signes-qui-ne-trompent-pas",
+    "title": "Burnout du développeur : les signes qui ne trompent pas",
+    "date": "2026-06-22",
+    "dateLabel": "22 juin 2026",
+    "excerpt": "Coder la nuit, sauter des repas, ne plus décrocher de l'écran même le week-end : voici les signes d'épuisement à prendre au sérieux avant qu'ils ne s'installent.",
+    "cover": "images/blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas/cover.webp",
+    "tags": [
+      "Bien-être",
+      "Carrière"
+    ],
+    "readMin": 3
+  },
+  {
+    "slug": "7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant",
+    "title": "7 erreurs qui vous empêchent de gagner de l'argent en codant",
+    "date": "2026-06-15",
+    "dateLabel": "15 juin 2026",
+    "excerpt": "Savoir coder ne suffit pas toujours à en vivre. Voici les erreurs les plus fréquentes chez les développeurs qui peinent à transformer leurs compétences en revenus réguliers.",
+    "cover": "images/blog/7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant/cover.webp",
+    "tags": [
+      "Carrière",
+      "Freelance"
+    ],
+    "readMin": 3
   }
 ]

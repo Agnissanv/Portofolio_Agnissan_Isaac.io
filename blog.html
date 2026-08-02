@@ -13,6 +13,37 @@
   .blog-hero{ max-width:760px; margin:0 auto; padding:90px 32px 60px; }
   .blog-hero h1{ font-size:clamp(2.2rem,5vw,3.4rem); margin-top:16px; }
   .blog-hero p{ margin-top:20px; font-size:1.05rem; max-width:520px; }
+  .blog-controls{ display:flex; gap:14px; align-items:center; margin-bottom:40px; flex-wrap:wrap; }
+  .search-input{
+    flex:1; min-width:220px; background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius-full); padding:12px 20px; font-family:'Inter',sans-serif;
+    font-size:13.5px; color:var(--text);
+  }
+  .search-input:focus{ outline:none; border-color:var(--accent); }
+  .tag-filters{ display:flex; gap:8px; flex-wrap:wrap; }
+  .tag-filter-btn{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; padding:9px 16px;
+    border-radius:var(--radius-full); border:1px solid var(--line); background:var(--surface);
+    color:var(--muted); transition:all .2s ease; white-space:nowrap;
+  }
+  .tag-filter-btn:hover{ border-color:var(--muted-2); color:var(--text); }
+  .tag-filter-btn.active{ background:var(--text); color:var(--bg); border-color:var(--text); }
+
+  .featured-post{
+    display:grid; grid-template-columns:1.1fr 1fr; gap:36px; align-items:center;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+    overflow:hidden; text-decoration:none; margin-bottom:48px;
+  }
+  @media (max-width:760px){ .featured-post{ grid-template-columns:1fr; } }
+  .featured-post .cover{ aspect-ratio:16/11; overflow:hidden; }
+  .featured-post .cover img{ width:100%; height:100%; object-fit:cover; }
+  .featured-post .body{ padding:12px 36px 12px 0; }
+  @media (max-width:760px){ .featured-post .body{ padding:28px 26px 34px; } }
+  .featured-post .label{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; }
+  .featured-post h2{ font-size:1.7rem; color:var(--text); margin-bottom:14px; line-height:1.2; }
+  .featured-post p{ font-size:14.5px; line-height:1.7; margin-bottom:18px; }
+  .featured-post .meta{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
+
   .post-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
   @media (max-width:760px){ .post-grid{ grid-template-columns:1fr; } }
   .post-card{
@@ -51,8 +82,13 @@
 </div>
 
 <div class="container">
+  <div class="blog-controls">
+    <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un article...">
+    <div class="tag-filters" id="tagFilters"></div>
+  </div>
+  <div id="featuredSlot"></div>
   <div class="post-grid" id="postGrid"></div>
-  <p class="empty-state" id="emptyState" style="display:none;">Aucun article pour le moment — revenez bientôt.</p>
+  <p class="empty-state" id="emptyState" style="display:none;">Aucun article ne correspond à votre recherche.</p>
 </div>
 
 <footer>
@@ -63,22 +99,83 @@
 </footer>
 
 <script>
-  fetch('blog/posts.json')
-    .then(r => r.ok ? r.json() : [])
-    .then(posts => {
-      const grid = document.getElementById('postGrid');
-      const empty = document.getElementById('emptyState');
-      if (!posts.length) { empty.style.display = 'block'; return; }
+  let ALL_POSTS = [];
+  let activeTag = 'all';
+
+  function renderPosts() {
+    const grid = document.getElementById('postGrid');
+    const empty = document.getElementById('emptyState');
+    const featuredSlot = document.getElementById('featuredSlot');
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+    let posts = ALL_POSTS;
+    let featured = null;
+
+    if (activeTag === 'all' && !query) {
+      featured = posts[0];
+      posts = posts.slice(1);
+    }
+
+    if (activeTag !== 'all') {
+      posts = posts.filter(p => p.tags && p.tags.includes(activeTag));
+    }
+    if (query) {
+      posts = posts.filter(p => p.title.toLowerCase().includes(query));
+    }
+
+    featuredSlot.innerHTML = featured ? `
+      <a href="blog/${featured.slug}.html" class="featured-post">
+        ${featured.cover ? `<div class="cover"><img src="${featured.cover}" alt="${featured.title}" loading="lazy"></div>` : ''}
+        <div class="body">
+          <div class="label">Dernier article</div>
+          <h2>${featured.title}</h2>
+          <p>${featured.excerpt}</p>
+          <div class="meta">${featured.dateLabel}</div>
+        </div>
+      </a>
+    ` : '';
+
+    if (!posts.length) {
+      grid.innerHTML = '';
+      empty.style.display = 'block';
+    } else {
+      empty.style.display = 'none';
       grid.innerHTML = posts.map(p => `
         <a href="blog/${p.slug}.html" class="post-card">
           ${p.cover ? `<div class="cover"><img src="${p.cover}" alt="${p.title}" loading="lazy"></div>` : ''}
           <div class="body">
-            <div class="meta"><span>${p.dateLabel}</span><span>·</span><span>${p.readMin} min</span></div>
+            <div class="meta"><span>${p.dateLabel}</span></div>
             <h3>${p.title}</h3>
             <p>${p.excerpt}</p>
           </div>
         </a>
       `).join('');
+    }
+  }
+
+  fetch('blog/posts.json')
+    .then(r => r.ok ? r.json() : [])
+    .then(posts => {
+      ALL_POSTS = posts;
+      if (!posts.length) { document.getElementById('emptyState').style.display = 'block'; return; }
+
+      const allTags = [...new Set(posts.flatMap(p => p.tags || []))];
+      const tagFilters = document.getElementById('tagFilters');
+      tagFilters.innerHTML = `<button class="tag-filter-btn active" data-tag="all">Tous les sujets</button>` +
+        allTags.map(t => `<button class="tag-filter-btn" data-tag="${t}">${t}</button>`).join('');
+
+      tagFilters.querySelectorAll('.tag-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          tagFilters.querySelectorAll('.tag-filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeTag = btn.dataset.tag;
+          renderPosts();
+        });
+      });
+
+      document.getElementById('searchInput').addEventListener('input', renderPosts);
+
+      renderPosts();
     })
     .catch(() => { document.getElementById('emptyState').style.display = 'block'; });
 </script>
