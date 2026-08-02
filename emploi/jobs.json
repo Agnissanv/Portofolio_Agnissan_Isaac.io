@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "commercial-digital-independant",
+    "title": "Commercial digital indépendant (H/F)",
+    "status": "Recrutement ouvert",
+    "type": "Freelance / indépendant",
+    "location": "Distanciel — partout dans le monde",
+    "compensation": "30 % de commission par contrat",
+    "excerpt": "Prospecter des entreprises et indépendants qui ont besoin d'un site web, présenter le portfolio Code A-Z, et toucher une commission sur chaque contrat signé."
+  },
+  {
+    "slug": "developpeur-back-end",
+    "title": "Développeur back-end (H/F)",
+    "status": "Recrutement ouvert",
+    "type": "Freelance / collaboration projet",
+    "location": "Distanciel — Côte d'Ivoire et alentours",
+    "compensation": "Rémunération au projet, selon la mission",
+    "excerpt": "Concevoir la logique serveur, les bases de données et les intégrations techniques des projets Code A-Z qui en ont besoin."
+  },
+  {
+    "slug": "developpeur-front-end",
+    "title": "Développeur front-end (H/F)",
+    "status": "Recrutement ouvert",
+    "type": "Freelance / collaboration projet",
+    "location": "Distanciel — Côte d'Ivoire et alentours",
+    "compensation": "Rémunération au projet, selon la mission",
+    "excerpt": "Intervenir en renfort sur des projets clients Code A-Z : intégration d'interfaces, animations et optimisation de la performance."
+  }
+]

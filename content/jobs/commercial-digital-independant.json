@@ -1,0 +1,58 @@
+{
+  "slug": "commercial-digital-independant",
+  "title": "Commercial digital indépendant (H/F)",
+  "status": "Recrutement ouvert",
+  "type": "Freelance / indépendant",
+  "location": "Distanciel — partout dans le monde",
+  "compensation": "30 % de commission par contrat",
+  "compensationClaim": "45 000 FCFA minimum par vente",
+  "excerpt": "Prospecter des entreprises et indépendants qui ont besoin d'un site web, présenter le portfolio Code A-Z, et toucher une commission sur chaque contrat signé.",
+  "missionIntro": "En tant que commercial pour Code A-Z, votre rôle est d'identifier des entreprises, artisans ou commerces qui ont besoin d'un site web professionnel pour développer leur activité en ligne.",
+  "missionList": [
+    "Prospecter de façon autonome (réseaux sociaux, téléphone, terrain)",
+    "Repérer les entreprises dont la présence en ligne est absente ou datée",
+    "Présenter le portfolio Code A-Z pour rassurer le prospect",
+    "Transmettre l'intérêt confirmé à l'équipe pour finaliser le contrat"
+  ],
+  "profileIntro": "Nous ne recherchons pas un diplôme en particulier, mais un profil déterminé, à l'aise dans le contact humain.",
+  "profileList": [
+    "Sens du contact, de l'écoute et de la négociation",
+    "Autonomie et rigueur dans le suivi de vos prospects",
+    "Aucune compétence en code requise — la partie technique est prise en charge par l'équipe"
+  ],
+  "faqGroups": [
+    {
+      "label": "Le poste & le profil",
+      "items": [
+        { "q": "Comment devenir commercial chez Code A-Z ?", "a": "En candidatant via le formulaire ci-dessous. Si votre profil correspond, vous recevez le kit de vente (portfolio, argumentaire) sous 24h." },
+        { "q": "Faut-il des connaissances en informatique ?", "a": "Non. Votre rôle est de comprendre le besoin du client (visibilité, nouveaux clients) — la réalisation technique est prise en charge par l'équipe Code A-Z." }
+      ]
+    },
+    {
+      "label": "Rémunération",
+      "items": [
+        { "q": "Comment suis-je rémunéré ?", "a": "Une commission de 30 % sur chaque vente. Sur l'offre de base à 150 000 FCFA, cela représente 45 000 FCFA net." },
+        { "q": "Y a-t-il un plafond de gain ?", "a": "Non. La rémunération dépend directement du nombre de contrats signés." },
+        { "q": "Quand suis-je payé ?", "a": "Dès que le projet est livré et soldé par le client, par Wave, Orange Money, MTN, Moov ou virement." }
+      ]
+    },
+    {
+      "label": "Méthode de travail",
+      "items": [
+        { "q": "Quels outils sont mis à disposition ?", "a": "Le portfolio officiel de réalisations, utile pour rassurer un prospect sur la qualité du travail." },
+        { "q": "Comment s'organise le suivi avec l'équipe technique ?", "a": "Vous gérez votre prospection de façon autonome. Dès qu'un client confirme son intérêt, vous transmettez le contact pour lancer le développement." }
+      ]
+    },
+    {
+      "label": "Gestion des clients & sécurité",
+      "items": [
+        { "q": "Comment est garantie ma commission sur une vente ?", "a": "Dès la mise en relation avec un prospect sérieux, celui-ci est enregistré à votre nom. Votre commission de 30 % est assurée dès la signature du contrat." },
+        { "q": "Que se passe-t-il pour une demande plus complexe que l'offre de base ?", "a": "Un devis personnalisé est établi. Votre commission reste de 30 % sur le montant total — vos gains augmentent avec la complexité du projet." },
+        { "q": "Qui gère le contrat et la facturation ?", "a": "L'agence prend en charge la facture proforma, le contrat de prestation et la facture finale. Votre rôle s'arrête à la mise en relation." },
+        { "q": "Le client paie-t-il tout avant le début du projet ?", "a": "Non. Un acompte de 50 % est demandé au lancement, le solde à la livraison — c'est à ce moment que votre commission est versée." }
+      ]
+    }
+  ],
+  "applyLabel": "Postuler à ce poste",
+  "applyLink": "https://forms.gle/SPkqZMQjfa6TWvZs6"
+}

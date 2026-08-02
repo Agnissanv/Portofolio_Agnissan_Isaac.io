@@ -1,0 +1,41 @@
+{
+  "slug": "developpeur-front-end",
+  "title": "Développeur front-end (H/F)",
+  "status": "Recrutement ouvert",
+  "type": "Freelance / collaboration projet",
+  "location": "Distanciel — Côte d'Ivoire et alentours",
+  "compensation": "Rémunération au projet, selon la mission",
+  "compensationClaim": "À définir selon le projet",
+  "excerpt": "Intervenir en renfort sur des projets clients Code A-Z : intégration d'interfaces, animations et optimisation de la performance.",
+  "missionIntro": "Vous intervenez en appui sur des projets clients de Code A-Z, principalement sur la partie visible du site : ce que l'utilisateur voit et manipule.",
+  "missionList": [
+    "Intégrer des maquettes en interfaces web propres et responsives",
+    "Développer des composants réutilisables (HTML, CSS, JavaScript, React selon les projets)",
+    "Optimiser la performance et le temps de chargement des pages",
+    "Collaborer avec le fondateur sur le respect de la direction visuelle définie"
+  ],
+  "profileIntro": "Un profil autonome, rigoureux sur les détails, à l'aise aussi bien en HTML/CSS pur qu'avec un framework moderne.",
+  "profileList": [
+    "Bonne maîtrise de HTML, CSS et JavaScript",
+    "Une expérience avec React est un plus, sans être obligatoire",
+    "Souci du détail visuel et sensibilité au design",
+    "Capacité à travailler sur des délais courts avec un cahier des charges clair"
+  ],
+  "faqGroups": [
+    {
+      "label": "Le poste",
+      "items": [
+        { "q": "S'agit-il d'un poste salarié ou d'une collaboration ponctuelle ?", "a": "Il s'agit d'une collaboration au projet, rémunérée selon la mission confiée. Le volume peut évoluer selon la charge de travail de l'agence." },
+        { "q": "Dois-je être basé à Abidjan ?", "a": "Non, le travail se fait à distance. Une bonne communication écrite et des points réguliers suffisent." }
+      ]
+    },
+    {
+      "label": "Candidature",
+      "items": [
+        { "q": "Que dois-je fournir pour candidater ?", "a": "Un lien vers vos réalisations (GitHub, portfolio ou sites en ligne) suffit pour un premier échange." }
+      ]
+    }
+  ],
+  "applyLabel": "Candidater pour ce poste",
+  "applyLink": "mailto:valenbouge@gmail.com?subject=Candidature%20-%20D%C3%A9veloppeur%20front-end"
+}

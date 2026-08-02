@@ -1,0 +1,41 @@
+{
+  "slug": "developpeur-back-end",
+  "title": "Développeur back-end (H/F)",
+  "status": "Recrutement ouvert",
+  "type": "Freelance / collaboration projet",
+  "location": "Distanciel — Côte d'Ivoire et alentours",
+  "compensation": "Rémunération au projet, selon la mission",
+  "compensationClaim": "À définir selon le projet",
+  "excerpt": "Concevoir la logique serveur, les bases de données et les intégrations techniques des projets Code A-Z qui en ont besoin.",
+  "missionIntro": "Vous intervenez sur la partie invisible du site : ce qui fait fonctionner les formulaires, les bases de données et les échanges avec des services externes.",
+  "missionList": [
+    "Concevoir et sécuriser des bases de données pour les projets clients",
+    "Développer des API et automatisations (PHP, Node.js selon les projets)",
+    "Intégrer des services tiers (paiement, emailing, réservation...)",
+    "Veiller à la fiabilité et à la sécurité des systèmes livrés"
+  ],
+  "profileIntro": "Un profil rigoureux, capable de raisonner sur l'architecture d'un système avant d'écrire la première ligne de code.",
+  "profileList": [
+    "Bonne maîtrise de PHP ou Node.js et d'un système de base de données (MySQL, PostgreSQL, MongoDB...)",
+    "Compréhension des enjeux de sécurité (authentification, données sensibles)",
+    "Capacité à documenter clairement son travail pour la suite du projet",
+    "Autonomie sur des délais courts avec un cahier des charges clair"
+  ],
+  "faqGroups": [
+    {
+      "label": "Le poste",
+      "items": [
+        { "q": "S'agit-il d'un poste salarié ou d'une collaboration ponctuelle ?", "a": "Il s'agit d'une collaboration au projet, rémunérée selon la mission confiée. Le volume peut évoluer selon la charge de travail de l'agence." },
+        { "q": "Quels types de projets sont concernés ?", "a": "Principalement des sites nécessitant une base de données, un espace d'administration ou des intégrations spécifiques (paiement, réservation...)." }
+      ]
+    },
+    {
+      "label": "Candidature",
+      "items": [
+        { "q": "Que dois-je fournir pour candidater ?", "a": "Un lien vers vos réalisations (GitHub, projets déployés) et les technologies que vous maîtrisez le mieux." }
+      ]
+    }
+  ],
+  "applyLabel": "Candidater pour ce poste",
+  "applyLink": "mailto:valenbouge@gmail.com?subject=Candidature%20-%20D%C3%A9veloppeur%20back-end"
+}
