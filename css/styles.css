@@ -132,7 +132,10 @@ nav.site-nav{
 @media (max-width:900px){ nav.site-nav{ padding:18px 22px; } }
 
 .logo{ display:flex; align-items:center; gap:9px; text-decoration:none; flex:none; }
-.logo img{ height:34px; width:auto; display:block; }
+.logo img{ height:34px; width:auto; display:block; transition:background .2s ease, padding .2s ease; }
+[data-theme="dark"] .logo img{
+  background:#F4F2EE; padding:6px 10px; border-radius:8px;
+}
 .logo-text{ font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px; letter-spacing:0.01em; }
 .logo-text .a{ color:var(--accent); }
 
