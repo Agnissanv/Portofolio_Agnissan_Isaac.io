@@ -8,12 +8,12 @@ const PROJECTS = [
     year: "2026",
     tag: "Plateforme de streaming",
     pitch: "Une expérience de streaming complète, sans abonnement ni serveur vidéo.",
-    thumb: "images/projets/images/dev_web/refugepop1.png",
+    thumb: "images/projets/dev_web/refugepop1.png",
     gallery: [
-      "images/projets/images/dev_web/refugepop.jpg",
-      "images/projets/images/dev_web/refugepop2.png",
-      "images/projets/images/dev_web/refugepop3.png",
-      "images/projets/images/dev_web/refugepop4.png"
+      "images/projets/dev_web/refugepop.jpg",
+      "images/projets/dev_web/refugepop2.png",
+      "images/projets/dev_web/refugepop3.png",
+      "images/projets/dev_web/refugepop4.png"
     ],
     description: "Refuge Pop est une plateforme de streaming à part entière : catalogue de films à la demande, chaînes en direct, reprise de lecture automatique, suggestions personnalisées et recherche intelligente — construite sans base de données ni backend classique. La section Direct s'appuie sur un proxy Cloudflare Worker sur-mesure pour diffuser des flux HLS en direct en contournant les restrictions CORS. Un pipeline Python automatisé alimente et vérifie le catalogue.",
     tech: ["HTML5 / CSS3 / JS (SPA)", "API YouTube IFrame & HLS.js", "Cloudflare Workers", "Python (automatisation)", "Vercel"],
@@ -28,11 +28,11 @@ const PROJECTS = [
     year: "2026",
     tag: "Outil pour designers",
     pitch: "L'inspiration visuelle transformée en code, en quelques secondes.",
-    thumb: "images/projets/images/dev_web/palettepick1.png",
+    thumb: "images/projets/dev_web/palettepick1.png",
     gallery: [
-      "images/projets/images/dev_web/palettepick.jpg",
-      "images/projets/images/dev_web/palettepick2.png",
-      "images/projets/images/dev_web/palettepick3.png"
+      "images/projets/dev_web/palettepick.jpg",
+      "images/projets/dev_web/palettepick2.png",
+      "images/projets/dev_web/palettepick3.png"
     ],
     description: "PalettePick extrait les couleurs dominantes de n'importe quelle image pour générer des palettes prêtes à l'emploi. L'outil traite les images localement pour une rapidité maximale et génère automatiquement variables CSS, codes HEX et RGB. L'objectif était une expérience « zéro friction », avec un design sombre aligné sur les standards des outils créatifs modernes.",
     tech: ["HTML5 / CSS3", "JavaScript ES6+", "UI High-Contrast & responsive", "GitHub Pages"],
@@ -47,12 +47,12 @@ const PROJECTS = [
     year: "2026",
     tag: "Restaurant",
     pitch: "Une vitrine digitale pensée pour la gastronomie ivoirienne.",
-    thumb: "images/projets/images/dev_web/qg-resto3.png",
+    thumb: "images/projets/dev_web/qg-resto3.png",
     gallery: [
-      "images/projets/images/dev_web/qg-resto1.jpg",
-      "images/projets/images/dev_web/qg-resto2.jpg",
-      "images/projets/images/dev_web/qg-resto4.png",
-      "images/projets/images/dev_web/qg-resto5.png"
+      "images/projets/dev_web/qg-resto1.jpg",
+      "images/projets/dev_web/qg-resto2.jpg",
+      "images/projets/dev_web/qg-resto4.png",
+      "images/projets/dev_web/qg-resto5.png"
     ],
     description: "Site vitrine conçu pour valoriser les plats, renforcer l'image de marque et faciliter les réservations. Menu dynamique clair, formulaire de réservation intégré, témoignages et informations pratiques pour instaurer la confiance dès la première visite. Le tout pensé responsive pour un usage mobile en priorité.",
     tech: ["HTML5 / CSS3", "JavaScript (animations)", "Responsive design", "UI/UX"],
@@ -67,11 +67,11 @@ const PROJECTS = [
     year: "2026",
     tag: "Actualité tech",
     pitch: "Une plateforme automatisée dédiée à l'actualité tech en Afrique de l'Ouest.",
-    thumb: "images/projets/images/dev_web/TECH_WEST1.png",
+    thumb: "images/projets/dev_web/TECH_WEST1.png",
     gallery: [
-      "images/projets/images/dev_web/TECH_WEST1.png",
-      "images/projets/images/dev_web/TECH_WEST2.png",
-      "images/projets/images/dev_web/TECH_WEST3.png"
+      "images/projets/dev_web/TECH_WEST1.png",
+      "images/projets/dev_web/TECH_WEST2.png",
+      "images/projets/dev_web/TECH_WEST3.png"
     ],
     description: "Un moteur intelligent qui fusionne plusieurs sources pour couvrir l'IA, la Fintech et les startups. Le défi : une interface capable de gérer un flux constant d'informations tout en restant lisible. Système de catégories pour une navigation personnalisée, et un tunnel dédié aux collaborations B2B.",
     tech: ["HTML5 / CSS3", "JavaScript (filtrage & modales)", "Intégration & automatisation de données", "Branding & UI"],
@@ -86,12 +86,12 @@ const PROJECTS = [
     year: "2026",
     tag: "Agence immobilière",
     pitch: "Une identité noire et dorée pour une agence immobilière haut de gamme.",
-    thumb: "images/projets/images/dev_web/immo0.png",
+    thumb: "images/projets/dev_web/immo0.png",
     gallery: [
-      "images/projets/images/dev_web/immo1.jpg",
-      "images/projets/images/dev_web/immo2.jpg",
-      "images/projets/images/dev_web/immo3.png",
-      "images/projets/images/dev_web/immo4.png"
+      "images/projets/dev_web/immo1.jpg",
+      "images/projets/dev_web/immo2.jpg",
+      "images/projets/dev_web/immo3.png",
+      "images/projets/dev_web/immo4.png"
     ],
     description: "Site vitrine premium pensé pour inspirer confiance dès les premières secondes. Présentation immersive des biens, FAQ, témoignages, indicateurs de performance : chaque section a été pensée pour transformer un visiteur en prospect qualifié, sur tous les écrans.",
     tech: ["HTML5 / CSS3", "JavaScript (filtres & interactions)", "Responsive design", "UI/UX premium"],
@@ -106,11 +106,11 @@ const PROJECTS = [
     year: "2026",
     tag: "Fitness & sport",
     pitch: "Une landing page haute conversion pour une salle de sport d'élite.",
-    thumb: "images/projets/images/dev_web/overdose-gym1.png",
+    thumb: "images/projets/dev_web/overdose-gym1.png",
     gallery: [
-      "images/projets/images/dev_web/overdose-gym.jpg",
-      "images/projets/images/dev_web/overdose-gym2.png",
-      "images/projets/images/dev_web/overdose-gym3.png"
+      "images/projets/dev_web/overdose-gym.jpg",
+      "images/projets/dev_web/overdose-gym2.png",
+      "images/projets/dev_web/overdose-gym3.png"
     ],
     description: "L'objectif : traduire l'énergie du CrossFit dans une interface sombre et directe. Tarifs et programmes mis en avant avec des appels à l'action clairs, optimisation pour les recherches géolocalisées, et une expérience mobile pensée pour des réservations rapides.",
     tech: ["HTML5 / CSS3 avancé", "JavaScript (formulaires)", "Google Maps API", "Mobile-first"],
@@ -125,11 +125,11 @@ const PROJECTS = [
     year: "2026",
     tag: "Cabinets d'optique",
     pitch: "Minimalisme clinique et esthétique luxueuse pour l'optique haut de gamme.",
-    thumb: "images/projets/images/dev_web/lumina1.webp",
+    thumb: "images/projets/dev_web/lumina1.webp",
     gallery: [
-      "images/projets/images/dev_web/lumina2.webp",
-      "images/projets/images/dev_web/lumina3.webp",
-      "images/projets/images/dev_web/lumina4.webp"
+      "images/projets/dev_web/lumina2.webp",
+      "images/projets/dev_web/lumina3.webp",
+      "images/projets/dev_web/lumina4.webp"
     ],
     description: "Un écrin numérique pour cabinets d'optique et boutiques de lunetterie. Système de prise de rendez-vous fluide, sections dédiées aux collections, structure technique légère pour une bonne visibilité SEO, palette pensée pour évoquer sérénité et rigueur scientifique.",
     tech: ["HTML5 sémantique", "CSS3 (Flexbox & Grid)", "JavaScript ES6+", "Git / GitHub"],
@@ -144,12 +144,12 @@ const PROJECTS = [
     year: "2026",
     tag: "Blog / tunnel de vente",
     pitch: "Un blog en 4 pages, pensé pour attirer, rassurer et convertir.",
-    thumb: "images/projets/images/dev_web/blog0.webp",
+    thumb: "images/projets/dev_web/blog0.webp",
     gallery: [
-      "images/projets/images/dev_web/blog1.webp",
-      "images/projets/images/dev_web/blog2.webp",
-      "images/projets/images/dev_web/blog3.webp",
-      "images/projets/images/dev_web/blog4.webp"
+      "images/projets/dev_web/blog1.webp",
+      "images/projets/dev_web/blog2.webp",
+      "images/projets/dev_web/blog3.webp",
+      "images/projets/dev_web/blog4.webp"
     ],
     description: "Accueil, page articles, page promotionnelle façon tunnel de vente et page de formulaire — avec barre de recherche et navigation fluide sur tout type d'appareil. Un gabarit pensé pour être adapté à différents secteurs d'activité.",
     tech: ["HTML", "Bootstrap"],
@@ -164,17 +164,19 @@ const PROJECTS = [
     year: "2026",
     tag: "Boutique en ligne",
     pitch: "Un template e-commerce pensé pour transformer les visiteurs en clients.",
-    thumb: "images/projets/images/dev_web/SENTIMENTALE.COM1.webp",
+    thumb: "images/projets/dev_web/SENTIMENTALE.COM1.webp",
     gallery: [
-      "images/projets/images/dev_web/SENTIMENTALE.COM2.webp",
-      "images/projets/images/dev_web/SENTIMENTALE.COM3.webp",
-      "images/projets/images/dev_web/SENTIMENTALE.COM4.webp"
+      "images/projets/dev_web/SENTIMENTALE.COM2.webp",
+      "images/projets/dev_web/SENTIMENTALE.COM3.webp",
+      "images/projets/dev_web/SENTIMENTALE.COM4.webp"
     ],
     description: "Architecture optimisée pour la conversion : navigation intuitive, mise en avant claire des produits, structure adaptable à différents types d'activité (mode, accessoires, produits digitaux). Design responsive sur mobile, tablette et desktop.",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://agnissanv.github.io/Site_complet_sentimentale1/",
     linkLabel: "Voir le site"
   },
+
+  // Design projects
   {
     id: "logos",
     title: "Logos",
@@ -194,7 +196,9 @@ const PROJECTS = [
       "images/projets/design/logos/7.jpg",
       "images/projets/design/logos/8.jpg",
       "images/projets/design/logos/9.jpg",
-      "images/projets/design/logos/10.jpg"
+      "images/projets/design/logos/10.jpg",
+      "images/projets/design/logos/11.jpg",
+      "images/projets/design/logos/12.jpg"
     ],
     description: "Chaque logo est pensé pour être simple à reconnaître et à décliner sur tous les supports — carte de visite, réseaux sociaux, packaging. L'objectif : une identité qui reste lisible même en petit format.",
     isCollection: true
@@ -216,9 +220,10 @@ const PROJECTS = [
       "images/projets/design/flyers/5.jpg",
       "images/projets/design/flyers/6.jpg",
       "images/projets/design/flyers/7.jpg",
-      "images/projets/design/flyers/1.jpg",
-      "images/projets/design/flyers/1.jpg",
-      "images/projets/design/flyers/2.jpg"
+      "images/projets/design/flyers/8.jpg",
+      "images/projets/design/flyers/9.jpg",
+      "images/projets/design/flyers/10.jpg",
+      "images/projets/design/flyers/11.jpg"
     ],
     description: "Un flyer efficace transmet l'essentiel avant même d'être lu en détail. Chaque création met en avant une hiérarchie claire de l'information et un visuel qui accroche le regard.",
     isCollection: true
@@ -242,7 +247,9 @@ const PROJECTS = [
       "images/projets/design/affiches/7.jpg",
       "images/projets/design/affiches/8.jpg",
       "images/projets/design/affiches/9.jpg",
-      "images/projets/design/affiches/10.jpg"
+      "images/projets/design/affiches/10.jpg",
+      "images/projets/design/affiches/11.jpg",
+      "images/projets/design/affiches/12.jpg"
     ],
     description: "Que ce soit pour un événement, une promotion ou une campagne, chaque affiche est conçue pour rester lisible et impactante, même vue de loin ou en un coup d'œil rapide.",
     isCollection: true
@@ -257,7 +264,18 @@ const PROJECTS = [
     pitch: "Des bannières adaptées aux formats web et réseaux sociaux.",
     thumb: "images/projets/design/bannieres/1.jpg",
     gallery: [
-      "images/projets/design/bannieres/1.jpg"
+      "images/projets/design/bannieres/1.jpg",
+      "images/projets/design/bannieres/2.jpg",
+      "images/projets/design/bannieres/3.jpg",
+      "images/projets/design/bannieres/4.jpg",
+      "images/projets/design/bannieres/5.jpg",
+      "images/projets/design/bannieres/6.jpg",
+      "images/projets/design/bannieres/7.jpg",
+      "images/projets/design/bannieres/8.jpg",
+      "images/projets/design/bannieres/9.jpg",
+      "images/projets/design/bannieres/10.jpg",
+      "images/projets/design/bannieres/11.jpg",
+      "images/projets/design/bannieres/12.jpg"
     ],
     description: "Couvertures Facebook, bannières de site, visuels d'en-tête — chaque format a ses contraintes propres, pensées et respectées pour un rendu net sur tous les écrans.",
     isCollection: true
