@@ -188,7 +188,8 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 
 <nav class="site-nav">
   <a href="../index.html#hero" class="logo">
-    <img src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
+    <img class="logo-light" src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
+    <img class="logo-dark" src="../images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
   </a>
   <div class="nav-links">
     <a href="../index.html#about">À propos</a>
