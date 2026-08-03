@@ -279,5 +279,35 @@ const PROJECTS = [
     ],
     description: "Couvertures Facebook, bannières de site, visuels d'en-tête — chaque format a ses contraintes propres, pensées et respectées pour un rendu net sur tous les écrans.",
     isCollection: true
+  },
+  {
+    id: "packaging",
+    title: "Packaging",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Emballages & étiquettes",
+    pitch: "Des emballages qui prolongent l'identité de marque jusqu'au produit.",
+    thumb: "images/projets/design/packaging/1.jpg",
+    gallery: [
+      "images/projets/design/packaging/1.jpg"
+    ],
+    description: "Boîtes, sachets, étiquettes : chaque support d'emballage est pensé pour rester cohérent avec l'identité visuelle de la marque, tout en respectant les contraintes techniques d'impression et de production.",
+    isCollection: true
+  },
+  {
+    id: "goodies",
+    title: "Goodies & produits dérivés",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Objets promotionnels",
+    pitch: "T-shirts, casquettes, tasses, porte-clés — l'identité de marque déclinée sur l'objet.",
+    thumb: "images/projets/design/goodies/1.jpg",
+    gallery: [
+      "images/projets/design/goodies/1.jpg"
+    ],
+    description: "Une bonne identité de marque doit rester reconnaissable même appliquée à un petit objet. Ces créations montrent comment un logo ou une charte graphique s'adapte aux contraintes d'un support physique, sans perdre en lisibilité.",
+    isCollection: true
   }
 ];
