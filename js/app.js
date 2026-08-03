@@ -114,8 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(id) {
       const p = PROJECTS.find(x => x.id === id);
       if (!p) return;
+      const techHtml = p.isCollection ? '' : `<div class="modal-tech">${p.tech.map(t => `<span class="chip">${t}</span>`).join('')}</div>`;
+      const actionHtml = p.isCollection
+        ? `<a href="#contact" class="btn btn-primary">Discuter d'un projet similaire →</a>`
+        : `<a href="${p.link}" target="_blank" rel="noopener" class="btn btn-primary">${p.linkLabel} →</a>`;
+      const galleryClass = p.isCollection ? 'modal-gallery grid-layout' : 'modal-gallery';
       modalBox.innerHTML = `
-        <div class="modal-gallery">
+        <div class="${galleryClass}">
           ${p.gallery.map(src => `<img src="${src}" alt="Capture — ${p.title}" loading="lazy">`).join('')}
         </div>
         <div class="modal-content">
@@ -123,14 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>${p.title}</h3>
           <p class="pitch">${p.pitch}</p>
           <p class="desc">${p.description}</p>
-          <div class="modal-tech">${p.tech.map(t => `<span class="chip">${t}</span>`).join('')}</div>
+          ${techHtml}
           <div class="modal-actions">
-            <a href="${p.link}" target="_blank" rel="noopener" class="btn btn-primary">${p.linkLabel} →</a>
+            ${actionHtml}
           </div>
         </div>
       `;
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
+      closeModal._lastFocus = document.activeElement;
     }
     function closeModal() {
       overlay.classList.remove('open');

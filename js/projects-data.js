@@ -174,5 +174,92 @@ const PROJECTS = [
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://agnissanv.github.io/Site_complet_sentimentale1/",
     linkLabel: "Voir le site"
+  },
+  {
+    id: "logos",
+    title: "Logos",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Identité de marque",
+    pitch: "Une sélection de logos conçus pour des marques et indépendants.",
+    thumb: "images/projets/design/logos/1.jpg",
+    gallery: [
+      "images/projets/design/logos/1.jpg",
+      "images/projets/design/logos/2.jpg",
+      "images/projets/design/logos/3.jpg",
+      "images/projets/design/logos/4.jpg",
+      "images/projets/design/logos/5.jpg",
+      "images/projets/design/logos/6.jpg",
+      "images/projets/design/logos/7.jpg",
+      "images/projets/design/logos/8.jpg",
+      "images/projets/design/logos/9.jpg",
+      "images/projets/design/logos/10.jpg"
+    ],
+    description: "Chaque logo est pensé pour être simple à reconnaître et à décliner sur tous les supports — carte de visite, réseaux sociaux, packaging. L'objectif : une identité qui reste lisible même en petit format.",
+    isCollection: true
+  },
+  {
+    id: "flyers",
+    title: "Flyers",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Communication visuelle",
+    pitch: "Des flyers percutants, pensés pour capter l'attention en quelques secondes.",
+    thumb: "images/projets/design/flyers/1.jpg",
+    gallery: [
+      "images/projets/design/flyers/1.jpg",
+      "images/projets/design/flyers/2.jpg",
+      "images/projets/design/flyers/3.jpg",
+      "images/projets/design/flyers/4.jpg",
+      "images/projets/design/flyers/5.jpg",
+      "images/projets/design/flyers/6.jpg",
+      "images/projets/design/flyers/7.jpg",
+      "images/projets/design/flyers/1.jpg",
+      "images/projets/design/flyers/1.jpg",
+      "images/projets/design/flyers/2.jpg"
+    ],
+    description: "Un flyer efficace transmet l'essentiel avant même d'être lu en détail. Chaque création met en avant une hiérarchie claire de l'information et un visuel qui accroche le regard.",
+    isCollection: true
+  },
+  {
+    id: "affiches",
+    title: "Affiches",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Communication visuelle",
+    pitch: "Des affiches pensées pour marquer, du format A4 au grand format.",
+    thumb: "images/projets/design/affiches/1.jpg",
+    gallery: [
+      "images/projets/design/affiches/1.jpg",
+      "images/projets/design/affiches/2.jpg",
+      "images/projets/design/affiches/3.jpg",
+      "images/projets/design/affiches/4.jpg",
+      "images/projets/design/affiches/5.jpg",
+      "images/projets/design/affiches/6.jpg",
+      "images/projets/design/affiches/7.jpg",
+      "images/projets/design/affiches/8.jpg",
+      "images/projets/design/affiches/9.jpg",
+      "images/projets/design/affiches/10.jpg"
+    ],
+    description: "Que ce soit pour un événement, une promotion ou une campagne, chaque affiche est conçue pour rester lisible et impactante, même vue de loin ou en un coup d'œil rapide.",
+    isCollection: true
+  },
+  {
+    id: "bannieres",
+    title: "Bannières",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Web & réseaux sociaux",
+    pitch: "Des bannières adaptées aux formats web et réseaux sociaux.",
+    thumb: "images/projets/design/bannieres/1.jpg",
+    gallery: [
+      "images/projets/design/bannieres/1.jpg"
+    ],
+    description: "Couvertures Facebook, bannières de site, visuels d'en-tête — chaque format a ses contraintes propres, pensées et respectées pour un rendu net sur tous les écrans.",
+    isCollection: true
   }
 ];

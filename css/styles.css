@@ -281,6 +281,16 @@ nav.site-nav{
 @media (max-width:960px){ .modal-close{ right:24px; top:16px; } }
 .modal-gallery{ display:flex; gap:2px; overflow-x:auto; scroll-snap-type:x mandatory; }
 .modal-gallery img{ flex:none; width:100%; scroll-snap-align:start; aspect-ratio:16/10; object-fit:cover; }
+
+.modal-gallery.grid-layout{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; overflow-x:visible;
+}
+.modal-gallery.grid-layout img{
+  width:100%; aspect-ratio:1/1; object-fit:cover; scroll-snap-align:none;
+  border-radius:var(--radius-sm); cursor:pointer; transition:opacity .2s ease;
+}
+.modal-gallery.grid-layout img:hover{ opacity:0.85; }
+@media (max-width:640px){ .modal-gallery.grid-layout{ grid-template-columns:repeat(2, 1fr); } }
 .modal-content{ padding:40px 44px 48px; }
 @media (max-width:640px){ .modal-content{ padding:28px 24px 34px; } }
 .modal-content .cat{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px; }
