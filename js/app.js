@@ -204,10 +204,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-});
+  /* ---------- Filtre des tarifs ---------- */
+  const pricingBtns = document.querySelectorAll('[data-pricing]');
+  pricingBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pricingBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.pricing;
+      document.querySelectorAll('.pricing-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.panel === target);
+      });
+    });
+  });
 
-
-/* ---------- Bouton retour en haut ---------- */
+  /* ---------- Bouton retour en haut ---------- */
   const backToTop = document.createElement('button');
   backToTop.className = 'back-to-top';
   backToTop.setAttribute('aria-label', 'Retour en haut de page');
@@ -217,3 +227,5 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.classList.toggle('visible', window.scrollY > 500);
   });
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+});

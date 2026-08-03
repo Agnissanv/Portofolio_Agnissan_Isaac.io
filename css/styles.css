@@ -276,7 +276,7 @@ nav.site-nav{
 .modal-close{
   position:absolute; top:24px; right:calc(50% - 460px + 24px); background:var(--surface);
   border:1px solid var(--line); width:38px; height:38px; border-radius:50%; font-size:18px;
-  display:flex; align-items:center; justify-content:center; z-index:5;
+  display:flex; align-items:center; justify-content:center; z-index:5; color:var(--text);
 }
 @media (max-width:960px){ .modal-close{ right:24px; top:16px; } }
 .modal-gallery{ display:flex; gap:2px; overflow-x:auto; scroll-snap-type:x mandatory; }
@@ -293,10 +293,13 @@ nav.site-nav{
 /* ---------- Pricing ---------- */
 .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .pricing-note{ text-align:center; font-size:13px; color:var(--muted-2); max-width:560px; margin:36px auto 0; line-height:1.6; }
+.pricing-panel{ display:none; }
+.pricing-panel.active{ display:block; }
 @media (max-width:900px){ .pricing-grid{ grid-template-columns:1fr; } }
 .price-card{
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
   padding:38px 32px; display:flex; flex-direction:column;
+  min-height:520px;
 }
 .price-card.featured{ border-color:var(--accent); box-shadow:var(--shadow-md); position:relative; }
 .price-badge{
