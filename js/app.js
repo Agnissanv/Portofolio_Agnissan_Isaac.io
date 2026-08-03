@@ -80,6 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('portfolioGrid');
   if (grid && typeof PROJECTS !== 'undefined') {
 
+    /* ---------- Lightbox (zoom image) ---------- */
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Fermer l\'image">&times;</button><img alt="">';
+    document.body.appendChild(lightbox);
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('open');
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
     grid.innerHTML = PROJECTS.map(p => `
       <article class="project-card" data-category="${p.category}" data-id="${p.id}" tabindex="0" role="button" aria-label="Voir le projet ${p.title}">
         <div class="thumb"><img src="${p.thumb}" alt="Aperçu — ${p.title}" loading="lazy"></div>
@@ -146,6 +166,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.project-card');
       if (card) openModal(card.dataset.id);
     });
+
+    modalBox.addEventListener('click', (e) => {
+      if (e.target.closest('.modal-actions a[href="#contact"]')) {
+        closeModal();
+        return;
+      }
+      const clickedImg = e.target.closest('.modal-gallery img');
+      if (clickedImg) {
+        openLightbox(clickedImg.src, clickedImg.alt);
+      }
+    });
+
     grid.addEventListener('keydown', (e) => {
       if (e.key !== 'Enter' && e.key !== ' ') return;
       const card = e.target.closest('.project-card');

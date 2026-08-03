@@ -440,3 +440,23 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .theme-toggle .icon-dark{ display:none; }
 [data-theme="dark"] .theme-toggle .icon-dark{ display:block; }
 [data-theme="dark"] .theme-toggle .icon-light{ display:none; }
+
+
+/* ---------- Lightbox (zoom image) ---------- */
+.lightbox-overlay{
+  position:fixed; inset:0; background:rgba(10,9,8,0.92);
+  display:flex; align-items:center; justify-content:center; padding:40px;
+  z-index:300; opacity:0; pointer-events:none; transition:opacity .25s ease;
+}
+.lightbox-overlay.open{ opacity:1; pointer-events:auto; }
+.lightbox-overlay img{
+  max-width:100%; max-height:100%; object-fit:contain; border-radius:4px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-close{
+  position:absolute; top:24px; right:32px; width:42px; height:42px; border-radius:50%;
+  background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff;
+  font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.lightbox-close:hover{ background:rgba(255,255,255,0.2); }
+.modal-gallery img{ cursor:zoom-in; }
