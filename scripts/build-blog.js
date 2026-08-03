@@ -113,6 +113,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
+<script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
   .article-header{ max-width:720px; margin:0 auto; padding:70px 32px 0; }
   .article-meta{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-2); display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
@@ -195,6 +196,10 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
     <a href="../blog.html" class="active">Blog</a>
     <a href="../index.html#contact">Contact</a>
   </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+    <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+  </button>
 </nav>
 
 <article>
@@ -253,6 +258,20 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 </footer>
 
 <script>
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+
   const progressBar = document.getElementById('readingProgress');
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
