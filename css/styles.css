@@ -132,8 +132,8 @@ nav.site-nav{
 @media (max-width:900px){ nav.site-nav{ padding:18px 22px; } }
 
 .logo{ display:flex; align-items:center; gap:9px; text-decoration:none; flex:none; }
-.logo img{ height:34px; width:auto; display:block; }
-.logo .logo-dark{ display:none; }
+.logo img{ height:40px; width:auto; display:block; }
+.logo .logo-dark{ display:none; height:50px; }
 [data-theme="dark"] .logo .logo-light{ display:none; }
 [data-theme="dark"] .logo .logo-dark{ display:block; }
 .logo-text{ font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px; letter-spacing:0.01em; }
