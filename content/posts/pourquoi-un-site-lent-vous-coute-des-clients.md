@@ -2,7 +2,7 @@
 title: "Pourquoi un site lent vous coûte des clients"
 date: "2026-07-27"
 excerpt: "Deux secondes de chargement en plus, et une bonne partie de vos visiteurs sont déjà repartis. Voici ce qui ralentit un site, et comment le corriger sans tout reconstruire."
-cover: "images/blog/site-lent-cover.jpg"
+cover: "images/blog/pourquoi-un-site-lent-vous-coute-des-clients/site-lent-cover.png"
 tags: ["Performance", "SEO"]
 ---
 
