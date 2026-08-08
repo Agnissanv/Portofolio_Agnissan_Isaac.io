@@ -209,8 +209,6 @@ const PROJECTS = [
     downloadNote: "~50 Mo · Android 5.0 ou supérieur"
   },
 
-
-
   // Design projects
   {
     id: "logos",
