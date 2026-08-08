@@ -79,7 +79,7 @@ const PROJECTS = [
     isCollection: true
   },
 
-  // Colone 2 (3 projets)
+  // Colone 2 (3 projets) il reste 1
   {
     id: "in-staff-deco",
     title: "I.N: Staff Deco",
@@ -100,6 +100,34 @@ const PROJECTS = [
     linkLabel: "Voir le site"
   },
   {
+    id: "logos",
+    title: "Logos",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Identité de marque",
+    pitch: "Une sélection de logos conçus pour des marques et indépendants.",
+    thumb: "images/projets/design/logos/1.jpg",
+    gallery: [
+      "images/projets/design/logos/1.jpg",
+      "images/projets/design/logos/2.jpg",
+      "images/projets/design/logos/3.jpg",
+      "images/projets/design/logos/4.jpg",
+      "images/projets/design/logos/5.jpg",
+      "images/projets/design/logos/6.jpg",
+      "images/projets/design/logos/7.jpg",
+      "images/projets/design/logos/8.jpg",
+      "images/projets/design/logos/9.jpg",
+      "images/projets/design/logos/10.jpg",
+      "images/projets/design/logos/11.jpg",
+      "images/projets/design/logos/12.jpg"
+    ],
+    description: "Chaque logo est pensé pour être simple à reconnaître et à décliner sur tous les supports — carte de visite, réseaux sociaux, packaging. L'objectif : une identité qui reste lisible même en petit format.",
+    isCollection: true
+  },
+
+  // Colone 3 (3 projets)
+  {
     id: "refuge-pop",
     title: "Refuge Pop",
     category: "web",
@@ -117,25 +145,6 @@ const PROJECTS = [
     description: "Refuge Pop est une plateforme de streaming à part entière : catalogue de films à la demande, chaînes en direct, reprise de lecture automatique, suggestions personnalisées et recherche intelligente — construite sans base de données ni backend classique. La section Direct s'appuie sur un proxy Cloudflare Worker sur-mesure pour diffuser des flux HLS en direct en contournant les restrictions CORS. Un pipeline Python automatisé alimente et vérifie le catalogue.",
     tech: ["HTML5 / CSS3 / JS (SPA)", "API YouTube IFrame & HLS.js", "Cloudflare Workers", "Python (automatisation)", "Vercel"],
     link: "https://refugepop.agnissanisaac.com/",
-    linkLabel: "Voir le site"
-  },
-  {
-    id: "palettepick",
-    title: "PalettePick",
-    category: "web",
-    categoryLabel: "Outil d'extraction de palettes de couleurs",
-    year: "2026",
-    tag: "Outil pour designers",
-    pitch: "L'inspiration visuelle transformée en code, en quelques secondes.",
-    thumb: "images/projets/dev_web/palettepick1.png",
-    gallery: [
-      "images/projets/dev_web/palettepick.jpg",
-      "images/projets/dev_web/palettepick2.png",
-      "images/projets/dev_web/palettepick3.png"
-    ],
-    description: "PalettePick extrait les couleurs dominantes de n'importe quelle image pour générer des palettes prêtes à l'emploi. L'outil traite les images localement pour une rapidité maximale et génère automatiquement variables CSS, codes HEX et RGB. L'objectif était une expérience « zéro friction », avec un design sombre aligné sur les standards des outils créatifs modernes.",
-    tech: ["HTML5 / CSS3", "JavaScript ES6+", "UI High-Contrast & responsive", "GitHub Pages"],
-    link: "https://agnissanv.github.io/palettepick/",
     linkLabel: "Voir le site"
   },
   {
@@ -178,6 +187,32 @@ const PROJECTS = [
     linkLabel: "Explorer le média"
   },
   {
+    id: "bannieres",
+    title: "Bannières",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Web & réseaux sociaux",
+    pitch: "Des bannières adaptées aux formats web et réseaux sociaux.",
+    thumb: "images/projets/design/bannieres/1.jpg",
+    gallery: [
+      "images/projets/design/bannieres/1.jpg",
+      "images/projets/design/bannieres/2.jpg",
+      "images/projets/design/bannieres/3.jpg",
+      "images/projets/design/bannieres/4.jpg",
+      "images/projets/design/bannieres/5.jpg",
+      "images/projets/design/bannieres/6.jpg",
+      "images/projets/design/bannieres/7.jpg",
+      "images/projets/design/bannieres/8.jpg",
+      "images/projets/design/bannieres/9.jpg",
+      "images/projets/design/bannieres/10.jpg",
+      "images/projets/design/bannieres/11.jpg",
+      "images/projets/design/bannieres/12.jpg"
+    ],
+    description: "Couvertures Facebook, bannières de site, visuels d'en-tête — chaque format a ses contraintes propres, pensées et respectées pour un rendu net sur tous les écrans.",
+    isCollection: true
+  },
+  {
     id: "overdose-gym",
     title: "Overdose Gym",
     category: "web",
@@ -195,6 +230,28 @@ const PROJECTS = [
     tech: ["HTML5 / CSS3 avancé", "JavaScript (formulaires)", "Google Maps API", "Mobile-first"],
     link: "https://agnissanv.github.io/fitnesswebsite1/",
     linkLabel: "Voir le site"
+  },
+  {
+    id: "packaging",
+    title: "Packaging",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Emballages & étiquettes",
+    pitch: "Des emballages qui prolongent l'identité de marque jusqu'au produit.",
+    thumb: "images/projets/design/packaging/1.jpg",
+    gallery: [
+      "images/projets/design/packaging/1.jpg",
+      "images/projets/design/packaging/2.jpg",
+      "images/projets/design/packaging/3.jpg",
+      "images/projets/design/packaging/4.jpg",
+      "images/projets/design/packaging/5.jpg",
+      "images/projets/design/packaging/6.jpg",
+      "images/projets/design/packaging/7.jpg",
+      "images/projets/design/packaging/8.jpg"
+    ],
+    description: "Boîtes, sachets, étiquettes : chaque support d'emballage est pensé pour rester cohérent avec l'identité visuelle de la marque, tout en respectant les contraintes techniques d'impression et de production.",
+    isCollection: true
   },
   {
     id: "lumina",
@@ -254,34 +311,6 @@ const PROJECTS = [
     link: "https://agnissanv.github.io/Site_complet_sentimentale1/",
     linkLabel: "Voir le site"
   },  
-
-  // Design projects
-  {
-    id: "logos",
-    title: "Logos",
-    category: "design",
-    categoryLabel: "Refonte graphique",
-    year: "2026",
-    tag: "Identité de marque",
-    pitch: "Une sélection de logos conçus pour des marques et indépendants.",
-    thumb: "images/projets/design/logos/1.jpg",
-    gallery: [
-      "images/projets/design/logos/1.jpg",
-      "images/projets/design/logos/2.jpg",
-      "images/projets/design/logos/3.jpg",
-      "images/projets/design/logos/4.jpg",
-      "images/projets/design/logos/5.jpg",
-      "images/projets/design/logos/6.jpg",
-      "images/projets/design/logos/7.jpg",
-      "images/projets/design/logos/8.jpg",
-      "images/projets/design/logos/9.jpg",
-      "images/projets/design/logos/10.jpg",
-      "images/projets/design/logos/11.jpg",
-      "images/projets/design/logos/12.jpg"
-    ],
-    description: "Chaque logo est pensé pour être simple à reconnaître et à décliner sur tous les supports — carte de visite, réseaux sociaux, packaging. L'objectif : une identité qui reste lisible même en petit format.",
-    isCollection: true
-  },
   {
     id: "flyers",
     title: "Flyers",
@@ -308,52 +337,23 @@ const PROJECTS = [
     isCollection: true
   },
   {
-    id: "bannieres",
-    title: "Bannières",
-    category: "design",
-    categoryLabel: "Refonte graphique",
+    id: "palettepick",
+    title: "PalettePick",
+    category: "web",
+    categoryLabel: "Outil d'extraction de palettes de couleurs",
     year: "2026",
-    tag: "Web & réseaux sociaux",
-    pitch: "Des bannières adaptées aux formats web et réseaux sociaux.",
-    thumb: "images/projets/design/bannieres/1.jpg",
+    tag: "Outil pour designers",
+    pitch: "L'inspiration visuelle transformée en code, en quelques secondes.",
+    thumb: "images/projets/dev_web/palettepick1.png",
     gallery: [
-      "images/projets/design/bannieres/1.jpg",
-      "images/projets/design/bannieres/2.jpg",
-      "images/projets/design/bannieres/3.jpg",
-      "images/projets/design/bannieres/4.jpg",
-      "images/projets/design/bannieres/5.jpg",
-      "images/projets/design/bannieres/6.jpg",
-      "images/projets/design/bannieres/7.jpg",
-      "images/projets/design/bannieres/8.jpg",
-      "images/projets/design/bannieres/9.jpg",
-      "images/projets/design/bannieres/10.jpg",
-      "images/projets/design/bannieres/11.jpg",
-      "images/projets/design/bannieres/12.jpg"
+      "images/projets/dev_web/palettepick.jpg",
+      "images/projets/dev_web/palettepick2.png",
+      "images/projets/dev_web/palettepick3.png"
     ],
-    description: "Couvertures Facebook, bannières de site, visuels d'en-tête — chaque format a ses contraintes propres, pensées et respectées pour un rendu net sur tous les écrans.",
-    isCollection: true
-  },
-  {
-    id: "packaging",
-    title: "Packaging",
-    category: "design",
-    categoryLabel: "Refonte graphique",
-    year: "2026",
-    tag: "Emballages & étiquettes",
-    pitch: "Des emballages qui prolongent l'identité de marque jusqu'au produit.",
-    thumb: "images/projets/design/packaging/1.jpg",
-    gallery: [
-      "images/projets/design/packaging/1.jpg",
-      "images/projets/design/packaging/2.jpg",
-      "images/projets/design/packaging/3.jpg",
-      "images/projets/design/packaging/4.jpg",
-      "images/projets/design/packaging/5.jpg",
-      "images/projets/design/packaging/6.jpg",
-      "images/projets/design/packaging/7.jpg",
-      "images/projets/design/packaging/8.jpg"
-    ],
-    description: "Boîtes, sachets, étiquettes : chaque support d'emballage est pensé pour rester cohérent avec l'identité visuelle de la marque, tout en respectant les contraintes techniques d'impression et de production.",
-    isCollection: true
+    description: "PalettePick extrait les couleurs dominantes de n'importe quelle image pour générer des palettes prêtes à l'emploi. L'outil traite les images localement pour une rapidité maximale et génère automatiquement variables CSS, codes HEX et RGB. L'objectif était une expérience « zéro friction », avec un design sombre aligné sur les standards des outils créatifs modernes.",
+    tech: ["HTML5 / CSS3", "JavaScript ES6+", "UI High-Contrast & responsive", "GitHub Pages"],
+    link: "https://agnissanv.github.io/palettepick/",
+    linkLabel: "Voir le site"
   },
   {
     id: "goodies",
