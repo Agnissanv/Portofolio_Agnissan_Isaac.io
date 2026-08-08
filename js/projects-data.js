@@ -177,36 +177,6 @@ const PROJECTS = [
   },
 
   // App projects
-  // {
-  //   id: "BudgetFlow",
-  //   title: "Budget Flow",
-  //   category: "app",
-  //   categoryLabel: "Application Mobile pour visualiser ses épargnes",
-  //   year: "2026",
-  //   tag: "Calulateur de budget",
-  //   pitch: "Une application mobile pour visualiser ses épargnes",
-  //   thumb: "images/projets/appli/budgetflow/1.png",
-  //   gallery: [
-  //     "images/projets/appli/budgetflow/1.png",
-  //     "images/projets/appli/budgetflow/2.jpeg",
-  //     "images/projets/appli/budgetflow/3.jpeg",
-  //     "images/projets/appli/budgetflow/4.jpeg",
-  //     "images/projets/appli/budgetflow/5.jpeg",
-  //     "images/projets/appli/budgetflow/6.jpeg",
-  //     "images/projets/appli/budgetflow/7.jpeg",
-  //     "images/projets/appli/budgetflow/8.jpeg",
-  //     "images/projets/appli/budgetflow/9.jpeg",
-  //     "images/projets/appli/budgetflow/10.jpeg",
-  //     "images/projets/appli/budgetflow/11.jpeg",
-  //     "images/projets/appli/budgetflow/12.jpeg",
-  //     "images/projets/appli/budgetflow/13.png"
-  //   ],
-  //   description: "Site vitrine premium pensé pour inspirer confiance dès les premières secondes. Présentation immersive des biens, FAQ, témoignages, indicateurs de performance : chaque section a été pensée pour transformer un visiteur en prospect qualifié, sur tous les écrans.",
-  //   tech: ["HTML5 / CSS3", "JavaScript (filtres & interactions)", "Responsive design", "UI/UX premium"],
-  //   link: "https://agnissanv.github.io/immo/",
-  //   linkLabel: "Découvrir le site",
-  //   isCollection: true
-  // },
   {
     id: "budget-flow",
     title: "Budget Flow",

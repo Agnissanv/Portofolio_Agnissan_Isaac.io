@@ -135,9 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const p = PROJECTS.find(x => x.id === id);
       if (!p) return;
       const techHtml = p.isCollection ? '' : `<div class="modal-tech">${p.tech.map(t => `<span class="chip">${t}</span>`).join('')}</div>`;
-      const actionHtml = p.isCollection
-        ? `<a href="#contact" class="btn btn-primary">Discuter d'un projet similaire →</a>`
-        : `<a href="${p.link}" target="_blank" rel="noopener" class="btn btn-primary">${p.linkLabel} →</a>`;
+      let actionHtml;
+      if (p.isCollection) {
+        actionHtml = `<a href="#contact" class="btn btn-primary">Discuter d'un projet similaire →</a>`;
+      } else if (p.isDownload) {
+        actionHtml = `
+          <a href="${p.link}" download class="btn btn-primary">${p.linkLabel} →</a>
+          ${p.downloadNote ? `<span class="download-note">${p.downloadNote}</span>` : ''}
+        `;
+      } else {
+        actionHtml = `<a href="${p.link}" target="_blank" rel="noopener" class="btn btn-primary">${p.linkLabel} →</a>`;
+      }
       const galleryClass = p.isCollection ? 'modal-gallery grid-layout' : 'modal-gallery';
       modalBox.innerHTML = `
         <div class="${galleryClass}">
