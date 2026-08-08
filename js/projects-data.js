@@ -187,7 +187,6 @@ const PROJECTS = [
     pitch: "Simulez, comparez et visualisez l'évolution de votre épargne en temps réel.",
     thumb: "images/projets/app/budget-flow/1.png",
     gallery: [
-      "images/projets/app/budget-flow/1.png",
       "images/projets/app/budget-flow/2.jpeg",
       "images/projets/app/budget-flow/3.jpeg",
       "images/projets/app/budget-flow/4.jpeg",
@@ -206,7 +205,8 @@ const PROJECTS = [
     link: "downloads/budget-flow.apk",
     linkLabel: "Télécharger l'APK",
     isDownload: true,
-    downloadNote: "~50 Mo · Android 8.0 ou supérieur"
+    downloadNote: "~50 Mo · Android 8.0 ou supérieur",
+    trustBadges: ["Aucune donnée collectée", "100% hors-ligne", "Version 1.0.0", "1k+ téléchargements"]
   },
 
   // Design projects

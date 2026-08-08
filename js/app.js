@@ -80,25 +80,73 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('portfolioGrid');
   if (grid && typeof PROJECTS !== 'undefined') {
 
-    /* ---------- Lightbox (zoom image) ---------- */
+    /* ---------- Lightbox (zoom image + navigation) ---------- */
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox-overlay';
-    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Fermer l\'image">&times;</button><img alt="">';
+    lightbox.innerHTML = `
+      <button class="lightbox-close" aria-label="Fermer l'image">&times;</button>
+      <button class="lightbox-nav lightbox-prev" aria-label="Image précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <img alt="">
+      <button class="lightbox-nav lightbox-next" aria-label="Image suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      <span class="lightbox-counter"></span>
+    `;
     document.body.appendChild(lightbox);
     const lightboxImg = lightbox.querySelector('img');
     const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+    const lightboxNext = lightbox.querySelector('.lightbox-next');
+    const lightboxCounter = lightbox.querySelector('.lightbox-counter');
 
-    function openLightbox(src, alt) {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
+    let lightboxImages = [];
+    let lightboxIndex = 0;
+
+    function renderLightboxImage() {
+      const item = lightboxImages[lightboxIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.alt;
+      lightboxCounter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+      const multi = lightboxImages.length > 1;
+      lightboxPrev.style.display = multi ? 'flex' : 'none';
+      lightboxNext.style.display = multi ? 'flex' : 'none';
+      lightboxCounter.style.display = multi ? 'block' : 'none';
+    }
+    function openLightbox(images, startIndex) {
+      lightboxImages = images;
+      lightboxIndex = startIndex;
+      renderLightboxImage();
       lightbox.classList.add('open');
     }
     function closeLightbox() {
       lightbox.classList.remove('open');
     }
+    function showPrev() {
+      lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+      renderLightboxImage();
+    }
+    function showNext() {
+      lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+      renderLightboxImage();
+    }
+
     lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrev);
+    lightboxNext.addEventListener('click', showNext);
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    // Glissement tactile (swipe) pour mobile
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) < 50) return;
+      diff > 0 ? showPrev() : showNext();
+    }, { passive: true });
 
     grid.innerHTML = PROJECTS.map(p => `
       <article class="project-card" data-category="${p.category}" data-id="${p.id}" tabindex="0" role="button" aria-label="Voir le projet ${p.title}">
@@ -139,14 +187,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if (p.isCollection) {
         actionHtml = `<a href="#contact" class="btn btn-primary">Discuter d'un projet similaire →</a>`;
       } else if (p.isDownload) {
+        const badgesHtml = p.trustBadges ? `
+          <div class="trust-badges">
+            ${p.trustBadges.map(b => `<span class="trust-badge">${b}</span>`).join('')}
+          </div>` : '';
         actionHtml = `
-          <a href="${p.link}" download class="btn btn-primary">${p.linkLabel} →</a>
-          ${p.downloadNote ? `<span class="download-note">${p.downloadNote}</span>` : ''}
+          ${badgesHtml}
+          <div class="modal-actions-row">
+            <a href="${p.link}" download class="btn btn-primary">${p.linkLabel} →</a>
+            ${p.downloadNote ? `<span class="download-note">${p.downloadNote}</span>` : ''}
+          </div>
         `;
       } else {
         actionHtml = `<a href="${p.link}" target="_blank" rel="noopener" class="btn btn-primary">${p.linkLabel} →</a>`;
       }
-      const galleryClass = p.isCollection ? 'modal-gallery grid-layout' : 'modal-gallery';
+      let galleryClass = 'modal-gallery';
+      if (p.isCollection) galleryClass = 'modal-gallery grid-layout';
+      else if (p.category === 'app') galleryClass = 'modal-gallery app-layout';
       modalBox.innerHTML = `
         <div class="${galleryClass}">
           ${p.gallery.map(src => `<img src="${src}" alt="Capture — ${p.title}" loading="lazy">`).join('')}
@@ -182,7 +239,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const clickedImg = e.target.closest('.modal-gallery img');
       if (clickedImg) {
-        openLightbox(clickedImg.src, clickedImg.alt);
+        const galleryEl = clickedImg.closest('.modal-gallery');
+        const allImgs = [...galleryEl.querySelectorAll('img')];
+        const images = allImgs.map(img => ({ src: img.src, alt: img.alt }));
+        const startIndex = allImgs.indexOf(clickedImg);
+        openLightbox(images, startIndex);
       }
     });
 
