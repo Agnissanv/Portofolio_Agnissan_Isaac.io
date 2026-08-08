@@ -206,7 +206,7 @@ const PROJECTS = [
     link: "downloads/budget-flow.apk",
     linkLabel: "Télécharger l'APK",
     isDownload: true,
-    downloadNote: "~50 Mo · Android 5.0 ou supérieur"
+    downloadNote: "~50 Mo · Android 8.0 ou supérieur"
   },
 
   // Design projects
