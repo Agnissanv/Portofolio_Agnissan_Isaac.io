@@ -88,11 +88,16 @@ const PROJECTS = [
     year: "2026",
     tag: "Décoration intérieure",
     pitch: "Un site vitrine pour une entreprise de faux plafonds et décoration intérieure à Abidjan.",
-    thumb: "images/projets/dev_web/in-staff-deco/1.jpg",
+    thumb: "images/projets/dev_web/in-staff-deco/1.png",
     gallery: [
-      "images/projets/dev_web/in-staff-deco/1.jpg",
+      "images/projets/dev_web/in-staff-deco/1.png",
       "images/projets/dev_web/in-staff-deco/2.jpg",
-      "images/projets/dev_web/in-staff-deco/3.jpg"
+      "images/projets/dev_web/in-staff-deco/3.png",
+      "images/projets/dev_web/in-staff-deco/4.png",
+      "images/projets/dev_web/in-staff-deco/5.png",
+      "images/projets/dev_web/in-staff-deco/6.png",
+      "images/projets/dev_web/in-staff-deco/7.png",
+      "images/projets/dev_web/in-staff-deco/8.jpg"
     ],
     description: "Site vitrine conçu pour I.N: Staff Deco, spécialiste du placo-plâtre, des faux plafonds et de la décoration intérieure à Abidjan depuis 2008. Le site met en avant les réalisations de l'entreprise, ses tarifs au m² et les témoignages clients, avec un objectif simple : transformer un visiteur en demande de devis en un minimum de clics. La demande de devis est directement intégrée à WhatsApp : le visiteur remplit un formulaire, et le message part pré-rempli vers l'entreprise — il ne reste plus qu'à l'envoyer.",
     tech: ["HTML5 / CSS3", "JavaScript", "Intégration WhatsApp (devis pré-rempli)", "Responsive design"],
