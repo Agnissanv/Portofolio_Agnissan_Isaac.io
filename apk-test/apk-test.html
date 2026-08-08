@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Flow - Téléchargement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #10b981;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            min-height: 90vh;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1e293b, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mockup-placeholder {
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(145deg, #ffffff, #e2e8f0);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 8px solid #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 20px;
+            background: var(--bg-color);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .mockup-placeholder {
+                width: 260px;
+                height: 520px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                📊 Budget Flow
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Gérez vos finances avec simplicité et élégance</h1>
+                <p class="hero-description">
+                    Une petite description accrocheuse viendra ici. Explique en quelques mots pourquoi ton application est géniale, comment elle va aider les utilisateurs au quotidien, et pourquoi ils doivent la télécharger maintenant.
+                </p>
+                <a href="budget-flow.apk" download id="downloadBtn" class="btn-download">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Télécharger l'APK
+                </a>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light);">Version 1.0.0 • Android 8.0+</p>
+            </div>
+            <div class="hero-image">
+                <!-- Remplace cette div par une vraie balise img quand tu auras ton affiche -->
+                <!-- Exemple : <img src="chemin/vers/image.png" alt="Aperçu de Budget Flow" style="width: 100%; max-width: 350px;"> -->
+                <div class="mockup-placeholder">
+                    [Image ou Mockup du produit à insérer ici]
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Titre de la fonctionnalité 1</h3>
+                    <p class="hero-description">Petite description de la fonctionnalité. Ce qu'elle apporte d'unique à l'utilisateur.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Titre de la fonctionnalité 2</h3>
+                    <p class="hero-description">Petite description de la fonctionnalité. Insiste sur la sécurité ou la rapidité.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Titre de la fonctionnalité 3</h3>
+                    <p class="hero-description">Petite description de la fonctionnalité. Un dernier point fort pour convaincre.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Code A-Z. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Petit script JavaScript pour ajouter une interaction au clic
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            // Optionnel : tu peux commenter e.preventDefault() si tu veux juste tester l'animation sans déclencher d'erreur de téléchargement si le fichier n'est pas encore là.
+            // e.preventDefault(); 
+            
+            let btn = this;
+            let originalText = btn.innerHTML;
+            
+            // Change le texte du bouton pendant 3 secondes
+            btn.innerHTML = '⏳ Téléchargement en cours...';
+            btn.style.backgroundColor = 'var(--secondary-color)';
+            
+            setTimeout(() => {
+                btn.innerHTML = '✅ Téléchargement lancé !';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.backgroundColor = 'var(--primary-color)';
+                }, 3000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
