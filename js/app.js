@@ -19,9 +19,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Compteur de projets
-  const projectCountEl = document.getElementById('projectCount');
-  if (projectCountEl && typeof PROJECTS !== 'undefined') projectCountEl.textContent = PROJECTS.length;
+  /* ---------- Carrousel de phrases (comptage par catégorie) ---------- */
+  const stripEl = document.getElementById('stripCarousel');
+  if (stripEl && typeof PROJECTS !== 'undefined') {
+    const counts = { web: 0, design: 0, app: 0 };
+    PROJECTS.forEach(p => { if (counts[p.category] !== undefined) counts[p.category]++; });
+
+    const phrases = [
+      `<b>${counts.web}</b> site${counts.web > 1 ? 's' : ''} web en vedette`,
+      `<b>${counts.design}</b> univers créatif${counts.design > 1 ? 's' : ''} en vedette`,
+      `<b>${counts.app}</b> application${counts.app > 1 ? 's' : ''} en vedette`
+    ];
+
+    let phraseIndex = 0;
+    stripEl.innerHTML = phrases[0];
+    stripEl.classList.add('active');
+
+    setInterval(() => {
+      stripEl.classList.remove('active');
+      setTimeout(() => {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        stripEl.innerHTML = phrases[phraseIndex];
+        stripEl.classList.add('active');
+      }, 450);
+    }, 5000);
+  }
 
   /* ---------- Menu mobile ---------- */
   const burgerBtn = document.getElementById('burgerBtn');

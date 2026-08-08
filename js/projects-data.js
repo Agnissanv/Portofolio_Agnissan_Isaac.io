@@ -1,5 +1,104 @@
 // Données des projets — modifie ou ajoute des entrées ici, le reste est généré automatiquement.
 const PROJECTS = [
+  // Colone 1 (3 projets)
+  {
+    id: "immo",
+    title: "Immo",
+    category: "web",
+    categoryLabel: "Site vitrine pour agence immobilière",
+    year: "2026",
+    tag: "Agence immobilière",
+    pitch: "Une identité noire et dorée pour une agence immobilière haut de gamme.",
+    thumb: "images/projets/dev_web/immo0.png",
+    gallery: [
+      "images/projets/dev_web/immo1.jpg",
+      "images/projets/dev_web/immo2.jpg",
+      "images/projets/dev_web/immo3.png",
+      "images/projets/dev_web/immo4.png"
+    ],
+    description: "Site vitrine premium pensé pour inspirer confiance dès les premières secondes. Présentation immersive des biens, FAQ, témoignages, indicateurs de performance : chaque section a été pensée pour transformer un visiteur en prospect qualifié, sur tous les écrans.",
+    tech: ["HTML5 / CSS3", "JavaScript (filtres & interactions)", "Responsive design", "UI/UX premium"],
+    link: "https://agnissanv.github.io/immo/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "budget-flow",
+    title: "Budget Flow",
+    category: "app",
+    categoryLabel: "Application mobile",
+    year: "2026",
+    tag: "Finance personnelle",
+    pitch: "Simulez, comparez et visualisez l'évolution de votre épargne en temps réel.",
+    thumb: "images/projets/app/budget-flow/1.png",
+    gallery: [
+      "images/projets/app/budget-flow/2.jpeg",
+      "images/projets/app/budget-flow/3.jpeg",
+      "images/projets/app/budget-flow/4.jpeg",
+      "images/projets/app/budget-flow/5.jpeg",
+      "images/projets/app/budget-flow/6.jpeg",
+      "images/projets/app/budget-flow/7.jpeg",
+      "images/projets/app/budget-flow/8.jpeg",
+      "images/projets/app/budget-flow/9.jpeg",
+      "images/projets/app/budget-flow/10.jpeg",
+      "images/projets/app/budget-flow/11.jpeg",
+      "images/projets/app/budget-flow/12.jpeg",
+      "images/projets/app/budget-flow/13.png"
+    ],
+    description: "Budget Flow transforme la gestion financière personnelle en expérience visuelle et interactive. Contrairement à une calculatrice classique qui donne un chiffre figé, l'application projette l'évolution de l'épargne mois par mois sous forme de courbes animées, et répond à des questions concrètes comme « Quand atteindrai-je 1 000 000 FCFA ? ». L'utilisateur saisit son revenu, ses dépenses par catégorie et son solde actuel : l'app calcule l'épargne nette et simule la trajectoire financière sur plusieurs mois, avec des curseurs interactifs pour ajuster les chiffres en temps réel, comparer deux scénarios côte à côte, ou visualiser la répartition des dépenses par catégorie. Fonctionne entièrement hors-ligne, données stockées en local.",
+    tech: ["Flutter (Dart)", "Riverpod", "Hive (stockage local)", "fl_chart", "Multi-devises (XOF, EUR, USD...)"],
+    link: "downloads/budget-flow.apk",
+    linkLabel: "Télécharger l'APK",
+    isDownload: true,
+    downloadNote: "~50 Mo · Android 8.0 ou supérieur",
+    trustBadges: ["Aucune donnée collectée", "100% hors-ligne", "Version 1.0.0", "1k+ téléchargements"]
+  },
+  {
+    id: "affiches",
+    title: "Affiches",
+    category: "design",
+    categoryLabel: "Refonte graphique",
+    year: "2026",
+    tag: "Communication visuelle",
+    pitch: "Des affiches pensées pour marquer, du format A4 au grand format.",
+    thumb: "images/projets/design/affiches/1.jpg",
+    gallery: [
+      "images/projets/design/affiches/1.jpg",
+      "images/projets/design/affiches/2.jpg",
+      "images/projets/design/affiches/3.jpg",
+      "images/projets/design/affiches/4.jpg",
+      "images/projets/design/affiches/5.jpg",
+      "images/projets/design/affiches/6.jpg",
+      "images/projets/design/affiches/7.jpg",
+      "images/projets/design/affiches/8.jpg",
+      "images/projets/design/affiches/9.jpg",
+      "images/projets/design/affiches/10.jpg",
+      "images/projets/design/affiches/11.jpg",
+      "images/projets/design/affiches/12.jpg"
+    ],
+    description: "Que ce soit pour un événement, une promotion ou une campagne, chaque affiche est conçue pour rester lisible et impactante, même vue de loin ou en un coup d'œil rapide.",
+    isCollection: true
+  },
+
+  // Colone 2 (3 projets)
+  {
+    id: "in-staff-deco",
+    title: "I.N: Staff Deco",
+    category: "web",
+    categoryLabel: "Site vitrine",
+    year: "2026",
+    tag: "Décoration intérieure",
+    pitch: "Un site vitrine pour une entreprise de faux plafonds et décoration intérieure à Abidjan.",
+    thumb: "images/projets/dev_web/in-staff-deco/1.jpg",
+    gallery: [
+      "images/projets/dev_web/in-staff-deco/1.jpg",
+      "images/projets/dev_web/in-staff-deco/2.jpg",
+      "images/projets/dev_web/in-staff-deco/3.jpg"
+    ],
+    description: "Site vitrine conçu pour I.N: Staff Deco, spécialiste du placo-plâtre, des faux plafonds et de la décoration intérieure à Abidjan depuis 2008. Le site met en avant les réalisations de l'entreprise, ses tarifs au m² et les témoignages clients, avec un objectif simple : transformer un visiteur en demande de devis en un minimum de clics. La demande de devis est directement intégrée à WhatsApp : le visiteur remplit un formulaire, et le message part pré-rempli vers l'entreprise — il ne reste plus qu'à l'envoyer.",
+    tech: ["HTML5 / CSS3", "JavaScript", "Intégration WhatsApp (devis pré-rempli)", "Responsive design"],
+    link: "https://www.instaffdeco.com/",
+    linkLabel: "Voir le site"
+  },
   {
     id: "refuge-pop",
     title: "Refuge Pop",
@@ -79,26 +178,6 @@ const PROJECTS = [
     linkLabel: "Explorer le média"
   },
   {
-    id: "immo",
-    title: "Immo",
-    category: "web",
-    categoryLabel: "Site vitrine pour agence immobilière",
-    year: "2026",
-    tag: "Agence immobilière",
-    pitch: "Une identité noire et dorée pour une agence immobilière haut de gamme.",
-    thumb: "images/projets/dev_web/immo0.png",
-    gallery: [
-      "images/projets/dev_web/immo1.jpg",
-      "images/projets/dev_web/immo2.jpg",
-      "images/projets/dev_web/immo3.png",
-      "images/projets/dev_web/immo4.png"
-    ],
-    description: "Site vitrine premium pensé pour inspirer confiance dès les premières secondes. Présentation immersive des biens, FAQ, témoignages, indicateurs de performance : chaque section a été pensée pour transformer un visiteur en prospect qualifié, sur tous les écrans.",
-    tech: ["HTML5 / CSS3", "JavaScript (filtres & interactions)", "Responsive design", "UI/UX premium"],
-    link: "https://agnissanv.github.io/immo/",
-    linkLabel: "Découvrir le site"
-  },
-  {
     id: "overdose-gym",
     title: "Overdose Gym",
     category: "web",
@@ -174,40 +253,7 @@ const PROJECTS = [
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://agnissanv.github.io/Site_complet_sentimentale1/",
     linkLabel: "Voir le site"
-  },
-
-  // App projects
-  {
-    id: "budget-flow",
-    title: "Budget Flow",
-    category: "app",
-    categoryLabel: "Application mobile",
-    year: "2026",
-    tag: "Finance personnelle",
-    pitch: "Simulez, comparez et visualisez l'évolution de votre épargne en temps réel.",
-    thumb: "images/projets/app/budget-flow/1.png",
-    gallery: [
-      "images/projets/app/budget-flow/2.jpeg",
-      "images/projets/app/budget-flow/3.jpeg",
-      "images/projets/app/budget-flow/4.jpeg",
-      "images/projets/app/budget-flow/5.jpeg",
-      "images/projets/app/budget-flow/6.jpeg",
-      "images/projets/app/budget-flow/7.jpeg",
-      "images/projets/app/budget-flow/8.jpeg",
-      "images/projets/app/budget-flow/9.jpeg",
-      "images/projets/app/budget-flow/10.jpeg",
-      "images/projets/app/budget-flow/11.jpeg",
-      "images/projets/app/budget-flow/12.jpeg",
-      "images/projets/app/budget-flow/13.png"
-    ],
-    description: "Budget Flow transforme la gestion financière personnelle en expérience visuelle et interactive. Contrairement à une calculatrice classique qui donne un chiffre figé, l'application projette l'évolution de l'épargne mois par mois sous forme de courbes animées, et répond à des questions concrètes comme « Quand atteindrai-je 1 000 000 FCFA ? ». L'utilisateur saisit son revenu, ses dépenses par catégorie et son solde actuel : l'app calcule l'épargne nette et simule la trajectoire financière sur plusieurs mois, avec des curseurs interactifs pour ajuster les chiffres en temps réel, comparer deux scénarios côte à côte, ou visualiser la répartition des dépenses par catégorie. Fonctionne entièrement hors-ligne, données stockées en local.",
-    tech: ["Flutter (Dart)", "Riverpod", "Hive (stockage local)", "fl_chart", "Multi-devises (XOF, EUR, USD...)"],
-    link: "downloads/budget-flow.apk",
-    linkLabel: "Télécharger l'APK",
-    isDownload: true,
-    downloadNote: "~50 Mo · Android 8.0 ou supérieur",
-    trustBadges: ["Aucune donnée collectée", "100% hors-ligne", "Version 1.0.0", "1k+ téléchargements"]
-  },
+  },  
 
   // Design projects
   {
@@ -259,32 +305,6 @@ const PROJECTS = [
       "images/projets/design/flyers/11.jpg"
     ],
     description: "Un flyer efficace transmet l'essentiel avant même d'être lu en détail. Chaque création met en avant une hiérarchie claire de l'information et un visuel qui accroche le regard.",
-    isCollection: true
-  },
-  {
-    id: "affiches",
-    title: "Affiches",
-    category: "design",
-    categoryLabel: "Refonte graphique",
-    year: "2026",
-    tag: "Communication visuelle",
-    pitch: "Des affiches pensées pour marquer, du format A4 au grand format.",
-    thumb: "images/projets/design/affiches/1.jpg",
-    gallery: [
-      "images/projets/design/affiches/1.jpg",
-      "images/projets/design/affiches/2.jpg",
-      "images/projets/design/affiches/3.jpg",
-      "images/projets/design/affiches/4.jpg",
-      "images/projets/design/affiches/5.jpg",
-      "images/projets/design/affiches/6.jpg",
-      "images/projets/design/affiches/7.jpg",
-      "images/projets/design/affiches/8.jpg",
-      "images/projets/design/affiches/9.jpg",
-      "images/projets/design/affiches/10.jpg",
-      "images/projets/design/affiches/11.jpg",
-      "images/projets/design/affiches/12.jpg"
-    ],
-    description: "Que ce soit pour un événement, une promotion ou une campagne, chaque affiche est conçue pour rester lisible et impactante, même vue de loin ou en un coup d'œil rapide.",
     isCollection: true
   },
   {
