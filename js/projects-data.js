@@ -327,5 +327,25 @@ const PROJECTS = [
     ],
     description: "Une bonne identité de marque doit rester reconnaissable même appliquée à un petit objet. Ces créations montrent comment un logo ou une charte graphique s'adapte aux contraintes d'un support physique, sans perdre en lisibilité.",
     isCollection: true
-  }
+  },
+  {
+    id: "BudgetFlow",
+    title: "Budget Flow",
+    category: "app",
+    categoryLabel: "Site vitrine pour agence immobilière",
+    year: "2026",
+    tag: "Agence immobilière",
+    pitch: "Une identité noire et dorée pour une agence immobilière haut de gamme.",
+    thumb: "images/projets/dev_web/imo0.png",
+    gallery: [
+      "images/projets/dev_web/imo1.jpg",
+      "images/projets/dev_web/imo2.jpg",
+      "images/projets/dev_web/imo3.png",
+      "images/projets/dev_web/imo4.png"
+    ],
+    description: "Site vitrine premium pensé pour inspirer confiance dès les premières secondes. Présentation immersive des biens, FAQ, témoignages, indicateurs de performance : chaque section a été pensée pour transformer un visiteur en prospect qualifié, sur tous les écrans.",
+    tech: ["HTML5 / CSS3", "JavaScript (filtres & interactions)", "Responsive design", "UI/UX premium"],
+    link: "https://agnissanv.github.io/immo/",
+    linkLabel: "Découvrir le site"
+  },
 ];
