@@ -187,7 +187,7 @@ const PROJECTS = [
     pitch: "Simulez, comparez et visualisez l'évolution de votre épargne en temps réel.",
     thumb: "images/projets/app/budget-flow/1.png",
     gallery: [
-      "images/projets/app/budget-flow/1.jpeg",
+      "images/projets/app/budget-flow/1.png",
       "images/projets/app/budget-flow/2.jpeg",
       "images/projets/app/budget-flow/3.jpeg",
       "images/projets/app/budget-flow/4.jpeg",
