@@ -123,7 +123,7 @@ function jobTemplate(job) {
 
 <header class="job-header">
   <a href="index.html" class="back-link">&larr; Tous les postes</a>
-  <div class="job-status"><span class="pulse"></span>${job.status}</div>
+  <div class="job-status"><span class="pulse"></span>${job.status}${job.sharedWith ? ` · Relayé avec ${job.sharedWith}` : ''}</div>
   <h1>${job.title}</h1>
   <div class="job-meta">
     <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>${job.type}</span>
@@ -163,6 +163,7 @@ function jobTemplate(job) {
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <span class="footer-partner">Partenaire <img src="../images/partners/trouve-ton-job-logo.jpeg" alt="Trouve Ton Job"> <a href="#" target="_blank" rel="noopener">Trouve Ton Job</a></span>
     <a href="../index.html#contact">Une question ? Contactez-nous →</a>
   </div>
 </footer>
