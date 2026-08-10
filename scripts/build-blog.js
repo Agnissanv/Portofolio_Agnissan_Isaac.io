@@ -123,6 +123,8 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <style>
   .article-header{ max-width:720px; margin:0 auto; padding:70px 32px 0; }
   .article-meta{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-2); display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
