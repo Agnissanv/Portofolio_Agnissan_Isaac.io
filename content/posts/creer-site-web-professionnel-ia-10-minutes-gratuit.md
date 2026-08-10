@@ -14,7 +14,7 @@ Tous ces outils fonctionnent sur le même mécanisme : vous décrivez votre acti
 
 ## Trois outils passés au crible
 
-### 1. <a href="https://theindex.agnissanisaac.com/tools/durable" target="_blank" rel="noopener">Durable</a> — le plus rapide
+### 1. [Durable](https://theindex.agnissanisaac.com/tools/durable) — le plus rapide
 
 Durable revendique un site généré en environ 30 secondes à partir d'une simple description d'activité — plus de 3 millions d'utilisateurs et 11 millions de sites générés à ce jour, selon les chiffres du service.
 
@@ -22,7 +22,7 @@ Durable revendique un site généré en environ 30 secondes à partir d'une simp
 
 **Ce qui revient dans les critiques** : le rendu final ressemble souvent à un modèle générique reconnaissable — plusieurs utilisateurs décrivent un effet "site IA" qui se ressemble d'un projet à l'autre. Certains signalent aussi des options de mise en forme basiques limitées (pas de gras, pas de titres personnalisés dans certains cas), et une difficulté à exporter ou récupérer pleinement son site si on veut le quitter plus tard.
 
-### 2. <a href="https://theindex.agnissanisaac.com/tools/wix-ai" target="_blank" rel="noopener">Wix AI (Aria)</a> — le plus complet
+### 2. [Wix AI (Aria)](https://theindex.agnissanisaac.com/tools/wix-ai) — le plus complet
 
 Wix propose une génération de site par IA à partir d'un prompt, avec ensuite accès à plus de 2000 modèles ajustables, un éditeur visuel complet, et des fonctionnalités intégrées (blog, e-commerce, SEO de base).
 
@@ -30,7 +30,7 @@ Wix propose une génération de site par IA à partir d'un prompt, avec ensuite 
 
 **Ce qui revient dans les critiques** : le plan gratuit reste utilisable, mais avec un sous-domaine Wix imposé et des limites qui poussent assez vite vers un abonnement payant pour un usage professionnel sérieux. Le résultat généré par l'IA nécessite quasi systématiquement une bonne session de retouche manuelle pour ne plus ressembler à un modèle par défaut.
 
-### 3. <a href="https://theindex.agnissanisaac.com/tools/framer-ai" target="_blank" rel="noopener">Framer AI</a> — le plus soigné visuellement
+### 3. [Framer AI](https://theindex.agnissanisaac.com/tools/framer-ai) — le plus soigné visuellement
 
 Framer se distingue nettement par la qualité du design généré — plusieurs comparatifs indépendants le classent devant Wix et Webflow sur ce point précis, avec des sites au rendu proche du travail d'un designer, rapides à charger.
 
