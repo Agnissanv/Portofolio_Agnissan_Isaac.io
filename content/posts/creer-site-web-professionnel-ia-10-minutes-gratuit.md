@@ -1,6 +1,6 @@
 ---
 title: "Créer un site web professionnel avec l'IA en moins de 10 minutes (et gratuitement) ? Ce qu'en disent vraiment les utilisateurs"
-date: "2026-08-17"
+date: "2026-08-10"
 excerpt: "Durable, Wix AI, Framer AI : trois générateurs de sites par intelligence artificielle passés au crible à travers des centaines d'avis réels. Ce qu'ils font vraiment bien, ce qu'ils ne font pas, et si un site généré par IA peut remplacer un vrai développeur."
 cover: "images/blog/creer-site-web-professionnel-ia-10-minutes-gratuit/cover.png"
 tags: ["Intelligence artificielle", "Conseils"]

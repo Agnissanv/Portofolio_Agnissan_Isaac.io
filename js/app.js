@@ -204,6 +204,29 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(id) {
       const p = PROJECTS.find(x => x.id === id);
       if (!p) return;
+
+      const shareUrl = `${location.origin}${location.pathname}#projet-${p.id}`;
+      const shareRowHtml = `
+        <div class="share-row">
+          <span class="share-label">Partager :</span>
+          <a class="share-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}" aria-label="Partager sur LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1s2.5 1.12 2.5 2.5zM.5 8h4V23h-4V8zm7 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.85c0-1.63-.03-3.73-2.28-3.73-2.28 0-2.63 1.78-2.63 3.62V23h-4V8z"/></svg>
+          </a>
+          <a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(p.title + ' — ' + shareUrl)}" aria-label="Partager sur WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10.1 9 9.6 7.7 9.4 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          </a>
+          <a class="share-btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}" aria-label="Partager sur Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a class="share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(p.title)}&url=${encodeURIComponent(shareUrl)}" aria-label="Partager sur X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.3L23 22h-6.6l-5.2-6.8L5.2 22H2l7.7-8.8L1.4 2H8.2l4.7 6.2L18.9 2zm-1.2 18h1.8L7.4 3.9H5.4L17.7 20z"/></svg>
+          </a>
+          <button class="share-btn" type="button" data-copy-url="${shareUrl}" aria-label="Copier le lien">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span class="copied-tip">Lien copié !</span>
+          </button>
+        </div>
+      `;
       const techHtml = p.isCollection ? '' : `<div class="modal-tech">${p.tech.map(t => `<span class="chip">${t}</span>`).join('')}</div>`;
       let actionHtml;
       if (p.isCollection) {
@@ -238,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${techHtml}
           <div class="modal-actions">
             ${actionHtml}
+            ${shareRowHtml}
           </div>
         </div>
       `;
@@ -248,6 +272,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeModal() {
       overlay.classList.remove('open');
       document.body.style.overflow = '';
+    }
+    modalBox.addEventListener('click', (e) => {
+      const copyBtn = e.target.closest('[data-copy-url]');
+      if (copyBtn) {
+        navigator.clipboard.writeText(copyBtn.dataset.copyUrl).then(() => {
+          copyBtn.classList.add('copied');
+          setTimeout(() => copyBtn.classList.remove('copied'), 1800);
+        }).catch(err => console.error('Copie impossible', err));
+      }
+    });
+
+    // Ouvrir automatiquement un projet si l'URL contient #projet-<id>
+    if (location.hash.startsWith('#projet-')) {
+      const targetId = location.hash.replace('#projet-', '');
+      if (PROJECTS.some(x => x.id === targetId)) openModal(targetId);
     }
     grid.addEventListener('click', (e) => {
       const card = e.target.closest('.project-card');
