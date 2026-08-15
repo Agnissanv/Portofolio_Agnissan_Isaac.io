@@ -16,7 +16,7 @@ Voici donc, poste par poste, ce qui compose réellement le prix d'un site web pr
 
 ## 1. Le nom de domaine — le coût qu'on oublie toujours
 
-Un nom de domaine (`.com`, `.fr`,`.ci`, `.tech`...) coûte en moyenne **8 000 à 15 000 FCFA par an**, selon l'extension choisie. Ce n'est pas un achat unique : c'est un abonnement annuel. Si un prestataire ne vous en parle jamais, posez la question — parce que le jour où il n'est pas renouvelé, votre site disparaît d'internet, même s'il fonctionne parfaitement techniquement.
+Un nom de domaine (`.com`, `.fr`,`.ci`, `.tech`...) coûte en moyenne **8 000 à 15 000 FCFA par an**, souvent un peu plus selon l'extension choisie. Ce n'est pas un achat unique : c'est un abonnement annuel. Si un prestataire ne vous en parle jamais, posez la question — parce que le jour où il n'est pas renouvelé, votre site disparaît d'internet, même s'il fonctionne parfaitement techniquement.
 
 ## 2. L'hébergement — là où se cache le plus de flou
 
