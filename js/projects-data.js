@@ -387,3 +387,5 @@ const PROJECTS = [
     isCollection: true
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) module.exports = PROJECTS;

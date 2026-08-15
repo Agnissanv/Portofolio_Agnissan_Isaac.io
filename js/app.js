@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const p = PROJECTS.find(x => x.id === id);
       if (!p) return;
 
-      const shareUrl = `${location.origin}${location.pathname}#projet-${p.id}`;
+      const shareUrl = `${location.origin}/projet/${p.id}.html`;
       const shareRowHtml = `
         <div class="share-row">
           <span class="share-label">Partager :</span>
