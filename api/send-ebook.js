@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Méthode non autorisée' });
   }
 
-  const { fullname, email, hasCompany, hasWebsite } = req.body || {};
+  const { fullname, email, hasCompany, hasWebsite, ebookId } = req.body || {};
 
   // Validation côté serveur (ne jamais faire confiance uniquement au navigateur)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -19,7 +19,19 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Email invalide' });
   }
 
-  const DOWNLOAD_URL = 'https://agnissanisaac.com/downloads/ebooks/guide-choisir-developpeur-web.pdf';
+    // Liste des ebooks disponibles — ajouter une ligne ici pour chaque nouvel ebook
+  const EBOOKS = {
+        'guide-choisir-developpeur-web': {
+      title: 'Le guide complet pour bien choisir son développeur ou son agence web',
+      file: 'https://agnissanisaac.com/downloads/ebooks/guide-choisir-developpeur-web/ebook.pdf'
+    }
+  };
+
+  const ebook = EBOOKS[ebookId];
+  if (!ebook) {
+    return res.status(400).json({ error: 'Ebook inconnu' });
+  }
+  const DOWNLOAD_URL = ebook.file;
 
   try {
     // 1) Envoi de l'email avec le lien de téléchargement
@@ -33,7 +45,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         sender: { name: 'Code A-Z', email: 'contact@agnissanisaac.com' },
         to: [{ email, name: fullname }],
-        subject: 'Votre guide : bien choisir son développeur ou son agence web',
+                subject: `Votre guide : ${ebook.title}`,
         htmlContent: `
           <div style="font-family:Arial,sans-serif; max-width:520px; margin:0 auto; color:#181816;">
             <h2 style="color:#181816;">Bonjour ${fullname.split(' ')[0]},</h2>
@@ -72,7 +84,7 @@ export default async function handler(req, res) {
           FIRSTNAME: fullname,
           HAS_COMPANY: hasCompany || 'Non renseigné',
           HAS_WEBSITE: hasWebsite || 'Non renseigné',
-          SOURCE: 'Ebook — Guide développeur'
+          SOURCE: `Ebook — ${ebook.title}`
         },
         updateEnabled: true
       })
