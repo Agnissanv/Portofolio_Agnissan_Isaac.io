@@ -143,6 +143,11 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   .article-body li{ margin-bottom:8px; line-height:1.7; }
   .article-body a{ color:var(--accent); text-decoration-color:var(--line); }
   .article-tags{ display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
+    .callout-resource{
+    background:var(--surface-2); border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:18px 22px; margin-top:32px; font-size:14px;
+  }
+  .callout-resource a{ color:var(--accent); }
   .back-link{ display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); text-decoration:none; margin-bottom:8px; }
   .back-link:hover{ color:var(--accent); }
 
@@ -252,8 +257,11 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
         </button>
       </div>
 
-      ${contentHtml}
+            ${contentHtml}
       <div class="article-tags">${tagsHtml}</div>
+      <div class="callout-resource">
+        <p><strong>📘 Envie d'aller plus loin ?</strong> Téléchargez notre guide gratuit : <a href="../ressources.html">bien choisir son développeur ou son agence web</a>.</p>
+      </div>
     </div>
     ${tocHtml}
   </div>
