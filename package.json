@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node scripts/build-blog.js && node scripts/build-jobs.js && node scripts/build-projects.js && node scripts/build-meta.js && node scripts/build-sitemap.js"
+        "build": "node scripts/build-blog.js && node scripts/build-jobs.js && node scripts/build-projects.js && node scripts/build-ebooks.js && node scripts/build-meta.js && node scripts/build-sitemap.js"
   },
   "keywords": [],
   "author": "",
