@@ -15,8 +15,9 @@
   .resources-hero h1{ font-size:clamp(2.2rem,5vw,3.4rem); margin-top:16px; }
   .resources-hero p{ margin-top:20px; font-size:1.05rem; max-width:520px; }
 
-  .ebooks-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
-  @media (max-width:760px){ .ebooks-grid{ grid-template-columns:1fr; } }
+    .ebooks-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  @media (max-width:900px){ .ebooks-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:640px){ .ebooks-grid{ grid-template-columns:repeat(2,1fr); gap:14px; } }
 
   .ebook-card{
     background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
@@ -25,15 +26,16 @@
   }
   .ebook-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
   .ebook-card .cover{
-    background:#0B0B0C; aspect-ratio:16/10; display:flex; flex-direction:column;
-    justify-content:center; padding:28px;
+    background:#0B0B0C; aspect-ratio:3/4; display:flex; flex-direction:column;
+    justify-content:center; padding:20px; position:relative; overflow:hidden;
   }
-  .ebook-card .cover svg{ width:26px; margin-bottom:14px; }
-  .ebook-card .cover .tag{ font-family:'JetBrains Mono',monospace; font-size:10px; color:#E0454F; letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; }
-  .ebook-card .cover h3{ color:#EDEDEA; font-size:1.15rem; line-height:1.3; }
-  .ebook-card .body{ padding:22px 24px 26px; }
-  .ebook-card .meta{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted-2); margin-bottom:10px; }
-  .ebook-card p{ font-size:14px; line-height:1.6; }
+  .ebook-card .cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .ebook-card .cover svg{ width:22px; margin-bottom:12px; position:relative; z-index:1; }
+  .ebook-card .cover .tag{ font-family:'JetBrains Mono',monospace; font-size:9px; color:#E0454F; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; position:relative; z-index:1; }
+  .ebook-card .cover h3{ color:#EDEDEA; font-size:0.95rem; line-height:1.3; position:relative; z-index:1; }
+  .ebook-card .body{ padding:16px 18px 20px; }
+  .ebook-card .meta{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted-2); margin-bottom:8px; }
+  .ebook-card p{ font-size:12.5px; line-height:1.55; }
   .empty-state{ text-align:center; padding:60px 20px; color:var(--muted); font-size:14.5px; }
 </style>
 </head>
@@ -99,14 +101,14 @@
       const grid = document.getElementById('ebooksGrid');
       const empty = document.getElementById('emptyState');
       if (!ebooks.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
-            grid.innerHTML = ebooks.map(e => `
+        grid.innerHTML = ebooks.map(e => `
         <a href="ressources/${e.slug}.html" class="ebook-card">
-          ${e.cover ? `<div class="cover" style="padding:0;"><img src="${e.cover}" alt="${e.title}" style="width:100%;height:100%;object-fit:cover;"></div>` : `
           <div class="cover">
+            ${e.cover ? `<img src="${e.cover}" alt="${e.title}">` : `
             <svg viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#EDEDEA" stroke-width="9" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#E0454F" stroke-width="7" stroke-linecap="square"/></svg>
             <div class="tag">Guide gratuit</div>
-            <h3>${e.title}</h3>
-          </div>`}
+            <h3>${e.title}</h3>`}
+          </div>
           <div class="body">
             <div class="meta">${e.pages}</div>
             <p>${e.excerpt}</p>
