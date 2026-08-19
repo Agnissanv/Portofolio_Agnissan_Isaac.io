@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Méthode non autorisée' });
   }
 
-  const { fullname, email, hasCompany, hasWebsite, ebookId } = req.body || {};
+  const { fullname, email, hasCompany, hasWebsite, ebookId, companyName, websiteUrl } = req.body || {};
 
   // Validation côté serveur (ne jamais faire confiance uniquement au navigateur)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -80,10 +80,12 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email,
-        attributes: {
+                attributes: {
           FIRSTNAME: fullname,
           HAS_COMPANY: hasCompany || 'Non renseigné',
+          COMPANY_NAME: companyName || '',
           HAS_WEBSITE: hasWebsite || 'Non renseigné',
+          WEBSITE_URL: websiteUrl || '',
           SOURCE: `Ebook — ${ebook.title}`
         },
         updateEnabled: true

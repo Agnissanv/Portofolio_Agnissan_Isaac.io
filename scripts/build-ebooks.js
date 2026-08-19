@@ -78,6 +78,9 @@ function pageTemplate(ebook) {
   }
   .choice-btn.selected{ border-color:var(--accent); background:var(--surface-2); color:var(--accent); }
 
+  .conditional-field{ display:none; margin-top:10px; }
+  .conditional-field.show{ display:block; }
+
   .form-nav{ display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:20px; }
   .form-nav .btn-back{ font-size:13px; color:var(--muted); background:none; border:none; cursor:pointer; }
 
@@ -144,12 +147,15 @@ function pageTemplate(ebook) {
         </div>
       </div>
 
-      <div class="form-step" data-step="2">
+            <div class="form-step" data-step="2">
         <div class="field">
           <label>Avez-vous déjà une entreprise ou une activité ?</label>
           <div class="choice-row" data-field="hasCompany">
             <button type="button" class="choice-btn">Oui</button>
             <button type="button" class="choice-btn">Non</button>
+          </div>
+          <div class="conditional-field" id="companyNameField">
+            <input type="text" id="companyName" placeholder="Nom de votre entreprise">
           </div>
         </div>
         <div class="field">
@@ -157,6 +163,9 @@ function pageTemplate(ebook) {
           <div class="choice-row" data-field="hasWebsite">
             <button type="button" class="choice-btn">Oui</button>
             <button type="button" class="choice-btn">Non</button>
+          </div>
+          <div class="conditional-field" id="websiteUrlField">
+            <input type="text" id="websiteUrl" placeholder="Lien de votre site (ex: monsite.com)">
           </div>
         </div>
         <div class="form-nav">
@@ -208,7 +217,7 @@ function pageTemplate(ebook) {
 
   const steps = document.querySelectorAll('.form-step');
   const progs = [document.getElementById('prog1'), document.getElementById('prog2'), document.getElementById('prog3')];
-  const formData = { ebookId: EBOOK_ID, fullname:'', email:'', hasCompany:null, hasWebsite:null };
+  const formData = { ebookId: EBOOK_ID, fullname:'', email:'', hasCompany:null, hasWebsite:null, companyName:'', websiteUrl:'' };
 
   function showStep(n) {
     steps.forEach(s => s.classList.toggle('active', s.dataset.step == n));
@@ -242,11 +251,25 @@ function pageTemplate(ebook) {
         row.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         formData[row.dataset.field] = btn.textContent.trim();
+
+        const isYes = btn.textContent.trim() === 'Oui';
+        if (row.dataset.field === 'hasCompany') {
+          document.getElementById('companyNameField').classList.toggle('show', isYes);
+          if (!isYes) { document.getElementById('companyName').value = ''; formData.companyName = ''; }
+        }
+        if (row.dataset.field === 'hasWebsite') {
+          document.getElementById('websiteUrlField').classList.toggle('show', isYes);
+          if (!isYes) { document.getElementById('websiteUrl').value = ''; formData.websiteUrl = ''; }
+        }
       });
     });
   });
 
-  document.getElementById('toStep3').addEventListener('click', () => showStep(3));
+    document.getElementById('toStep3').addEventListener('click', () => {
+    formData.companyName = document.getElementById('companyName').value.trim();
+    formData.websiteUrl = document.getElementById('websiteUrl').value.trim();
+    showStep(3);
+  });
 
   document.getElementById('ebookForm').addEventListener('submit', async (e) => {
     e.preventDefault();
