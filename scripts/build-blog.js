@@ -46,6 +46,20 @@ function processHeadings(html) {
   return { html: withIds, toc };
 }
 
+function insertMidArticleCTA(html) {
+  const paragraphs = html.split('</p>');
+  if (paragraphs.length < 8) return html; // article trop court, pas d'insertion
+
+  const middleIndex = Math.floor(paragraphs.length / 2);
+  const cta = `</p>
+    <div class="callout-resource">
+      <p><strong>📘 Envie d'aller plus loin ?</strong> Téléchargez notre guide gratuit : <a href="../ressources.html">bien choisir son développeur ou son agence web</a>.</p>
+    </div>`;
+
+  paragraphs[middleIndex] = paragraphs[middleIndex] + cta;
+  return paragraphs.join('</p>');
+}
+
 function relatedPosts(current, all) {
   const others = all.filter(p => p.slug !== current.slug);
   const sameTag = others.filter(p => (p.tags || []).some(t => (current.tags || []).includes(t)));
@@ -362,7 +376,8 @@ function build() {
 
   // 2ème passe : générer chaque page avec accès à tous les autres articles
   posts.forEach((post, index) => {
-    const { html: contentHtml, toc } = processHeadings(md.render(post.rawContent));
+    const { html: rawHtml, toc } = processHeadings(md.render(post.rawContent));
+    const contentHtml = insertMidArticleCTA(rawHtml);
     const prev = posts[index + 1] || null; // plus ancien
     const next = posts[index - 1] || null; // plus récent
     const related = relatedPosts(post, posts);

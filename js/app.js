@@ -387,7 +387,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-  /* ---------- FAQ ---------- */
-  document.querySelectorAll('.faq-entry').forEach(entry => {
-    entry.querySelector('.faq-entry-q').addEventListener('click', () => entry.classList.toggle('open'));
+/* ---------- FAQ ---------- */
+document.querySelectorAll('.faq-entry').forEach(entry => {
+  entry.querySelector('.faq-entry-q').addEventListener('click', () => entry.classList.toggle('open'));
+});
+
+  /* ---------- Onglets contact (formulaire / réponse rapide) ---------- */
+  const contactTabBtns = document.querySelectorAll('.contact-tab-btn');
+  contactTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      contactTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.contact-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.panel === btn.dataset.tab);
+      });
+    });
   });
+
+  const quickWhatsappBtn = document.getElementById('quickWhatsappBtn');
+  const quickMessage = document.getElementById('quickMessage');
+  if (quickWhatsappBtn && quickMessage) {
+    quickWhatsappBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = quickMessage.value.trim() || "Bonjour, je souhaite discuter d'un projet avec Code A-Z.";
+      window.open(`https://wa.me/2250546797258?text=${encodeURIComponent(text)}`, '_blank');
+    });
+  }

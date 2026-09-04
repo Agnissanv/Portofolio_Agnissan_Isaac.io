@@ -80,6 +80,7 @@
       <span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
   </div>
+  <div class="availability-badge"><span class="pulse-dot"></span>Disponible pour un nouveau projet</div>
 </section>
 
 <div class="strip">
@@ -553,19 +554,33 @@
           <a href="https://www.linkedin.com/in/isaac-valen-agnissan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>LinkedIn</a>
         </div>
       </div>
-      <form id="contactForm" class="reveal">
-        <input type="hidden" name="access_key" value="d63aba81-679e-4bfc-8ef3-221c07a3b200">
-        <input type="hidden" name="subject" value="Nouveau projet — Code A-Z">
-        <input type="hidden" name="redirect" value="false">
-        <div class="field-row">
-          <div class="field"><label for="firstname">Prénom</label><input type="text" name="firstname" id="firstname" required></div>
-          <div class="field"><label for="lastname">Nom</label><input type="text" name="lastname" id="lastname" required></div>
+      <div class="reveal">
+        <div class="contact-tabs">
+          <button type="button" class="contact-tab-btn active" data-tab="full">Formulaire complet</button>
+          <button type="button" class="contact-tab-btn" data-tab="quick">Réponse rapide</button>
         </div>
-        <div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required></div>
-        <div class="field"><label for="message">Votre projet</label><textarea name="message" id="message" placeholder="Objectifs, budget approximatif, délais..." required></textarea></div>
-        <button type="submit" id="submitBtn" class="btn btn-primary">Envoyer le message</button>
-        <p id="formStatus"></p>
-      </form>
+
+        <div class="contact-panel active" data-panel="full">
+          <form id="contactForm">
+            <input type="hidden" name="access_key" value="d63aba81-679e-4bfc-8ef3-221c07a3b200">
+            <input type="hidden" name="subject" value="Nouveau projet — Code A-Z">
+            <input type="hidden" name="redirect" value="false">
+            <div class="field-row">
+              <div class="field"><label for="firstname">Prénom</label><input type="text" name="firstname" id="firstname" required></div>
+              <div class="field"><label for="lastname">Nom</label><input type="text" name="lastname" id="lastname" required></div>
+            </div>
+            <div class="field"><label for="email">Email</label><input type="email" name="email" id="email" required></div>
+            <div class="field"><label for="message">Votre projet</label><textarea name="message" id="message" placeholder="Objectifs, budget approximatif, délais..." required></textarea></div>
+            <button type="submit" id="submitBtn" class="btn btn-primary">Envoyer le message</button>
+            <p id="formStatus"></p>
+          </form>
+        </div>
+
+        <div class="contact-panel" data-panel="quick">
+          <textarea class="quick-textarea" id="quickMessage" placeholder="Décrivez votre projet en quelques mots..."></textarea>
+          <a href="#" id="quickWhatsappBtn" target="_blank" rel="noopener" class="btn btn-primary">Envoyer sur WhatsApp →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
