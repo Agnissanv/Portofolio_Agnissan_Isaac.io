@@ -19,6 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  /* ---------- Carrousel du titre (services) ---------- */
+  const heroTitle = document.getElementById('heroTitle');
+  if (heroTitle) {
+    const titleTexts = [
+      'Des sites <em>simples</em>, pensés pour durer — pas pour impressionner cinq secondes.',
+      'Une identité <em>forte</em>, pensée pour marquer les esprits — pas pour se fondre dans la masse.',
+      'Des applications <em>fluides</em>, pensées pour durer — pas pour multiplier les bugs.'
+    ];
+    let titleIndex = 0;
+    setInterval(() => {
+      heroTitle.classList.add('fading');
+      setTimeout(() => {
+        titleIndex = (titleIndex + 1) % titleTexts.length;
+        heroTitle.innerHTML = titleTexts[titleIndex];
+        heroTitle.classList.remove('fading');
+      }, 400);
+    }, 7000);
+  }
+
+
   /* ---------- Carrousel de phrases (comptage par catégorie) ---------- */
   const stripEl = document.getElementById('stripCarousel');
   if (stripEl && typeof PROJECTS !== 'undefined') {
