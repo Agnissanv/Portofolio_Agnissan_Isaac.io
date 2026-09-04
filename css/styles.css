@@ -219,15 +219,23 @@ nav.site-nav{
 .service-card h4{ font-family:'Inter',sans-serif; font-weight:500; font-size:15.5px; color:var(--text); margin-bottom:10px; }
 .service-card p{ font-size:14px; line-height:1.65; }
 
-/* ---------- Skills ---------- */
-.skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:80px; }
-@media (max-width:900px){ .skills-grid{ grid-template-columns:1fr; gap:48px; } }
-.skill-row{ margin-bottom:22px; }
-.skill-row .label-row{ display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px; color:var(--text); font-weight:400; }
-.skill-row .label-row span:last-child{ color:var(--muted-2); font-family:'JetBrains Mono',monospace; font-size:11.5px; }
-.skill-bar{ height:3px; background:var(--line); border-radius:2px; overflow:hidden; }
-.skill-bar .fill{ height:100%; background:var(--accent); width:0; transition:width 1.1s var(--ease); border-radius:2px; }
-.skill-group-title{ font-family:'Inter',sans-serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-2); margin-bottom:26px; }
+/* ---------- Équipe ---------- */
+.team-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; }
+@media (max-width:900px){ .team-grid{ grid-template-columns:repeat(2, 1fr); } }
+@media (max-width:560px){ .team-grid{ grid-template-columns:1fr; } }
+.team-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:30px 26px;
+}
+.team-card.founder{ border-color:var(--accent); }
+.team-card .role-icon{ width:30px; height:30px; color:var(--accent); margin-bottom:20px; }
+.team-card h4{ font-family:'Inter',sans-serif; font-weight:500; font-size:15.5px; color:var(--text); margin-bottom:6px; }
+.team-card .role-desc{ font-size:13px; line-height:1.6; margin-bottom:18px; }
+.team-card .chip-list{ display:flex; flex-wrap:wrap; gap:6px; }
+.team-card .chip{
+  font-family:'JetBrains Mono',monospace; font-size:10.5px; padding:6px 11px; border:1px solid var(--line);
+  border-radius:var(--radius-full); color:var(--muted); background:var(--bg);
+}
 
 .chip-list{ display:flex; flex-wrap:wrap; gap:10px; }
 .chip{

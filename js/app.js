@@ -85,18 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   revealEls.forEach(el => revealObserver.observe(el));
 
-  /* ---------- Barres de compétences ---------- */
-  const skillRows = document.querySelectorAll('.skill-row');
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fill = entry.target.querySelector('.fill');
-        fill.style.width = entry.target.dataset.width + '%';
-        skillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  skillRows.forEach(row => skillObserver.observe(row));
+
 
   /* ---------- Portfolio : rendu + filtre + modale ---------- */
   const grid = document.getElementById('portfolioGrid');
