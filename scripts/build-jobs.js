@@ -174,7 +174,6 @@ function jobTemplate(job) {
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
-    <span class="footer-partner">Partenaire <img src="../images/partners/trouve-ton-job-logo.jpeg" alt="Trouve Ton Job"> <a href="https://wa.me/message/MEOZCEIMAY5MI1" target="_blank" rel="noopener">Trouve Ton Job</a></span>
     <a href="../index.html#contact">Une question ? Contactez-nous →</a>
   </div>
 </footer>

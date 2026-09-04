@@ -549,3 +549,52 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .partners-content h3{ font-size:1.4rem; margin-bottom:12px; }
 .partners-content p{ font-size:14.5px; line-height:1.7; margin-bottom:22px; max-width:560px; }
 @media (max-width:760px){ .partners-content p{ margin-left:auto; margin-right:auto; } }
+
+
+/* ---------- Bouton WhatsApp flottant ---------- */
+.whatsapp-float{
+  position:fixed; bottom:28px; left:28px; width:52px; height:52px; border-radius:50%;
+  background:#25D366; color:#fff; border:none; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:90; box-shadow:var(--shadow-md); text-decoration:none;
+  transition:transform .2s ease;
+}
+.whatsapp-float:hover{ transform:scale(1.08); }
+.whatsapp-float svg{ width:26px; height:26px; }
+
+
+/* ---------- Notre méthode ---------- */
+.process-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:24px; position:relative; }
+@media (max-width:900px){ .process-grid{ grid-template-columns:1fr; gap:0; } }
+.process-step{ position:relative; padding-top:44px; }
+@media (max-width:900px){
+  .process-step{ padding:0 0 32px 56px; border-left:1px solid var(--line); margin-left:17px; }
+  .process-step:last-child{ border-left:1px solid transparent; padding-bottom:0; }
+}
+.process-step .step-num{
+  position:absolute; top:0; left:0; width:34px; height:34px; border-radius:50%;
+  background:var(--text); color:var(--bg); display:flex; align-items:center; justify-content:center;
+  font-family:'JetBrains Mono',monospace; font-size:13px; z-index:1;
+}
+@media (max-width:900px){ .process-step .step-num{ left:-17px; } }
+.process-step::before{
+  content:''; position:absolute; top:17px; left:34px; right:0; height:1px; background:var(--line);
+}
+@media (max-width:900px){ .process-step::before{ display:none; } }
+.process-step:last-child::before{ display:none; }
+.process-step h4{ font-family:'Inter',sans-serif; font-weight:500; font-size:14.5px; color:var(--text); margin-bottom:8px; }
+.process-step p{ font-size:13px; line-height:1.6; }
+
+
+/* ---------- FAQ ---------- */
+.faq-list{ max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+.faq-entry{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; }
+.faq-entry-q{
+  width:100%; background:none; border:none; text-align:left; padding:20px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.faq-entry-q h4{ font-family:'Inter',sans-serif; font-weight:500; font-size:14.5px; color:var(--text); }
+.faq-entry-icon{ color:var(--accent); font-size:20px; flex:none; transition:transform .3s ease; }
+.faq-entry.open .faq-entry-icon{ transform:rotate(45deg); }
+.faq-entry-a{ max-height:0; opacity:0; overflow:hidden; transition:all .3s ease; padding:0 22px; }
+.faq-entry.open .faq-entry-a{ max-height:300px; opacity:1; padding:0 22px 20px; }
+.faq-entry-a p{ font-size:13.5px; color:var(--muted); line-height:1.7; }

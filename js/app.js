@@ -386,3 +386,8 @@ document.addEventListener('DOMContentLoaded', () => {
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 });
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll('.faq-entry').forEach(entry => {
+    entry.querySelector('.faq-entry-q').addEventListener('click', () => entry.classList.toggle('open'));
+  });
