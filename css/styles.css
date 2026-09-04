@@ -392,14 +392,26 @@ nav.site-nav{
 .price-card li svg{ flex:none; width:15px; height:15px; margin-top:2px; color:var(--accent); }
 
 /* ---------- Testimonials ---------- */
-.testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-@media (max-width:900px){ .testimonial-grid{ grid-template-columns:1fr; } }
-.testimonial-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); padding:30px; }
+.testimonial-scroll{ display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; }
+.testimonial-scroll::-webkit-scrollbar{ height:6px; }
+.testimonial-scroll::-webkit-scrollbar-thumb{ background:var(--line-strong); border-radius:99px; }
+.testimonial-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:30px; flex:0 0 320px; scroll-snap-align:start; position:relative;
+}
+.testimonial-card:hover{ border-color:var(--accent); box-shadow:var(--shadow-md); }
 .testimonial-card .quote{ font-family:'Newsreader',serif; font-style:italic; font-size:1.05rem; color:var(--text); line-height:1.6; margin-bottom:22px; }
 .testimonial-card .who{ display:flex; align-items:center; gap:12px; }
-.testimonial-card .who img{ width:38px; height:38px; border-radius:50%; object-fit:cover; }
+.testimonial-card .who img{ width:38px; height:38px; border-radius:50%; object-fit:cover; flex:none; }
+.testimonial-card .who .avatar-initial{
+  width:38px; height:38px; border-radius:50%; background:var(--text); color:var(--bg);
+  display:flex; align-items:center; justify-content:center; font-family:'Inter',sans-serif;
+  font-weight:600; font-size:14px; flex:none;
+}
 .testimonial-card .who .name{ font-size:13.5px; font-weight:500; color:var(--text); }
 .testimonial-card .who .role{ font-size:12px; color:var(--muted-2); }
+.testimonial-card .who .role a{ color:var(--accent); text-decoration:none; }
+.testimonial-card .who .role a:hover{ text-decoration:underline; }
 
 /* ---------- Contact ---------- */
 .contact-wrap{ display:grid; grid-template-columns:1fr 1.2fr; gap:70px; }
