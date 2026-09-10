@@ -260,20 +260,20 @@ const PROJECTS = [
   },
   {
     id: "lumina",
-    title: "Lumina",
-    category: "web",
-    categoryLabel: "Site vitrine pour cabinets d'optique",
+    title: "LUMINA — Refonte identité & site vitrine",
+    category: "design",
+    categoryLabel: "Refonte / Identité visuelle",
     year: "2026",
-    tag: "Cabinets d'optique",
-    pitch: "Minimalisme clinique et esthétique luxueuse pour l'optique haut de gamme.",
-    thumb: "images/projets/dev_web/lumina1.webp",
+    tag: "Opticien",
+    pitch: "Un site vitrine générique transformé en identité graphique forte, avec un curseur interactif qui simule littéralement l'effet d'une correction de vue.",
+    thumb: "images/projets/images/dev_web/lumina1.webp",
     gallery: [
-      "images/projets/dev_web/lumina2.webp",
-      "images/projets/dev_web/lumina3.webp",
-      "images/projets/dev_web/lumina4.webp"
+      "images/projets/images/dev_web/lumina2.webp",
+      "images/projets/images/dev_web/lumina3.webp",
+      "images/projets/images/dev_web/lumina4.webp"
     ],
-    description: "Un écrin numérique pour cabinets d'optique et boutiques de lunetterie. Système de prise de rendez-vous fluide, sections dédiées aux collections, structure technique légère pour une bonne visibilité SEO, palette pensée pour évoquer sérénité et rigueur scientifique.",
-    tech: ["HTML5 sémantique", "CSS3 (Flexbox & Grid)", "JavaScript ES6+", "Git / GitHub"],
+    description: "Refonte complète d'un site vitrine pour opticien (Marcory, Abidjan), initialement construit sur un template générique. Direction artistique « signage tropical » pensée sur mesure : blocs de couleurs pleines, contours épais et ombres dures plutôt que les codes habituels (fond crème, dégradés, coins arrondis). Signature interactive dans le hero : un curseur « Réglez votre vue » qui passe du flou au net, illustrant concrètement ce qu'apporte une bonne monture. Logo dessiné sur mesure en SVG, vitrine vidéo intégrée, galerie de montures en mosaïque, et un site entièrement responsive avec menu mobile animé.",
+    tech: ["HTML5", "CSS3 (Grid/Flexbox, animations)", "JavaScript vanilla", "SVG (logo et pictogrammes)", "Google Fonts (Unbounded, Archivo)", "Formspree (formulaire de contact)", "Google Maps Embed"],
     link: "https://agnissanv.github.io/Optic_template/",
     linkLabel: "Consulter le cabinet"
   },
