@@ -265,7 +265,7 @@ const PROJECTS = [
     categoryLabel: "Refonte / Identité visuelle",
     year: "2026",
     tag: "Opticien",
-    pitch: "Un site vitrine générique transformé en identité graphique forte, avec un curseur interactif qui simule littéralement l'effet d'une correction de vue.",
+    pitch: "Une identité de marque affirmée pour un cabinet d'optique à Marcory, avec un curseur interactif qui simule en direct l'effet d'une bonne correction visuelle.",
     thumb: "images/projets/dev_web/lumina/0.png",
     gallery: [
       "images/projets/dev_web/lumina/1.png",
@@ -276,7 +276,7 @@ const PROJECTS = [
       "images/projets/dev_web/lumina/6.png",
       "images/projets/dev_web/lumina/7.png"
     ],
-    description: "Refonte complète d'un site vitrine pour opticien (Marcory, Abidjan), initialement construit sur un template générique. Direction artistique « signage tropical » pensée sur mesure : blocs de couleurs pleines, contours épais et ombres dures plutôt que les codes habituels (fond crème, dégradés, coins arrondis). Signature interactive dans le hero : un curseur « Réglez votre vue » qui passe du flou au net, illustrant concrètement ce qu'apporte une bonne monture. Logo dessiné sur mesure en SVG, vitrine vidéo intégrée, galerie de montures en mosaïque, et un site entièrement responsive avec menu mobile animé.",
+    description: "Site vitrine pensé pour un opticien à Marcory, Abidjan, avec une direction artistique « signage tropical » sur mesure : blocs de couleurs pleines, contours épais et ombres dures, à contre-courant des codes habituels du secteur (fond crème, dégradés, coins arrondis). Le hero propose une signature interactive : un curseur « Réglez votre vue » qui passe du flou au net, pour illustrer concrètement ce qu'apporte une bonne monture. Logo dessiné sur mesure en SVG, vitrine vidéo intégrée, galerie de montures en mosaïque, et une navigation fluide sur mobile comme sur desktop.",
     tech: ["HTML5", "CSS3 (Grid/Flexbox, animations)", "JavaScript vanilla", "SVG (logo et pictogrammes)", "Google Fonts (Unbounded, Archivo)", "Formspree (formulaire de contact)", "Google Maps Embed"],
     link: "https://agnissanv.github.io/Optic_template/",
     linkLabel: "Consulter le cabinet"
