@@ -266,15 +266,15 @@ const PROJECTS = [
     year: "2026",
     tag: "Opticien",
     pitch: "Un site vitrine générique transformé en identité graphique forte, avec un curseur interactif qui simule littéralement l'effet d'une correction de vue.",
-    thumb: "images/projets/images/dev_web/lumina/0.png",
+    thumb: "images/projets/dev_web/lumina/0.png",
     gallery: [
-      "images/projets/images/dev_web/lumina/1.png",
-      "images/projets/images/dev_web/lumina/2.png",
-      "images/projets/images/dev_web/lumina/3.png",
-      "images/projets/images/dev_web/lumina/4.png",
-      "images/projets/images/dev_web/lumina/5.png",
-      "images/projets/images/dev_web/lumina/6.png",
-      "images/projets/images/dev_web/lumina/7.png"
+      "images/projets/dev_web/lumina/1.png",
+      "images/projets/dev_web/lumina/2.png",
+      "images/projets/dev_web/lumina/3.png",
+      "images/projets/dev_web/lumina/4.png",
+      "images/projets/dev_web/lumina/5.png",
+      "images/projets/dev_web/lumina/6.png",
+      "images/projets/dev_web/lumina/7.png"
     ],
     description: "Refonte complète d'un site vitrine pour opticien (Marcory, Abidjan), initialement construit sur un template générique. Direction artistique « signage tropical » pensée sur mesure : blocs de couleurs pleines, contours épais et ombres dures plutôt que les codes habituels (fond crème, dégradés, coins arrondis). Signature interactive dans le hero : un curseur « Réglez votre vue » qui passe du flou au net, illustrant concrètement ce qu'apporte une bonne monture. Logo dessiné sur mesure en SVG, vitrine vidéo intégrée, galerie de montures en mosaïque, et un site entièrement responsive avec menu mobile animé.",
     tech: ["HTML5", "CSS3 (Grid/Flexbox, animations)", "JavaScript vanilla", "SVG (logo et pictogrammes)", "Google Fonts (Unbounded, Archivo)", "Formspree (formulaire de contact)", "Google Maps Embed"],
