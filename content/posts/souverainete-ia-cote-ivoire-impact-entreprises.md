@@ -28,7 +28,7 @@ Chaque annonce comme celle d'IMPACT IA 2026 signale une chose simple : l'écosys
 
 L'erreur classique consiste à se dire « j'attendrai que les outils locaux soient matures ». Sauf que l'IA généraliste (ChatGPT, Claude, Gemini) est déjà accessible aujourd'hui, à faible coût, et permet déjà de produire du contenu, d'automatiser des réponses clients, ou d'analyser des tendances de vente — sans attendre qu'un outil 100 % ivoirien voie le jour. Le pacte signé cette semaine n'est pas un signal pour patienter : c'est un signal que le mouvement est lancé, et qu'il est temps de monter dedans.
 
-Concrètement, si vous êtes commerçant, artisan ou dirigeant de petite structure, les premiers pas ne demandent ni budget conséquent ni compétence technique : un catalogue WhatsApp Business bien construit, un chatbot simple pour répondre aux questions fréquentes, ou un outil d'IA générative pour produire vos visuels et descriptions produits. Ce sont des choix accessibles dès aujourd'hui, qui vous placent déjà dans la dynamique que la Côte d'Ivoire cherche à construire à plus grande échelle.
+Concrètement, si vous êtes commerçant, artisan ou dirigeant de petite structure, les premiers pas ne demandent ni budget conséquent ni compétence technique : un catalogue WhatsApp Business bien construit, un chatbot simple pour répondre aux questions fréquentes, ou un outil d'IA générative pour produire vos visuels et descriptions produits. Ce sont des choix accessibles dès aujourd'hui, qui vous placent  déjà dans la dynamique que la Côte d'Ivoire cherche à construire à plus grande échelle.
 
 ---
 
