@@ -96,6 +96,12 @@
     "url": "/emploi/developpeur-front-end.html"
   },
   {
+    "key": "project:the-index",
+    "title": "Nouveau projet au portfolio",
+    "body": "The Index — Catalogue d'outils d'IA",
+    "url": "/projet/the-index.html"
+  },
+  {
     "key": "project:mon-gout",
     "title": "Nouveau projet au portfolio",
     "body": "Mon Goût — Site pour restaurant",

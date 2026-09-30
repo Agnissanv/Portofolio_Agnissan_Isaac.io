@@ -42,6 +42,26 @@ const SECTOR_ALIASES = {
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
+    id: "the-index",
+    title: "The Index",
+    category: "web",
+    categoryLabel: "Catalogue d'outils d'IA",
+    year: "2026",
+    tag: "Annuaire · Intelligence artificielle",
+    sectors: ["Outil SaaS"],
+    pitch: "Un catalogue de 48 outils d'IA triés à la main, pour choisir le bon outil plutôt qu'un de plus.",
+    thumb: "images/projets/dev_web/the-index/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/the-index/1.webp",
+      "images/projets/dev_web/the-index/2.webp",
+      "images/projets/dev_web/the-index/3.webp"
+    ],
+    description: "Catalogue éditorial d'outils d'intelligence artificielle : 48 fiches classées en 8 catégories (écriture, image, vidéo, audio, code, productivité, recherche, design), recherche dans le catalogue, comparateur, favoris, et une fiche détaillée par outil avec ses points forts, ses limites et le public visé. Un blog de guides comparatifs et une page pour proposer un nouvel outil complètent l'ensemble.",
+    tech: ["Astro", "HTML5 / CSS3", "JavaScript (recherche, comparateur, favoris)", "Responsive design"],
+    link: "https://theindex.agnissanisaac.com/",
+    linkLabel: "Découvrir le site"
+  },
+  {
     id: "mon-gout",
     title: "Mon Goût",
     category: "web",
