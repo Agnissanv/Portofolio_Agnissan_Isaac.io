@@ -65,6 +65,8 @@ function systemPrompt(persona, passages) {
     `RÈGLES :`,
     `- Réponds UNIQUEMENT à partir des informations ci-dessous. Si l'information n'y figure pas, dis-le simplement et invite à contacter l'agence (WhatsApp +225 05 46 79 72 58, e-mail valenbouge@gmail.com, ou le formulaire [Contact](/#contact)).`,
     `- N'invente jamais un prix, un délai, une garantie, un client ou un projet.`,
+    `- Ne dis jamais que l'agence « ne propose pas » ou « ne fait pas » quelque chose : dis que tu n'as pas cette information et renvoie vers le contact.`,
+    `- N'utilise pas de mise en forme (pas de gras, pas de tirets de liste, pas de tableau) : des phrases simples.`,
     `- Réponds en français simple, en 2 à 4 phrases courtes. Un seul emoji souriant au maximum.`,
     `- Tu peux proposer un lien du site au format [texte](/chemin), uniquement parmi les liens fournis ci-dessous.`,
     `- Ne demande jamais de données personnelles, de mot de passe ni de paiement.`,

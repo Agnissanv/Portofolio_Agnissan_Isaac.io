@@ -44,7 +44,16 @@
   // Texte de l'IA : seuls les liens [texte](/chemin) du site, wa.me et mailto sont acceptés
   function linkify(parent, text) {
     var re = /\[([^\]]{1,80})\]\((\/[^\s)]*|https:\/\/wa\.me\/[^\s)]*|mailto:[^\s)]*)\)/g, last = 0, m;
-    function plain(t) { t.split('\n').forEach(function (line, i) { if (i) parent.appendChild(document.createElement('br')); if (line) parent.appendChild(document.createTextNode(line)); }); }
+    function plain(t) {
+      t.split('\n').forEach(function (line, i) {
+        if (i) parent.appendChild(document.createElement('br'));
+        line.split(/(\*\*[^*]{1,80}\*\*)/).forEach(function (part) {          // **gras** -> vrai gras, sans HTML brut
+          if (!part) return;
+          if (/^\*\*[^*]+\*\*$/.test(part)) parent.appendChild($('strong', null, part.slice(2, -2)));
+          else parent.appendChild(document.createTextNode(part.replace(/\*\*/g, '')));
+        });
+      });
+    }
     while ((m = re.exec(text))) {
       plain(text.slice(last, m.index));
       var a = $('a', 'asst-link', m[1]);
