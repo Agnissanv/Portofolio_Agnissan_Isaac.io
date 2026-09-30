@@ -29,13 +29,15 @@ const PROJECTS = [
     year: "2026",
     tag: "ONG · Jeunesse",
     pitch: "Un site vitrine pour une ONG qui transforme l'autonomisation des jeunes ivoiriens en programmes concrets, du code à l'agriculture.",
-    thumb: "images/projets/dev_web/0.jpg",
+    thumb: "images/projets/dev_web/0.png",
     gallery: [
-      "images/projets/dev_web/elan-feh/1.jpg",
-      "images/projets/dev_web/elan-feh/2.jpg",
-      "images/projets/dev_web/elan-feh/3.jpg",
-      "images/projets/dev_web/elan-feh/4.jpg",
-      "images/projets/dev_web/elan-feh/5.jpg"
+      "images/projets/dev_web/elan-feh/1.png",
+      "images/projets/dev_web/elan-feh/2.png",
+      "images/projets/dev_web/elan-feh/3.png",
+      "images/projets/dev_web/elan-feh/4.png",
+      "images/projets/dev_web/elan-feh/5.png",
+      "images/projets/dev_web/elan-feh/6.png",
+      "images/projets/dev_web/elan-feh/7.png"
     ],
     description: "Site vitrine pour Élan Fêh, une ONG ivoirienne dédiée à l'autonomisation des jeunes de 15 à 30 ans à Abidjan et dans la région du Poro. Présentation claire des trois axes d'action (formation numérique à Yopougon, agroécologie à Korhogo, mentorat pour les jeunes filles), parcours en trois étapes, témoignage d'une bénéficiaire, chiffres d'impact mis en avant, et formulaire de contact multi-sujets pour mentors, mécènes et familles. Pages légales complètes pour une crédibilité institutionnelle renforcée.",
     tech: [
