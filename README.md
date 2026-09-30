@@ -160,4 +160,4 @@ Sur un contrat où Agnissan délègue le développement à un collaborateur fron
 
 - `js/mesh-flow.js` : fond interactif (grille qui se creuse vers le curseur). Pour l'ajouter ailleurs : mettre `data-mesh` sur un bloc pleine largeur et charger le script. Désactivé si « réduire les animations ».
 
-- Mesh Flow v2 est ÉTEINT par défaut. Test : ajouter ?mesh=1 à l'adresse (ex. /index.html?mesh=1). ?mesh=0 l'éteint. Pour l'activer pour tous : ENABLED_BY_DEFAULT = true dans js/mesh-flow.js.
+- Mesh Flow v2 est ACTIF pour tous. Le couper sur un appareil : ajouter ?mesh=0 à l'adresse. Le couper pour tous : ENABLED_BY_DEFAULT = false dans js/mesh-flow.js. Il s'arrête seul et définitivement sur un appareil où il est lent.

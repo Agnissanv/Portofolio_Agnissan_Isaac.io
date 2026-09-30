@@ -17,7 +17,7 @@
 (function () {
   'use strict';
 
-  var ENABLED_BY_DEFAULT = false;   // passer à true une fois l'essai validé
+  var ENABLED_BY_DEFAULT = true;    // essai validé : actif pour tous (?mesh=0 pour l éteindre sur un appareil)
   var SPACING = 34;                 // écart entre les points (px)
   var SIGMA = 120;                  // rayon d'influence du curseur (px)
   var PULL = 0.62;                  // force d'attraction au centre
