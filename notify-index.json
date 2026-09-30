@@ -96,6 +96,12 @@
     "url": "/emploi/developpeur-front-end.html"
   },
   {
+    "key": "project:hopital-central-ivoire",
+    "title": "Nouveau projet au portfolio",
+    "body": "Hôpital Central Ivoire — Site pour centre hospitalier",
+    "url": "/projet/hopital-central-ivoire.html"
+  },
+  {
     "key": "project:the-index",
     "title": "Nouveau projet au portfolio",
     "body": "The Index — Catalogue d'outils d'IA",

@@ -42,6 +42,27 @@ const SECTOR_ALIASES = {
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
+    id: "hopital-central-ivoire",
+    title: "Hôpital Central Ivoire",
+    category: "web",
+    categoryLabel: "Site pour centre hospitalier",
+    year: "2026",
+    tag: "Santé · Hôpital",
+    sectors: ["Clinique & cabinet médical"],
+    pitch: "Un site d'hôpital de référence à Abidjan : spécialités, équipe médicale, urgences et prise de rendez-vous en ligne.",
+    thumb: "images/projets/dev_web/hopital-central-ivoire/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/hopital-central-ivoire/1.webp",
+      "images/projets/dev_web/hopital-central-ivoire/2.webp",
+      "images/projets/dev_web/hopital-central-ivoire/3.webp",
+      "images/projets/dev_web/hopital-central-ivoire/4.webp"
+    ],
+    description: "Site pour un centre hospitalier de référence à Abidjan : présentation des spécialités avec filtres par domaine, annuaire des médecins avec recherche par nom et filtre par spécialité, page dédiée aux urgences 24h/24, formulaire de prise de rendez-vous (spécialité, médecin, date, créneau, consentement) et page contact. Une identité bleue sobre et rassurante, pensée pour inspirer confiance et mener rapidement au rendez-vous.",
+    tech: ["HTML5 / CSS3", "JavaScript (filtres, recherche)", "Formulaire de rendez-vous", "Responsive design"],
+    link: "https://hopital-central-ivoire.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
     id: "the-index",
     title: "The Index",
     category: "web",
