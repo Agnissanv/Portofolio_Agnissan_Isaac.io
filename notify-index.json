@@ -102,6 +102,12 @@
     "url": "/projet/immo.html"
   },
   {
+    "key": "project:elan-feh",
+    "title": "Nouveau projet au portfolio",
+    "body": "Élan Fêh — Site institutionnel",
+    "url": "/projet/elan-feh.html"
+  },
+  {
     "key": "project:budget-flow",
     "title": "Nouveau projet au portfolio",
     "body": "Budget Flow — Application mobile",
