@@ -42,6 +42,26 @@ const SECTOR_ALIASES = {
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
+    id: "mon-gout",
+    title: "Mon Goût",
+    category: "web",
+    categoryLabel: "Site pour restaurant (concept)",
+    year: "2026",
+    tag: "Restaurant",
+    sectors: ["Restaurant"],
+    pitch: "Un concept de restaurant de quartier à Marcory : une carte gourmande, un panier et une identité verte et chaleureuse.",
+    thumb: "images/projets/dev_web/mon-gout/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/mon-gout/1.webp",
+      "images/projets/dev_web/mon-gout/2.webp",
+      "images/projets/dev_web/mon-gout/3.webp"
+    ],
+    description: "Concept de démonstration réalisé par Code A-Z pour montrer ce qu'un restaurant peut obtenir en ligne : une page d'accueil qui donne faim, une carte filtrable par catégories avec recherche de plat, un panier et des favoris, une page d'histoire et une page contact avec bouton WhatsApp. Quatre vues fluides, sans rechargement, sur mobile comme sur ordinateur. Textes, photos et coordonnées sont provisoires, à remplacer par ceux du restaurant.",
+    tech: ["HTML5 / CSS3", "JavaScript (sans framework)", "Panier et favoris", "Responsive design"],
+    link: "https://mon-gout.vercel.app/",
+    linkLabel: "Voir le concept"
+  },
+  {
     id: "immo",
     title: "Immo",
     category: "web",

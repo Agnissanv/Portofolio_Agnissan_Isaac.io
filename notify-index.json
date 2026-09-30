@@ -96,6 +96,12 @@
     "url": "/emploi/developpeur-front-end.html"
   },
   {
+    "key": "project:mon-gout",
+    "title": "Nouveau projet au portfolio",
+    "body": "Mon Goût — Site pour restaurant (concept)",
+    "url": "/projet/mon-gout.html"
+  },
+  {
     "key": "project:immo",
     "title": "Nouveau projet au portfolio",
     "body": "Immo — Site vitrine pour agence immobilière",
