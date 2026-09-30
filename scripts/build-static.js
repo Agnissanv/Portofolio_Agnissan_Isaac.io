@@ -65,3 +65,11 @@ inject('emploi/index.html', 'jobs', `<noscript>
 ${jobs.map(j => `<li><a href="${esc(j.slug)}.html">${esc(j.title)}</a> — ${esc(j.status)}. ${esc(j.excerpt)} (${esc(j.type)} · ${esc(j.location)})</li>`).join('\n')}
 </ul>
 </noscript>`);
+
+// --- Index des publications pour les notifications (lu par api/notify.js et scripts/send-push.js) ---
+const notifyIndex = [];
+posts.forEach(p => notifyIndex.push({ key: `post:${p.slug}`, title: 'Nouvel article sur Code A-Z', body: p.title, url: `/blog/${p.slug}.html` }));
+jobs.forEach(j => notifyIndex.push({ key: `job:${j.slug}`, title: 'Nouveau poste chez Code A-Z', body: j.title, url: `/emploi/${j.slug}.html` }));
+PROJECTS.forEach(p => notifyIndex.push({ key: `project:${p.id}`, title: 'Nouveau projet au portfolio', body: `${p.title} — ${p.categoryLabel}`, url: `/projet/${p.id}.html` }));
+fs.writeFileSync(path.join(ROOT, 'notify-index.json'), JSON.stringify(notifyIndex, null, 2), 'utf-8');
+console.log(`notify-index.json généré (${notifyIndex.length} élément(s))`);

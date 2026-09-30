@@ -148,3 +148,12 @@ Sur un contrat où Agnissan délègue le développement à un collaborateur fron
 - `scripts/build-static.js` : injecte des listes `<noscript>` (projets, articles, ressources, emplois) pour les robots et agents IA. Ne pas supprimer les repères `<!--STATIC:...-->`.
 - `llms.txt` et `robots.txt` : description du site pour les assistants IA.
 - Après tout changement de collecte de données (nouveau formulaire, nouveau prestataire), mettre à jour la politique de confidentialité.
+
+---
+
+## Notifications push
+
+- Publier un contenu : `npm run build`, puis `git push`. C'est tout.
+- Vercel envoie tout seul les notifications chaque jour à 08:00 (`api/notify.js`, planifié dans `vercel.json`).
+- Pour envoyer tout de suite : après la mise en ligne, `npm run notify` (`-- --dry-run` pour simuler).
+- `notify-index.json` est généré par le build : ne pas l'éditer.

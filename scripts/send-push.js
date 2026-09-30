@@ -5,7 +5,8 @@
 //   npm run notify               → envoie
 //   npm run notify -- --dry-run  → montre ce qui serait envoyé, sans rien envoyer
 //   npm run notify -- --init     → marque tout l'existant comme déjà annoncé (1re fois)
-// À lancer APRÈS que le site à jour soit en ligne sur Vercel.
+// Normalement inutile : Vercel le fait tout seul chaque jour à 08:00 (api/notify.js).
+// Sert à envoyer tout de suite. Lancer « npm run build » avant, et après la mise en ligne.
 // Variables : voir .env.example (chargées depuis .env via --env-file).
 // ============================================================
 
@@ -29,14 +30,7 @@ const rest = (p, opts = {}) => fetch(`${SUPABASE_URL}/rest/v1/${p}`, { ...opts, 
 const readJson = (rel) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf-8')); } catch { return []; } };
 
 function collect() {
-  const items = [];
-  readJson('blog/posts.json').forEach(p => items.push({
-    key: `post:${p.slug}`, title: 'Nouvel article sur Code A-Z', body: p.title, url: `/blog/${p.slug}.html` }));
-  readJson('emploi/jobs.json').forEach(j => items.push({
-    key: `job:${j.slug}`, title: 'Nouveau poste chez Code A-Z', body: j.title, url: `/emploi/${j.slug}.html` }));
-  require(path.join(ROOT, 'js', 'projects-data.js')).forEach(p => items.push({
-    key: `project:${p.id}`, title: 'Nouveau projet au portfolio', body: `${p.title} — ${p.categoryLabel}`, url: `/projet/${p.id}.html` }));
-  return items;
+  return readJson('notify-index.json');
 }
 
 async function mustJson(res, what) {

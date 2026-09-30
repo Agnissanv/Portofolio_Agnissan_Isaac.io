@@ -715,3 +715,33 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .field-consent a{ color:var(--accent); }
 .form-privacy-note{ font-size:12.5px; line-height:1.6; color:var(--muted); margin-top:12px; }
 .form-privacy-note a{ color:var(--accent); }
+
+
+/* ---------- Notifications push : invitation, blocs, cloche ---------- */
+.push-cta[hidden], .push-cta [hidden], .push-bell[hidden]{ display:none !important; }
+.push-cta{
+  background:var(--surface); border:1px solid var(--line-strong); border-left:3px solid var(--accent);
+  border-radius:var(--radius-md); padding:18px 22px; margin:32px 0;
+}
+.push-cta-main{ display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.push-cta-text{ display:flex; flex-direction:column; gap:4px; }
+.push-cta-text strong{ font-weight:500; color:var(--text); font-size:15px; }
+.push-cta-text span, .push-cta-done{ font-size:13.5px; color:var(--muted); line-height:1.55; }
+.push-cta-done{ margin:0; }
+.push-bell:disabled{ opacity:.6; cursor:default; }
+
+.push-invite{
+  position:fixed; left:16px; right:16px; bottom:84px; z-index:350; max-width:400px;
+  background:var(--surface); color:var(--text); border:1px solid var(--line-strong);
+  border-radius:var(--radius-md); box-shadow:var(--shadow-lg); padding:20px 22px 18px;
+}
+.push-invite h2{ font-size:1.1rem; margin:0 24px 6px 0; }
+.push-invite p{ font-size:13.5px; line-height:1.6; color:var(--muted); margin-bottom:14px; }
+.push-invite-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+.push-invite-actions .btn{ flex:1 1 120px; justify-content:center; }
+.push-invite-close{
+  position:absolute; top:8px; right:10px; width:32px; height:32px; border:0; background:none;
+  color:var(--muted); font-size:22px; line-height:1; border-radius:50%;
+}
+.push-invite-close:hover{ color:var(--accent); }
+@media (min-width:700px){ .push-invite{ left:24px; right:auto; bottom:24px; } }
