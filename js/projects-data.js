@@ -42,6 +42,27 @@ const SECTOR_ALIASES = {
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
+    id: "fc-valen",
+    title: "FC Valen",
+    category: "web",
+    categoryLabel: "Site pour club de football",
+    year: "2026",
+    tag: "Sport · Club de football",
+    sectors: ["Club & académie sportive"],
+    pitch: "Le site d'un club de football d'Abidjan : équipe, résultats, maillots et actualités dans une ambiance sombre et électrique.",
+    thumb: "images/projets/dev_web/fc-valen/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/fc-valen/1.webp",
+      "images/projets/dev_web/fc-valen/2.webp",
+      "images/projets/dev_web/fc-valen/3.webp",
+      "images/projets/dev_web/fc-valen/4.webp"
+    ],
+    description: "Site pour un club de football d'Abidjan : page d'accueil avec compte à rebours du prochain match, bandeau des derniers résultats, palmarès, présentation du stade et actualités ; page équipe avec 29 fiches filtrables par poste et un terrain interactif pour composer l'équipe type ; page résultats (forme, derniers matchs, prochaines rencontres, classement) ; collection de maillots avec alerte de retour en stock ; galerie photos avec agrandissement ; formulaire de contact. Une identité sombre et vert électrique, pensée pour l'énergie d'un jour de match.",
+    tech: ["HTML5 / CSS3", "JavaScript (compte à rebours, filtres, terrain interactif)", "Responsive design"],
+    link: "https://fcvalen.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
     id: "cabinet-kouadio",
     title: "Cabinet Kouadio & Associés",
     category: "web",
