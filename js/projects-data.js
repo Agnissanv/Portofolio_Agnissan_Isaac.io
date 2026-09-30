@@ -1,4 +1,44 @@
 // Données des projets — modifie ou ajoute des entrées ici, le reste est généré automatiquement.
+// Secteurs d'activité : la liste de référence. Un projet reçoit un ou plusieurs secteurs (champ "sectors").
+// Pour ajouter un secteur ou une famille, modifie SEULEMENT cette liste. Les noms doivent être écrits pareil dans les projets.
+const SECTOR_FAMILIES = [
+  { name: "Commerce & Retail", sectors: ["Boutique de mode", "Cosmétique & beauté (produits)", "Épicerie & supermarché", "Produits artisanaux & locaux", "Électronique & téléphonie", "Librairie & papeterie"] },
+  { name: "Restauration & Hôtellerie", sectors: ["Restaurant", "Traiteur", "Café & salon de thé", "Hôtel & résidence meublée", "Agence de voyage"] },
+  { name: "Santé & Bien-être", sectors: ["Clinique & cabinet médical", "Cabinet dentaire", "Pharmacie", "Spa & bien-être"] },
+  { name: "Beauté & Style", sectors: ["Salon de coiffure", "Institut de beauté", "Opticien", "Bijouterie & accessoires"] },
+  { name: "Immobilier & BTP", sectors: ["Agence immobilière", "BTP & construction", "Architecte & décoration", "Promoteur immobilier"] },
+  { name: "Éducation & Formation", sectors: ["École privée", "Centre de formation", "Soutien scolaire", "Université & institut"] },
+  { name: "Finance & Services pro", sectors: ["Cabinet comptable", "Cabinet d'avocats", "Cabinet de conseil", "Assurance", "Microfinance"] },
+  { name: "Événementiel & Divertissement", sectors: ["Mariage & événements", "Location de salle & matériel", "Studio photo & vidéo", "Artiste & musicien"] },
+  { name: "Transport & Logistique", sectors: ["Transport & livraison", "Location de véhicules", "Déménagement"] },
+  { name: "Associations & Institutions", sectors: ["ONG & association", "Association religieuse", "Institution publique"] },
+  { name: "Technologie & SaaS", sectors: ["Outil SaaS", "Marketplace", "Application mobile"] },
+  { name: "Agriculture & Agroalimentaire", sectors: ["Coopérative agricole", "Transformation alimentaire", "Produits bio & naturels"] },
+  { name: "Médias & Contenu", sectors: ["Actualité & blog", "Streaming", "Créateur de contenu"] },
+  { name: "Sport & Fitness", sectors: ["Salle de sport", "Club & académie sportive", "Coach sportif"] }
+];
+
+// Mots-clés de recherche (facultatif) : ce que les gens tapent, en plus du nom officiel du secteur.
+const SECTOR_ALIASES = {
+  "Restaurant": "resto maquis gargote bar lounge",
+  "Café & salon de thé": "cafe cafeteria patisserie boulangerie",
+  "Hôtel & résidence meublée": "hotel auberge residence airbnb",
+  "BTP & construction": "batiment travaux chantier maconnerie entrepreneur",
+  "Cabinet d'avocats": "avocat juriste juridique droit notaire huissier",
+  "Cabinet comptable": "comptable compta fiscal expert-comptable",
+  "Clinique & cabinet médical": "medecin docteur hopital clinique sante",
+  "Salle de sport": "gym fitness musculation crossfit",
+  "Salon de coiffure": "coiffeur barbier barber tresses",
+  "Institut de beauté": "onglerie manucure esthetique maquillage",
+  "École privée": "ecole college lycee scolaire",
+  "Agence immobilière": "immo agence location vente logement",
+  "Boutique de mode": "vetements pret-a-porter fashion friperie e-commerce boutique en ligne",
+  "Transport & livraison": "livreur coursier taxi vtc fret",
+  "Studio photo & vidéo": "photographe videaste cameraman",
+  "ONG & association": "ong association fondation humanitaire",
+  "Application mobile": "app android ios mobile"
+};
+
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
@@ -8,6 +48,7 @@ const PROJECTS = [
     categoryLabel: "Site vitrine pour agence immobilière",
     year: "2026",
     tag: "Agence immobilière",
+    sectors: ["Agence immobilière"],
     pitch: "Une identité noire et dorée pour une agence immobilière haut de gamme.",
     thumb: "images/projets/dev_web/immo0-thumb.webp",
     gallery: [
@@ -28,6 +69,7 @@ const PROJECTS = [
     categoryLabel: "Site institutionnel",
     year: "2026",
     tag: "ONG · Jeunesse",
+    sectors: ["ONG & association"],
     pitch: "Un site vitrine pour une ONG qui transforme l'autonomisation des jeunes ivoiriens en programmes concrets, du code à l'agriculture.",
     thumb: "images/projets/dev_web/elan-feh/0-thumb.webp",
     gallery: [
@@ -53,6 +95,7 @@ const PROJECTS = [
     categoryLabel: "Application mobile",
     year: "2026",
     tag: "Finance personnelle",
+    sectors: ["Application mobile"],
     pitch: "Simulez, comparez et visualisez l'évolution de votre épargne en temps réel.",
     thumb: "images/projets/app/budget-flow/1-thumb.webp",
     gallery: [
@@ -112,6 +155,7 @@ const PROJECTS = [
     categoryLabel: "Site vitrine",
     year: "2026",
     tag: "Décoration intérieure",
+    sectors: ["BTP & construction", "Architecte & décoration"],
     pitch: "Un site vitrine pour une entreprise de faux plafonds et décoration intérieure à Abidjan.",
     thumb: "images/projets/dev_web/in-staff-deco/1-thumb.webp",
     gallery: [
@@ -164,6 +208,7 @@ const PROJECTS = [
     categoryLabel: "Site de curation vidéo",
     year: "2026",
     tag: "Plateforme de streaming",
+    sectors: ["Streaming"],
     pitch: "Une expérience de streaming complète, sans abonnement ni serveur vidéo.",
     thumb: "images/projets/dev_web/refugepop1-thumb.webp",
     gallery: [
@@ -184,6 +229,7 @@ const PROJECTS = [
     categoryLabel: "Site vitrine pour restaurant",
     year: "2026",
     tag: "Restaurant",
+    sectors: ["Restaurant"],
     pitch: "Une vitrine digitale pensée pour la gastronomie ivoirienne.",
     thumb: "images/projets/dev_web/qg-resto3-thumb.webp",
     gallery: [
@@ -204,6 +250,7 @@ const PROJECTS = [
     categoryLabel: "Site de Média digital",
     year: "2026",
     tag: "Actualité tech",
+    sectors: ["Actualité & blog"],
     pitch: "Une plateforme automatisée dédiée à l'actualité tech en Afrique de l'Ouest.",
     thumb: "images/projets/dev_web/TECH_WEST1-thumb.webp",
     gallery: [
@@ -249,6 +296,7 @@ const PROJECTS = [
     categoryLabel: "Site vitrine pour salle de sport",
     year: "2026",
     tag: "Fitness & sport",
+    sectors: ["Salle de sport"],
     pitch: "Une landing page haute conversion pour une salle de sport d'élite.",
     thumb: "images/projets/dev_web/overdose-gym1-thumb.webp",
     gallery: [
@@ -290,6 +338,7 @@ const PROJECTS = [
     categoryLabel: "Refonte / Identité visuelle",
     year: "2026",
     tag: "Opticien",
+    sectors: ["Opticien"],
     pitch: "Une identité de marque affirmée pour un cabinet d'optique à Marcory, avec un curseur interactif qui simule en direct l'effet d'une bonne correction visuelle.",
     thumb: "images/projets/dev_web/lumina/0-thumb.webp",
     gallery: [
@@ -313,6 +362,7 @@ const PROJECTS = [
     categoryLabel: "Blog / tunnel de vente",
     year: "2026",
     tag: "Blog / tunnel de vente",
+    sectors: ["Créateur de contenu"],
     pitch: "Un blog en 4 pages, pensé pour attirer, rassurer et convertir.",
     thumb: "images/projets/dev_web/blog0.webp",
     gallery: [
@@ -333,6 +383,7 @@ const PROJECTS = [
     categoryLabel: "Boutique e-commerce",
     year: "2026",
     tag: "Boutique en ligne",
+    sectors: ["Boutique de mode"],
     pitch: "Un template e-commerce pensé pour transformer les visiteurs en clients.",
     thumb: "images/projets/dev_web/SENTIMENTALE.COM1.webp",
     gallery: [
@@ -376,6 +427,7 @@ const PROJECTS = [
     categoryLabel: "Outil d'extraction de palettes de couleurs",
     year: "2026",
     tag: "Outil pour designers",
+    sectors: ["Outil SaaS"],
     pitch: "L'inspiration visuelle transformée en code, en quelques secondes.",
     thumb: "images/projets/dev_web/palettepick1-thumb.webp",
     gallery: [
@@ -416,4 +468,4 @@ const PROJECTS = [
   }
 ];
 
-if (typeof module !== 'undefined' && module.exports) module.exports = PROJECTS;
+if (typeof module !== 'undefined' && module.exports) { module.exports = PROJECTS; module.exports.SECTOR_FAMILIES = SECTOR_FAMILIES; module.exports.SECTOR_ALIASES = SECTOR_ALIASES; }

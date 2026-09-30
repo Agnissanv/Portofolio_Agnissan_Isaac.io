@@ -299,6 +299,20 @@
       <button class="filter-btn" data-filter="design">Refonte graphique</button>
       <button class="filter-btn" data-filter="app">Applications</button>
     </div>
+    <div class="sector-bar reveal" id="sectorBar" hidden>
+      <button type="button" class="sector-toggle" id="sectorToggle" aria-expanded="false" aria-controls="sectorPanel">
+        Filtrer par secteur
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <span class="sector-active" id="sectorActive"></span>
+      <p class="portfolio-count" id="portfolioCount" role="status" aria-live="polite"></p>
+    </div>
+    <div class="sector-panel" id="sectorPanel" hidden>
+      <label class="sr-only" for="sectorSearch">Rechercher un secteur</label>
+      <input type="search" id="sectorSearch" class="sector-search" placeholder="Rechercher un secteur (restaurant, BTP, avocat…)" autocomplete="off">
+      <div class="sector-families" id="sectorFamilies"></div>
+      <p class="sector-none" id="sectorNone" hidden>Aucun secteur ne correspond. <a href="#contact">Parlons de votre projet</a>.</p>
+    </div>
     <div class="portfolio-grid" id="portfolioGrid">
       <!--STATIC:projects-->
 <noscript>
@@ -306,6 +320,7 @@
 <h3>Immo — Site vitrine pour agence immobilière (2026)</h3>
 <p>Une identité noire et dorée pour une agence immobilière haut de gamme.</p>
 <p>Site vitrine premium pensé pour inspirer confiance dès les premières secondes. Présentation immersive des biens, FAQ, témoignages, indicateurs de performance : chaque section a été pensée pour transformer un visiteur en prospect qualifié, sur tous les écrans.</p>
+<p>Secteur : Agence immobilière.</p>
 <p>Technologies : HTML5 / CSS3, JavaScript (filtres &amp; interactions), Responsive design, UI/UX premium.</p>
 <p><a href="https://agnissanv.github.io/immo/">Découvrir le site</a></p>
 </article>
@@ -313,6 +328,7 @@
 <h3>Élan Fêh — Site institutionnel (2026)</h3>
 <p>Un site vitrine pour une ONG qui transforme l'autonomisation des jeunes ivoiriens en programmes concrets, du code à l'agriculture.</p>
 <p>Site vitrine pour Élan Fêh, une ONG ivoirienne dédiée à l'autonomisation des jeunes de 15 à 30 ans à Abidjan et dans la région du Poro. Présentation claire des trois axes d'action (formation numérique à Yopougon, agroécologie à Korhogo, mentorat pour les jeunes filles), parcours en trois étapes, témoignage d'une bénéficiaire, chiffres d'impact mis en avant, et formulaire de contact multi-sujets pour mentors, mécènes et familles. Pages légales complètes pour une crédibilité institutionnelle renforcée.</p>
+<p>Secteur : ONG &amp; association.</p>
 <p>Technologies : À confirmer.</p>
 <p><a href="https://elan-feh-website.vercel.app/">Découvrir l'association</a></p>
 </article>
@@ -320,6 +336,7 @@
 <h3>Budget Flow — Application mobile (2026)</h3>
 <p>Simulez, comparez et visualisez l'évolution de votre épargne en temps réel.</p>
 <p>Budget Flow transforme la gestion financière personnelle en expérience visuelle et interactive. Contrairement à une calculatrice classique qui donne un chiffre figé, l'application projette l'évolution de l'épargne mois par mois sous forme de courbes animées, et répond à des questions concrètes comme « Quand atteindrai-je 1 000 000 FCFA ? ». L'utilisateur saisit son revenu, ses dépenses par catégorie et son solde actuel : l'app calcule l'épargne nette et simule la trajectoire financière sur plusieurs mois, avec des curseurs interactifs pour ajuster les chiffres en temps réel, comparer deux scénarios côte à côte, ou visualiser la répartition des dépenses par catégorie. Fonctionne entièrement hors-ligne, données stockées en local.</p>
+<p>Secteur : Application mobile.</p>
 <p>Technologies : Flutter (Dart), Riverpod, Hive (stockage local), fl_chart, Multi-devises (XOF, EUR, USD...).</p>
 <p><a href="downloads/budget-flow.apk">Télécharger l'APK</a></p>
 </article>
@@ -329,11 +346,13 @@
 <p>Que ce soit pour un événement, une promotion ou une campagne, chaque affiche est conçue pour rester lisible et impactante, même vue de loin ou en un coup d'œil rapide.</p>
 
 
+
 </article>
 <article>
 <h3>I.N: Staff Deco — Site vitrine (2026)</h3>
 <p>Un site vitrine pour une entreprise de faux plafonds et décoration intérieure à Abidjan.</p>
 <p>Site vitrine conçu pour I.N: Staff Deco, spécialiste du placo-plâtre, des faux plafonds et de la décoration intérieure à Abidjan depuis 2008. Le site met en avant les réalisations de l'entreprise, ses tarifs au m² et les témoignages clients, avec un objectif simple : transformer un visiteur en demande de devis en un minimum de clics. La demande de devis est directement intégrée à WhatsApp : le visiteur remplit un formulaire, et le message part pré-rempli vers l'entreprise — il ne reste plus qu'à l'envoyer.</p>
+<p>Secteur : BTP &amp; construction, Architecte &amp; décoration.</p>
 <p>Technologies : HTML5 / CSS3, JavaScript, Intégration WhatsApp (devis pré-rempli), Responsive design.</p>
 <p><a href="https://www.instaffdeco.com/">Voir le site</a></p>
 </article>
@@ -343,11 +362,13 @@
 <p>Chaque logo est pensé pour être simple à reconnaître et à décliner sur tous les supports — carte de visite, réseaux sociaux, packaging. L'objectif : une identité qui reste lisible même en petit format.</p>
 
 
+
 </article>
 <article>
 <h3>Refuge Pop — Site de curation vidéo (2026)</h3>
 <p>Une expérience de streaming complète, sans abonnement ni serveur vidéo.</p>
 <p>Refuge Pop est une plateforme de streaming à part entière : catalogue de films à la demande, chaînes en direct, reprise de lecture automatique, suggestions personnalisées et recherche intelligente — construite sans base de données ni backend classique. La section Direct s'appuie sur un proxy Cloudflare Worker sur-mesure pour diffuser des flux HLS en direct en contournant les restrictions CORS. Un pipeline Python automatisé alimente et vérifie le catalogue.</p>
+<p>Secteur : Streaming.</p>
 <p>Technologies : HTML5 / CSS3 / JS (SPA), API YouTube IFrame &amp; HLS.js, Cloudflare Workers, Python (automatisation), Vercel.</p>
 <p><a href="https://refugepop.agnissanisaac.com/">Voir le site</a></p>
 </article>
@@ -355,6 +376,7 @@
 <h3>QG-Resto — Site vitrine pour restaurant (2026)</h3>
 <p>Une vitrine digitale pensée pour la gastronomie ivoirienne.</p>
 <p>Site vitrine conçu pour valoriser les plats, renforcer l'image de marque et faciliter les réservations. Menu dynamique clair, formulaire de réservation intégré, témoignages et informations pratiques pour instaurer la confiance dès la première visite. Le tout pensé responsive pour un usage mobile en priorité.</p>
+<p>Secteur : Restaurant.</p>
 <p>Technologies : HTML5 / CSS3, JavaScript (animations), Responsive design, UI/UX.</p>
 <p><a href="https://agnissanv.github.io/qg-resto/">Découvrir le restaurant</a></p>
 </article>
@@ -362,6 +384,7 @@
 <h3>Tech West — Site de Média digital (2026)</h3>
 <p>Une plateforme automatisée dédiée à l'actualité tech en Afrique de l'Ouest.</p>
 <p>Un moteur intelligent qui fusionne plusieurs sources pour couvrir l'IA, la Fintech et les startups. Le défi : une interface capable de gérer un flux constant d'informations tout en restant lisible. Système de catégories pour une navigation personnalisée, et un tunnel dédié aux collaborations B2B.</p>
+<p>Secteur : Actualité &amp; blog.</p>
 <p>Technologies : HTML5 / CSS3, JavaScript (filtrage &amp; modales), Intégration &amp; automatisation de données, Branding &amp; UI.</p>
 <p><a href="https://agnissanv.github.io/TECHWEST/">Explorer le média</a></p>
 </article>
@@ -371,11 +394,13 @@
 <p>Couvertures Facebook, bannières de site, visuels d'en-tête — chaque format a ses contraintes propres, pensées et respectées pour un rendu net sur tous les écrans.</p>
 
 
+
 </article>
 <article>
 <h3>Overdose Gym — Site vitrine pour salle de sport (2026)</h3>
 <p>Une landing page haute conversion pour une salle de sport d'élite.</p>
 <p>L'objectif : traduire l'énergie du CrossFit dans une interface sombre et directe. Tarifs et programmes mis en avant avec des appels à l'action clairs, optimisation pour les recherches géolocalisées, et une expérience mobile pensée pour des réservations rapides.</p>
+<p>Secteur : Salle de sport.</p>
 <p>Technologies : HTML5 / CSS3 avancé, JavaScript (formulaires), Google Maps API, Mobile-first.</p>
 <p><a href="https://agnissanv.github.io/fitnesswebsite1/">Voir le site</a></p>
 </article>
@@ -385,11 +410,13 @@
 <p>Boîtes, sachets, étiquettes : chaque support d'emballage est pensé pour rester cohérent avec l'identité visuelle de la marque, tout en respectant les contraintes techniques d'impression et de production.</p>
 
 
+
 </article>
 <article>
 <h3>LUMINA — Refonte identité &amp; site vitrine — Refonte / Identité visuelle (2026)</h3>
 <p>Une identité de marque affirmée pour un cabinet d'optique à Marcory, avec un curseur interactif qui simule en direct l'effet d'une bonne correction visuelle.</p>
 <p>Site vitrine pensé pour un opticien à Marcory, Abidjan, avec une direction artistique « signage tropical » sur mesure : blocs de couleurs pleines, contours épais et ombres dures, à contre-courant des codes habituels du secteur (fond crème, dégradés, coins arrondis). Le hero propose une signature interactive : un curseur « Réglez votre vue » qui passe du flou au net, pour illustrer concrètement ce qu'apporte une bonne monture. Logo dessiné sur mesure en SVG, vitrine vidéo intégrée, galerie de montures en mosaïque, et une navigation fluide sur mobile comme sur desktop.</p>
+<p>Secteur : Opticien.</p>
 <p>Technologies : HTML5, CSS3 (Grid/Flexbox, animations), JavaScript vanilla, SVG (logo et pictogrammes), Google Fonts (Unbounded, Archivo), Formspree (formulaire de contact), Google Maps Embed.</p>
 <p><a href="https://agnissanv.github.io/Optic_template/">Consulter le cabinet</a></p>
 </article>
@@ -397,6 +424,7 @@
 <h3>Site de blog — Blog / tunnel de vente (2026)</h3>
 <p>Un blog en 4 pages, pensé pour attirer, rassurer et convertir.</p>
 <p>Accueil, page articles, page promotionnelle façon tunnel de vente et page de formulaire — avec barre de recherche et navigation fluide sur tout type d'appareil. Un gabarit pensé pour être adapté à différents secteurs d'activité.</p>
+<p>Secteur : Créateur de contenu.</p>
 <p>Technologies : HTML, Bootstrap.</p>
 <p><a href="https://agnissanv.github.io/mon_blog-Code_A-Z/">Voir le site</a></p>
 </article>
@@ -404,6 +432,7 @@
 <h3>Sentimentale — Boutique e-commerce (2026)</h3>
 <p>Un template e-commerce pensé pour transformer les visiteurs en clients.</p>
 <p>Architecture optimisée pour la conversion : navigation intuitive, mise en avant claire des produits, structure adaptable à différents types d'activité (mode, accessoires, produits digitaux). Design responsive sur mobile, tablette et desktop.</p>
+<p>Secteur : Boutique de mode.</p>
 <p>Technologies : HTML, CSS, JavaScript.</p>
 <p><a href="https://agnissanv.github.io/Site_complet_sentimentale1/">Voir le site</a></p>
 </article>
@@ -413,11 +442,13 @@
 <p>Un flyer efficace transmet l'essentiel avant même d'être lu en détail. Chaque création met en avant une hiérarchie claire de l'information et un visuel qui accroche le regard.</p>
 
 
+
 </article>
 <article>
 <h3>PalettePick — Outil d'extraction de palettes de couleurs (2026)</h3>
 <p>L'inspiration visuelle transformée en code, en quelques secondes.</p>
 <p>PalettePick extrait les couleurs dominantes de n'importe quelle image pour générer des palettes prêtes à l'emploi. L'outil traite les images localement pour une rapidité maximale et génère automatiquement variables CSS, codes HEX et RGB. L'objectif était une expérience « zéro friction », avec un design sombre aligné sur les standards des outils créatifs modernes.</p>
+<p>Secteur : Outil SaaS.</p>
 <p>Technologies : HTML5 / CSS3, JavaScript ES6+, UI High-Contrast &amp; responsive, GitHub Pages.</p>
 <p><a href="https://agnissanv.github.io/palettepick/">Voir le site</a></p>
 </article>
@@ -427,12 +458,20 @@
 <p>Une bonne identité de marque doit rester reconnaissable même appliquée à un petit objet. Ces créations montrent comment un logo ou une charte graphique s'adapte aux contraintes d'un support physique, sans perdre en lisibilité.</p>
 
 
+
 </article>
 </noscript>
 <!--/STATIC:projects-->
       <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
       <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
       <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
+    </div>
+    <div class="portfolio-more" id="portfolioMore" hidden>
+      <button type="button" class="btn btn-outline" id="portfolioMoreBtn">Voir plus</button>
+    </div>
+    <div class="portfolio-empty" id="portfolioEmpty" hidden>
+      <p><strong>Aucun projet dans ce secteur pour le moment.</strong></p>
+      <p>Vous ne trouvez pas votre secteur ? Nous en créons régulièrement de nouveaux. <a href="#contact">Parlons de votre projet</a>.</p>
     </div>
     <aside class="push-cta" data-push-cta hidden>
       <div class="push-cta-main">

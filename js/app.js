@@ -194,20 +194,132 @@ document.addEventListener('DOMContentLoaded', () => {
       </article>
     `).join('');
 
-    // Filtres
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.project-card').forEach(card => {
-          const show = filter === 'all' || card.dataset.category === filter;
-          card.classList.toggle('hide', !show);
-          if (show) { card.style.animation = 'none'; card.offsetHeight; card.style.animation = ''; }
-        });
+    // ---------- Filtres : type + secteur, « Voir plus », lien partageable ----------
+    const PAGE_SIZE = 12;
+    const cards = [...document.querySelectorAll('.project-card')];
+    const projectById = Object.fromEntries(PROJECTS.map(p => [p.id, p]));
+    const norm = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const slug = s => norm(s).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const state = { type: 'all', sector: null, shown: PAGE_SIZE };
+
+    const sectorCount = {};
+    PROJECTS.forEach(p => (p.sectors || []).forEach(s => { sectorCount[s] = (sectorCount[s] || 0) + 1; }));
+    const families = (typeof SECTOR_FAMILIES !== 'undefined' ? SECTOR_FAMILIES : [])
+      .map(f => ({ name: f.name, sectors: f.sectors.filter(s => sectorCount[s]) }))
+      .filter(f => f.sectors.length);
+    const sectorBySlug = {};
+    families.forEach(f => f.sectors.forEach(s => { sectorBySlug[slug(s)] = s; }));
+
+    const sectorBar = document.getElementById('sectorBar');
+    const sectorPanel = document.getElementById('sectorPanel');
+    const sectorToggle = document.getElementById('sectorToggle');
+    const sectorActive = document.getElementById('sectorActive');
+    const sectorFamilies = document.getElementById('sectorFamilies');
+    const sectorSearch = document.getElementById('sectorSearch');
+    const sectorNone = document.getElementById('sectorNone');
+    const countEl = document.getElementById('portfolioCount');
+    const moreWrap = document.getElementById('portfolioMore');
+    const moreBtn = document.getElementById('portfolioMoreBtn');
+    const emptyEl = document.getElementById('portfolioEmpty');
+    const typeBtns = document.querySelectorAll('.filter-btn[data-filter]');
+
+    // Le panneau de secteurs n'apparaît que s'il y a des secteurs renseignés
+    if (families.length && sectorBar) {
+      sectorBar.hidden = false;
+      sectorFamilies.innerHTML = families.map(f => `
+        <div class="sector-family" data-family="${norm(f.name)}">
+          <h3>${f.name}</h3>
+          <div class="sector-chips">${f.sectors.map(s => `<button type="button" class="sector-chip" data-sector="${slug(s)}" data-search="${norm(s + ' ' + f.name + ' ' + ((typeof SECTOR_ALIASES !== 'undefined' && SECTOR_ALIASES[s]) || ''))}" aria-pressed="false">${s} <span>${sectorCount[s]}</span></button>`).join('')}</div>
+        </div>`).join('');
+    }
+
+    function setPanel(open) {
+      sectorPanel.hidden = !open;
+      sectorToggle.setAttribute('aria-expanded', String(open));
+      if (open && matchMedia('(pointer:fine)').matches) sectorSearch.focus({ preventScroll: true });
+    }
+
+    function syncUrl() {
+      const q = new URLSearchParams();
+      if (state.type !== 'all') q.set('type', state.type);
+      if (state.sector) q.set('secteur', slug(state.sector));
+      const qs = q.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    }
+
+    function apply() {
+      const matched = cards.filter(card => {
+        const p = projectById[card.dataset.id];
+        return (state.type === 'all' || p.category === state.type) &&
+               (!state.sector || (p.sectors || []).includes(state.sector));
       });
+      const matchedSet = new Set(matched);
+      cards.forEach(card => {
+        const idx = matched.indexOf(card);
+        card.classList.toggle('hide', !matchedSet.has(card) || idx >= state.shown);
+      });
+      const remaining = matched.length - state.shown;
+      moreWrap.hidden = remaining <= 0;
+      if (remaining > 0) moreBtn.textContent = `Voir plus (${remaining} restant${remaining > 1 ? 's' : ''})`;
+      emptyEl.hidden = matched.length > 0;
+      countEl.textContent = `${matched.length} projet${matched.length > 1 ? 's' : ''}`;
+
+      sectorActive.innerHTML = state.sector
+        ? `<button type="button" class="sector-tag" aria-label="Retirer le filtre ${state.sector}">${state.sector} <span aria-hidden="true">&times;</span></button>` : '';
+      sectorFamilies.querySelectorAll('.sector-chip').forEach(c => {
+        const on = state.sector && c.dataset.sector === slug(state.sector);
+        c.classList.toggle('active', !!on);
+        c.setAttribute('aria-pressed', String(!!on));
+      });
+      typeBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === state.type));
+      syncUrl();
+    }
+
+    typeBtns.forEach(btn => btn.addEventListener('click', () => {
+      state.type = btn.dataset.filter; state.shown = PAGE_SIZE; apply();
+    }));
+    moreBtn.addEventListener('click', () => { state.shown += PAGE_SIZE; apply(); });
+    sectorToggle.addEventListener('click', () => setPanel(sectorPanel.hidden));
+    sectorActive.addEventListener('click', (e) => {
+      if (e.target.closest('.sector-tag')) { state.sector = null; state.shown = PAGE_SIZE; apply(); }
     });
+    sectorFamilies.addEventListener('click', (e) => {
+      const chip = e.target.closest('.sector-chip');
+      if (!chip) return;
+      const s = sectorBySlug[chip.dataset.sector];
+      state.sector = state.sector === s ? null : s;
+      state.shown = PAGE_SIZE;
+      setPanel(false);
+      apply();
+      sectorToggle.focus({ preventScroll: true });
+    });
+    sectorSearch.addEventListener('input', () => {
+      const q = norm(sectorSearch.value.trim());
+      let any = false;
+      sectorFamilies.querySelectorAll('.sector-family').forEach(fam => {
+        let famAny = false;
+        fam.querySelectorAll('.sector-chip').forEach(chip => {
+          const hit = !q || chip.dataset.search.includes(q);
+          chip.hidden = !hit; famAny = famAny || hit;
+        });
+        fam.hidden = !famAny; any = any || famAny;
+      });
+      sectorNone.hidden = any;
+    });
+    sectorPanel.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { setPanel(false); sectorToggle.focus(); }
+    });
+
+    // Lien partageable : ?type=web&secteur=restaurant
+    const params = new URLSearchParams(location.search);
+    if (['web', 'design', 'app'].includes(params.get('type'))) state.type = params.get('type');
+    if (sectorBySlug[params.get('secteur')]) state.sector = sectorBySlug[params.get('secteur')];
+    apply();
+    if (params.get('type') || params.get('secteur')) {
+      const goToPortfolio = () => document.getElementById('portfolio').scrollIntoView({ behavior: 'auto' });
+      if (document.readyState === 'complete') setTimeout(goToPortfolio, 100);
+      else window.addEventListener('load', () => setTimeout(goToPortfolio, 100), { once: true });
+    }
 
     // Modale
     const overlay = document.getElementById('modalOverlay');
@@ -268,6 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="modal-content">
           <div class="cat">${p.categoryLabel} · ${p.year}</div>
+          ${p.sectors && p.sectors.length ? `<p class="modal-sectors">Secteur : ${p.sectors.join(' · ')}</p>` : ''}
           <h3>${p.title}</h3>
           <p class="pitch">${p.pitch}</p>
           <p class="desc">${p.description}</p>

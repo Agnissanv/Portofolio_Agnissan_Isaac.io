@@ -37,6 +37,7 @@ ${PROJECTS.map(p => `<article>
 <h3>${esc(p.title)} — ${esc(p.categoryLabel)} (${esc(p.year)})</h3>
 <p>${esc(p.pitch)}</p>
 <p>${esc(p.description)}</p>
+${p.sectors && p.sectors.length ? `<p>Secteur : ${p.sectors.map(esc).join(', ')}.</p>` : ''}
 ${p.tech && p.tech.length ? `<p>Technologies : ${p.tech.map(esc).join(', ')}.</p>` : ''}
 ${p.link ? `<p><a href="${esc(p.link)}">${esc(p.linkLabel || 'Voir le projet')}</a></p>` : ''}
 </article>`).join('\n')}

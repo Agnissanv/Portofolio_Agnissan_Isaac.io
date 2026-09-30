@@ -13,6 +13,16 @@ const OUT_DIR = path.join(ROOT, 'projet');
 const SITE_URL = 'https://agnissanisaac.com';
 const PROJECTS = require(path.join(ROOT, 'js', 'projects-data.js'));
 
+// Vérifie que chaque secteur utilisé existe dans SECTOR_FAMILIES (évite « Resto » / « Restaurant »)
+const KNOWN_SECTORS = new Set((PROJECTS.SECTOR_FAMILIES || []).flatMap(f => f.sectors));
+const unknown = [];
+PROJECTS.forEach(p => (p.sectors || []).forEach(s => { if (!KNOWN_SECTORS.has(s)) unknown.push(`${p.id} : « ${s} »`); }));
+if (unknown.length) {
+  console.error("Secteur(s) inconnu(s) dans js/projects-data.js. Ajoute-les à SECTOR_FAMILIES ou corrige l'orthographe :");
+  unknown.forEach(u => console.error(" - " + u));
+  process.exit(1);
+}
+
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
 function pageTemplate(p) {
