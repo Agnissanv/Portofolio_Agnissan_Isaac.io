@@ -792,8 +792,3 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .portfolio-empty{ text-align:center; padding:40px 20px; color:var(--muted); font-size:14.5px; line-height:1.7; }
 .portfolio-empty strong{ color:var(--text); font-weight:500; }
 .modal-sectors{ font-size:12.5px; color:var(--muted); margin:-4px 0 12px; }
-
-
-/* ---------- Fond interactif « Mesh Flow » (js/mesh-flow.js) ---------- */
-[data-mesh]{ position:relative; isolation:isolate; }
-.mesh-canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
