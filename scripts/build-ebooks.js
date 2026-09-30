@@ -28,9 +28,8 @@ function pageTemplate(ebook) {
 <meta property="og:description" content="${ebook.excerpt}">
 <meta property="og:url" content="${SITE_URL}/ressources/${ebook.slug}.html">
 <link rel="canonical" href="${SITE_URL}/ressources/${ebook.slug}.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
+<script defer src="/js/consent.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
   .resource-hero{ max-width:820px; margin:0 auto; padding:90px 32px 60px; text-align:center; }
@@ -90,8 +89,9 @@ function pageTemplate(ebook) {
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation principale">
   <a href="../index.html#hero" class="logo">
     <img class="logo-light" src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
     <img class="logo-dark" src="../images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
@@ -108,6 +108,8 @@ function pageTemplate(ebook) {
   </button>
 </nav>
 
+<main id="main">
+
 <div class="resource-hero">
   <a href="../ressources.html" class="back-link">&larr; Toutes les ressources</a>
   <div class="eyebrow" style="justify-content:center;"><span class="dot"></span>Ressource gratuite · ${ebook.pages}</div>
@@ -117,7 +119,7 @@ function pageTemplate(ebook) {
 
 <div class="resource-layout">
     <div class="book-cover">
-    ${ebook.cover ? `<img src="../${ebook.cover}" alt="${ebook.title}">` : `
+    ${ebook.cover ? `<img src="../${ebook.cover}" alt="Couverture du guide : ${ebook.title}">` : `
     <svg viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#EDEDEA" stroke-width="9" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#E0454F" stroke-width="7" stroke-linecap="square"/></svg>
     <div class="tag">Guide gratuit</div>
     <h3>${ebook.title}</h3>`}
@@ -134,12 +136,12 @@ function pageTemplate(ebook) {
       <div class="form-step active" data-step="1">
         <div class="field">
           <label for="fullname">Votre nom</label>
-          <input type="text" id="fullname" required>
+          <input type="text" id="fullname" autocomplete="name" required>
         </div>
         <div class="field">
           <label for="email">Votre email</label>
-          <input type="email" id="email" required>
-          <div class="field-error" id="emailError">Merci d'entrer une adresse email valide.</div>
+          <input type="email" id="email" autocomplete="email" required>
+          <div class="field-error" id="emailError" role="alert">Merci d'entrer une adresse email valide.</div>
         </div>
         <div class="form-nav">
           <span></span>
@@ -149,23 +151,24 @@ function pageTemplate(ebook) {
 
             <div class="form-step" data-step="2">
         <div class="field">
-          <label>Avez-vous déjà une entreprise ou une activité ?</label>
-          <div class="choice-row" data-field="hasCompany">
+          <p class="form-privacy-note" style="margin:0 0 18px;">Ces deux questions sont <strong>facultatives</strong> : vous pouvez passer directement à l'étape suivante. Elles ne servent qu'à mieux vous conseiller, et uniquement si vous acceptez de recevoir nos conseils à l'étape 3.</p>
+        <label id="hasCompanyLabel">Avez-vous déjà une entreprise ou une activité ? (facultatif)</label>
+          <div class="choice-row" data-field="hasCompany" role="group" aria-labelledby="hasCompanyLabel">
             <button type="button" class="choice-btn">Oui</button>
             <button type="button" class="choice-btn">Non</button>
           </div>
           <div class="conditional-field" id="companyNameField">
-            <input type="text" id="companyName" placeholder="Nom de votre entreprise">
+            <input type="text" id="companyName" aria-label="Nom de votre entreprise" autocomplete="organization" placeholder="Nom de votre entreprise">
           </div>
         </div>
         <div class="field">
-          <label>Avez-vous déjà un site web ?</label>
-          <div class="choice-row" data-field="hasWebsite">
+          <label id="hasWebsiteLabel">Avez-vous déjà un site web ? (facultatif)</label>
+          <div class="choice-row" data-field="hasWebsite" role="group" aria-labelledby="hasWebsiteLabel">
             <button type="button" class="choice-btn">Oui</button>
             <button type="button" class="choice-btn">Non</button>
           </div>
           <div class="conditional-field" id="websiteUrlField">
-            <input type="text" id="websiteUrl" placeholder="Lien de votre site (ex: monsite.com)">
+            <input type="text" id="websiteUrl" aria-label="Lien de votre site" autocomplete="url" placeholder="Lien de votre site (ex: monsite.com)">
           </div>
         </div>
         <div class="form-nav">
@@ -176,6 +179,8 @@ function pageTemplate(ebook) {
 
       <div class="form-step" data-step="3">
         <p style="font-size:14px; color:var(--muted); line-height:1.7;">Le guide vous sera envoyé automatiquement par email dans les prochaines minutes.</p>
+        <div class="field-consent"><input type="checkbox" id="consentEbook" required><label for="consentEbook">J'accepte que mon nom et mon e-mail soient utilisés pour m'envoyer ce guide, comme expliqué dans la <a href="../politique-confidentialite.html">politique de confidentialité</a>. Ils ne sont pas conservés après l'envoi.</label></div>
+        <div class="field-consent"><input type="checkbox" id="consentNewsletter"><label for="consentNewsletter">(Facultatif) Je souhaite aussi recevoir occasionnellement des conseils par e-mail. Je peux me désinscrire à tout moment. Mes réponses facultatives de l'étape 2 ne sont conservées que si je coche cette case.</label></div>
         <div class="form-nav">
           <button type="button" class="btn-back" id="toStep2b">← Retour</button>
           <button type="submit" class="btn btn-primary" id="submitBtn">Recevoir mon ebook gratuitement</button>
@@ -191,9 +196,17 @@ function pageTemplate(ebook) {
   </div>
 </div>
 
+</main>
+
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/conditions-utilisation.html">Conditions d'utilisation</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
     <a href="../index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>
@@ -217,7 +230,7 @@ function pageTemplate(ebook) {
 
   const steps = document.querySelectorAll('.form-step');
   const progs = [document.getElementById('prog1'), document.getElementById('prog2'), document.getElementById('prog3')];
-  const formData = { ebookId: EBOOK_ID, fullname:'', email:'', hasCompany:null, hasWebsite:null, companyName:'', websiteUrl:'' };
+  const formData = { ebookId: EBOOK_ID, fullname:'', email:'', hasCompany:null, hasWebsite:null, companyName:'', websiteUrl:'', consent:false, newsletterConsent:false };
 
   function showStep(n) {
     steps.forEach(s => s.classList.toggle('active', s.dataset.step == n));
@@ -273,6 +286,9 @@ function pageTemplate(ebook) {
 
   document.getElementById('ebookForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    formData.consent = document.getElementById('consentEbook').checked;
+    formData.newsletterConsent = document.getElementById('consentNewsletter').checked;
+    if (!formData.consent) return;
     const submitBtn = document.getElementById('submitBtn');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Envoi en cours…';

@@ -6,9 +6,8 @@
 <title>Ressources gratuites — Code A-Z</title>
 <meta name="description" content="Guides et ressources gratuites pour mieux comprendre le web, le choix d'un prestataire, et la gestion de votre présence en ligne.">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script defer src="/js/consent.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
   .resources-hero{ max-width:760px; margin:0 auto; padding:90px 32px 60px; }
@@ -40,8 +39,9 @@
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation principale">
   <a href="index.html#hero" class="logo">
     <img class="logo-light" src="images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
     <img class="logo-dark" src="images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
@@ -58,6 +58,8 @@
   </button>
 </nav>
 
+<main id="main">
+
 <div class="resources-hero">
   <div class="eyebrow"><span class="dot"></span>Ressources gratuites</div>
   <h1>Des guides pour avancer plus sereinement.</h1>
@@ -66,15 +68,30 @@
 
 <div class="container">
   <div class="ebooks-grid" id="ebooksGrid">
+    <!--STATIC:ebooks-->
+<noscript>
+<ul>
+<li><a href="ressources/guide-choisir-developpeur-web.html">Le guide complet pour bien choisir son développeur ou son agence web</a> (8 pages). 8 pages, sans détour : les vrais coûts, les signaux d'alerte, et les questions à poser avant de signer.</li>
+</ul>
+</noscript>
+<!--/STATIC:ebooks-->
     <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
     <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
   </div>
   <p class="empty-state" id="emptyState" style="display:none;">Aucune ressource disponible pour le moment — revenez bientôt.</p>
 </div>
 
+</main>
+
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/conditions-utilisation.html">Conditions d'utilisation</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
     <a href="index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>
@@ -103,7 +120,7 @@
         grid.innerHTML = ebooks.map(e => `
         <a href="ressources/${e.slug}.html" class="ebook-card">
           <div class="cover">
-            ${e.cover ? `<img src="${e.cover}" alt="${e.title}">` : `
+            ${e.cover ? `<img src="${e.cover}" alt="Couverture du guide : ${e.title}">` : `
             <svg viewBox="0 0 100 100" fill="none"><path d="M15 20 L55 50 L15 80" stroke="#EDEDEA" stroke-width="9" stroke-linecap="square"/><path d="M30 30 L62 50 L30 70" stroke="#E0454F" stroke-width="7" stroke-linecap="square"/></svg>
             <div class="tag">Guide gratuit</div>
             <h3>${e.title}</h3>`}

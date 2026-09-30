@@ -137,3 +137,14 @@ Sur un contrat où Agnissan délègue le développement à un collaborateur fron
 - Titres : Newsreader (serif)
 - Texte courant : Inter
 - Labels / eyebrows : JetBrains Mono
+
+---
+
+## Pages légales, cookies et conformité
+
+- `politique-confidentialite.html`, `conditions-utilisation.html` (inclut remboursement), `politique-cookies.html` : pages écrites à la main, liées dans tous les pieds de page.
+- `js/consent.js` : bannière de consentement. Google Analytics ne se charge qu'après clic sur « Accepter ». Pour ajouter un nouvel outil de suivi, le déclarer ici ET dans la politique des cookies.
+- `fonts/` : polices auto-hébergées (aucune requête vers Google Fonts). Déclarées en haut de `css/styles.css`.
+- `scripts/build-static.js` : injecte des listes `<noscript>` (projets, articles, ressources, emplois) pour les robots et agents IA. Ne pas supprimer les repères `<!--STATIC:...-->`.
+- `llms.txt` et `robots.txt` : description du site pour les assistants IA.
+- Après tout changement de collecte de données (nouveau formulaire, nouveau prestataire), mettre à jour la politique de confidentialité.

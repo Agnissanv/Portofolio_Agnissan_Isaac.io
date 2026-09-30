@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMGV53DTSL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NMGV53DTSL');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — Code A-Z</title>
 <meta name="description" content="Articles sur le développement web, la performance et le design d'interface, par l'équipe Code A-Z.">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script defer src="/js/consent.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -86,8 +76,9 @@
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation principale">
   <a href="index.html#hero" class="logo">
     <img class="logo-light" src="images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
     <img class="logo-dark" src="images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
@@ -104,6 +95,8 @@
   </button>
 </nav>
 
+<main id="main">
+
 <div class="blog-hero">
   <div class="eyebrow"><span class="dot"></span>Blog</div>
   <h1>Notes sur le web, la performance et le design.</h1>
@@ -112,20 +105,47 @@
 
 <div class="container">
   <div class="blog-controls">
-    <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un article...">
+    <input type="search" class="search-input" id="searchInput" aria-label="Rechercher un article" placeholder="Rechercher un article...">
     <div class="tag-filters" id="tagFilters"></div>
   </div>
   <div id="featuredSlot"></div>
   <div class="post-grid" id="postGrid">
+    <!--STATIC:posts-->
+<noscript>
+<ul>
+<li><a href="blog/souverainete-ia-cote-ivoire-impact-entreprises.html">Souveraineté IA en Côte d'Ivoire : ce que le Pacte national change (vraiment) pour votre entreprise</a> — 30 septembre 2026. La Côte d'Ivoire vient de poser les premiers jalons d'une IA pensée localement. Voici ce que ça change, au-delà du symbole, pour les entrepreneurs qui n'ont ni data scientist ni budget de grand groupe.</li>
+<li><a href="blog/optimiser-site-web-reponses-chatgpt-gemini.html">Comment optimiser son site web pour apparaître dans les réponses de ChatGPT et Gemini ?</a> — 4 septembre 2026. Vos clients ne tapent plus 'meilleur développeur web Abidjan' sur Google — ils le demandent directement à ChatGPT. Voici comment faire en sorte que votre site soit la réponse citée, pas celle ignorée.</li>
+<li><a href="blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images.html">Pourquoi vos clients détestent les photos de banque d'images (et par quoi les remplacer)</a> — 22 août 2026. Le costume-cravate qui sourit devant un ordinateur, la poignée de main devant un fond blanc : ces images ne convainquent plus personne. Voici pourquoi, et comment les remplacer sans budget photographe professionnel.</li>
+<li><a href="blog/prix-reel-site-web-auto-entrepreneur-2026.html">Quel est le prix réel d'un site web pour un auto-entrepreneur en 2026 ?</a> — 15 août 2026. 150 000 FCFA, c'est cher ou pas cher pour un site web ? La vraie réponse : ça dépend de ce qui est réellement inclus. Voici tous les coûts, visibles et cachés, décomposés ligne par ligne.</li>
+<li><a href="blog/creer-site-web-professionnel-ia-10-minutes-gratuit.html">Créer un site web professionnel avec l'IA en moins de 10 minutes (et gratuitement) ? Ce qu'en disent vraiment les utilisateurs</a> — 10 août 2026. Durable, Wix AI, Framer AI : trois générateurs de sites par intelligence artificielle passés au crible à travers des centaines d'avis réels. Ce qu'ils font vraiment bien, ce qu'ils ne font pas, et si un site généré par IA peut remplacer un vrai développeur.</li>
+<li><a href="blog/premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant.html">Premier client, premier virement : ce que personne ne vous dit avant</a> — 3 août 2026. La première notification de paiement en tant que freelance ne ressemble à rien de ce qu'on imagine avant de la recevoir. Voici ce qui se passe vraiment, et ce qu'il faut anticiper.</li>
+<li><a href="blog/pourquoi-un-site-lent-vous-coute-des-clients.html">Pourquoi un site lent vous coûte des clients</a> — 27 juillet 2026. Deux secondes de chargement en plus, et une bonne partie de vos visiteurs sont déjà repartis. Voici ce qui ralentit un site, et comment le corriger sans tout reconstruire.</li>
+<li><a href="blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire.html">Peut-on vraiment vivre du développement web en Côte d'Ivoire ?</a> — 20 juillet 2026. Entre les clichés sur les métiers du numérique et la réalité du terrain ivoirien, un état des lieux honnête sur ce qui est possible aujourd'hui, et à quelles conditions.</li>
+<li><a href="blog/feuille-de-route-pour-devenir-un-bon-dev.html">Feuille de route pour devenir un bon développeur, sans se disperser</a> — 13 juillet 2026. Face à la quantité de langages, frameworks et ressources disponibles, savoir par où commencer et dans quel ordre progresser reste l'un des plus grands blocages des débutants.</li>
+<li><a href="blog/decrocher-un-premier-job-dev-sans-diplome.html">Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions</a> — 6 juillet 2026. Ni un diplôme ni une école ne garantissent une première mission de développeur — mais leur absence ne l'empêche pas non plus. Voici ce qui compte réellement pour un premier client ou un premier recruteur.</li>
+<li><a href="blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images.html">Découvrir PalettePick, l'outil qui extrait les couleurs de vos images</a> — 29 juin 2026. Comment transformer n'importe quelle image en palette de couleurs prête à coder, sans upload ni inscription — présentation de PalettePick, un outil développé par Code A-Z.</li>
+<li><a href="blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas.html">Burnout du développeur : les signes qui ne trompent pas</a> — 22 juin 2026. Coder la nuit, sauter des repas, ne plus décrocher de l'écran même le week-end : voici les signes d'épuisement à prendre au sérieux avant qu'ils ne s'installent.</li>
+<li><a href="blog/7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant.html">7 erreurs qui vous empêchent de gagner de l'argent en codant</a> — 15 juin 2026. Savoir coder ne suffit pas toujours à en vivre. Voici les erreurs les plus fréquentes chez les développeurs qui peinent à transformer leurs compétences en revenus réguliers.</li>
+</ul>
+</noscript>
+<!--/STATIC:posts-->
     <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
     <div class="skeleton-card"><div class="thumb"></div><div class="body"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90"></div><div class="skeleton-line w-60"></div></div></div>
   </div>
   <p class="empty-state" id="emptyState" style="display:none;">Aucun article ne correspond à votre recherche.</p>
 </div>
 
+</main>
+
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/conditions-utilisation.html">Conditions d'utilisation</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
     <a href="index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>
@@ -171,7 +191,7 @@
 
     featuredSlot.innerHTML = featured ? `
       <a href="blog/${featured.slug}.html" class="featured-post">
-        ${featured.cover ? `<div class="cover"><img src="${featured.cover}" alt="${featured.title}" loading="lazy"></div>` : ''}
+        ${featured.cover ? `<div class="cover"><img src="${featured.cover}" alt="Illustration de l'article : ${featured.title}" loading="lazy"></div>` : ''}
         <div class="body">
           <div class="label">Dernier article</div>
           <h2>${featured.title}</h2>
@@ -188,7 +208,7 @@
       empty.style.display = 'none';
       grid.innerHTML = posts.map(p => `
         <a href="blog/${p.slug}.html" class="post-card">
-          ${p.cover ? `<div class="cover"><img src="${p.cover}" alt="${p.title}" loading="lazy"></div>` : ''}
+          ${p.cover ? `<div class="cover"><img src="${p.cover}" alt="Illustration de l'article : ${p.title}" loading="lazy"></div>` : ''}
           <div class="body">
             <div class="meta"><span>${p.dateLabel}</span></div>
             <h3>${p.title}</h3>

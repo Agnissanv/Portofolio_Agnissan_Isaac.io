@@ -19,8 +19,12 @@ function build() {
   const urls = [];
 
   // Pages statiques
-  urls.push({ loc: `${SITE_URL}/index.html`, lastmod: today, priority: '1.0' });
+  urls.push({ loc: `${SITE_URL}/`, lastmod: today, priority: '1.0' });
   urls.push({ loc: `${SITE_URL}/blog.html`, lastmod: today, priority: '0.8' });
+  urls.push({ loc: `${SITE_URL}/ressources.html`, lastmod: today, priority: '0.6' });
+  urls.push({ loc: `${SITE_URL}/politique-confidentialite.html`, lastmod: today, priority: '0.3' });
+  urls.push({ loc: `${SITE_URL}/conditions-utilisation.html`, lastmod: today, priority: '0.3' });
+  urls.push({ loc: `${SITE_URL}/politique-cookies.html`, lastmod: today, priority: '0.3' });
   urls.push({ loc: `${SITE_URL}/emploi/index.html`, lastmod: today, priority: '0.6' });
   urls.push({ loc: `${SITE_URL}/emploi/pourquoi-nous-rejoindre.html`, lastmod: today, priority: '0.5' });
 
@@ -28,6 +32,12 @@ function build() {
   const posts = readJsonSafe(path.join(ROOT, 'blog', 'posts.json'));
   posts.forEach(p => {
     urls.push({ loc: `${SITE_URL}/blog/${p.slug}.html`, lastmod: p.date, priority: '0.7' });
+  });
+
+  // Ressources gratuites
+  const ebooks = readJsonSafe(path.join(ROOT, 'ressources', 'ebooks.json'));
+  ebooks.forEach(e => {
+    urls.push({ loc: `${SITE_URL}/ressources/${e.slug}.html`, lastmod: today, priority: '0.5' });
   });
 
   // Fiches de poste

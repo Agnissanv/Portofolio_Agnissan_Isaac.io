@@ -8,15 +8,23 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Méthode non autorisée' });
   }
 
-  const { fullname, email, hasCompany, hasWebsite, ebookId, companyName, websiteUrl } = req.body || {};
+  const { fullname, email, hasCompany, hasWebsite, ebookId, companyName, websiteUrl, consent, newsletterConsent } = req.body || {};
+
+  // Échappe le texte saisi par le visiteur avant de l'insérer dans un e-mail HTML
+  const escapeHtml = (v) => String(v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const clip = (v, max) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
 
   // Validation côté serveur (ne jamais faire confiance uniquement au navigateur)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   if (!fullname || typeof fullname !== 'string' || fullname.trim().length < 2) {
     return res.status(400).json({ error: 'Nom invalide' });
   }
-  if (!email || !emailRegex.test(email)) {
+  if (!email || typeof email !== 'string' || email.length > 254 || !emailRegex.test(email)) {
     return res.status(400).json({ error: 'Email invalide' });
+  }
+  // Consentement obligatoire pour l'envoi du guide (minimisation : rien n'est stocké sans lui)
+  if (consent !== true) {
+    return res.status(400).json({ error: 'Consentement requis' });
   }
 
     // Liste des ebooks disponibles — ajouter une ligne ici pour chaque nouvel ebook
@@ -44,11 +52,11 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         sender: { name: 'Code A-Z', email: 'contact@agnissanisaac.com' },
-        to: [{ email, name: fullname }],
+        to: [{ email, name: clip(fullname, 100) }],
                 subject: `Votre guide : ${ebook.title}`,
         htmlContent: `
           <div style="font-family:Arial,sans-serif; max-width:520px; margin:0 auto; color:#181816;">
-            <h2 style="color:#181816;">Bonjour ${fullname.split(' ')[0]},</h2>
+            <h2 style="color:#181816;">Bonjour ${escapeHtml(fullname.trim().split(' ')[0].slice(0, 60))},</h2>
             <p>Merci d'avoir demandé le guide. Vous pouvez le télécharger dès maintenant :</p>
             <p style="margin:28px 0;">
               <a href="${DOWNLOAD_URL}" style="background:#C6303E; color:#fff; padding:14px 28px; border-radius:999px; text-decoration:none; font-weight:bold;">
@@ -70,7 +78,11 @@ export default async function handler(req, res) {
       return res.status(502).json({ error: "L'envoi de l'email a échoué" });
     }
 
-    // 2) Enregistrement du contact dans Brevo (pour retrouver la liste plus tard)
+    // 2) Enregistrement du contact dans Brevo : uniquement si le visiteur a explicitement
+    //    coché la case facultative « recevoir des conseils par e-mail »
+    if (newsletterConsent !== true) {
+      return res.status(200).json({ success: true });
+    }
     await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
@@ -81,11 +93,11 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         email,
                 attributes: {
-          FIRSTNAME: fullname,
-          HAS_COMPANY: hasCompany || 'Non renseigné',
-          COMPANY_NAME: companyName || '',
-          HAS_WEBSITE: hasWebsite || 'Non renseigné',
-          WEBSITE_URL: websiteUrl || '',
+          FIRSTNAME: clip(fullname, 100),
+          HAS_COMPANY: clip(hasCompany, 20) || 'Non renseigné',
+          COMPANY_NAME: clip(companyName, 150),
+          HAS_WEBSITE: clip(hasWebsite, 20) || 'Non renseigné',
+          WEBSITE_URL: clip(websiteUrl, 200),
           SOURCE: `Ebook — ${ebook.title}`
         },
         updateEnabled: true

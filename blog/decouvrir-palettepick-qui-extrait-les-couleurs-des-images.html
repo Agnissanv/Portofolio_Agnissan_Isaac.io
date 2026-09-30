@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMGV53DTSL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NMGV53DTSL');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Découvrir PalettePick, l'outil qui extrait les couleurs de vos images — Blog Code A-Z</title>
@@ -33,9 +24,8 @@
   "publisher": { "@type": "Organization", "name": "Code A-Z" }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
+<script defer src="/js/consent.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -113,10 +103,11 @@
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
 <div class="reading-progress" id="readingProgress"></div>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation principale">
   <a href="../index.html#hero" class="logo">
     <img class="logo-light" src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
     <img class="logo-dark" src="../images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
@@ -141,7 +132,7 @@
     </div>
     <h1>Découvrir PalettePick, l'outil qui extrait les couleurs de vos images</h1>
   </header>
-  <div class="article-cover"><img src="../images/blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images/cover.webp" alt="Découvrir PalettePick, l'outil qui extrait les couleurs de vos images" loading="lazy"></div>
+  <div class="article-cover"><img src="../images/blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images/cover.webp" alt="Illustration de l'article : Découvrir PalettePick, l'outil qui extrait les couleurs de vos images" loading="lazy"></div>
 
   <div class="article-layout">
     <div class="article-body">
@@ -207,6 +198,8 @@
       <div class="toc-label">Sommaire</div>
       <a href="#le-principe">Le principe</a><a href="#ce-qui-le-differencie-d-un-simple-outil-de-couleurs">Ce qui le différencie d’un simple outil de couleurs</a><a href="#comment-ca-fonctionne-en-trois-etapes">Comment ça fonctionne, en trois étapes</a><a href="#pour-qui-c-est-utile">Pour qui c’est utile</a><a href="#essayer-l-outil">Essayer l’outil</a>
     </nav>
+
+<main id="main">
   </div>
 
   
@@ -215,7 +208,7 @@
       <div class="related-grid">
         
           <a href="pourquoi-vos-clients-detestent-les-photos-de-banque-images.html" class="related-card">
-            <div class="cover"><img src="../images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover.png" alt="Pourquoi vos clients détestent les photos de banque d'images (et par quoi les remplacer)" loading="lazy"></div>
+            <div class="cover"><img src="../images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover.png" alt="Illustration de l'article : Pourquoi vos clients détestent les photos de banque d'images (et par quoi les remplacer)" loading="lazy"></div>
             <div class="body">
               <div class="meta">22 août 2026</div>
               <h3>Pourquoi vos clients détestent les photos de banque d'images (et par quoi les remplacer)</h3>
@@ -230,9 +223,17 @@
     </nav>
 </article>
 
+</main>
+
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/conditions-utilisation.html">Conditions d'utilisation</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
     <a href="../index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>

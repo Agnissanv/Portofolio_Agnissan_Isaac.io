@@ -75,7 +75,9 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
     <nav class="toc" id="toc">
       <div class="toc-label">Sommaire</div>
       ${toc.map(item => `<a href="#${item.id}">${item.text}</a>`).join('')}
-    </nav>` : '';
+    </nav>
+
+<main id="main">` : '';
 
   const relatedHtml = related.length ? `
     <section class="related-section">
@@ -83,7 +85,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
       <div class="related-grid">
         ${related.map(r => `
           <a href="${r.slug}.html" class="related-card">
-            ${r.cover ? `<div class="cover"><img src="../${r.cover}" alt="${r.title}" loading="lazy"></div>` : ''}
+            ${r.cover ? `<div class="cover"><img src="../${r.cover}" alt="Illustration de l'article : ${r.title}" loading="lazy"></div>` : ''}
             <div class="body">
               <div class="meta">${r.dateLabel}</div>
               <h3>${r.title}</h3>
@@ -101,15 +103,6 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMGV53DTSL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NMGV53DTSL');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${post.title} — Blog Code A-Z</title>
@@ -133,9 +126,8 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   "publisher": { "@type": "Organization", "name": "Code A-Z" }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
+<script defer src="/js/consent.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -213,10 +205,11 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
 <div class="reading-progress" id="readingProgress"></div>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation principale">
   <a href="../index.html#hero" class="logo">
     <img class="logo-light" src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
     <img class="logo-dark" src="../images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
@@ -241,7 +234,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
     </div>
     <h1>${post.title}</h1>
   </header>
-  ${post.cover ? `<div class="article-cover"><img src="../${post.cover}" alt="${post.title}" loading="lazy"></div>` : ''}
+  ${post.cover ? `<div class="article-cover"><img src="../${post.cover}" alt="Illustration de l'article : ${post.title}" loading="lazy"></div>` : ''}
 
   <div class="article-layout">
     <div class="article-body">
@@ -284,9 +277,17 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   ${prevNextHtml}
 </article>
 
+</main>
+
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/conditions-utilisation.html">Conditions d'utilisation</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
     <a href="../index.html#contact">Discuter d'un projet →</a>
   </div>
 </footer>

@@ -115,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ---------- Lightbox (zoom image + navigation) ---------- */
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox-overlay';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', "Visionneuse d'images");
     lightbox.innerHTML = `
       <button class="lightbox-close" aria-label="Fermer l'image">&times;</button>
       <button class="lightbox-nav lightbox-prev" aria-label="Image précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -182,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     grid.innerHTML = PROJECTS.map(p => `
       <article class="project-card" data-category="${p.category}" data-id="${p.id}" tabindex="0" role="button" aria-label="Voir le projet ${p.title}">
-        <div class="thumb"><img src="${p.thumb}" alt="Aperçu — ${p.title}" loading="lazy"></div>
+        <div class="thumb"><img src="${p.thumb}" alt="Aperçu du projet ${p.title} — ${p.categoryLabel}" loading="lazy"></div>
         <div class="body">
           <div class="cat">${p.categoryLabel}</div>
           <h4>${p.title}</h4>
@@ -261,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (p.category === 'app') galleryClass = 'modal-gallery app-layout';
       modalBox.innerHTML = `
         <div class="${galleryClass}">
-          ${p.gallery.map(src => `<img src="${src}" alt="Capture — ${p.title}" loading="lazy">`).join('')}
+          ${p.gallery.map((src, i) => `<img src="${src}" alt="${(p.galleryAlts && p.galleryAlts[i]) || `${p.title} — ${p.categoryLabel} : image ${i + 1} sur ${p.gallery.length}`}" loading="lazy">`).join('')}
         </div>
         <div class="modal-content">
           <div class="cat">${p.categoryLabel} · ${p.year}</div>
@@ -410,7 +413,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ---------- FAQ ---------- */
 document.querySelectorAll('.faq-entry').forEach(entry => {
-  entry.querySelector('.faq-entry-q').addEventListener('click', () => entry.classList.toggle('open'));
+  const q = entry.querySelector('.faq-entry-q');
+  q.setAttribute('aria-expanded', 'false');
+  q.addEventListener('click', () => {
+    const open = entry.classList.toggle('open');
+    q.setAttribute('aria-expanded', String(open));
+  });
 });
 
   /* ---------- Onglets contact (formulaire / réponse rapide) ---------- */

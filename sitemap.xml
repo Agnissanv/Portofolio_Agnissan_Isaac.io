@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://agnissanisaac.com/index.html</loc>
+    <loc>https://agnissanisaac.com/</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>1.0</priority>
   </url>
@@ -9,6 +9,26 @@
     <loc>https://agnissanisaac.com/blog.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agnissanisaac.com/ressources.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://agnissanisaac.com/politique-confidentialite.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://agnissanisaac.com/conditions-utilisation.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://agnissanisaac.com/politique-cookies.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/index.html</loc>
@@ -84,6 +104,11 @@
     <loc>https://agnissanisaac.com/blog/7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant.html</loc>
     <lastmod>2026-06-15</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agnissanisaac.com/ressources/guide-choisir-developpeur-web.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/commercial-digital-independant.html</loc>

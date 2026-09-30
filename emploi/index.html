@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMGV53DTSL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NMGV53DTSL');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emplois — Code A-Z</title>
 <meta name="description" content="Les postes ouverts chez Code A-Z : commercial digital, développement front-end et back-end.">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
+<script defer src="/js/consent.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -32,7 +22,7 @@
     padding:30px 32px; text-decoration:none; transition:all .25s ease; flex-wrap:wrap;
   }
   .job-card:hover{ border-color:var(--accent); transform:translateX(4px); }
-  .job-card .status{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#3E7A4C; margin-bottom:10px; letter-spacing:0.04em; }
+  .job-card .status{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ok); margin-bottom:10px; letter-spacing:0.04em; }
   .job-card .status .pulse{ width:6px; height:6px; border-radius:50%; background:#3E7A4C; }
   .job-card h3{ color:var(--text); font-size:1.3rem; margin-bottom:8px; }
   .job-card .excerpt{ font-size:14px; max-width:520px; line-height:1.6; }
@@ -56,8 +46,9 @@
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Aller au contenu</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation principale">
   <a href="../index.html#hero" class="logo">
     <img class="logo-light" src="../images/Code_A-Z_Logo-no-bg.png" alt="Code A-Z">
     <img class="logo-dark" src="../images/Code_A-Z_Logo-no-bg2.png" alt="Code A-Z">
@@ -73,6 +64,8 @@
     <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
   </button>
 </nav>
+
+<main id="main">
 
 <div class="jobs-hero">
   <div class="eyebrow"><span class="dot"></span>Emplois</div>
@@ -90,14 +83,31 @@
     <span class="arrow">→</span>
   </a>
   <div class="jobs-list" id="jobsList">
+    <!--STATIC:jobs-->
+<noscript>
+<ul>
+<li><a href="commercial-digital-independant.html">Commercial digital indépendant (H/F)</a> — Recrutement ouvert. Prospecter des entreprises et indépendants qui ont besoin d'un site web, présenter le portfolio Code A-Z, et toucher une commission sur chaque contrat signé. (Freelance / indépendant · Distanciel — partout dans le monde)</li>
+<li><a href="developpeur-back-end.html">Développeur back-end (H/F)</a> — Recrutement ouvert. Concevoir la logique serveur, les bases de données et les intégrations techniques des projets Code A-Z qui en ont besoin. (Freelance / collaboration projet · Distanciel — Côte d'Ivoire et alentours)</li>
+<li><a href="developpeur-front-end.html">Développeur front-end (H/F)</a> — Recrutement ouvert. Intervenir en renfort sur des projets clients Code A-Z : intégration d'interfaces, animations et optimisation de la performance. (Freelance / collaboration projet · Distanciel — Côte d'Ivoire et alentours)</li>
+</ul>
+</noscript>
+<!--/STATIC:jobs-->
     <div class="skeleton-card" style="padding:30px 32px;"><div class="skeleton-line w-40"></div><div class="skeleton-line w-90" style="margin-top:14px;"></div><div class="skeleton-line w-60"></div></div>
   </div>
   <p class="empty-state" id="emptyState" style="display:none;">Aucun poste ouvert pour le moment — revenez bientôt.</p>
 </div>
 
+</main>
+
 <footer>
   <div class="container footer-bottom">
     <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/conditions-utilisation.html">Conditions d'utilisation</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
     <a href="../index.html#contact">Une question ? Contactez-nous →</a>
   </div>
 </footer>
