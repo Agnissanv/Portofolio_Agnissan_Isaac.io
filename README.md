@@ -157,3 +157,5 @@ Sur un contrat où Agnissan délègue le développement à un collaborateur fron
 - Vercel envoie tout seul les notifications chaque jour à 08:00 (`api/notify.js`, planifié dans `vercel.json`).
 - Pour envoyer tout de suite : après la mise en ligne, `npm run notify` (`-- --dry-run` pour simuler).
 - `notify-index.json` est généré par le build : ne pas l'éditer.
+
+- `js/mesh-flow.js` : fond interactif (grille qui se creuse vers le curseur). Pour l'ajouter ailleurs : mettre `data-mesh` sur un bloc pleine largeur et charger le script. Désactivé si « réduire les animations ».
