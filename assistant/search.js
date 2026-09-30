@@ -26,7 +26,7 @@
     'blog article articles lire lecture billet',
     'emploi emplois job recrutement recrute recruter candidature candidat postuler poste travailler rejoindre carriere',
     'restaurant resto maquis gargote bar cafe traiteur cuisine restauration',
-    'avocat avocats juriste droit juridique cabinet notaire',
+    'avocat avocats juriste droit juridique notaire',
     'ecole college lycee scolaire formation eleve parent universite enseignement',
     'hotel residence hebergement auberge sejour chambre airbnb meuble',
     'btp construction batiment chantier travaux maconnerie architecte decoration',
@@ -34,7 +34,7 @@
     'coiffure coiffeur salon beaute ongle ongles esthetique tresses institut perruque',
     'transport livraison livrer colis location vehicule voiture taxi demenagement',
     'agro agriculture agricole cacao cajou karite cooperative recolte agroalimentaire',
-    'sante hopital clinique medecin pharmacie dentaire docteur medical',
+    'sante hopital clinique medecin pharmacie dentaire docteur medical soin soins patient cabinet',
     'application appli app mobile android ios',
     'remboursement rembourser annulation annuler retractation satisfait acompte garantie',
     'delai duree temps rapide livre',
@@ -46,6 +46,7 @@
     'projet projets realisation realisations exemple exemples reference references portfolio'
   ].map(function (g) { return g.split(' '); });
   function stemEarly(t) {
+    if (t.length > 5 && /aux$/.test(t)) return t.slice(0, -3) + 'al';
     if (t.length > 4 && /[sx]$/.test(t)) t = t.slice(0, -1);
     if (t.length > 6 && /(ez|er)$/.test(t)) t = t.slice(0, -2);
     else if (t.length > 5 && /e$/.test(t)) t = t.slice(0, -1);
@@ -62,6 +63,7 @@
     return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’'`]/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim();
   }
   function stem(t) {
+    if (t.length > 5 && /aux$/.test(t)) return t.slice(0, -3) + 'al';
     if (t.length > 4 && /[sx]$/.test(t)) t = t.slice(0, -1);
     if (t.length > 6 && /(ez|er)$/.test(t)) t = t.slice(0, -2);
     else if (t.length > 5 && /e$/.test(t)) t = t.slice(0, -1);
