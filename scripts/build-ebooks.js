@@ -33,6 +33,7 @@ function pageTemplate(ebook) {
 <link rel="stylesheet" href="../css/styles.css">
 <script defer src="/js/consent.js"></script>
 <script defer src="/js/push.js"></script>
+<script defer src="/js/assistant.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <style>
   .resource-hero{ max-width:820px; margin:0 auto; padding:90px 32px 60px; text-align:center; }

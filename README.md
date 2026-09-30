@@ -161,3 +161,12 @@ Sur un contrat où Agnissan délègue le développement à un collaborateur fron
 - `js/mesh-flow.js` : fond interactif (grille qui se creuse vers le curseur). Pour l'ajouter ailleurs : mettre `data-mesh` sur un bloc pleine largeur et charger le script. Désactivé si « réduire les animations ».
 
 - Mesh Flow v2 est ACTIF pour tous. Le couper sur un appareil : ajouter ?mesh=0 à l'adresse. Le couper pour tous : ENABLED_BY_DEFAULT = false dans js/mesh-flow.js. Il s'arrête seul et définitivement sur un appareil où il est lent.
+
+---
+
+## Assistante virtuelle (Aya)
+
+- `js/assistant.js` + `assistant/search.js` : fenêtre de discussion sur toutes les pages. Phase 1 = recherche dans le site (gratuite, rien n'est envoyé). Phase 2 = IA gratuite Groq via `api/assistant.js`, seulement avec l'accord du visiteur.
+- `assistant/kb.json` est généré par `npm run build` (`scripts/build-assistant.js`) à partir du vrai contenu du site : ne pas l'éditer à la main.
+- Le nom se change dans `assistant/persona.json`, puis `npm run build`.
+- Phase 2 : créer une clé sur console.groq.com, l'ajouter en `GROQ_API_KEY` (Vercel + `.env`) et exécuter `supabase/assistant.sql` dans Supabase.
