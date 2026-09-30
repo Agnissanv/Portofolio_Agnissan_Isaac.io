@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "node scripts/build-blog.js && node scripts/build-jobs.js && node scripts/build-projects.js && node scripts/build-ebooks.js && node scripts/build-static.js && node scripts/build-meta.js && node scripts/build-sitemap.js"
+    "build": "node scripts/build-blog.js && node scripts/build-jobs.js && node scripts/build-projects.js && node scripts/build-ebooks.js && node scripts/build-static.js && node scripts/build-meta.js && node scripts/build-sitemap.js",
+    "vapid": "node scripts/generate-vapid.js",
+    "notify": "node --env-file=.env scripts/send-push.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "markdown-it": "^15.0.0"
+    "markdown-it": "^15.0.0",
+    "web-push": "^3.6.7"
   }
 }

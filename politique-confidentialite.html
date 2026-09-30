@@ -16,6 +16,7 @@
 <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/js/consent.js"></script>
+<script defer src="/js/push.js"></script>
 </head>
 <body>
 <a href="#main" class="skip-link">Aller au contenu</a>
@@ -117,6 +118,13 @@
         <td>Durée du contrat, puis 5 ans</td>
       </tr>
       <tr>
+        <th scope="row">Notifications de nouveautés (facultatif)</th>
+        <td>Adresse technique d'abonnement fournie par votre navigateur (aucun nom, aucun e-mail)</td>
+        <td>Vous prévenir d'un nouvel article, projet ou poste</td>
+        <td>Votre consentement : clic sur « Recevoir les nouveautés » puis autorisation de votre navigateur</td>
+        <td>Jusqu'à votre désabonnement ou l'expiration de l'abonnement par le navigateur</td>
+      </tr>
+      <tr>
         <th scope="row">Mesure d'audience Vercel Analytics</th>
         <td>Pages vues, pays, type d'appareil et de navigateur, sans cookie ni identifiant permanent, sans profil individuel</td>
         <td>Savoir quelles pages sont lues, corriger les problèmes</td>
@@ -149,6 +157,7 @@
   <ul>
     <li><strong>Vercel Inc.</strong> (États-Unis) : hébergement du site, mesure d'audience sans cookie, fonction d'envoi de l'ebook.</li>
     <li><strong>Web3Forms</strong> : transmission des messages du formulaire de contact vers notre boîte e-mail.</li>
+    <li><strong>Supabase</strong> : stockage des abonnements aux notifications (base de données).</li>
     <li><strong>Brevo</strong> (France) : envoi de l'e-mail contenant le guide et, si vous l'avez demandé, envoi de conseils par e-mail.</li>
     <li><strong>Google LLC</strong> (États-Unis) : Google Analytics, seulement avec votre accord ; Google Forms pour certaines candidatures.</li>
     <li><strong>WhatsApp (Meta)</strong> : seulement si vous cliquez sur un bouton WhatsApp. Les liens vers LinkedIn, Facebook, Instagram et les boutons de partage ne transmettent rien tant que vous ne cliquez pas dessus.</li>
@@ -167,7 +176,7 @@
     <li>retirer votre consentement (sans effet sur ce qui a été fait avant) ;</li>
     <li>demander la limitation du traitement et la portabilité de vos données, si vous relevez du RGPD.</li>
   </ul>
-  <p>Pour cela, écrivez à <a href="mailto:valenbouge@gmail.com">valenbouge@gmail.com</a> en précisant votre demande. Nous pouvons vous demander de prouver votre identité et nous répondons dans les meilleurs délais, au plus tard sous 30 jours. Vous pouvez aussi vous désinscrire des e-mails en un clic depuis le lien présent dans chacun d'eux.</p>
+  <p>Pour cela, écrivez à <a href="mailto:valenbouge@gmail.com">valenbouge@gmail.com</a> en précisant votre demande. Nous pouvons vous demander de prouver votre identité et nous répondons dans les meilleurs délais, au plus tard sous 30 jours. Vous pouvez aussi vous désinscrire des e-mails en un clic depuis le lien présent dans chacun d'eux. Pour les notifications, cliquez sur « Désactiver les notifications » en bas de page, ou bloquez-les dans les paramètres de votre navigateur.</p>
   <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir l'ARTCI, autorité de protection des données personnelles en Côte d'Ivoire : <a href="https://www.autoritedeprotection.ci/" target="_blank" rel="noopener">autoritedeprotection.ci</a> (ou l'autorité de votre pays de résidence).</p>
 
   <h2 id="securite">6. Sécurité</h2>

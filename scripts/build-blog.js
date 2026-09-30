@@ -128,6 +128,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 </script>
 <link rel="stylesheet" href="../css/styles.css">
 <script defer src="/js/consent.js"></script>
+<script defer src="/js/push.js"></script>
 <script>if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>

@@ -16,6 +16,7 @@
 <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/js/consent.js"></script>
+<script defer src="/js/push.js"></script>
 </head>
 <body>
 <a href="#main" class="skip-link">Aller au contenu</a>
@@ -73,6 +74,13 @@
         <td>Se souvenir du thème clair ou sombre que vous avez choisi</td>
         <td>Jusqu'à effacement par vous</td>
         <td>Non, préférence demandée par vous</td>
+      </tr>
+      <tr>
+        <th scope="row">Service worker <code>sw.js</code> et abonnement aux notifications</th>
+        <td>Code A-Z</td>
+        <td>Recevoir les notifications de nouveautés, uniquement si vous cliquez sur « Recevoir les nouveautés » et autorisez votre navigateur</td>
+        <td>Jusqu'à votre désabonnement</td>
+        <td><strong>Oui</strong>, par votre clic puis l'autorisation du navigateur</td>
       </tr>
       <tr>
         <th scope="row"><code>_ga</code>, <code>_ga_NMGV53DTSL</code></th>
