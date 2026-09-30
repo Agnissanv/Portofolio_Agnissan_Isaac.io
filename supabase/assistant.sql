@@ -28,6 +28,3 @@ $$;
 
 revoke all on function assistant_hit(text) from public, anon, authenticated;
 grant execute on function assistant_hit(text) to service_role;
-
--- Demande à Supabase de recharger son schéma (sans ça, la fonction peut rester invisible quelques minutes).
-notify pgrst, 'reload schema';

@@ -86,7 +86,7 @@
     items.forEach(function (it) {
       var b = $('button', 'asst-chip', it.label);
       b.type = 'button';
-      b.addEventListener('click', function () { wrap.remove(); it.run ? it.run() : ask(it.q || it.label); });
+      b.addEventListener('click', function () { wrap.remove(); it.run ? it.run() : ask(it.q || it.label, true); });
       wrap.appendChild(b);
     });
     el.log.appendChild(wrap);
@@ -159,38 +159,64 @@
     return false;
   }
 
-  function notFound(text) {
+  function notFound(text, noAI) {
     say('Je n’ai pas trouvé exactement ça, mais je ne vous laisse pas repartir les mains vides. 😊');
     chips([
       { label: 'Voir les tarifs', q: 'Combien coûte un site web ?' },
       { label: 'Voir le portfolio', run: function () { cards([{ type: 'page', title: 'Portfolio (réalisations)', url: '/#portfolio' }]); } },
       { label: 'Vous contacter', q: 'Comment vous contacter ?' }
     ]);
-    offerAI(text);
+    if (!noAI) offerAI(text);
   }
 
-  /* ---------- phase 2 : IA gratuite ---------- */
+  /* ---------- IA conversationnelle (en premier) ; la recherche du site sert de filet de sécurité ---------- */
+  var AI_PAUSE_MS = 10 * 60 * 1000;             // après un quota atteint ou une panne, on n'insiste pas pendant 10 min
+  function aiUsable() { return state.ai === true && !state.declined && Date.now() > (state.aiOffUntil || 0); }
+
   function offerAI(text) {
-    if (!state.ai || !text || text.split(/\s+/).length < 2) return;
+    if (!aiUsable() || store('get', CONSENT_KEY) === '1' || !text || text.split(/\s+/).length < 2) return;
     chips([{ label: '✨ Poser ma question à l’IA', run: function () { askAI(text); } }]);
   }
 
-  function consentBubble(then) {
+  function consentBubble(then, declined) {
     var b = bubble('bot');
-    b.appendChild($('div', null, 'Pour répondre à une question libre, je m’appuie sur un service d’intelligence artificielle externe (Groq, États-Unis). Votre message lui est transmis, sans votre nom. Merci de ne pas y écrire de données personnelles.'));
+    b.appendChild($('div', null, 'Pour vous répondre avec mes mots, je m’appuie sur un service d’intelligence artificielle externe (Groq, États-Unis). Votre message lui est transmis, sans votre nom. Merci de ne pas y écrire de données personnelles.'));
     var more = $('a', 'asst-link', 'Détails dans la politique de confidentialité'); more.href = '/politique-confidentialite.html#donnees';
     b.appendChild($('div', 'asst-more')).appendChild(more);
     var row = $('div', 'asst-actions');
     var yes = $('button', 'asst-btn asst-btn-main', 'J’accepte'); yes.type = 'button';
     var no = $('button', 'asst-btn', 'Non merci'); no.type = 'button';
     yes.addEventListener('click', function () { store('set', CONSENT_KEY, '1'); row.remove(); then(); });
-    no.addEventListener('click', function () { row.remove(); say('Pas de souci ! Je continue avec la recherche dans le site. Vous pouvez aussi nous écrire directement sur WhatsApp. 😊'); });
+    no.addEventListener('click', function () {
+      row.remove(); state.declined = true;
+      say('Pas de souci ! Je vous réponds avec la recherche dans le site. 😊');
+      if (declined) declined();
+    });
     row.appendChild(yes); row.appendChild(no); b.appendChild(row);
     scrollDown();
   }
 
+  function contactButtons() {
+    var act = $('div', 'asst-actions');
+    [['WhatsApp', 'https://wa.me/2250546797258?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20Code%20A-Z.'], ['Appeler', 'tel:+2250546797258'], ['E-mail', 'mailto:valenbouge@gmail.com'], ['Formulaire', '/#contact']].forEach(function (x) {
+      var a = $('a', 'asst-btn', x[0]); a.href = x[1]; if (/^https/.test(x[1])) { a.target = '_blank'; a.rel = 'noopener'; } act.appendChild(a);
+    });
+    el.log.appendChild(act); scrollDown();
+  }
+
+  // Phase 1 : recherche dans le site (instantanée, gratuite)
+  function searchSite(text, notice) {
+    reply(function () {
+      if (notice) say(notice);
+      var res = state.engine.ask(text);
+      if (respond(res, text)) return;
+      notFound(text, true);
+    });
+  }
+
+  // Phase 2 : IA ; en cas d'échec (quota, panne, lenteur) on retombe sur la recherche
   function askAI(text) {
-    if (store('get', CONSENT_KEY) !== '1') { consentBubble(function () { askAI(text); }); return; }
+    if (store('get', CONSENT_KEY) !== '1') { consentBubble(function () { askAI(text); }, function () { searchSite(text); }); return; }
     if (state.busy) return;
     state.busy = true; typing(true);
     var ctl = window.AbortController ? new AbortController() : null;
@@ -205,12 +231,15 @@
         state.history.push({ role: 'user', content: text }, { role: 'assistant', content: x.d.reply });
         sayRich(x.d.reply);
         if (x.d.links && x.d.links.length) cards(x.d.links);
+        var local = state.engine && state.engine.ask(text);        // les coordonnées restent à un clic
+        if (local && local.answer && local.answer.id === 'page-contact') contactButtons();
       })
       .catch(function (e) {
         typing(false);
-        if (e && e.status === 429) say('J’ai beaucoup de questions en ce moment ! Je reviens vite, en attendant voici ce que je peux vous proposer. 😊');
-        else say('Petit souci de mon côté, désolée ! Voici ce que je peux vous proposer en attendant. 😊');
-        defaultChips();
+        state.aiOffUntil = Date.now() + AI_PAUSE_MS;
+        searchSite(text, e && e.status === 429
+          ? 'J’ai beaucoup de questions en ce moment ! Voici ce que j’ai trouvé dans le site :'
+          : 'Petit souci de mon côté, voici ce que j’ai trouvé dans le site :');
       })
       .then(function () { clearTimeout(timer); state.busy = false; });
   }
@@ -223,18 +252,17 @@
     [/(qui es[- ]tu|tu es qui|es[- ]tu (un|une) (robot|ia|humain|personne)|ton nom|comment (tu )?t.appelles)/i, function () { say('Je m’appelle ' + NAME + ', l’assistante virtuelle de Code A-Z. Je suis une intelligence artificielle, pas une personne : je vous guide dans le site, et pour tout le reste, l’équipe est joignable sur WhatsApp. 😊'); }]
   ];
 
-  function ask(text) {
+  // viaChip : les boutons rapides utilisent la recherche du site (réponses exactes, sans quota)
+  function ask(text, viaChip) {
     text = String(text || '').trim();
     if (!text) return;
     userSays(text);
     state.last = text;
-    whenReady(function () {
-      for (var i = 0; i < SMALLTALK.length; i++) if (SMALLTALK[i][0].test(text) && text.split(/\s+/).length <= 6) { reply(SMALLTALK[i][1]); return; }
-      reply(function () {
-        var res = state.engine.ask(text);
-        if (respond(res, text)) return;
-        if (state.ai && store('get', CONSENT_KEY) === '1') { askAI(text); return; }
-        notFound(text);
+    (state.aiCheck || Promise.resolve()).then(function () {
+      whenReady(function () {
+        for (var i = 0; i < SMALLTALK.length; i++) if (SMALLTALK[i][0].test(text) && text.split(/\s+/).length <= 6) { reply(SMALLTALK[i][1]); return; }
+        if (!viaChip && aiUsable()) { askAI(text); return; }       // IA d'abord
+        searchSite(text);                                          // sinon : recherche dans le site
       });
     });
   }
@@ -308,10 +336,10 @@
     if (open) {
       if (!greeted) {
         greeted = true;
-        say('Bonjour ! 😊 Je suis ' + NAME + ', l’assistante virtuelle de Code A-Z. Je peux vous guider : tarifs, exemples de sites par secteur, articles du blog, emplois, contact… Que cherchez-vous ?');
+        say('Bonjour ! 😊 Je suis ' + NAME + ', l’assistante virtuelle de Code A-Z. Posez-moi votre question avec vos mots : tarifs, exemples de sites par secteur, articles du blog, emplois, contact… Je suis là pour vous guider !');
         defaultChips();
         whenReady(function () {});                                   // précharge la mémoire dès l'ouverture
-        fetch('/api/assistant').then(function (r) { return r.ok ? r.json() : { enabled: false }; }).then(function (d) { state.ai = !!d.enabled; }).catch(function () { state.ai = false; });
+        state.aiCheck = fetch('/api/assistant').then(function (r) { return r.ok ? r.json() : { enabled: false }; }).then(function (d) { state.ai = !!d.enabled; }).catch(function () { state.ai = false; });
       }
       setTimeout(function () { if (matchMedia('(pointer:fine)').matches) el.input.focus(); }, 50);
     } else {

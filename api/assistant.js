@@ -17,8 +17,8 @@ const Search = require('../assistant/search.js');
 const SITE = 'https://www.agnissanisaac.com';
 const ALLOWED_ORIGINS = ['https://www.agnissanisaac.com', 'https://agnissanisaac.com'];
 const MODEL = () => process.env.GROQ_MODEL || 'openai/gpt-oss-20b';
-const DAILY_CAP = () => parseInt(process.env.ASSISTANT_DAILY_CAP, 10) || 400;       // messages IA par jour, pour tout le site
-const PER_VISITOR = () => parseInt(process.env.ASSISTANT_PER_VISITOR, 10) || 15;    // messages IA par visiteur et par jour
+const DAILY_CAP = () => parseInt(process.env.ASSISTANT_DAILY_CAP, 10) || 120;       // messages IA par jour, pour tout le site (reste sous le quota gratuit de Groq)
+const PER_VISITOR = () => parseInt(process.env.ASSISTANT_PER_VISITOR, 10) || 12;    // messages IA par visiteur et par jour
 
 let cache = { at: 0, kb: null, engine: null };
 async function getEngine() {
@@ -58,12 +58,13 @@ function visitorId(req) {
 
 // ---------- Consigne donnée à l'IA
 function systemPrompt(persona, passages) {
-  const infos = passages.map((e, i) => `[${i + 1}] ${e.title} (lien : ${e.url})\n${String(e.text).slice(0, 700)}`).join('\n\n');
+  const infos = passages.map((e, i) => `[${i + 1}] ${e.title} (lien : ${e.url})\n${String(e.text).slice(0, 600)}`).join('\n\n');
   return [
     `Tu es ${persona.name || 'Aya'}, ${persona.role || "l'assistante virtuelle de Code A-Z"}, agence de développement web et de design basée à Abidjan (site agnissanisaac.com).`,
     `Tu accueilles les visiteurs avec chaleur et sourire, en les vouvoyant. Tu es une intelligence artificielle : tu le dis simplement si on te le demande.`,
     `RÈGLES :`,
     `- Réponds UNIQUEMENT à partir des informations ci-dessous. Si l'information n'y figure pas, dis-le simplement et invite à contacter l'agence (WhatsApp +225 05 46 79 72 58, e-mail valenbouge@gmail.com, ou le formulaire [Contact](/#contact)).`,
+    `- Pour les prix, cite les montants exacts des informations ci-dessous, sans arrondir.`,
     `- N'invente jamais un prix, un délai, une garantie, un client ou un projet.`,
     `- Ne dis jamais que l'agence « ne propose pas » ou « ne fait pas » quelque chose : dis que tu n'as pas cette information et renvoie vers le contact.`,
     `- N'utilise pas de mise en forme (pas de gras, pas de tirets de liste, pas de tableau) : des phrases simples.`,
@@ -114,7 +115,7 @@ module.exports = async function handler(req, res) {
       model: MODEL(),
       messages: [{ role: 'system', content: systemPrompt(kb.persona || {}, passages) }, ...history, { role: 'user', content: message }],
       temperature: 0.3,
-      max_tokens: 420
+      max_tokens: 320
     };
     if (/^openai\/gpt-oss/.test(payload.model)) payload.reasoning_effort = 'low';
 
