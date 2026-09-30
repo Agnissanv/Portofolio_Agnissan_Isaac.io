@@ -6,6 +6,8 @@
 <title>Blog — Code A-Z</title>
 <meta name="description" content="Articles sur le développement web, la performance et le design d'interface, par l'équipe Code A-Z.">
 <meta name="robots" content="index, follow">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 <script defer src="/js/consent.js"></script>
 <script defer src="/js/push.js"></script>
@@ -199,7 +201,7 @@
 
     featuredSlot.innerHTML = featured ? `
       <a href="blog/${featured.slug}.html" class="featured-post">
-        ${featured.cover ? `<div class="cover"><img src="${featured.cover}" alt="Illustration de l'article : ${featured.title}" loading="lazy"></div>` : ''}
+        ${featured.cover ? `<div class="cover"><img src="${featured.thumb || featured.cover}" alt="Illustration de l'article : ${featured.title}" fetchpriority="high" decoding="async"></div>` : ''}
         <div class="body">
           <div class="label">Dernier article</div>
           <h2>${featured.title}</h2>
@@ -216,7 +218,7 @@
       empty.style.display = 'none';
       grid.innerHTML = posts.map(p => `
         <a href="blog/${p.slug}.html" class="post-card">
-          ${p.cover ? `<div class="cover"><img src="${p.cover}" alt="Illustration de l'article : ${p.title}" loading="lazy"></div>` : ''}
+          ${p.cover ? `<div class="cover"><img src="${p.thumb || p.cover}" alt="Illustration de l'article : ${p.title}" loading="lazy" decoding="async"></div>` : ''}
           <div class="body">
             <div class="meta"><span>${p.dateLabel}</span></div>
             <h3>${p.title}</h3>

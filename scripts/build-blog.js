@@ -60,6 +60,13 @@ function insertMidArticleCTA(html) {
   return paragraphs.join('</p>');
 }
 
+// Variante d'une image de couverture (ex. cover.webp -> cover-thumb.webp) si le fichier existe
+function variant(cover, suffix) {
+  if (!cover) return '';
+  const v = cover.replace(/\.(webp|png|jpe?g)$/i, suffix);
+  return fs.existsSync(path.join(__dirname, '..', v)) ? v : '';
+}
+
 function relatedPosts(current, all) {
   const others = all.filter(p => p.slug !== current.slug);
   const sameTag = others.filter(p => (p.tags || []).some(t => (current.tags || []).includes(t)));
@@ -85,7 +92,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
       <div class="related-grid">
         ${related.map(r => `
           <a href="${r.slug}.html" class="related-card">
-            ${r.cover ? `<div class="cover"><img src="../${r.cover}" alt="Illustration de l'article : ${r.title}" loading="lazy"></div>` : ''}
+            ${r.cover ? `<div class="cover"><img src="../${r.thumb || r.cover}" alt="Illustration de l'article : ${r.title}" loading="lazy" decoding="async"></div>` : ''}
             <div class="body">
               <div class="meta">${r.dateLabel}</div>
               <h3>${r.title}</h3>
@@ -112,7 +119,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
 <meta property="og:type" content="article">
 <meta property="og:title" content="${post.title}">
 <meta property="og:description" content="${post.excerpt}">
-<meta property="og:image" content="${SITE_URL}/${post.cover}">
+<meta property="og:image" content="${SITE_URL}/${post.og || post.cover}">
 <meta property="og:url" content="${shareUrl}">
 <meta property="article:published_time" content="${post.date}">
 <link rel="canonical" href="${shareUrl}">
@@ -126,6 +133,8 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   "publisher": { "@type": "Organization", "name": "Code A-Z" }
 }
 </script>
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
 <script defer src="/js/consent.js"></script>
 <script defer src="/js/push.js"></script>
@@ -235,7 +244,7 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
     </div>
     <h1>${post.title}</h1>
   </header>
-  ${post.cover ? `<div class="article-cover"><img src="../${post.cover}" alt="Illustration de l'article : ${post.title}" loading="lazy"></div>` : ''}
+  ${post.cover ? `<div class="article-cover"><img src="../${post.cover}" alt="Illustration de l'article : ${post.title}" fetchpriority="high" decoding="async"></div>` : ''}
 
   <div class="article-layout">
     <div class="article-body">
@@ -375,7 +384,7 @@ function build() {
     const slug = file.replace(/\.md$/, '');
     return {
       slug, title: data.title, date: data.date, dateLabel: formatDateFR(data.date),
-      excerpt: data.excerpt || '', cover: data.cover || '', tags: data.tags || [],
+      excerpt: data.excerpt || '', cover: data.cover || '', thumb: variant(data.cover, '-thumb.webp'), og: variant(data.cover, '-og.jpg'), tags: data.tags || [],
       readMin: readingTime(content), rawContent: content
     };
   });

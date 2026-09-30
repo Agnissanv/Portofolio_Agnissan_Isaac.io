@@ -2,7 +2,7 @@
 title: "Décrocher un premier job dev sans diplôme : c'est possible, à certaines conditions"
 date: "2026-07-06"
 excerpt: "Ni un diplôme ni une école ne garantissent une première mission de développeur — mais leur absence ne l'empêche pas non plus. Voici ce qui compte réellement pour un premier client ou un premier recruteur."
-cover: "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.jpg"
+cover: "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.webp"
 tags: ["Carrière", "Conseils"]
 ---
 

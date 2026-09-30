@@ -2,7 +2,7 @@
 title: "Peut-on vraiment vivre du développement web en Côte d'Ivoire ?"
 date: "2026-07-20"
 excerpt: "Entre les clichés sur les métiers du numérique et la réalité du terrain ivoirien, un état des lieux honnête sur ce qui est possible aujourd'hui, et à quelles conditions."
-cover: "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.png"
+cover: "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.webp"
 tags: ["Côte d'Ivoire", "Carrière"]
 ---
 

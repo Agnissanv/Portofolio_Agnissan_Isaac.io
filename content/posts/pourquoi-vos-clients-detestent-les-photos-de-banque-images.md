@@ -2,7 +2,7 @@
 title: "Pourquoi vos clients détestent les photos de banque d'images (et par quoi les remplacer)"
 date: "2026-08-22"
 excerpt: "Le costume-cravate qui sourit devant un ordinateur, la poignée de main devant un fond blanc : ces images ne convainquent plus personne. Voici pourquoi, et comment les remplacer sans budget photographe professionnel."
-cover: "images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover.png"
+cover: "images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover.webp"
 tags: ["Design", "Conseils"]
 ---
 

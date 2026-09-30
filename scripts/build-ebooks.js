@@ -28,6 +28,8 @@ function pageTemplate(ebook) {
 <meta property="og:description" content="${ebook.excerpt}">
 <meta property="og:url" content="${SITE_URL}/ressources/${ebook.slug}.html">
 <link rel="canonical" href="${SITE_URL}/ressources/${ebook.slug}.html">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
 <script defer src="/js/consent.js"></script>
 <script defer src="/js/push.js"></script>

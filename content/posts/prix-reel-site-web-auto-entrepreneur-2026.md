@@ -2,7 +2,7 @@
 title: "Quel est le prix réel d'un site web pour un auto-entrepreneur en 2026 ?"
 date: "2026-08-15"
 excerpt: "150 000 FCFA, c'est cher ou pas cher pour un site web ? La vraie réponse : ça dépend de ce qui est réellement inclus. Voici tous les coûts, visibles et cachés, décomposés ligne par ligne."
-cover: "images/blog/prix-reel-site-web-auto-entrepreneur-2026/cover.png"
+cover: "images/blog/prix-reel-site-web-auto-entrepreneur-2026/cover.webp"
 tags: ["Tarifs", "Conseils"]
 ---
 

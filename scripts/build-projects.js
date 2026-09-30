@@ -16,7 +16,8 @@ const PROJECTS = require(path.join(ROOT, 'js', 'projects-data.js'));
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
 function pageTemplate(p) {
-  const image = p.gallery && p.gallery[0] ? p.gallery[0] : p.thumb;
+  const og = p.thumb ? p.thumb.replace(/-thumb\.webp$/, '-og.jpg') : '';
+  const image = og && fs.existsSync(path.join(ROOT, og)) ? og : (p.gallery && p.gallery[0] ? p.gallery[0] : p.thumb);
   const target = `../index.html#projet-${p.id}`;
 
   return `<!DOCTYPE html>

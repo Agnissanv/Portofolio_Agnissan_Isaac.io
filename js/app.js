@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     grid.innerHTML = PROJECTS.map(p => `
       <article class="project-card" data-category="${p.category}" data-id="${p.id}" tabindex="0" role="button" aria-label="Voir le projet ${p.title}">
-        <div class="thumb"><img src="${p.thumb}" alt="Aperçu du projet ${p.title} — ${p.categoryLabel}" loading="lazy"></div>
+        <div class="thumb"><img src="${p.thumb}" alt="Aperçu du projet ${p.title} — ${p.categoryLabel}" loading="lazy" decoding="async"></div>
         <div class="body">
           <div class="cat">${p.categoryLabel}</div>
           <h4>${p.title}</h4>

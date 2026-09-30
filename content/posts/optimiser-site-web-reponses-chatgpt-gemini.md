@@ -2,7 +2,7 @@
 title: "Comment optimiser son site web pour apparaître dans les réponses de ChatGPT et Gemini ?"
 date: "2026-09-04"
 excerpt: "Vos clients ne tapent plus 'meilleur développeur web Abidjan' sur Google — ils le demandent directement à ChatGPT. Voici comment faire en sorte que votre site soit la réponse citée, pas celle ignorée."
-cover: "images/blog/optimiser-site-web-reponses-chatgpt-gemini/cover.jpg"
+cover: "images/blog/optimiser-site-web-reponses-chatgpt-gemini/cover.webp"
 tags: ["SEO", "Intelligence artificielle"]
 ---
 

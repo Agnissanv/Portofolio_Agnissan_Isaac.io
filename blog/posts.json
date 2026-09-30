@@ -5,7 +5,9 @@
     "date": "2026-09-30",
     "dateLabel": "30 septembre 2026",
     "excerpt": "La Côte d'Ivoire vient de poser les premiers jalons d'une IA pensée localement. Voici ce que ça change, au-delà du symbole, pour les entrepreneurs qui n'ont ni data scientist ni budget de grand groupe.",
-    "cover": "images/blog/souverainete-ia-cote-ivoire-impact-entreprises/cover.jpeg",
+    "cover": "images/blog/souverainete-ia-cote-ivoire-impact-entreprises/cover.webp",
+    "thumb": "images/blog/souverainete-ia-cote-ivoire-impact-entreprises/cover-thumb.webp",
+    "og": "images/blog/souverainete-ia-cote-ivoire-impact-entreprises/cover-og.jpg",
     "tags": [
       "Intelligence artificielle",
       "Business"
@@ -18,7 +20,9 @@
     "date": "2026-09-04",
     "dateLabel": "4 septembre 2026",
     "excerpt": "Vos clients ne tapent plus 'meilleur développeur web Abidjan' sur Google — ils le demandent directement à ChatGPT. Voici comment faire en sorte que votre site soit la réponse citée, pas celle ignorée.",
-    "cover": "images/blog/optimiser-site-web-reponses-chatgpt-gemini/cover.jpg",
+    "cover": "images/blog/optimiser-site-web-reponses-chatgpt-gemini/cover.webp",
+    "thumb": "images/blog/optimiser-site-web-reponses-chatgpt-gemini/cover-thumb.webp",
+    "og": "images/blog/optimiser-site-web-reponses-chatgpt-gemini/cover-og.jpg",
     "tags": [
       "SEO",
       "Intelligence artificielle"
@@ -31,7 +35,9 @@
     "date": "2026-08-22",
     "dateLabel": "22 août 2026",
     "excerpt": "Le costume-cravate qui sourit devant un ordinateur, la poignée de main devant un fond blanc : ces images ne convainquent plus personne. Voici pourquoi, et comment les remplacer sans budget photographe professionnel.",
-    "cover": "images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover.png",
+    "cover": "images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover.webp",
+    "thumb": "images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover-thumb.webp",
+    "og": "images/blog/pourquoi-vos-clients-detestent-les-photos-de-banque-images/cover-og.jpg",
     "tags": [
       "Design",
       "Conseils"
@@ -44,7 +50,9 @@
     "date": "2026-08-15",
     "dateLabel": "15 août 2026",
     "excerpt": "150 000 FCFA, c'est cher ou pas cher pour un site web ? La vraie réponse : ça dépend de ce qui est réellement inclus. Voici tous les coûts, visibles et cachés, décomposés ligne par ligne.",
-    "cover": "images/blog/prix-reel-site-web-auto-entrepreneur-2026/cover.png",
+    "cover": "images/blog/prix-reel-site-web-auto-entrepreneur-2026/cover.webp",
+    "thumb": "images/blog/prix-reel-site-web-auto-entrepreneur-2026/cover-thumb.webp",
+    "og": "images/blog/prix-reel-site-web-auto-entrepreneur-2026/cover-og.jpg",
     "tags": [
       "Tarifs",
       "Conseils"
@@ -57,7 +65,9 @@
     "date": "2026-08-10",
     "dateLabel": "10 août 2026",
     "excerpt": "Durable, Wix AI, Framer AI : trois générateurs de sites par intelligence artificielle passés au crible à travers des centaines d'avis réels. Ce qu'ils font vraiment bien, ce qu'ils ne font pas, et si un site généré par IA peut remplacer un vrai développeur.",
-    "cover": "images/blog/creer-site-web-professionnel-ia-10-minutes-gratuit/cover.png",
+    "cover": "images/blog/creer-site-web-professionnel-ia-10-minutes-gratuit/cover.webp",
+    "thumb": "images/blog/creer-site-web-professionnel-ia-10-minutes-gratuit/cover-thumb.webp",
+    "og": "images/blog/creer-site-web-professionnel-ia-10-minutes-gratuit/cover-og.jpg",
     "tags": [
       "Intelligence artificielle",
       "Conseils"
@@ -71,6 +81,8 @@
     "dateLabel": "3 août 2026",
     "excerpt": "La première notification de paiement en tant que freelance ne ressemble à rien de ce qu'on imagine avant de la recevoir. Voici ce qui se passe vraiment, et ce qu'il faut anticiper.",
     "cover": "images/blog/premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant/cover.webp",
+    "thumb": "images/blog/premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant/cover-thumb.webp",
+    "og": "images/blog/premier-client-premier-virement-ce-que-personne-ne-vous-dit-avant/cover-og.jpg",
     "tags": [
       "Freelance",
       "Conseils"
@@ -83,7 +95,9 @@
     "date": "2026-07-27",
     "dateLabel": "27 juillet 2026",
     "excerpt": "Deux secondes de chargement en plus, et une bonne partie de vos visiteurs sont déjà repartis. Voici ce qui ralentit un site, et comment le corriger sans tout reconstruire.",
-    "cover": "images/blog/pourquoi-un-site-lent-vous-coute-des-clients/site-lent-cover.png",
+    "cover": "images/blog/pourquoi-un-site-lent-vous-coute-des-clients/site-lent-cover.webp",
+    "thumb": "images/blog/pourquoi-un-site-lent-vous-coute-des-clients/site-lent-cover-thumb.webp",
+    "og": "images/blog/pourquoi-un-site-lent-vous-coute-des-clients/site-lent-cover-og.jpg",
     "tags": [
       "Performance",
       "SEO"
@@ -96,7 +110,9 @@
     "date": "2026-07-20",
     "dateLabel": "20 juillet 2026",
     "excerpt": "Entre les clichés sur les métiers du numérique et la réalité du terrain ivoirien, un état des lieux honnête sur ce qui est possible aujourd'hui, et à quelles conditions.",
-    "cover": "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.png",
+    "cover": "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover.webp",
+    "thumb": "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover-thumb.webp",
+    "og": "images/blog/peut-on-vraiment-vivre-du-developpement-web-en-cote-divoire/cover-og.jpg",
     "tags": [
       "Côte d'Ivoire",
       "Carrière"
@@ -110,6 +126,8 @@
     "dateLabel": "13 juillet 2026",
     "excerpt": "Face à la quantité de langages, frameworks et ressources disponibles, savoir par où commencer et dans quel ordre progresser reste l'un des plus grands blocages des débutants.",
     "cover": "images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover.webp",
+    "thumb": "images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover-thumb.webp",
+    "og": "images/blog/feuille-de-route-pour-devenir-un-bon-dev/cover-og.jpg",
     "tags": [
       "Apprentissage",
       "Carrière"
@@ -122,7 +140,9 @@
     "date": "2026-07-06",
     "dateLabel": "6 juillet 2026",
     "excerpt": "Ni un diplôme ni une école ne garantissent une première mission de développeur — mais leur absence ne l'empêche pas non plus. Voici ce qui compte réellement pour un premier client ou un premier recruteur.",
-    "cover": "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.jpg",
+    "cover": "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover.webp",
+    "thumb": "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover-thumb.webp",
+    "og": "images/blog/decrocher-un-premier-job-dev-sans-diplome/cover-og.jpg",
     "tags": [
       "Carrière",
       "Conseils"
@@ -136,6 +156,8 @@
     "dateLabel": "29 juin 2026",
     "excerpt": "Comment transformer n'importe quelle image en palette de couleurs prête à coder, sans upload ni inscription — présentation de PalettePick, un outil développé par Code A-Z.",
     "cover": "images/blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images/cover.webp",
+    "thumb": "images/blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images/cover-thumb.webp",
+    "og": "images/blog/decouvrir-palettepick-qui-extrait-les-couleurs-des-images/cover-og.jpg",
     "tags": [
       "Outils",
       "Design"
@@ -149,6 +171,8 @@
     "dateLabel": "22 juin 2026",
     "excerpt": "Coder la nuit, sauter des repas, ne plus décrocher de l'écran même le week-end : voici les signes d'épuisement à prendre au sérieux avant qu'ils ne s'installent.",
     "cover": "images/blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas/cover.webp",
+    "thumb": "images/blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas/cover-thumb.webp",
+    "og": "images/blog/burnout-du-developpeur-les-signes-qui-ne-trompent-pas/cover-og.jpg",
     "tags": [
       "Bien-être",
       "Carrière"
@@ -162,6 +186,8 @@
     "dateLabel": "15 juin 2026",
     "excerpt": "Savoir coder ne suffit pas toujours à en vivre. Voici les erreurs les plus fréquentes chez les développeurs qui peinent à transformer leurs compétences en revenus réguliers.",
     "cover": "images/blog/7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant/cover.webp",
+    "thumb": "images/blog/7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant/cover-thumb.webp",
+    "og": "images/blog/7-erreurs-qui-vous-empechent-de-gagner-de-largent-en-codant/cover-og.jpg",
     "tags": [
       "Carrière",
       "Freelance"
