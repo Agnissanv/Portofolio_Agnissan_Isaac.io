@@ -33,6 +33,28 @@ function collect() {
   return readJson('notify-index.json');
 }
 
+// Regroupe les nouveautés : 1 seule notification par type quand il y en a plusieurs
+// (ex. 8 nouveaux projets => « 8 nouveaux projets au portfolio », pas 8 notifications).
+function groupNotifications(fresh) {
+  const types = {
+    post: { plural: 'articles', title: 'Nouveaux articles sur Code A-Z', url: '/blog.html' },
+    job: { plural: 'postes', title: 'Nouveaux postes chez Code A-Z', url: '/emploi/index.html' },
+    project: { plural: 'projets', title: 'Nouveaux projets au portfolio', url: '/#portfolio' }
+  };
+  const out = [];
+  for (const [type, t] of Object.entries(types)) {
+    const items = fresh.filter((i) => i.key.startsWith(type + ':'));
+    if (!items.length) continue;
+    if (items.length === 1) {
+      out.push({ keys: [items[0].key], title: items[0].title, body: items[0].body, url: items[0].url });
+    } else {
+      const names = items.slice(0, 3).map((i) => i.body.split(' — ')[0]).join(', ');
+      out.push({ keys: items.map((i) => i.key), title: t.title, body: `${items.length} ${t.plural} : ${names}${items.length > 3 ? '…' : ''}`, url: t.url });
+    }
+  }
+  return out;
+}
+
 async function mustJson(res, what) {
   if (!res.ok) throw new Error(`${what} : Supabase a répondu ${res.status} ${await res.text()}`);
   return res.json();
@@ -58,8 +80,8 @@ async function mustJson(res, what) {
   const subs = await mustJson(await rest('push_subscriptions?select=endpoint,p256dh,auth'), 'lecture push_subscriptions');
   console.log(`${subs.length} abonné(s).`);
 
-  for (const item of fresh) {
-    const payload = JSON.stringify({ title: item.title, body: item.body, url: item.url });
+  for (const msg of groupNotifications(fresh)) {
+    const payload = JSON.stringify({ title: msg.title, body: msg.body, url: msg.url });
     let ok = 0, gone = 0;
     for (const s of subs) {
       try {
@@ -72,8 +94,8 @@ async function mustJson(res, what) {
         } else console.error('Échec pour un abonné :', err.statusCode || err.message);
       }
     }
-    const r = await rest('push_notified', { method: 'POST', headers: { Prefer: 'resolution=ignore-duplicates' }, body: JSON.stringify([{ item_key: item.key }]) });
+    const r = await rest('push_notified', { method: 'POST', headers: { Prefer: 'resolution=ignore-duplicates' }, body: JSON.stringify(msg.keys.map(k => ({ item_key: k }))) });
     if (!r.ok) throw new Error('écriture push_notified : ' + r.status);
-    console.log(`${item.key} : ${ok} envoyée(s), ${gone} abonnement(s) expiré(s) supprimé(s).`);
+    console.log(`${msg.title} (${msg.keys.length}) : ${ok} envoyée(s), ${gone} abonnement(s) expiré(s) supprimé(s).`);
   }
 })().catch(e => { console.error(e); process.exit(1); });

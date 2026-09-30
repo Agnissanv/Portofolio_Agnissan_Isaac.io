@@ -96,6 +96,54 @@
     "url": "/emploi/developpeur-front-end.html"
   },
   {
+    "key": "project:cabinet-kouadio",
+    "title": "Nouveau projet au portfolio",
+    "body": "Cabinet Kouadio & Associés — Site pour cabinet d'avocats",
+    "url": "/projet/cabinet-kouadio.html"
+  },
+  {
+    "key": "project:groupe-scolaire-les-palmiers",
+    "title": "Nouveau projet au portfolio",
+    "body": "Groupe Scolaire Les Palmiers — Site pour école privée",
+    "url": "/projet/groupe-scolaire-les-palmiers.html"
+  },
+  {
+    "key": "project:kora-maison",
+    "title": "Nouveau projet au portfolio",
+    "body": "Kôra Maison — Boutique en ligne avec paiement Mobile Money",
+    "url": "/projet/kora-maison.html"
+  },
+  {
+    "key": "project:maison-adja",
+    "title": "Nouveau projet au portfolio",
+    "body": "Maison Adja — Site pour salon de beauté",
+    "url": "/projet/maison-adja.html"
+  },
+  {
+    "key": "project:residence-ebene",
+    "title": "Nouveau projet au portfolio",
+    "body": "Résidence Ébène — Site pour résidence meublée",
+    "url": "/projet/residence-ebene.html"
+  },
+  {
+    "key": "project:bati-horizon",
+    "title": "Nouveau projet au portfolio",
+    "body": "Bâti Horizon — Site pour entreprise de BTP",
+    "url": "/projet/bati-horizon.html"
+  },
+  {
+    "key": "project:rapido-express",
+    "title": "Nouveau projet au portfolio",
+    "body": "Rapido Express CI — Site de livraison et location de véhicules",
+    "url": "/projet/rapido-express.html"
+  },
+  {
+    "key": "project:cooperative-terres-dor",
+    "title": "Nouveau projet au portfolio",
+    "body": "Coopérative Terres d'Or — Site pour coopérative agricole",
+    "url": "/projet/cooperative-terres-dor.html"
+  },
+  {
     "key": "project:hopital-central-ivoire",
     "title": "Nouveau projet au portfolio",
     "body": "Hôpital Central Ivoire — Site pour centre hospitalier",

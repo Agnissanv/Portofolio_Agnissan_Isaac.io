@@ -42,6 +42,174 @@ const SECTOR_ALIASES = {
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
+    id: "cabinet-kouadio",
+    title: "Cabinet Kouadio & Associés",
+    category: "web",
+    categoryLabel: "Site pour cabinet d'avocats",
+    year: "2026",
+    tag: "Droit · Cabinet d'avocats",
+    sectors: ["Cabinet d'avocats"],
+    pitch: "Un site sobre et rassurant pour un cabinet d'avocats à Abidjan : domaines d'intervention, équipe et prise de rendez-vous.",
+    thumb: "images/projets/dev_web/cabinet-kouadio/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/cabinet-kouadio/1.webp",
+      "images/projets/dev_web/cabinet-kouadio/2.webp",
+      "images/projets/dev_web/cabinet-kouadio/3.webp",
+      "images/projets/dev_web/cabinet-kouadio/4.webp"
+    ],
+    description: "Site pour un cabinet d'avocats d'affaires et de droit de la famille à Abidjan : six domaines d'intervention filtrables selon la situation (particulier ou entreprise) avec fiches dépliables, présentation des avocats, actualités juridiques et formulaire de prise de rendez-vous avec consentement. Une identité bordeaux et crème, sobre, pensée pour rassurer dès les premières secondes.",
+    tech: ["HTML5 / CSS3", "JavaScript (filtres, fiches dépliables)", "Formulaire de rendez-vous", "Responsive design"],
+    link: "https://cabinetavocats.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "groupe-scolaire-les-palmiers",
+    title: "Groupe Scolaire Les Palmiers",
+    category: "web",
+    categoryLabel: "Site pour école privée",
+    year: "2026",
+    tag: "Éducation · École privée",
+    sectors: ["École privée"],
+    pitch: "Un site de groupe scolaire à Abidjan : cycles, vie de l'école, simulateur de frais et inscription en ligne.",
+    thumb: "images/projets/dev_web/groupe-scolaire-les-palmiers/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/groupe-scolaire-les-palmiers/1.webp",
+      "images/projets/dev_web/groupe-scolaire-les-palmiers/2.webp",
+      "images/projets/dev_web/groupe-scolaire-les-palmiers/3.webp",
+      "images/projets/dev_web/groupe-scolaire-les-palmiers/4.webp"
+    ],
+    description: "Site pour un groupe scolaire privé à Cocody : présentation des trois cycles (maternelle, primaire, collège), vie de l'école, résultats aux examens et actualités, simulateur de frais de scolarité (cantine, transport, réduction fratrie) et demande d'inscription en trois étapes. Un parcours pensé pour rassurer les parents et simplifier l'inscription.",
+    tech: ["HTML5 / CSS3", "JavaScript (simulateur de frais, formulaire en étapes)", "Responsive design"],
+    link: "https://02-ecole-privee.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "kora-maison",
+    title: "Kôra Maison",
+    category: "web",
+    categoryLabel: "Boutique en ligne avec paiement Mobile Money",
+    year: "2026",
+    tag: "E-commerce · Mobile Money",
+    sectors: ["Produits artisanaux & locaux"],
+    pitch: "Une boutique d'artisanat ivoirien avec panier, livraison par commune et paiement Mobile Money.",
+    thumb: "images/projets/dev_web/kora-maison/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/kora-maison/1.webp",
+      "images/projets/dev_web/kora-maison/2.webp",
+      "images/projets/dev_web/kora-maison/3.webp",
+      "images/projets/dev_web/kora-maison/4.webp"
+    ],
+    description: "Boutique en ligne d'artisanat ivoirien : seize produits filtrables par catégorie, prix, promotions et disponibilité, fiches produit, favoris, panier, livraison selon la commune, paiement Mobile Money (Orange Money, MTN MoMo, Moov Money, Wave) et suivi de commande en direct.",
+    tech: ["HTML5 / CSS3", "JavaScript (panier, filtres, parcours de paiement)", "Mobile Money", "Responsive design"],
+    link: "https://03-boutique-mobile-money.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "maison-adja",
+    title: "Maison Adja",
+    category: "web",
+    categoryLabel: "Site pour salon de beauté",
+    year: "2026",
+    tag: "Beauté · Réservation en ligne",
+    sectors: ["Salon de coiffure", "Institut de beauté"],
+    pitch: "Un salon de coiffure et institut de beauté à Abidjan : prestations, galerie de looks et réservation en ligne.",
+    thumb: "images/projets/dev_web/maison-adja/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/maison-adja/1.webp",
+      "images/projets/dev_web/maison-adja/2.webp",
+      "images/projets/dev_web/maison-adja/3.webp",
+      "images/projets/dev_web/maison-adja/4.webp"
+    ],
+    description: "Site pour un salon de coiffure et de beauté à Abidjan : prestations et tarifs par univers (tresses, perruques, coiffure naturelle, ongles, soins du visage), galerie filtrable de looks et réservation en trois étapes (prestations, jour et heure, coordonnées). Un rendu soigné, pensé pour remplir l'agenda.",
+    tech: ["HTML5 / CSS3", "JavaScript (réservation, galerie filtrable)", "Responsive design"],
+    link: "https://04-salon-beaute.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "residence-ebene",
+    title: "Résidence Ébène",
+    category: "web",
+    categoryLabel: "Site pour résidence meublée",
+    year: "2026",
+    tag: "Hôtellerie · Réservation en direct",
+    sectors: ["Hôtel & résidence meublée"],
+    pitch: "Une résidence meublée à Abidjan : logements, services et réservation en direct.",
+    thumb: "images/projets/dev_web/residence-ebene/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/residence-ebene/1.webp",
+      "images/projets/dev_web/residence-ebene/2.webp",
+      "images/projets/dev_web/residence-ebene/3.webp",
+      "images/projets/dev_web/residence-ebene/4.webp"
+    ],
+    description: "Site pour une résidence meublée à Cocody Riviera : six logements (studios, appartements, suites) avec fiches détaillées, services, et réservation en direct qui n'affiche que les logements libres et assez grands pour la période choisie, avec le prix total. Version anglaise disponible.",
+    tech: ["HTML5 / CSS3", "JavaScript (disponibilités, réservation)", "Version bilingue", "Responsive design"],
+    link: "https://05-hotel-residence.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "bati-horizon",
+    title: "Bâti Horizon",
+    category: "web",
+    categoryLabel: "Site pour entreprise de BTP",
+    year: "2026",
+    tag: "BTP · Construction",
+    sectors: ["BTP & construction"],
+    pitch: "Une entreprise de construction à Abidjan : réalisations filtrables, estimateur de budget et demande de devis.",
+    thumb: "images/projets/dev_web/bati-horizon/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/bati-horizon/1.webp",
+      "images/projets/dev_web/bati-horizon/2.webp",
+      "images/projets/dev_web/bati-horizon/3.webp",
+      "images/projets/dev_web/bati-horizon/4.webp"
+    ],
+    description: "Site pour une entreprise de construction et de rénovation à Abidjan : huit réalisations filtrables par type de projet et par commune, fiches détaillées avec étapes, plan et comparateur avant / après, estimateur de budget indicatif et demande de devis en étapes.",
+    tech: ["HTML5 / CSS3", "JavaScript (filtres, estimateur, formulaire en étapes)", "Responsive design"],
+    link: "https://06-btp-construction.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "rapido-express",
+    title: "Rapido Express CI",
+    category: "web",
+    categoryLabel: "Site de livraison et location de véhicules",
+    year: "2026",
+    tag: "Transport · Livraison · Location",
+    sectors: ["Transport & livraison", "Location de véhicules"],
+    pitch: "Livraison de colis et location de véhicules à Abidjan : calculateur de prix, suivi de colis et réservation.",
+    thumb: "images/projets/dev_web/rapido-express/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/rapido-express/1.webp",
+      "images/projets/dev_web/rapido-express/2.webp",
+      "images/projets/dev_web/rapido-express/3.webp",
+      "images/projets/dev_web/rapido-express/4.webp"
+    ],
+    description: "Site pour une entreprise de livraison de colis et de location de véhicules à Abidjan : calculateur de prix selon le trajet, le colis et le type de livraison, suivi de colis par numéro, catalogue de huit véhicules filtrable avec ou sans chauffeur, et formulaires de commande et de compte entreprise.",
+    tech: ["HTML5 / CSS3", "JavaScript (calculateur, suivi, réservation)", "Responsive design"],
+    link: "https://07-transport-livraison.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
+    id: "cooperative-terres-dor",
+    title: "Coopérative Terres d'Or",
+    category: "web",
+    categoryLabel: "Site pour coopérative agricole",
+    year: "2026",
+    tag: "Agriculture · Agroalimentaire",
+    sectors: ["Coopérative agricole", "Transformation alimentaire"],
+    pitch: "Une coopérative agricole ivoirienne : catalogue, traçabilité de la parcelle à l'export et demande de devis bilingue.",
+    thumb: "images/projets/dev_web/cooperative-terres-dor/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/cooperative-terres-dor/1.webp",
+      "images/projets/dev_web/cooperative-terres-dor/2.webp",
+      "images/projets/dev_web/cooperative-terres-dor/3.webp",
+      "images/projets/dev_web/cooperative-terres-dor/4.webp"
+    ],
+    description: "Site pour une coopérative agricole ivoirienne (cajou, cacao, karité, mangue séchée, attiéké) : catalogue de huit produits filtrable par type et usage, fiches avec origine et conditionnements, page de traçabilité de la parcelle à l'export, demande de devis par produit et quantité, et version anglaise.",
+    tech: ["HTML5 / CSS3", "JavaScript (catalogue filtrable, devis)", "Version bilingue", "Responsive design"],
+    link: "https://08-agroalimentaire.vercel.app/",
+    linkLabel: "Découvrir le site"
+  },
+  {
     id: "hopital-central-ivoire",
     title: "Hôpital Central Ivoire",
     category: "web",
