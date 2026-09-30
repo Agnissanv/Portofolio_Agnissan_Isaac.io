@@ -2,23 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://agnissanisaac.com/index.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/blog.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/index.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/pourquoi-nous-rejoindre.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://agnissanisaac.com/blog/souverainete-ia-cote-ivoire-impact-entreprises.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/blog/optimiser-site-web-reponses-chatgpt-gemini.html</loc>
@@ -82,17 +87,17 @@
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/commercial-digital-independant.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/developpeur-back-end.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://agnissanisaac.com/emploi/developpeur-front-end.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>

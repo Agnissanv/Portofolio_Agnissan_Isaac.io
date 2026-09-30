@@ -2,7 +2,7 @@
 title: "Souveraineté IA en Côte d'Ivoire : ce que le Pacte national change (vraiment) pour votre entreprise"
 date: "2026-09-30"
 excerpt: "La Côte d'Ivoire vient de poser les premiers jalons d'une IA pensée localement. Voici ce que ça change, au-delà du symbole, pour les entrepreneurs qui n'ont ni data scientist ni budget de grand groupe."
-cover: "images/blog/souverainete-ia-cote-ivoire-impact-entreprises/cover.jpg"
+cover: "images/blog/souverainete-ia-cote-ivoire-impact-entreprises/cover.jpeg"
 tags: ["Intelligence artificielle", "Business"]
 ---
 
