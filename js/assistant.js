@@ -171,10 +171,20 @@
 
   /* ---------- IA conversationnelle (en premier) ; la recherche du site sert de filet de sécurité ---------- */
   var AI_PAUSE_MS = 10 * 60 * 1000;             // après un quota atteint ou une panne, on n'insiste pas pendant 10 min
-  function aiUsable() { return state.ai === true && !state.declined && Date.now() > (state.aiOffUntil || 0); }
+  // Choix unique du visiteur (bannière « Vos choix ») : 'yes', 'no' ou 'unknown' (pas encore décidé)
+  function aiConsent() {
+    var c = window.CodeAZConsent && window.CodeAZConsent.get();
+    if (c && typeof c.ai === 'boolean') return c.ai ? 'yes' : 'no';
+    return store('get', CONSENT_KEY) === '1' ? 'yes' : 'unknown';     // ancien emplacement du choix
+  }
+  function setAiConsent(v) {
+    if (window.CodeAZConsent) window.CodeAZConsent.setAI(v);
+    else store('set', CONSENT_KEY, v ? '1' : '0');
+  }
+  function aiUsable() { return state.ai === true && aiConsent() !== 'no' && Date.now() > (state.aiOffUntil || 0); }
 
   function offerAI(text) {
-    if (!aiUsable() || store('get', CONSENT_KEY) === '1' || !text || text.split(/\s+/).length < 2) return;
+    if (!aiUsable() || aiConsent() === 'yes' || !text || text.split(/\s+/).length < 2) return;
     chips([{ label: '✨ Poser ma question à l’IA', run: function () { askAI(text); } }]);
   }
 
@@ -186,10 +196,10 @@
     var row = $('div', 'asst-actions');
     var yes = $('button', 'asst-btn asst-btn-main', 'J’accepte'); yes.type = 'button';
     var no = $('button', 'asst-btn', 'Non merci'); no.type = 'button';
-    yes.addEventListener('click', function () { store('set', CONSENT_KEY, '1'); row.remove(); then(); });
+    yes.addEventListener('click', function () { setAiConsent(true); row.remove(); then(); });
     no.addEventListener('click', function () {
-      row.remove(); state.declined = true;
-      say('Pas de souci ! Je vous réponds avec la recherche dans le site. 😊');
+      row.remove(); setAiConsent(false);
+      say('Pas de souci ! Je vous réponds avec la recherche dans le site. Vous pouvez changer d’avis à tout moment avec « Gérer les cookies » en bas de page. 😊');
       if (declined) declined();
     });
     row.appendChild(yes); row.appendChild(no); b.appendChild(row);
@@ -216,7 +226,9 @@
 
   // Phase 2 : IA ; en cas d'échec (quota, panne, lenteur) on retombe sur la recherche
   function askAI(text) {
-    if (store('get', CONSENT_KEY) !== '1') { consentBubble(function () { askAI(text); }, function () { searchSite(text); }); return; }
+    var consent = aiConsent();
+    if (consent === 'no') { searchSite(text); return; }
+    if (consent !== 'yes') { consentBubble(function () { askAI(text); }, function () { searchSite(text); }); return; }
     if (state.busy) return;
     state.busy = true; typing(true);
     var ctl = window.AbortController ? new AbortController() : null;

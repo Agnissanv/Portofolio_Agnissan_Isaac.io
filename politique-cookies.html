@@ -54,8 +54,13 @@
   </div>
 
   <h2>1. Faut-il votre consentement ?</h2>
-  <p>Oui, pour un seul élément : le cookie de mesure d'audience <strong>Google Analytics</strong>. Il n'est donc chargé qu'après votre clic sur « Accepter ». Tant que vous n'avez pas répondu, ou si vous refusez, aucun cookie Google n'est déposé et aucune requête n'est envoyée à Google.</p>
-  <p>Les autres éléments du tableau ci-dessous sont strictement nécessaires au fonctionnement demandé (mémoriser votre choix, votre thème clair ou sombre) et ne demandent pas de consentement.</p>
+  <p>Oui, pour <strong>deux éléments</strong>, que la bannière « Vos choix » vous propose ensemble mais que vous pouvez accepter ou refuser <strong>séparément</strong> :</p>
+  <ul>
+    <li><strong>La mesure d'audience Google Analytics</strong> (cookies). Elle n'est chargée qu'après votre accord. Tant que vous n'avez pas répondu, ou si vous refusez, aucun cookie Google n'est déposé et aucune requête n'est envoyée à Google.</li>
+    <li><strong>L'assistante virtuelle IA</strong>. Vos questions libres ne sont envoyées à un service d'intelligence artificielle externe (Groq, États-Unis) qu'avec votre accord. Sans cet accord, l'assistante répond avec la recherche du site, sans rien envoyer à un tiers. Si vous n'avez pas répondu dans la bannière, l'assistante vous demande votre accord avant votre première question libre.</li>
+  </ul>
+  <p>Les notifications de nouveautés et les formulaires (contact, guide gratuit) gardent leur propre accord, demandé au moment où vous les utilisez : la loi exige un accord précis pour chaque usage.</p>
+  <p>Les autres éléments du tableau ci-dessous sont strictement nécessaires au fonctionnement demandé (mémoriser vos choix, votre thème clair ou sombre) et ne demandent pas de consentement.</p>
 
   <h2>2. Ce que le site enregistre</h2>
   <div class="table-wrap">
@@ -67,16 +72,16 @@
       <tr>
         <th scope="row"><code>codeaz-consent</code> (stockage local)</th>
         <td>Code A-Z</td>
-        <td>Se souvenir de votre choix sur les cookies</td>
+        <td>Se souvenir de vos choix : mesure d'audience et assistante IA</td>
         <td>6 mois</td>
         <td>Non, nécessaire</td>
       </tr>
       <tr>
-        <th scope="row"><code>codeaz-assistant-ia</code> (stockage local)</th>
+        <th scope="row"><code>codeaz-assistant-ia</code> (stockage local, ancien)</th>
         <td>Code A-Z</td>
-        <td>Se souvenir que vous acceptez que l'assistante transmette vos questions libres à un service d'IA</td>
+        <td>Ancien emplacement de votre accord pour l'assistante IA, désormais regroupé avec vos autres choix dans <code>codeaz-consent</code></td>
         <td>Jusqu'à effacement par vous</td>
-        <td><strong>Oui</strong>, par votre clic sur « J'accepte »</td>
+        <td>Non, simple rappel de votre choix passé</td>
       </tr>
       <tr>
         <th scope="row"><code>codeaz-push-invite</code>, <code>codeaz-mesh</code> (stockage local)</th>

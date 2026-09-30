@@ -876,3 +876,14 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
   .has-assistant .back-to-top{ bottom:84px; right:22px; }
 }
 @media (prefers-reduced-motion: reduce){ .asst-log{ scroll-behavior:auto; } .asst-typing span{ animation:none; opacity:.6; } }
+
+
+/* ---------- Bannière « Vos choix » : deux options séparées ---------- */
+.cookie-banner{ max-height:calc(100vh - 32px); overflow-y:auto; }
+.cookie-options[hidden]{ display:none; }
+.cookie-options{ display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+.cookie-option{ display:flex; gap:12px; align-items:flex-start; padding:12px 14px; border:1px solid var(--line-strong); border-radius:12px; background:var(--bg); cursor:pointer; }
+.cookie-option input{ flex:none; width:20px; height:20px; margin-top:2px; accent-color:var(--accent); }
+.cookie-option strong{ display:block; font-weight:500; font-size:14px; color:var(--text); }
+.cookie-option em{ display:block; font-style:normal; font-size:12.5px; line-height:1.5; color:var(--muted); margin-top:2px; }
+.cookie-actions .btn{ flex:1 1 110px; justify-content:center; }
