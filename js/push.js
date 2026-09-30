@@ -9,7 +9,7 @@
   'use strict';
 
   // Clé publique VAPID (générée avec « npm run vapid »). Elle n'est pas secrète.
-  var VAPID_PUBLIC_KEY = 'sb_publishable_Fo6kcsCzj3i9mCiqBHy3ew_xklGYYJS';
+  var VAPID_PUBLIC_KEY = 'BAPokjp_VO-h8r8-a5CAqWYAUc4nyMonLHZPZBHlAJJPqToy5ijH5Sced8N2VJ3IkBghKd52NjVr4P90UtjR0rY';
 
   if (!VAPID_PUBLIC_KEY) return;
   if (!('serviceWorker' in navigator) || !('PushManager' in window) || !('Notification' in window)) return;
