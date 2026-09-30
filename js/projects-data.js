@@ -261,7 +261,7 @@ const PROJECTS = [
   {
     id: "lumina",
     title: "LUMINA — Refonte identité & site vitrine",
-    category: "design",
+    category: "web",
     categoryLabel: "Refonte / Identité visuelle",
     year: "2026",
     tag: "Opticien",
