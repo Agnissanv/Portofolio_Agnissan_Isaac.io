@@ -792,3 +792,8 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .portfolio-empty{ text-align:center; padding:40px 20px; color:var(--muted); font-size:14.5px; line-height:1.7; }
 .portfolio-empty strong{ color:var(--text); font-weight:500; }
 .modal-sectors{ font-size:12.5px; color:var(--muted); margin:-4px 0 12px; }
+
+
+/* ---------- Fond interactif « Mesh Flow » (js/mesh-flow.js) ---------- */
+/* Le canvas n'existe dans la page que pendant un survol ; il ne change ni l'empilement ni la mise en page. */
+.mesh-canvas{ position:absolute; left:0; top:0; pointer-events:none; }
