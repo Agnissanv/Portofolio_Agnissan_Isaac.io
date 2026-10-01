@@ -42,6 +42,27 @@ const SECTOR_ALIASES = {
 const PROJECTS = [
   // Colone 1 (3 projets)
   {
+    id: "keva",
+    title: "KEVA",
+    category: "web",
+    categoryLabel: "Plateforme SaaS · marketplace",
+    year: "2026",
+    tag: "SaaS · Marketplace",
+    sectors: ["Marketplace", "Outil SaaS"],
+    pitch: "Une plateforme où chaque vendeur ouvre sa boutique en ligne et où les acheteurs commandent sans compte et paient à la livraison.",
+    thumb: "images/projets/dev_web/keva/0-thumb.webp",
+    gallery: [
+      "images/projets/dev_web/keva/1.webp",
+      "images/projets/dev_web/keva/2.webp",
+      "images/projets/dev_web/keva/3.webp",
+      "images/projets/dev_web/keva/4.webp"
+    ],
+    description: "Plateforme SaaS de marketplace et de boutiques en ligne pour la Côte d'Ivoire : chaque vendeur ouvre sa propre boutique (page dédiée, catalogue, fiches produit, contact WhatsApp), et les acheteurs parcourent toutes les boutiques au même endroit, par catégories, nouveautés et meilleures ventes, avec favoris et recherche. Commande sans création de compte et paiement à la livraison, charte vendeur et blog de conseils pour vendre en ligne. Pensée d'abord pour le mobile, avec une barre de navigation en bas de l'écran.",
+    tech: ["Next.js", "React", "Multi-vendeurs", "Paiement à la livraison", "Responsive design"],
+    link: "https://shopkeva.com/",
+    linkLabel: "Découvrir la plateforme"
+  },
+  {
     id: "fc-valen",
     title: "FC Valen",
     category: "web",

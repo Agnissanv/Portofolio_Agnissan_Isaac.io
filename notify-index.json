@@ -96,6 +96,12 @@
     "url": "/emploi/developpeur-front-end.html"
   },
   {
+    "key": "project:keva",
+    "title": "Nouveau projet au portfolio",
+    "body": "KEVA — Plateforme SaaS · marketplace",
+    "url": "/projet/keva.html"
+  },
+  {
     "key": "project:fc-valen",
     "title": "Nouveau projet au portfolio",
     "body": "FC Valen — Site pour club de football",
