@@ -51,7 +51,7 @@
   }
 
   function Mesh(host) {
-    var canvas = null, ctx = null, dpr = 1;
+    var canvas = null, ctx = null, dpr = 1, lifted = [];
     var target = { x: 0, y: 0 }, pos = { x: 0, y: 0 };
     var weight = 0, goal = 0, raf = 0, releaseTimer = 0, lastT = 0;
     var slow = 0, samples = 0, rgb = accentRgb();
@@ -72,10 +72,19 @@
       if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
       host.style.overflow = 'clip';
       host.appendChild(canvas);
+      // Le contenu passe DEVANT la grille : textes, boutons et formulaires restent au premier plan,
+      // la grille n'est visible qu'entre eux (on ne touche qu'aux éléments qui n'étaient pas positionnés)
+      lifted = [];
+      for (var i = 0; i < host.children.length; i++) {
+        var c = host.children[i];
+        if (c !== canvas && getComputedStyle(c).position === 'static') { c.classList.add('mesh-lift'); lifted.push(c); }
+      }
       return true;
     }
     function detach() {
       if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
+      lifted.forEach(function (c) { c.classList.remove('mesh-lift'); });
+      lifted = [];
       canvas = null; ctx = null;
     }
 

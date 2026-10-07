@@ -796,7 +796,8 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 
 /* ---------- Fond interactif « Mesh Flow » (js/mesh-flow.js) ---------- */
 /* Le canvas n'existe dans la page que pendant un survol ; il ne change ni l'empilement ni la mise en page. */
-.mesh-canvas{ position:absolute; left:0; top:0; pointer-events:none; }
+.mesh-canvas{ position:absolute; left:0; top:0; z-index:0; pointer-events:none; }
+.mesh-lift{ position:relative; z-index:1; }   /* le contenu reste au-dessus de la grille */
 
 /* ---------- Assistante virtuelle (js/assistant.js) ---------- */
 .asst-launcher{
@@ -887,3 +888,6 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .cookie-option strong{ display:block; font-weight:500; font-size:14px; color:var(--text); }
 .cookie-option em{ display:block; font-style:normal; font-size:12.5px; line-height:1.5; color:var(--muted); margin-top:2px; }
 .cookie-actions .btn{ flex:1 1 110px; justify-content:center; }
+
+/* ---------- Tarifs : « idéal pour » ---------- */
+.price-card .for-who{ font-size:13px; line-height:1.55; color:var(--text); background:var(--bg); border-left:3px solid var(--accent); padding:8px 12px; border-radius:var(--radius-sm); margin:-2px 0 18px; }
