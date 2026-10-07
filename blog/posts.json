@@ -1,5 +1,20 @@
 [
   {
+    "slug": "pistol-battle-jeu-duel-pistolets-gratuit-sans-pub",
+    "title": "Pistol Battle : le jeu de duel de pistolets gratuit et sans pub, créé à Abidjan",
+    "date": "2026-10-07",
+    "dateLabel": "7 octobre 2026",
+    "excerpt": "Un toucher, un tir, un saut : découvrez Pistol Battle, le jeu mobile de duel de pistolets gratuit, sans pub et hors ligne, conçu à Abidjan par Code A-Z.",
+    "cover": "images/blog/pistol-battle-jeu-duel-pistolets-gratuit-sans-pub/cover.webp",
+    "thumb": "images/blog/pistol-battle-jeu-duel-pistolets-gratuit-sans-pub/cover-thumb.webp",
+    "og": "images/blog/pistol-battle-jeu-duel-pistolets-gratuit-sans-pub/cover-og.jpg",
+    "tags": [
+      "Jeu mobile",
+      "Côte d'Ivoire"
+    ],
+    "readMin": 13
+  },
+  {
     "slug": "souverainete-ia-cote-ivoire-impact-entreprises",
     "title": "Souveraineté IA en Côte d'Ivoire : ce que le Pacte national change (vraiment) pour votre entreprise",
     "date": "2026-09-30",

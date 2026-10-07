@@ -11,6 +11,14 @@ const MarkdownIt = require('markdown-it');
 
 const md = new MarkdownIt({ html: false, linkify: true, typographer: true });
 
+// Images dans les articles : chargement différé (ne ralentit pas l'affichage du haut de page)
+const renderImage = md.renderer.rules.image;
+md.renderer.rules.image = (tokens, idx, options, env, self) => {
+  tokens[idx].attrSet('loading', 'lazy');
+  tokens[idx].attrSet('decoding', 'async');
+  return renderImage(tokens, idx, options, env, self);
+};
+
 const ROOT = path.join(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
 const OUT_DIR = path.join(ROOT, 'blog');
@@ -128,6 +136,9 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": ${JSON.stringify(post.title)},
+  "description": ${JSON.stringify(post.excerpt)},
+  ${post.cover ? `"image": "${SITE_URL}/${post.og || post.cover}",` : ''}
+  "mainEntityOfPage": "${shareUrl}",
   "datePublished": "${post.date}",
   "author": { "@type": "Person", "name": "Agnissan Isaac" },
   "publisher": { "@type": "Organization", "name": "Code A-Z" }
@@ -159,6 +170,11 @@ function articleTemplate({ post, contentHtml, toc, prev, next, related }) {
   .article-body ul, .article-body ol{ margin:0 0 20px 22px; color:var(--text); }
   .article-body li{ margin-bottom:8px; line-height:1.7; }
   .article-body a{ color:var(--accent); text-decoration-color:var(--line); }
+  .article-body img{ width:100%; height:auto; border-radius:var(--radius-md); border:1px solid var(--line); margin:8px 0 8px; }
+  .article-body table{ width:100%; border-collapse:collapse; margin:0 0 28px; font-size:14.5px; line-height:1.6; }
+  .article-body th, .article-body td{ text-align:left; vertical-align:top; padding:10px 14px 10px 0; border-bottom:1px solid var(--line); }
+  .article-body th{ font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted-2); font-weight:500; }
+  .article-body td{ font-weight:300; }
   .article-tags{ display:flex; gap:8px; margin-top:40px; flex-wrap:wrap; }
     .callout-resource{
     background:var(--surface-2); border:1px solid var(--line); border-radius:var(--radius-md);
