@@ -12,7 +12,7 @@ const SECTOR_FAMILIES = [
   { name: "Événementiel & Divertissement", sectors: ["Mariage & événements", "Location de salle & matériel", "Studio photo & vidéo", "Artiste & musicien"] },
   { name: "Transport & Logistique", sectors: ["Transport & livraison", "Location de véhicules", "Déménagement"] },
   { name: "Associations & Institutions", sectors: ["ONG & association", "Association religieuse", "Institution publique"] },
-  { name: "Technologie & SaaS", sectors: ["Outil SaaS", "Marketplace", "Application mobile"] },
+  { name: "Technologie & SaaS", sectors: ["Outil SaaS", "Marketplace", "Application mobile", "Jeu mobile"] },
   { name: "Agriculture & Agroalimentaire", sectors: ["Coopérative agricole", "Transformation alimentaire", "Produits bio & naturels"] },
   { name: "Médias & Contenu", sectors: ["Actualité & blog", "Streaming", "Créateur de contenu"] },
   { name: "Sport & Fitness", sectors: ["Salle de sport", "Club & académie sportive", "Coach sportif"] }
@@ -36,11 +36,36 @@ const SECTOR_ALIASES = {
   "Transport & livraison": "livreur coursier taxi vtc fret",
   "Studio photo & vidéo": "photographe videaste cameraman",
   "ONG & association": "ong association fondation humanitaire",
-  "Application mobile": "app android ios mobile"
+  "Application mobile": "app android ios mobile",
+  "Jeu mobile": "jeu jeux jeu video game gaming android navigateur"
 };
 
 const PROJECTS = [
   // Colone 1 (3 projets)
+  {
+    id: "pistol-battle",
+    title: "Pistol Battle",
+    category: "app",
+    categoryLabel: "Jeu mobile",
+    year: "2026",
+    tag: "Jeu d'action",
+    sectors: ["Jeu mobile", "Application mobile"],
+    pitch: "Un duel de pistolets à un seul toucher : chaque tap fait tirer et sauter l'arme, en campagne infinie ou à deux sur le même téléphone.",
+    thumb: "images/projets/app/pistol-battle/1-thumb.webp",
+    gallery: [
+      "images/projets/app/pistol-battle/3.webp",
+      "images/projets/app/pistol-battle/4.webp",
+      "images/projets/app/pistol-battle/5.webp",
+      "images/projets/app/pistol-battle/8.webp",
+      "images/projets/app/pistol-battle/6.webp",
+      "images/projets/app/pistol-battle/7.webp",
+      "images/projets/app/pistol-battle/2.webp"
+    ],
+    description: "Pistol Battle est le premier jeu de Code A-Z : un jeu d'action mobile où l'on pilote un pistolet avec un seul geste. Chaque toucher fait tirer l'arme et la propulse dans le sens d'une flèche, avec une esquive en salto, des ralentis au bon moment et un vrai son par arme. Campagne infinie générée automatiquement sur cinq mondes, avec un boss à la fin de chacun ; défis du jour, missions et trois étoiles par niveau ; huit armes à améliorer (dégâts, cadence, mouvement, solidité) ; duel à deux sur le même téléphone, avec choix des armes, manches et revanche. Tutoriel d'une minute, 60 images par seconde, aucune donnée collectée. Jouable dans le navigateur, bientôt sur Google Play.",
+    tech: ["Godot Engine 4.7", "GDScript", "Physique sur mesure", "Génération procédurale", "Android & Web (WebAssembly)"],
+    link: "/pistol-battle/",
+    linkLabel: "Découvrir et jouer"
+  },
   {
     id: "keva",
     title: "KEVA",

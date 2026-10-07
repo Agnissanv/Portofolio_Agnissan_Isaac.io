@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pistol Battle — jeu de duel de pistolets à un seul toucher | Code A-Z</title>
+<meta name="description" content="Pistol Battle, le jeu de duel de pistolets à un seul toucher créé par Code A-Z à Abidjan : campagne infinie, boss, défis du jour et duel à deux sur un même téléphone. Gratuit, sans publicité.">
+<meta name="author" content="Code A-Z — Agnissan Isaac Valen">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://agnissanisaac.com/pistol-battle/">
+<meta name="theme-color" content="#0a0d18">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Code A-Z">
+<meta property="og:title" content="Pistol Battle — un jeu Code A-Z">
+<meta property="og:description" content="Duel de pistolets à un seul toucher : campagne infinie, boss, défis du jour et duel à deux. Gratuit, jouable dans le navigateur.">
+<meta property="og:image" content="https://agnissanisaac.com/pistol-battle/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://agnissanisaac.com/pistol-battle/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="/pistol-battle/images/icon-192.png">
+<link rel="apple-touch-icon" href="/pistol-battle/images/icon-192.png">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/styles.css">
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/js/consent.js"></script>
+<script defer src="/js/push.js"></script>
+<script defer src="/js/assistant.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Pistol Battle",
+  "description": "Jeu de duel de pistolets à un seul toucher : campagne infinie, mondes et boss, défis du jour, duel à deux sur un même téléphone.",
+  "url": "https://agnissanisaac.com/pistol-battle/",
+  "image": "https://agnissanisaac.com/pistol-battle/images/og.jpg",
+  "genre": ["Action", "Arcade"],
+  "gamePlatform": ["Android", "Navigateur web"],
+  "playMode": ["SinglePlayer", "MultiPlayer"],
+  "inLanguage": "fr",
+  "applicationCategory": "Game",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "XOF" },
+  "author": { "@type": "Organization", "name": "Code A-Z", "url": "https://agnissanisaac.com/" },
+  "softwareVersion": "1.0.0"
+}
+</script>
+<style>
+  /* Pistol Battle : sections du jeu toujours sombres (quel que soit le thème du site), accent rouge Code A-Z. */
+  .pb{ --pb-night:#0a0d18; --pb-night-2:#18203a; --pb-ink:#EDEDEA; --pb-muted:#9aa3b8; --pb-red:#E0454F; --pb-blue:#60a5fa; --pb-card:#141a2e; --pb-line:#2a3352; }
+  .pb-dark{ background:linear-gradient(180deg,var(--pb-night-2),var(--pb-night)); color:var(--pb-ink); position:relative; overflow:hidden; }
+  .pb-dark::before{ content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:linear-gradient(rgba(91,107,168,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(91,107,168,.07) 1px,transparent 1px);
+    background-size:64px 64px; }
+  .pb-dark > *{ position:relative; }
+  .pb-dark h1,.pb-dark h2,.pb-dark h3{ color:var(--pb-ink); }
+  .pb-dark p{ color:var(--pb-muted); }
+  .pb-dark .eyebrow{ color:var(--pb-red); }
+
+  .pb-hero{ padding:88px 0 96px; }
+  .pb-hero .container{ display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+  .pb-hero .logo-game{ width:min(460px,100%); height:auto; margin:18px 0 10px -6px; }
+  .pb-hero h1{ font-size:clamp(1.9rem,4vw,2.7rem); line-height:1.15; margin-top:6px; }
+  .pb-hero h1 em{ color:var(--pb-red); font-style:italic; }
+  .pb-hero .lead{ margin-top:18px; font-size:1.05rem; line-height:1.7; max-width:520px; }
+  .pb-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; align-items:center; }
+  .pb-play{ display:inline-flex; align-items:center; gap:10px; background:var(--pb-red); color:#fff; text-decoration:none;
+    padding:16px 28px; border-radius:var(--radius-full); font-weight:500; font-size:15px; transition:transform .2s var(--ease), background .2s; }
+  .pb-play:hover{ background:#c6303e; transform:translateY(-2px); }
+  .pb-play svg{ width:18px; height:18px; }
+  .pb-store{ display:inline-flex; align-items:center; gap:10px; border:1px solid var(--pb-line); color:var(--pb-muted);
+    padding:12px 20px; border-radius:12px; font-size:13px; line-height:1.25; }
+  .pb-store b{ display:block; color:var(--pb-ink); font-weight:500; font-size:14px; }
+  .pb-store svg{ width:22px; height:22px; flex:none; }
+  .pb-trust{ display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:24px; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--pb-muted); }
+  .pb-trust span::before{ content:"●"; color:#4ade80; margin-right:7px; font-size:8px; vertical-align:2px; }
+
+  .pb-phones{ position:relative; height:560px; }
+  .pb-phone{ position:absolute; width:250px; aspect-ratio:9/16; border-radius:34px; border:9px solid #05070d; overflow:hidden;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.06); background:#05070d; }
+  .pb-phone img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .pb-phone.one{ left:6%; top:20px; transform:rotate(-6deg); }
+  .pb-phone.two{ right:6%; top:70px; transform:rotate(5deg); }
+
+  .pb-section{ padding:96px 0; }
+  .pb-section .section-head h2{ font-size:clamp(1.7rem,3.4vw,2.4rem); }
+  .pb-features{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .pb-feature{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); padding:26px; }
+  .pb-feature svg{ width:30px; height:30px; color:var(--accent); }
+  .pb-feature h3{ font-size:1.12rem; margin:14px 0 8px; }
+  .pb-feature p{ font-size:14px; line-height:1.65; }
+
+  .pb-gallery{ display:grid; grid-auto-flow:column; grid-auto-columns:220px; gap:18px; overflow-x:auto; padding:6px 2px 18px; scroll-snap-type:x mandatory; }
+  .pb-shot{ scroll-snap-align:start; margin:0; }
+  .pb-shot img{ width:220px; aspect-ratio:9/16; object-fit:cover; border-radius:22px; border:6px solid #05070d; display:block; background:#05070d; }
+  .pb-shot figcaption{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--pb-muted); margin-top:10px; text-align:center; }
+
+  .pb-steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:step; }
+  .pb-step{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-md); padding:24px; }
+  .pb-step::before{ counter-increment:step; content:counter(step); display:inline-grid; place-items:center; width:34px; height:34px;
+    border-radius:50%; background:var(--accent); color:#fff; font-family:'JetBrains Mono',monospace; font-size:14px; }
+  .pb-step h3{ font-size:1.05rem; margin:14px 0 8px; }
+  .pb-step p{ font-size:14px; line-height:1.65; }
+  .pb-tips{ margin-top:34px; display:grid; grid-template-columns:repeat(2,1fr); gap:12px 34px; }
+  .pb-tips li{ font-size:14.5px; line-height:1.7; list-style:none; padding-left:26px; position:relative; }
+  .pb-tips li::before{ content:"→"; position:absolute; left:0; color:var(--accent); }
+
+  .pb-faq details{ border-bottom:1px solid var(--line); padding:18px 0; }
+  .pb-faq summary{ cursor:pointer; font-size:1.05rem; font-weight:500; list-style:none; display:flex; justify-content:space-between; gap:16px; }
+  .pb-faq summary::after{ content:"+"; color:var(--accent); font-size:1.3rem; line-height:1; }
+  .pb-faq details[open] summary::after{ content:"−"; }
+  .pb-faq details p{ margin-top:12px; font-size:14.5px; line-height:1.7; }
+
+  .pb-news{ border-left:3px solid var(--accent); padding:4px 0 4px 22px; }
+  .pb-news h3{ font-size:1.1rem; }
+  .pb-news .date{ font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted-2); }
+  .pb-news ul{ margin:12px 0 0 18px; list-style:disc; }
+  .pb-news li{ font-size:14.5px; line-height:1.7; margin-bottom:4px; }
+
+  .pb-agency{ background:var(--surface); border:1px solid var(--line); border-radius:24px; padding:44px; display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; }
+  .pb-agency h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin-top:14px; }
+  .pb-agency h2 em{ color:var(--accent); font-style:italic; }
+  .pb-agency p{ margin-top:14px; font-size:15px; line-height:1.7; }
+  .pb-agency .pb-actions{ margin-top:24px; }
+  .pb-stack{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pb-stack span{ font-family:'JetBrains Mono',monospace; font-size:11.5px; border:1px solid var(--line-strong); border-radius:var(--radius-full); padding:6px 12px; color:var(--text); }
+  .pb-stack-title{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+
+  @media (max-width:980px){
+    .pb-hero .container{ grid-template-columns:1fr; }
+    .pb-phones{ height:470px; max-width:520px; }
+    .pb-phone{ width:210px; }
+    .pb-features{ grid-template-columns:repeat(2,1fr); }
+    .pb-steps{ grid-template-columns:repeat(2,1fr); }
+    .pb-agency{ grid-template-columns:1fr; padding:30px; }
+  }
+  @media (max-width:640px){
+    .pb-hero{ padding:56px 0 64px; }
+    .pb-phones{ height:380px; }
+    .pb-phone{ width:170px; border-width:7px; border-radius:26px; }
+    .pb-phone.one{ left:0; }
+    .pb-phone.two{ right:0; }
+    .pb-section{ padding:68px 0; }
+    .pb-features,.pb-steps,.pb-tips{ grid-template-columns:1fr; }
+    .pb-gallery{ grid-auto-columns:170px; }
+    .pb-shot img{ width:170px; }
+  }
+</style>
+</head>
+<body class="pb">
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<nav class="site-nav" aria-label="Navigation principale">
+  <a href="/index.html#hero" class="logo">
+    <img class="logo-light" src="/images/Code_A-Z_Logo-no-bg.webp" alt="Code A-Z — retour à l'accueil">
+    <img class="logo-dark" src="/images/Code_A-Z_Logo-no-bg2.webp" alt="Code A-Z — retour à l'accueil">
+  </a>
+  <div class="nav-links">
+    <a href="/index.html#about">À propos</a>
+    <a href="/index.html#portfolio">Portfolio</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/emploi/index.html">Emplois</a>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+    <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+  </button>
+</nav>
+
+<main id="main">
+
+<!-- Accroche -->
+<section class="pb-dark pb-hero" aria-labelledby="pb-title">
+  <div class="container">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>Un jeu Code A-Z · Android et navigateur</div>
+      <img class="logo-game" src="/pistol-battle/images/logo.webp" alt="Pistol Battle" width="1400" height="640">
+      <h1 id="pb-title">Un toucher. Un tir. <em>Un saut.</em></h1>
+      <p class="lead">Pistol Battle est un duel de pistolets où chaque toucher fait tirer ton arme et la propulse dans le sens de la flèche. Enchaîne les niveaux à l'infini, affronte les boss, relève le défi du jour… ou défie un ami sur le même téléphone.</p>
+      <div class="pb-actions">
+        <a class="pb-play" href="/pistol-battle/jouer/index.html">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          Jouer maintenant
+        </a>
+        <span class="pb-store" title="Disponible prochainement sur Google Play">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3.5v17l9-8.5z"/><path d="M5 3.5l12 7-3 2M5 20.5l12-7-3-2"/></svg>
+          <span>Bientôt sur<b>Google Play</b></span>
+        </span>
+      </div>
+      <div class="pb-trust" aria-label="En bref">
+        <span>Gratuit</span><span>Sans publicité</span><span>Aucune donnée collectée</span><span>60 images/s</span>
+      </div>
+    </div>
+    <div class="pb-phones" aria-hidden="true">
+      <div class="pb-phone one"><img src="/images/projets/app/pistol-battle/3.webp" alt="" width="720" height="1280"></div>
+      <div class="pb-phone two"><img src="/images/projets/app/pistol-battle/4.webp" alt="" width="720" height="1280"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Points forts -->
+<section class="pb-section" aria-labelledby="pb-features">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Le jeu</div>
+      <h2 id="pb-features">Facile à prendre en main, <em>difficile à lâcher.</em></h2>
+    </div>
+    <div class="pb-features">
+      <article class="pb-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/></svg>
+        <h3>Un seul geste</h3>
+        <p>Chaque toucher fait tirer et sauter ton arme, toujours dans le sens de la flèche. Canon vers le haut, tu enchaînes les saltos pour esquiver.</p>
+      </article>
+      <article class="pb-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        <h3>Une campagne infinie</h3>
+        <p>Des niveaux générés sans fin, cinq mondes (Hangar, Désert, Base glacée, Néon, Volcan) et un boss géant à la fin de chacun.</p>
+      </article>
+      <article class="pb-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 12h12"/></svg>
+        <h3>Duel à deux</h3>
+        <p>Face à face sur un même téléphone : chacun sa moitié d'écran, son arme, et un mode au choix. Manches gagnantes et revanche en un toucher.</p>
+      </article>
+      <article class="pb-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+        <h3>Défis du jour</h3>
+        <p>Chaque jour, un défi avec sa règle spéciale (mort subite, gravité lunaire…), trois missions et une récompense de connexion.</p>
+      </article>
+      <article class="pb-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5L12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+        <h3>8 armes à améliorer</h3>
+        <p>Revolver, mitraillette, fusil à pompe, laser… Améliore les dégâts, la cadence, le mouvement ou la solidité de ton arme, à ta façon.</p>
+      </article>
+      <article class="pb-feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+        <h3>Léger et fluide</h3>
+        <p>60 images par seconde sur téléphone, sans connexion, sans publicité. Ta progression reste sur ton appareil.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Captures -->
+<section class="pb-dark pb-section" aria-labelledby="pb-shots">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>En images</div>
+      <h2 id="pb-shots">Un aperçu du jeu</h2>
+    </div>
+    <div class="pb-gallery" tabindex="0" aria-label="Captures d'écran (faire défiler)">
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/3.webp" alt="Une partie dans le monde Désert : ennemis, cibles et tourelles" loading="lazy" width="720" height="1280"><figcaption>Campagne · monde Désert</figcaption></figure>
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/4.webp" alt="Combat contre le boss Le Colosse, avec sa barre de vie" loading="lazy" width="720" height="1280"><figcaption>Boss · Le Colosse</figcaption></figure>
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/5.webp" alt="Duel à deux joueurs sur un même téléphone" loading="lazy" width="720" height="1280"><figcaption>Duel à deux</figcaption></figure>
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/8.webp" alt="Écran de victoire avec trois étoiles gagnées" loading="lazy" width="720" height="1280"><figcaption>Trois étoiles par niveau</figcaption></figure>
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/6.webp" alt="Boutique : améliorations du fusil à pompe" loading="lazy" width="720" height="1280"><figcaption>Améliorations</figcaption></figure>
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/7.webp" alt="Écran des défis et missions du jour" loading="lazy" width="720" height="1280"><figcaption>Défis du jour</figcaption></figure>
+      <figure class="pb-shot"><img src="/images/projets/app/pistol-battle/2.webp" alt="Menu principal de Pistol Battle" loading="lazy" width="720" height="1280"><figcaption>Menu</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Guide -->
+<section class="pb-section" id="guide" aria-labelledby="pb-guide">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Guide</div>
+      <h2 id="pb-guide">Comment jouer</h2>
+      <p>Un tutoriel d'une minute t'attend au premier lancement. Voici l'essentiel.</p>
+    </div>
+    <div class="pb-steps">
+      <div class="pb-step"><h3>Touche l'écran</h3><p>N'importe où. Chaque toucher fait sauter ton arme.</p></div>
+      <div class="pb-step"><h3>Suis la flèche</h3><p>Ton arme part toujours dans le sens de la flèche qui l'entoure. Anticipe ton prochain saut.</p></div>
+      <div class="pb-step"><h3>Tire</h3><p>Le même toucher fait feu. Quand ton canon vise un ennemi ou une cible, touche !</p></div>
+      <div class="pb-step"><h3>Esquive</h3><p>Canon vers le haut, chaque toucher fait un salto : à gauche, puis à droite.</p></div>
+    </div>
+    <ul class="pb-tips">
+      <li>Gagne les trois étoiles d'un niveau : réussi, sans dégât, et plus vite que le temps indiqué.</li>
+      <li>Ramasse les bonus : soin, bouclier ou dégâts doublés. Un anneau montre leur durée.</li>
+      <li>Enchaîne les ennemis en moins de deux secondes pour des combos et des pièces en plus.</li>
+      <li>À mi-vie, un boss s'enrage et appelle des renforts : garde du bouclier pour ce moment.</li>
+      <li>Armes automatiques (mitraillette, laser) : garde le doigt appuyé pour tirer en rafale.</li>
+      <li>Bloqué ? Améliore le mouvement ou la solidité de ton arme dans la boutique.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pb-section" style="padding-top:0" aria-labelledby="pb-faq">
+  <div class="container" style="max-width:820px">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Questions fréquentes</div>
+      <h2 id="pb-faq">Tout ce qu'il faut savoir</h2>
+    </div>
+    <div class="pb-faq">
+      <details><summary>Le jeu est-il gratuit ?</summary><p>Oui, entièrement : pas d'achat, pas de publicité. Pistol Battle est offert par Code A-Z.</p></details>
+      <details><summary>Sur quels appareils puis-je jouer ?</summary><p>Dès maintenant dans ton navigateur, sur ordinateur comme sur téléphone (bouton « Jouer maintenant »). La version Android arrive bientôt sur Google Play. Une version iPhone viendra plus tard.</p></details>
+      <details><summary>Faut-il une connexion Internet ?</summary><p>Non pour l'application Android. Pour la version navigateur, il faut charger la page une première fois (environ 40 Mo) ; ta progression est ensuite enregistrée dans le navigateur.</p></details>
+      <details><summary>Quelles données sont collectées ?</summary><p>Aucune. Le jeu ne demande ni compte ni adresse e-mail, et ta progression reste sur ton appareil. Détails dans la <a href="/pistol-battle/politique-confidentialite.html">politique de confidentialité du jeu</a>.</p></details>
+      <details><summary>Comment jouer à deux ?</summary><p>Choisis « 1 contre 1 (local) » : posez le téléphone entre vous, chacun touche sa moitié d'écran. Chacun choisit son arme parmi celles achetées, sans amélioration : le duel reste équitable.</p></details>
+      <details><summary>Je n'arrive pas à passer un niveau, que faire ?</summary><p>Réessaie : chaque partie rapporte des pièces, même perdue. Améliore ensuite ton arme (solidité, mouvement), ramasse les bonus et utilise l'esquive en salto. Le défi du jour est aussi une bonne source de pièces.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- Nouveautés -->
+<section class="pb-section" style="padding-top:0" aria-labelledby="pb-news">
+  <div class="container" style="max-width:820px">
+    <div class="section-head" style="margin-bottom:32px">
+      <div class="eyebrow"><span class="dot"></span>Nouveautés</div>
+      <h2 id="pb-news">Journal des versions</h2>
+    </div>
+    <div class="pb-news">
+      <h3>Version 1.0.0</h3>
+      <div class="date">Octobre 2026 · première version</div>
+      <ul>
+        <li>Campagne infinie : 5 mondes, un boss à la fin de chacun, niveaux difficiles.</li>
+        <li>Duel à deux sur un même téléphone : choix des armes, 4 modes, manches et revanche.</li>
+        <li>Défis du jour, missions, récompense de connexion et 3 étoiles par niveau.</li>
+        <li>8 armes et 4 améliorations par arme ; tutoriel ; version jouable dans le navigateur.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Code A-Z -->
+<section class="pb-section" style="padding-top:0" aria-labelledby="pb-agency">
+  <div class="container">
+    <div class="pb-agency">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Créé par Code A-Z</div>
+        <h2 id="pb-agency">Un jeu, une application, un site <em>en tête ?</em></h2>
+        <p>Pistol Battle a été conçu et développé de A à Z par Code A-Z, agence de développement web et mobile à Abidjan. Nous réalisons aussi votre projet : jeu mobile, application ou site, de l'idée à la mise en ligne.</p>
+        <div class="pb-actions">
+          <a href="/index.html#contact" class="btn btn-primary">Discuter d'un projet</a>
+          <a href="/index.html#portfolio" class="btn btn-outline">Voir le portfolio</a>
+        </div>
+      </div>
+      <div>
+        <div class="pb-stack-title">Technologies du jeu</div>
+        <div class="pb-stack">
+          <span>Godot Engine 4.7</span><span>GDScript</span><span>Physique sur mesure</span><span>Niveaux générés</span>
+          <span>Android</span><span>Web (WebAssembly)</span><span>Graphismes vectoriels</span><span>Sons libres CC0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Code A-Z. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="/pistol-battle/politique-confidentialite.html">Confidentialité du jeu</a>
+      <a href="/pistol-battle/conditions-utilisation.html">Conditions du jeu</a>
+      <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="/politique-cookies.html">Cookies</a>
+      <button type="button" data-cookie-settings>Gérer les cookies</button>
+    </div>
+    <a href="/index.html#contact">Discuter d'un projet →</a>
+  </div>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

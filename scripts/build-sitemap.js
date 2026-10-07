@@ -27,6 +27,10 @@ function build() {
   urls.push({ loc: `${SITE_URL}/politique-cookies.html`, lastmod: today, priority: '0.3' });
   urls.push({ loc: `${SITE_URL}/emploi/index.html`, lastmod: today, priority: '0.6' });
   urls.push({ loc: `${SITE_URL}/emploi/pourquoi-nous-rejoindre.html`, lastmod: today, priority: '0.5' });
+  // Jeu Pistol Battle (page du jeu et ses pages légales)
+  urls.push({ loc: `${SITE_URL}/pistol-battle/`, lastmod: today, priority: '0.8' });
+  urls.push({ loc: `${SITE_URL}/pistol-battle/politique-confidentialite.html`, lastmod: today, priority: '0.3' });
+  urls.push({ loc: `${SITE_URL}/pistol-battle/conditions-utilisation.html`, lastmod: today, priority: '0.3' });
 
   // Articles de blog
   const posts = readJsonSafe(path.join(ROOT, 'blog', 'posts.json'));
