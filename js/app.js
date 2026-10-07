@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroTitle = document.getElementById('heroTitle');
   if (heroTitle) {
     const titleTexts = [
-      'Des sites <em>simples</em>, pensés pour durer — pas pour impressionner cinq secondes.',
-      'Une identité <em>forte</em>, pensée pour marquer les esprits — pas pour se fondre dans la masse.',
-      'Des applications <em>fluides</em>, pensées pour durer — pas pour multiplier les bugs.'
+      'Un site web qui vous apporte des <em>clients</em>, pas seulement des visites.',
+      'Une image de marque <em>forte</em>, que vos clients reconnaissent et retiennent.',
+      'Une application <em>simple</em>, qui vous fait gagner du temps chaque jour.'
     ];
     let titleIndex = 0;
     setInterval(() => {
