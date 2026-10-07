@@ -23,7 +23,7 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !VAPID_PUBLIC_KEY || !VAPID_P
   console.error('Variables manquantes : voir .env.example');
   process.exit(1);
 }
-webpush.setVapidDetails(VAPID_SUBJECT || 'mailto:valenbouge@gmail.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
+webpush.setVapidDetails(VAPID_SUBJECT || 'mailto:contact.codeaz@gmail.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
 
 const H = { apikey: SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`, 'Content-Type': 'application/json' };
 const rest = (p, opts = {}) => fetch(`${SUPABASE_URL}/rest/v1/${p}`, { ...opts, headers: { ...H, ...(opts.headers || {}) } });

@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error(data.message || 'Erreur');
         }
       } catch (err) {
-        status.textContent = "Une erreur est survenue. Réessayez, ou écrivez-moi directement à valenbouge@gmail.com.";
+        status.textContent = "Une erreur est survenue. Réessayez, ou écrivez-moi directement à contact.codeaz@gmail.com.";
         status.className = 'err show';
       } finally {
         submitBtn.disabled = false;

@@ -65,7 +65,7 @@ export default async function handler(req, res) {
             </p>
             <p>Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :<br>
             <a href="${DOWNLOAD_URL}">${DOWNLOAD_URL}</a></p>
-            <p style="margin-top:32px;">Une question sur votre projet ? Répondez simplement à cet email, ou écrivez-moi directement : valenbouge@gmail.com</p>
+            <p style="margin-top:32px;">Une question sur votre projet ? Répondez simplement à cet email, ou écrivez-moi directement : contact.codeaz@gmail.com</p>
             <p>Agnissan Isaac — Code A-Z</p>
           </div>
         `

@@ -127,7 +127,7 @@
     }
     if (e.id === 'page-contact') {
       var act = $('div', 'asst-actions');
-      [['WhatsApp', 'https://wa.me/2250546797258?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20Code%20A-Z.'], ['Appeler', 'tel:+2250546797258'], ['E-mail', 'mailto:valenbouge@gmail.com'], ['Formulaire', '/#contact']].forEach(function (x) {
+      [['WhatsApp', 'https://wa.me/2250546797258?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20Code%20A-Z.'], ['Appeler', 'tel:+2250546797258'], ['E-mail', 'mailto:contact.codeaz@gmail.com'], ['Formulaire', '/#contact']].forEach(function (x) {
         var a = $('a', 'asst-btn', x[0]); a.href = x[1]; if (/^https/.test(x[1])) { a.target = '_blank'; a.rel = 'noopener'; } act.appendChild(a);
       });
       b.appendChild(act);
@@ -208,7 +208,7 @@
 
   function contactButtons() {
     var act = $('div', 'asst-actions');
-    [['WhatsApp', 'https://wa.me/2250546797258?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20Code%20A-Z.'], ['Appeler', 'tel:+2250546797258'], ['E-mail', 'mailto:valenbouge@gmail.com'], ['Formulaire', '/#contact']].forEach(function (x) {
+    [['WhatsApp', 'https://wa.me/2250546797258?text=Bonjour%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20Code%20A-Z.'], ['Appeler', 'tel:+2250546797258'], ['E-mail', 'mailto:contact.codeaz@gmail.com'], ['Formulaire', '/#contact']].forEach(function (x) {
       var a = $('a', 'asst-btn', x[0]); a.href = x[1]; if (/^https/.test(x[1])) { a.target = '_blank'; a.rel = 'noopener'; } act.appendChild(a);
     });
     el.log.appendChild(act); scrollDown();

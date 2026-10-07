@@ -310,7 +310,7 @@ function pageTemplate(ebook) {
     } catch (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Réessayer';
-      alert("Une erreur est survenue. Réessayez, ou écrivez-moi directement à valenbouge@gmail.com.");
+      alert("Une erreur est survenue. Réessayez, ou écrivez-moi directement à contact.codeaz@gmail.com.");
     }
   });
 </script>

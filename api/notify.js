@@ -51,7 +51,7 @@ export default async function handler(req, res) {
   const rest = (p, opts = {}) => fetch(`${SUPABASE_URL}/rest/v1/${p}`, { ...opts, headers: { ...H, ...(opts.headers || {}) } });
 
   try {
-    webpush.setVapidDetails('mailto:valenbouge@gmail.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
+    webpush.setVapidDetails('mailto:contact.codeaz@gmail.com', VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
 
     const idxRes = await fetch(`${SITE}/notify-index.json`, { headers: { 'Cache-Control': 'no-cache' } });
     if (!idxRes.ok) throw new Error('notify-index.json ' + idxRes.status);
