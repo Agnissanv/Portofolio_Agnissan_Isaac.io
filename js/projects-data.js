@@ -105,7 +105,8 @@ const PROJECTS = [
     ],
     description: "Site pour un club de football d'Abidjan : page d'accueil avec compte à rebours du prochain match, bandeau des derniers résultats, palmarès, présentation du stade et actualités ; page équipe avec 29 fiches filtrables par poste et un terrain interactif pour composer l'équipe type ; page résultats (forme, derniers matchs, prochaines rencontres, classement) ; collection de maillots avec alerte de retour en stock ; galerie photos avec agrandissement ; formulaire de contact. Une identité sombre et vert électrique, pensée pour l'énergie d'un jour de match.",
     tech: ["HTML5 / CSS3", "JavaScript (compte à rebours, filtres, terrain interactif)", "Responsive design"],
-    link: "https://fcvalen.vercel.app/",
+    // link: "https://fcvalen.vercel.app/",
+    link: "https://agnissanv.github.io/fc_valen/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -126,7 +127,8 @@ const PROJECTS = [
     ],
     description: "Site pour un cabinet d'avocats d'affaires et de droit de la famille à Abidjan : six domaines d'intervention filtrables selon la situation (particulier ou entreprise) avec fiches dépliables, présentation des avocats, actualités juridiques et formulaire de prise de rendez-vous avec consentement. Une identité bordeaux et crème, sobre, pensée pour rassurer dès les premières secondes.",
     tech: ["HTML5 / CSS3", "JavaScript (filtres, fiches dépliables)", "Formulaire de rendez-vous", "Responsive design"],
-    link: "https://cabinetavocats.vercel.app/",
+    // link: "https://cabinetavocats.vercel.app/",
+    link: "https://agnissanv.github.io/Cabinet_avocats/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -147,7 +149,8 @@ const PROJECTS = [
     ],
     description: "Site pour un groupe scolaire privé à Cocody : présentation des trois cycles (maternelle, primaire, collège), vie de l'école, résultats aux examens et actualités, simulateur de frais de scolarité (cantine, transport, réduction fratrie) et demande d'inscription en trois étapes. Un parcours pensé pour rassurer les parents et simplifier l'inscription.",
     tech: ["HTML5 / CSS3", "JavaScript (simulateur de frais, formulaire en étapes)", "Responsive design"],
-    link: "https://02-ecole-privee.vercel.app/",
+    // link: "https://02-ecole-privee.vercel.app/",
+    link: "https://agnissanv.github.io/02-ecole-privee/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -168,7 +171,8 @@ const PROJECTS = [
     ],
     description: "Boutique en ligne d'artisanat ivoirien : seize produits filtrables par catégorie, prix, promotions et disponibilité, fiches produit, favoris, panier, livraison selon la commune, paiement Mobile Money (Orange Money, MTN MoMo, Moov Money, Wave) et suivi de commande en direct.",
     tech: ["HTML5 / CSS3", "JavaScript (panier, filtres, parcours de paiement)", "Mobile Money", "Responsive design"],
-    link: "https://03-boutique-mobile-money.vercel.app/",
+    // link: "https://03-boutique-mobile-money.vercel.app/",
+    link: "https://agnissanv.github.io/03-boutique-mobile-money/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -189,7 +193,8 @@ const PROJECTS = [
     ],
     description: "Site pour un salon de coiffure et de beauté à Abidjan : prestations et tarifs par univers (tresses, perruques, coiffure naturelle, ongles, soins du visage), galerie filtrable de looks et réservation en trois étapes (prestations, jour et heure, coordonnées). Un rendu soigné, pensé pour remplir l'agenda.",
     tech: ["HTML5 / CSS3", "JavaScript (réservation, galerie filtrable)", "Responsive design"],
-    link: "https://04-salon-beaute.vercel.app/",
+    // link: "https://04-salon-beaute.vercel.app/",
+    link: "https://agnissanv.github.io/04-salon-beaute/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -210,7 +215,8 @@ const PROJECTS = [
     ],
     description: "Site pour une résidence meublée à Cocody Riviera : six logements (studios, appartements, suites) avec fiches détaillées, services, et réservation en direct qui n'affiche que les logements libres et assez grands pour la période choisie, avec le prix total. Version anglaise disponible.",
     tech: ["HTML5 / CSS3", "JavaScript (disponibilités, réservation)", "Version bilingue", "Responsive design"],
-    link: "https://05-hotel-residence.vercel.app/",
+    // link: "https://05-hotel-residence.vercel.app/",
+    link: "https://agnissanv.github.io/05-hotel-residence/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -231,7 +237,8 @@ const PROJECTS = [
     ],
     description: "Site pour une entreprise de construction et de rénovation à Abidjan : huit réalisations filtrables par type de projet et par commune, fiches détaillées avec étapes, plan et comparateur avant / après, estimateur de budget indicatif et demande de devis en étapes.",
     tech: ["HTML5 / CSS3", "JavaScript (filtres, estimateur, formulaire en étapes)", "Responsive design"],
-    link: "https://06-btp-construction.vercel.app/",
+    // link: "https://06-btp-construction.vercel.app/",
+    link: "https://agnissanv.github.io/06-btp-construction/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -252,7 +259,8 @@ const PROJECTS = [
     ],
     description: "Site pour une entreprise de livraison de colis et de location de véhicules à Abidjan : calculateur de prix selon le trajet, le colis et le type de livraison, suivi de colis par numéro, catalogue de huit véhicules filtrable avec ou sans chauffeur, et formulaires de commande et de compte entreprise.",
     tech: ["HTML5 / CSS3", "JavaScript (calculateur, suivi, réservation)", "Responsive design"],
-    link: "https://07-transport-livraison.vercel.app/",
+    // link: "https://07-transport-livraison.vercel.app/",
+    link: "https://agnissanv.github.io/07-transport-livraison/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -273,7 +281,8 @@ const PROJECTS = [
     ],
     description: "Site pour une coopérative agricole ivoirienne (cajou, cacao, karité, mangue séchée, attiéké) : catalogue de huit produits filtrable par type et usage, fiches avec origine et conditionnements, page de traçabilité de la parcelle à l'export, demande de devis par produit et quantité, et version anglaise.",
     tech: ["HTML5 / CSS3", "JavaScript (catalogue filtrable, devis)", "Version bilingue", "Responsive design"],
-    link: "https://08-agroalimentaire.vercel.app/",
+    // link: "https://08-agroalimentaire.vercel.app/",
+    link: "https://agnissanv.github.io/08-agroalimentaire/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -294,7 +303,8 @@ const PROJECTS = [
     ],
     description: "Site pour un centre hospitalier de référence à Abidjan : présentation des spécialités avec filtres par domaine, annuaire des médecins avec recherche par nom et filtre par spécialité, page dédiée aux urgences 24h/24, formulaire de prise de rendez-vous (spécialité, médecin, date, créneau, consentement) et page contact. Une identité bleue sobre et rassurante, pensée pour inspirer confiance et mener rapidement au rendez-vous.",
     tech: ["HTML5 / CSS3", "JavaScript (filtres, recherche)", "Formulaire de rendez-vous", "Responsive design"],
-    link: "https://hopital-central-ivoire.vercel.app/",
+    // link: "https://hopital-central-ivoire.vercel.app/",
+    link: "https://agnissanv.github.io/hopital-central-ivoire/",
     linkLabel: "Découvrir le site"
   },
   {
