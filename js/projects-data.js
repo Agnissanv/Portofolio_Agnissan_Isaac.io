@@ -344,7 +344,8 @@ const PROJECTS = [
     ],
     description: "Site pour un restaurant de quartier à Marcory : une page d'accueil qui donne faim, une carte filtrable par catégories avec recherche de plat, un panier et des favoris, une page d'histoire et une page contact avec bouton WhatsApp. Quatre vues fluides, sans rechargement, sur mobile comme sur ordinateur.",
     tech: ["HTML5 / CSS3", "JavaScript (sans framework)", "Panier et favoris", "Responsive design"],
-    link: "https://mon-gout.vercel.app/",
+    // link: "https://mon-gout.vercel.app/",
+    link: "https://agnissanv.github.io/mon-gout/",
     linkLabel: "Découvrir le site"
   },
   {
@@ -525,7 +526,8 @@ const PROJECTS = [
     ],
     description: "Refuge Pop est une plateforme de streaming à part entière : catalogue de films à la demande, chaînes en direct, reprise de lecture automatique, suggestions personnalisées et recherche intelligente — construite sans base de données ni backend classique. La section Direct s'appuie sur un proxy Cloudflare Worker sur-mesure pour diffuser des flux HLS en direct en contournant les restrictions CORS. Un pipeline Python automatisé alimente et vérifie le catalogue.",
     tech: ["HTML5 / CSS3 / JS (SPA)", "API YouTube IFrame & HLS.js", "Cloudflare Workers", "Python (automatisation)", "Vercel"],
-    link: "https://refugepop.agnissanisaac.com/",
+    // link: "https://refugepop.agnissanisaac.com/",
+    link: "https://agnissanv.github.io/RefugePop/",
     linkLabel: "Voir le site"
   },
   {
