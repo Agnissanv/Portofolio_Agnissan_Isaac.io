@@ -28,8 +28,7 @@ function pageTemplate(ebook) {
 <meta property="og:description" content="${ebook.excerpt}">
 <meta property="og:url" content="${SITE_URL}/ressources/${ebook.slug}.html">
 <link rel="canonical" href="${SITE_URL}/ressources/${ebook.slug}.html">
-<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
 <script defer src="/js/consent.js"></script>
 <script defer src="/js/push.js"></script>
@@ -52,7 +51,7 @@ function pageTemplate(ebook) {
   }
   .book-cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   .book-cover svg{ width:34px; margin-bottom:20px; position:relative; z-index:1; }
-  .book-cover .tag{ font-family:'JetBrains Mono',monospace; font-size:10px; color:#E0454F; letter-spacing:1px; text-transform:uppercase; margin-bottom:14px; position:relative; z-index:1; }
+  .book-cover .tag{ font-family:'Montserrat',sans-serif; font-size:10px; color:#E0454F; letter-spacing:1px; text-transform:uppercase; margin-bottom:14px; position:relative; z-index:1; }
   .book-cover h3{ color:#EDEDEA; font-size:1.25rem; line-height:1.3; position:relative; z-index:1; }
 
   .form-card{
@@ -68,7 +67,7 @@ function pageTemplate(ebook) {
   .field label{ display:block; font-size:12.5px; color:var(--muted); margin-bottom:8px; }
   .field input{
     width:100%; background:var(--bg); border:1px solid var(--line); border-radius:var(--radius-sm);
-    padding:14px 16px; font-family:'Inter',sans-serif; font-size:14px; color:var(--text);
+    padding:14px 16px; font-family:'Montserrat',sans-serif; font-size:14px; color:var(--text);
   }
   .field input:focus{ outline:none; border-color:var(--accent); }
   .field-error{ font-size:12px; color:var(--accent); margin-top:6px; display:none; }
