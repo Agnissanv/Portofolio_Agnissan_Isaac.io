@@ -468,6 +468,9 @@ footer{ border-top:1px solid var(--line); padding:70px 0 30px; margin-top:60px; 
 .footer-grid ul{ display:flex; flex-direction:column; gap:12px; }
 .footer-grid a{ text-decoration:none; font-size:13.5px; color:var(--muted); transition:color .2s ease; }
 .footer-grid a:hover{ color:var(--accent); }
+.footer-grid a.footer-jeux{ display:inline-flex; align-items:center; gap:10px; margin-top:20px; padding:11px 18px; border:1px solid var(--text); border-radius:999px; color:var(--text); font-weight:600; }
+.footer-grid a.footer-jeux:hover{ border-color:var(--accent); color:var(--accent); }
+.footer-jeux svg{ width:20px; height:20px; flex:none; }
 .footer-bottom{
   border-top:1px solid var(--line); padding-top:26px; display:flex; justify-content:space-between;
   font-size:12px; color:var(--muted-2); flex-wrap:wrap; gap:12px; align-items:center;
